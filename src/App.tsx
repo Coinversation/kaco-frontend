@@ -58,10 +58,10 @@ BigNumber.config({
 });
 
 const App: React.FC = () => {
-  usePollBlockNumber();
-  useEagerConnect();
-  useFetchProfile();
-  usePollCoreFarmData();
+  // usePollBlockNumber();
+  // useEagerConnect();
+  // useFetchProfile();
+  // usePollCoreFarmData();
 
   return (
     <Router history={history}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useMemo, useRef, useContext } from 'react';
 import { Route, useRouteMatch, useLocation } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
@@ -22,6 +22,7 @@ import { DesktopColumnSchema, ViewMode } from './components/types';
 import FarmHeader from './components/FarmHeader';
 import { KACO_LP_PID } from 'config/constants/farms';
 import useKacPerBlock from './hooks/useKacoPerBlock';
+import { PriceContext } from 'contexts/PriceProvider';
 
 // const StyledImage = styled(Image)`
 //   margin-left: auto;
@@ -72,6 +73,15 @@ const Farms: React.FC = () => {
   const isActive = !isInactive && !isArchived;
   const [stakedOnly, setStakedOnly] = useState(false);
   const [filter, setFilter] = useState<string>('');
+  const { priceVsBusdMap } = useContext(PriceContext);
+
+  useEffect(
+    () => console.log('priceVsBusdMap', priceVsBusdMap),
+    // Object.entries(priceVsBusdMap).forEach(([key, value]) =>
+    //   console.log('priceVsBusdMap', key.slice(0, 5), value.toNumber()),
+    // ),
+    [priceVsBusdMap],
+  );
 
   usePollFarmsData(isArchived);
 

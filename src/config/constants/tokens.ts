@@ -1,8 +1,8 @@
 import { Token } from '@kaco/sdk';
 
 export enum ChainId {
-  MAINNET = 56,
-  TESTNET = 97,
+  MAINNET = 336,
+  TESTNET = 81,
 }
 
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
@@ -634,10 +634,10 @@ const tokens = {
     projectLink: 'https://venus.io/',
   },
   wbnb: {
-    symbol: 'wBNB',
+    symbol: 'wSBY',
     address: {
       [ChainId.MAINNET]: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      [ChainId.TESTNET]: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+      [ChainId.TESTNET]: '0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB',
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
@@ -1904,6 +1904,7 @@ const tokens = {
   },
 };
 
+console.log('xxxxxxxxxx', chainId, tokens.wbnb);
 export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WBNB', 'Wrapped BNB');
 
 export const Kaco: { [chainId: number]: Token } = {

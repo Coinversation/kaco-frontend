@@ -2474,10 +2474,10 @@
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
   integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
 
-"@kaco/sdk@^2.5.4":
-  version "2.5.4"
-  resolved "https://registry.npmjs.org/@kaco/sdk/-/sdk-2.5.4.tgz#a46d81f60b37ef1c729583fb8acdff53ed469e7c"
-  integrity sha512-GUApFIZdIf77DAqjc+eMwnRaS3aqcKfZCJdtnN+0A0yuPAJz6MPaWY/sVo2q9GCPGdGNPft5Y3P3OIdkjjtjuA==
+"@kaco/sdk@^3.5.5":
+  version "3.5.5"
+  resolved "https://registry.npmjs.org/@kaco/sdk/-/sdk-3.5.5.tgz#5552cef8f6fb77d7a438e34e0d8f84916c108192"
+  integrity sha512-Y0YNTsy4aBnJ/Ua4AtZP1oaPmhGSCBat2TA9C31PyYDJDJjnRcbF4hajnHxJWjER5D32UGtCd5jmv1duhHzW2A==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
