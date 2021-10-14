@@ -33,14 +33,14 @@ export function useSwapActionHandlers(): {
     (field: Field, currency: Currency) => {
       console.log(
         'xxx',
-        currency instanceof Token ? currency.address : currency === ETHER ? 'SBY' : '',
+        currency instanceof Token ? currency.address : currency === ETHER ? 'SDN' : '',
         currency,
         ETHER,
       );
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'SBY' : '',
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'SDN' : '',
         }),
       );
     },
@@ -229,14 +229,14 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === 'SBY') return 'SBY';
-    if (valid === false) return 'SBY';
+    if (urlParam.toUpperCase() === 'SDN') return 'SDN';
+    if (valid === false) return 'SDN';
   }
 
   if (chainId && DOT[chainId]) {
     return DOT[chainId].address;
   } else {
-    return 'SBY';
+    return 'SDN';
   }
 }
 

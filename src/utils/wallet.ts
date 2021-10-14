@@ -19,8 +19,8 @@ export const setupNetwork = async () => {
             chainId: `0x${chainId.toString(16)}`,
             chainName: 'Shiden Network',
             nativeCurrency: {
-              name: 'SBY',
-              symbol: 'sby',
+              name: 'SDN',
+              symbol: 'sdn',
               decimals: 18,
             },
             rpcUrls: nodes,

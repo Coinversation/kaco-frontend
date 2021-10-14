@@ -1,7 +1,7 @@
 import { JSBI, Percent, Token, WETH } from '@kaco/sdk';
 import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, UST, ETH, USDC, DOT, KSM, ChainId } from './tokens';
 
-export const ROUTER_ADDRESS = '0xcd8620889c1dA22ED228e6C00182177f9dAd16b7';
+export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -100,7 +100,7 @@ export const BLOCKED_ADDRESSES: string[] = [
 ];
 export const FACTORY_ADDRESS = {
   [ChainId.TESTNET]: '0x1CeE94a11eAf390B67Aa346E9Dda3019DfaD4f6A',
-  [ChainId.MAINNET]: '0xa5e48a6E56e164907263e901B98D9b11CCB46C47',
+  [ChainId.MAINNET]: '0xcd8620889c1dA22ED228e6C00182177f9dAd16b7',
 };
 
 export { default as farmsConfig } from './farms';

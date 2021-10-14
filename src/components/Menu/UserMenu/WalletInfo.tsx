@@ -35,13 +35,13 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowBnbBalance, onDismiss }) 
       {hasLowBnbBalance && (
         <Message variant="warning" mb="24px">
           <Box>
-            <Text fontWeight="bold">{t('SBY Balance Low')}</Text>
-            <Text as="p">{t('You need SBY for transaction fees.')}</Text>
+            <Text fontWeight="bold">{t('SDN Balance Low')}</Text>
+            <Text as="p">{t('You need SDN for transaction fees.')}</Text>
           </Box>
         </Message>
       )}
       <Flex alignItems="center" justifyContent="space-between">
-        <Text color="textSubtle">{t('SBY Balance')}</Text>
+        <Text color="textSubtle">{t('SDN Balance')}</Text>
         <Text>{getFullDisplayBalance(balance, 18, 6)}</Text>
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px">

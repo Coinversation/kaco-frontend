@@ -131,7 +131,7 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
             {t('Net results')}
           </Text>
           <Text bold fontSize="24px" lineHeight="1" color={netResultIsPositive ? 'success' : 'failure'}>
-            {`${netResultIsPositive ? '+' : ''}${formatBnb(netResultAmount)} SBY`}
+            {`${netResultIsPositive ? '+' : ''}${formatBnb(netResultAmount)} SDN`}
           </Text>
           <Text small color="textSubtle">
             {`~$${formatBnb(bnbBusdPrice.times(netResultAmount).toNumber())}`}
@@ -143,7 +143,7 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
           {t('Average return / round')}
         </Text>
         <Text bold color={avgBnbWonIsPositive ? 'success' : 'failure'}>
-          {`${avgBnbWonIsPositive ? '+' : ''}${formatBnb(avgBnbWonPerRound)} SBY`}
+          {`${avgBnbWonIsPositive ? '+' : ''}${formatBnb(avgBnbWonPerRound)} SDN`}
         </Text>
         <Text small color="textSubtle">
           {`~$${formatBnb(bnbBusdPrice.times(avgBnbWonPerRound).toNumber())}`}
@@ -155,7 +155,7 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
               {t('Best round: #%roundId%', { roundId: summary.won.bestRound.id })}
             </Text>
             <Flex alignItems="flex-end">
-              <Text bold color="success">{`+${formatBnb(summary.won.bestRound.payout)} SBY`}</Text>
+              <Text bold color="success">{`+${formatBnb(summary.won.bestRound.payout)} SDN`}</Text>
               <Text ml="4px" small color="textSubtle">
                 ({summary.won.bestRound.multiplier.toFixed(2)}x)
               </Text>
@@ -169,7 +169,7 @@ const PnlTab: React.FC<PnlTabProps> = ({ hasBetHistory, bets }) => {
         <Text mt="16px" bold color="textSubtle">
           {t('Average position entered / round')}
         </Text>
-        <Text bold>{`${formatBnb(avgPositionEntered)} SBY`}</Text>
+        <Text bold>{`${formatBnb(avgPositionEntered)} SDN`}</Text>
         <Text small color="textSubtle">
           {`~$${formatBnb(bnbBusdPrice.times(avgPositionEntered).toNumber())}`}
         </Text>

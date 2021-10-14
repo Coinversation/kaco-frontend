@@ -274,7 +274,7 @@ export default function AddLiquidity({
           history.push(`/add/${newCurrencyIdB}`);
         }
       } else {
-        history.push(`/add/${currencyIdA || 'SBY'}/${newCurrencyIdB}`);
+        history.push(`/add/${currencyIdA || 'SDN'}/${newCurrencyIdB}`);
       }
     },
     [currencyIdA, history, currencyIdB],

@@ -22,7 +22,7 @@ const PredictionCardContent = () => {
   const [bnbWonInUsd, setBnbWonInUsd] = useState(0);
 
   const localisedBnbUsdString = formatLocalisedCompactNumber(bnbWonInUsd);
-  const bnbWonText = t('$%sbyWonInUsd% in SBY won so far', { bnbWonInUsd: localisedBnbUsdString });
+  const bnbWonText = t('$%sdnWonInUsd% in SDN won so far', { bnbWonInUsd: localisedBnbUsdString });
   const [pretext, wonSoFar] = bnbWonText.split(localisedBnbUsdString);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const PredictionCardContent = () => {
           {wonSoFar}
         </Text>
         <Text color="#280D5F" mb="40px">
-          {t('Will SBY price rise or fall? guess correctly to win!')}
+          {t('Will SDN price rise or fall? guess correctly to win!')}
         </Text>
       </Flex>
       <Flex alignItems="center" justifyContent="center">

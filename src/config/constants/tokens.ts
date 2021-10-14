@@ -8,8 +8,8 @@ export enum ChainId {
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
 const tokens = {
-  sby: {
-    symbol: 'SBY',
+  sdn: {
+    symbol: 'SDN',
     projectLink: 'https://shiden.astar.network/',
   },
   bnb: {
@@ -170,7 +170,7 @@ const tokens = {
     projectLink: 'https://bitcoin.org/',
   },
   wbnb: {
-    symbol: 'WSBY',
+    symbol: 'WSDN',
     address: {
       [ChainId.MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
       [ChainId.TESTNET]: '0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB',
@@ -207,7 +207,7 @@ const tokens = {
   },
 };
 
-export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSBY', 'Wrapped SBY');
+export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSDN', 'Wrapped SDN');
 
 export const Kaco: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(

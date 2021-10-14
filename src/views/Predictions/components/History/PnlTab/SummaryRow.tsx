@@ -50,7 +50,7 @@ const SummaryRow: React.FC<SummaryRowProps> = ({ type, summary, bnbBusdPrice }) 
         </Flex>
         <Flex flex="3" flexDirection="column">
           <Text bold fontSize="20px" color={color}>
-            {`${summaryTypeSigns[type]}${formatBnb(displayAmount)} SBY`}
+            {`${summaryTypeSigns[type]}${formatBnb(displayAmount)} SDN`}
           </Text>
           <Text fontSize="12px" color="textSubtle">
             {`~$${formatBnb(bnbBusdPrice.times(displayAmount).toNumber())}`}

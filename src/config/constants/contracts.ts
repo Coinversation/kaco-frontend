@@ -15,7 +15,7 @@ export default {
     [ChainId.MAINNET]: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
   },
   multiCall: {
-    [ChainId.MAINNET]: '0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B',
+    [ChainId.MAINNET]: '0xa5e48a6E56e164907263e901B98D9b11CCB46C47',
     [ChainId.TESTNET]: '0xB44A8AEb4805a5404a8d20A1294a61C95Ae6F256',
   },
   pancakeProfile: {

@@ -9,8 +9,8 @@ import BigNumber from 'bignumber.js';
 
 // Pool 0, Kac / Kac is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SBY');
-const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === 'SBY');
+const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SDN');
+const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === 'SDN');
 const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0);
 const masterChefContract = getMasterchefContract();
 

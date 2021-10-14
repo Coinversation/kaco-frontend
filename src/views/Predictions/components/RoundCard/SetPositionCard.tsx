@@ -57,7 +57,7 @@ const getButtonProps = (
   };
 
   if (!hasSufficientBalance()) {
-    return { key: 'Insufficient SBY balance', disabled: true };
+    return { key: 'Insufficient SDN balance', disabled: true };
   }
 
   if (value.eq(0)) {
@@ -171,11 +171,11 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     const hasSufficientBalance = inputAmount.gt(0) && inputAmount.lte(maxBalance);
 
     if (!hasSufficientBalance) {
-      setErrorMessage({ key: 'Insufficient SBY balance' });
+      setErrorMessage({ key: 'Insufficient SDN balance' });
     } else if (inputAmount.gt(0) && inputAmount.lt(minBetAmount)) {
       setErrorMessage({
         key: 'A minimum amount of %num% %token% is required',
-        data: { num: formatBigNumber(minBetAmount), token: 'SBY' },
+        data: { num: formatBigNumber(minBetAmount), token: 'SDN' },
       });
     } else {
       setErrorMessage(null);
@@ -205,7 +205,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
           <Flex alignItems="center">
             <BinanceIcon mr="4px  " />
             <Text bold textTransform="uppercase">
-              SBY
+              SDN
             </Text>
           </Flex>
         </Flex>
