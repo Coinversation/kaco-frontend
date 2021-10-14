@@ -23,14 +23,14 @@ import TradeSvg from '../svg/Trade';
 // import HomeSvg from '../svg/Home';
 // import PoolsSvg from '../svg/PoolsSvg';
 // import InfoSvg from '../svg/InfoSvg';
-import LogoSvg from './imgs/icon_logo.svg';
+// import LogoSvg from './imgs/icon_logo.svg';
 import Header from './Header';
 import { useEffect } from 'react';
 import { Flex, Text, useMatchBreakpoints } from '@kaco/uikit';
 import TwitterIcon from '../svg/Twitter';
 import TelegramIcon from '../svg/Telegram';
 import DocLink from './imgs/DocLink';
-import { useKacoPrice } from 'hooks/useKacoPrice';
+// import { useKacoPrice } from 'hooks/useKacoPrice';
 
 const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   display: flex;
@@ -253,7 +253,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
 
 const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const kacoPrice = useKacoPrice();
+  // const kacoPrice = useKacoPrice();
   const { isXs, isSm, isMd } = useMatchBreakpoints();
   const { pathname } = useLocation();
   const [menuItems, setMenuItems] = useState<
