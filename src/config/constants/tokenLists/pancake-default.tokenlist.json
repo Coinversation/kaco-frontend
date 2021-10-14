@@ -11,7 +11,7 @@
   "tokens": [
     {
       "name": "SBY Token",
-      "symbol": "wSBY",
+      "symbol": "WSBY",
       "address": "0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB",
       "chainId": 81,
       "decimals": 18,

@@ -165,6 +165,7 @@ export default function CurrencyInputPanel({
       showCommonBases={showCommonBases}
     />,
   );
+  console.log('currrrrrrrrr', currency);
   return (
     <InputPanel id={id} focused={focused}>
       <div className="currency">

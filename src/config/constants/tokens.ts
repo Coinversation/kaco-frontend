@@ -8,6 +8,10 @@ export enum ChainId {
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
 const tokens = {
+  sby: {
+    symbol: 'SBY',
+    projectLink: 'https://shiden.astar.network/',
+  },
   bnb: {
     symbol: 'BNB',
     projectLink: 'https://www.binance.com/',
@@ -640,7 +644,7 @@ const tokens = {
       [ChainId.TESTNET]: '0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB',
     },
     decimals: 18,
-    projectLink: 'https://pancakeswap.finance/',
+    projectLink: 'https://shiden.astar.network/',
   },
   blink: {
     symbol: 'BLINK',
@@ -1904,7 +1908,6 @@ const tokens = {
   },
 };
 
-console.log('xxxxxxxxxx', chainId, tokens.wbnb);
 export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSBY', 'Wrapped SBY');
 
 export const Kaco: { [chainId: number]: Token } = {

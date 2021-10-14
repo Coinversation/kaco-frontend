@@ -303,6 +303,7 @@ export default function Swap({ history }: RouteComponentProps) {
     'confirmSwapModal',
   );
 
+  console.log('currenciesssssss', currencies);
   return (
     <Page>
       <AppBody>

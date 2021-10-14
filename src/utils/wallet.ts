@@ -17,10 +17,10 @@ export const setupNetwork = async () => {
         params: [
           {
             chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Binance Smart Chain Mainnet',
+            chainName: 'Shiden Network',
             nativeCurrency: {
-              name: 'BNB',
-              symbol: 'bnb',
+              name: 'SBY',
+              symbol: 'sby',
               decimals: 18,
             },
             rpcUrls: nodes,

@@ -31,10 +31,16 @@ export function useSwapActionHandlers(): {
   const dispatch = useDispatch<AppDispatch>();
   const onCurrencySelection = useCallback(
     (field: Field, currency: Currency) => {
+      console.log(
+        'xxx',
+        currency instanceof Token ? currency.address : currency === ETHER ? 'SBY' : '',
+        currency,
+        ETHER,
+      );
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'BNB' : '',
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'SBY' : '',
         }),
       );
     },
@@ -124,6 +130,7 @@ export function useDerivedSwapInfo(): {
     recipient,
   } = useSwapState();
 
+  console.log('inputCurrencyId', inputCurrencyId);
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
@@ -223,14 +230,14 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === 'BNB') return 'BNB';
-    if (valid === false) return 'BNB';
+    if (urlParam.toUpperCase() === 'SBY') return 'SBY';
+    if (valid === false) return 'SBY';
   }
 
   if (chainId && DOT[chainId]) {
     return DOT[chainId].address;
   } else {
-    return 'BNB';
+    return 'SBY';
   }
 }
 
