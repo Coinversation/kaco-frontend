@@ -46,7 +46,7 @@ const AddLiquidity = lazy(() => import('./views/AddLiquidity'));
 const Liquidity = lazy(() => import('./views/Pool'));
 const PoolFinder = lazy(() => import('./views/PoolFinder'));
 const RemoveLiquidity = lazy(() => import('./views/RemoveLiquidity'));
-const NftPools = lazy(() => import('./views/NftPools'));
+// const NftPools = lazy(() => import('./views/NftPools'));
 const NftPool = lazy(() => import('./views/NftPool'));
 const NftMint = lazy(() => import('./views/NftWallet/Mint'));
 const NftBurn = lazy(() => import('./views/NftWallet/Burn'));
@@ -91,9 +91,9 @@ const App: React.FC = () => {
             {/* <Route path="/collectibles">
               <Collectibles />
             </Route> */}
-            <Route exact path="/nft/pools">
+            {/* <Route exact path="/nft/pools">
               <NftPools />
-            </Route>
+            </Route> */}
             <Route path="/nft/pool/:pairAddress">
               <NftPool />
             </Route>
