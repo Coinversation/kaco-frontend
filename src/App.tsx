@@ -2,9 +2,9 @@ import React, { lazy } from 'react';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import { ResetCSS } from '@kaco/uikit';
 import BigNumber from 'bignumber.js';
-import useEagerConnect from 'hooks/useEagerConnect';
-import { usePollBlockNumber } from 'state/block/hooks';
-import { useFetchProfile } from 'state/profile/hooks';
+// import useEagerConnect from 'hooks/useEagerConnect';
+// import { usePollBlockNumber } from 'state/block/hooks';
+// import { useFetchProfile } from 'state/profile/hooks';
 import { DatePickerPortal } from 'components/DatePicker';
 import GlobalStyle from './style/Global';
 import SuspenseWithChunkError from './components/SuspenseWithChunkError';
@@ -23,11 +23,11 @@ import {
 import RedirectOldRemoveLiquidityPathStructure from './views/RemoveLiquidity/redirects';
 import { RedirectPathToSwapOnly, RedirectToSwap } from './views/Swap/redirects';
 import SideMenu from './components/SideMenu';
-import { usePollCoreFarmData } from './state/farms/hooks';
+// import { usePollCoreFarmData } from './state/farms/hooks';
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
-const Home = lazy(() => import('./views/Home'));
+// const Home = lazy(() => import('./views/Home'));
 const Farms = lazy(() => import('./views/Farms'));
 // const FarmAuction = lazy(() => import('./views/FarmAuction'));
 // const Lottery = lazy(() => import('./views/Lottery'));
@@ -71,7 +71,7 @@ const App: React.FC = () => {
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
-              <Home />
+              <Redirect to="/swap" />
             </Route>
             {/* <Route exact path="/farms/auction">
               <FarmAuction />

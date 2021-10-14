@@ -18,10 +18,10 @@ import collapseSvg from './imgs/collapse.svg';
 import CertikSvg from './imgs/certik.svg';
 import GalaxySvg from './imgs/galaxy.svg';
 import TradeSvg from '../svg/Trade';
-import FarmSvg from '../svg/Farm';
-import NftSvg from '../svg/Nft';
-import HomeSvg from '../svg/Home';
-import PoolsSvg from '../svg/PoolsSvg';
+// import FarmSvg from '../svg/Farm';
+// import NftSvg from '../svg/Nft';
+// import HomeSvg from '../svg/Home';
+// import PoolsSvg from '../svg/PoolsSvg';
 // import InfoSvg from '../svg/InfoSvg';
 import LogoSvg from './imgs/icon_logo.svg';
 import Header from './Header';
@@ -265,41 +265,41 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       children?: { text: string; link: string }[] | undefined;
     }[]
   >([
-    {
-      text: 'Home',
-      img: HomeSvg,
-      link: '/',
-    },
+    // {
+    //   text: 'Home',
+    //   img: HomeSvg,
+    //   link: '/',
+    // },
     {
       text: 'Trade',
       img: TradeSvg,
-      link: '/swap',
+      link: '/',
     },
     // {
     //   text: 'Mint',
     //   imgs: [MintSvg, MintNSvg],
     //   link: '/mint',
     // },
-    {
-      text: 'Farm',
-      img: FarmSvg,
-      link: '/farms',
-    },
-    {
-      text: 'Pools',
-      img: PoolsSvg,
-      link: '/pools',
-    },
-    {
-      text: 'NFT',
-      img: NftSvg,
-      collapsed: false,
-      link: '/nft/pools/',
-      children: [
-        { text: 'Markets', link: '/nft/pools' },
-        { text: 'My Wallet', link: '/nft/wallet' },
-      ],
-    },
+    // {
+    //   text: 'Farm',
+    //   img: FarmSvg,
+    //   link: '/farms',
+    // },
+    // {
+    //   text: 'Pools',
+    //   img: PoolsSvg,
+    //   link: '/pools',
+    // },
+    // {
+    //   text: 'NFT',
+    //   img: NftSvg,
+    //   collapsed: false,
+    //   link: '/nft/pools/',
+    //   children: [
+    //     { text: 'Markets', link: '/nft/pools' },
+    //     { text: 'My Wallet', link: '/nft/wallet' },
+    //   ],
+    // },
     // {
     //   text: 'Pools',
     //   imgs: [PoolsSvg, PoolsNSvg],
