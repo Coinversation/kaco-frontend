@@ -634,7 +634,7 @@ const tokens = {
     projectLink: 'https://venus.io/',
   },
   wbnb: {
-    symbol: 'wSBY',
+    symbol: 'WSBY',
     address: {
       [ChainId.MAINNET]: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
       [ChainId.TESTNET]: '0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB',
@@ -1905,7 +1905,7 @@ const tokens = {
 };
 
 console.log('xxxxxxxxxx', chainId, tokens.wbnb);
-export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WBNB', 'Wrapped BNB');
+export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSBY', 'Wrapped SBY');
 
 export const Kaco: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
