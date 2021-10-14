@@ -104,6 +104,7 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
         {tooltipVisible && tooltip}
 
         <Flex
+          style={{ cursor: 'pointer' }}
           ref={targetRef}
           alignItems="center"
           borderRadius="12px"
