@@ -91,9 +91,9 @@ const App: React.FC = () => {
             {/* <Route path="/collectibles">
               <Collectibles />
             </Route> */}
-            <Route exact path="/nft/pools">
+            {/* <Route exact path="/nft/pools">
               <NftPools />
-            </Route>
+            </Route> */}
             <Route path="/nft/pool/:pairAddress">
               <NftPool />
             </Route>
