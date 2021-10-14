@@ -10,20 +10,68 @@
   "keywords": ["KAC", "default"],
   "tokens": [
     {
-      "name": "SBY Token",
-      "symbol": "WSBY",
-      "address": "0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB",
+      "name": "SDN Token",
+      "symbol": "WSDN",
+      "address": "0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef.svg"
+    },
+    {
+      "name": "Kaco Token",
+      "symbol": "KAC",
+      "address": "0xb12c13e66ade1f72f71834f2fc5082db8c091358",
       "chainId": 81,
       "decimals": 18,
       "logoURI": "/images/tokens/0xf96429A7aE52dA7d07E60BE95A3ece8B042016fB.svg"
     },
     {
-      "name": "TT Token",
-      "symbol": "TT",
-      "address": "0x885f924014F44754d4D83abD90080e04BdCd7938",
+      "name": "ETH",
+      "symbol": "ETH",
+      "address": "0x765277eebeca2e31912c9946eae1021199b39c61",
       "chainId": 81,
       "decimals": 18,
-      "logoURI": "/images/tokens/0xf96429A7aE52dA7d07E60BE95A3ece8B042016fB.svg"
+      "logoURI": "/images/tokens/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.svg"
+    },
+    {
+      "name": "USDC Token",
+      "symbol": "USDC",
+      "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.svg"
+    },
+    {
+      "name": "USDT",
+      "symbol": "USDT",
+      "address": "0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x55d398326f99059fF775485246999027B3197955.svg"
+    },
+    {
+      "name": "DAI",
+      "symbol": "DAI",
+      "address": "0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3.svg"
+    },
+    {
+      "name": "BUSD",
+      "symbol": "BUSD",
+      "address": "0x7c598c96d02398d89fbcb9d41eab3df0c16f227d",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.svg"
+    },
+    {
+      "name": "WBTC",
+      "symbol": "WBTC",
+      "address": "0x922d641a426dcffaef11680e5358f34d97d112e1",
+      "chainId": 81,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c.svg"
     }
   ]
 }
