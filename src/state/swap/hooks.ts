@@ -130,7 +130,6 @@ export function useDerivedSwapInfo(): {
     recipient,
   } = useSwapState();
 
-  console.log('inputCurrencyId', inputCurrencyId);
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
