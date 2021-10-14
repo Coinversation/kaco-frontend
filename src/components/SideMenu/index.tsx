@@ -405,14 +405,14 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
           ))}
         </div>
         <div className="account-info">
-          <Flex className="balance" alignItems="center">
+          {/* <Flex className="balance" alignItems="center">
             <img src={LogoSvg} alt="" />
             {!collapsed && (
               <Text color="#1BD3D5" bold fontSize="16px" ml="10px">
                 ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(2)}
               </Text>
             )}
-          </Flex>
+          </Flex> */}
           {!collapsed && (
             <div className="links">
               <a target="_blank" rel="noreferrer" href="https://twitter.com/KACOFinance">
