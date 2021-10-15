@@ -1,11 +1,11 @@
 import { Currency, ETHER, Token } from '@kaco/sdk';
-import { BinanceIcon } from '@kaco/uikit';
 import { BASE_URL } from 'config';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useHttpLocations from '../../hooks/useHttpLocations';
 import { WrappedTokenInfo } from '../../state/lists/hooks';
 import getTokenLogoURL from '../../utils/getTokenLogoURL';
+import SdnSvg from './Sdn.svg';
 import Logo from './Logo';
 
 const StyledLogo = styled(Logo)<{ size: string }>`
@@ -39,7 +39,7 @@ export default function CurrencyLogo({
   }, [currency, uriLocations]);
 
   if (currency === ETHER) {
-    return <BinanceIcon width={size} style={style} />;
+    return <img src={SdnSvg} alt="" width={size} style={style} />;
   }
 
   return <StyledLogo size={size} srcs={srcs} alt={`${currency?.symbol ?? 'token'} logo`} style={style} />;
