@@ -16,7 +16,7 @@ import { useCurrencyBalances } from '../wallet/hooks';
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions';
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
-import { DOT } from '../../config/constants/tokens';
+import { Kaco } from '../../config/constants/tokens';
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap);
@@ -133,6 +133,10 @@ export function useDerivedSwapInfo(): {
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
+  console.log('inputCurrencyId', inputCurrencyId);
+  console.log('outputCurrencyId', outputCurrencyId);
+  console.log('inputCurrency', inputCurrency);
+  console.log('outputCurrency', outputCurrency);
   const to: string | null = (recipient === null ? account : recipientLookup.address) ?? null;
 
   const relevantTokenBalances = useCurrencyBalances(account ?? undefined, [
@@ -232,12 +236,7 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
     if (urlParam.toUpperCase() === 'SDN') return 'SDN';
     if (valid === false) return 'SDN';
   }
-
-  if (chainId && DOT[chainId]) {
-    return DOT[chainId].address;
-  } else {
-    return 'SDN';
-  }
+  return 'SDN';
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {
@@ -263,7 +262,6 @@ function validatedRecipient(recipient: any): string | null {
 export function queryParametersToSwapState(parsedQs: ParsedQs, chainId?: number): SwapState {
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency, chainId);
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency, chainId);
-  // console.log('input', parsedQs.inputCurrency, inputCurrency, outputCurrency);
   if (inputCurrency === outputCurrency) {
     if (typeof parsedQs.outputCurrency === 'string') {
       inputCurrency = '';
@@ -300,6 +298,9 @@ export function useDefaultsFromURLSearch():
 
   useEffect(() => {
     if (!chainId) return;
+    if (!parsedQs.outputCurrency) {
+      parsedQs.outputCurrency = Kaco[chainId].address;
+    }
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
     // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
