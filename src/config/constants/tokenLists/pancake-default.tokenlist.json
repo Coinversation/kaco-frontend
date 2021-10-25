@@ -34,6 +34,14 @@
       "logoURI": "/images/tokens/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.svg"
     },
     {
+      "name": "JPYCoin",
+      "symbol": "JPYC",
+      "address": "0x735abe48e8782948a37c7765ecb76b98cde97b0f",
+      "chainId": 336,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x735abe48e8782948a37c7765ecb76b98cde97b0f.svg"
+    },
+    {
       "name": "USDC Token",
       "symbol": "USDC",
       "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
