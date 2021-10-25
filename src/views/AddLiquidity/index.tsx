@@ -38,6 +38,8 @@ import PoolPriceBar from './PoolPriceBar';
 import Page from '../Page';
 import WarningSvg from './imgs/warning.svg';
 
+import JSBI from 'jsbi';
+
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -142,9 +144,15 @@ export default function AddLiquidity({
       const tokenBIsETH = currencyB === ETHER;
       estimate = router.estimateGas.addLiquidityETH;
       method = router.addLiquidityETH;
+
+      const rawAmountA = (tokenBIsETH ? parsedAmountA : parsedAmountB).raw;
+      const amountPrecion = JSBI.BigInt(1000000000000);
+      const concatAmountA = JSBI.multiply(JSBI.divide(rawAmountA, amountPrecion), amountPrecion);
+      console.log('concatAmountA; ', concatAmountA.toString());
+
       args = [
         wrappedCurrency(tokenBIsETH ? currencyA : currencyB, chainId)?.address ?? '', // token
-        (tokenBIsETH ? parsedAmountA : parsedAmountB).raw.toString(), // token desired
+        concatAmountA.toString(), // token desired
         amountsMin[tokenBIsETH ? Field.CURRENCY_A : Field.CURRENCY_B].toString(), // token min
         amountsMin[tokenBIsETH ? Field.CURRENCY_B : Field.CURRENCY_A].toString(), // eth min
         account,
@@ -165,6 +173,11 @@ export default function AddLiquidity({
         deadline.toHexString(),
       ];
       value = null;
+    }
+
+    console.log('args: ', args);
+    if (value) {
+      console.log('value: ', value.toString());
     }
 
     setAttemptingTxn(true);
