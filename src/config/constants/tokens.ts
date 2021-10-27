@@ -130,7 +130,7 @@ const tokens = {
       [ChainId.MAINNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
-    decimals: 18,
+    decimals: 6,
     projectLink: 'https://www.centre.io/usdc',
   },
   usdt: {
@@ -336,8 +336,8 @@ export const ETH = new Token(
 export const USDC = new Token(
   ChainId.MAINNET as any,
   '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
-  18,
+  6,
   'USDC',
-  'Binance-Peg USD Coin',
+  'USD Coin',
 );
 export default tokens;

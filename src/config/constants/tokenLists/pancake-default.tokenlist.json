@@ -46,7 +46,7 @@
       "symbol": "USDC",
       "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
       "chainId": 336,
-      "decimals": 18,
+      "decimals": 6,
       "logoURI": "/images/tokens/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.svg"
     },
     {
