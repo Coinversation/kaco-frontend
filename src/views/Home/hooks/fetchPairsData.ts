@@ -61,8 +61,19 @@ const fetchPairsData = async (addresses: string[]): Promise<PairsData> => {
     let [amount0, amount1] = [new RealBigNumber(_amount0.toString()), new RealBigNumber(_amount1.toString())];
     const decimals = new RealBigNumber(BIG_TEN).pow(new RealBigNumber(_decimals.toString()));
 
-    amount0 = amount0.div(decimals);
-    amount1 = amount1.div(decimals);
+    amount0 =
+      token0Address.toLowerCase() === '0xfa9343c3897324496a05fc75abed6bac29f8a40f'
+        ? amount0.div(decimals.div(new RealBigNumber('1000000000000')))
+        : amount0.div(decimals);
+    amount1 =
+      token1Address.toLowerCase() === '0xfa9343c3897324496a05fc75abed6bac29f8a40f'
+        ? amount1.div(decimals.div(new RealBigNumber('1000000000000')))
+        : amount1.div(decimals);
+    // amount1 = amount1.div(decimals);
+
+    // if (token0Address.toLowerCase() === '0xfa9343c3897324496a05fc75abed6bac29f8a40f') {
+
+    // }
 
     if (!amount0.isGreaterThan(BIG_ZERO) || !amount1.isGreaterThan(BIG_ZERO)) {
       continue;

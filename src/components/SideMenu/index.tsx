@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import LogoPng from './imgs/logo.svg';
 import BgPng from './imgs/bg.png';
-// import FarmSvg from './imgs/icon_Farm_D.svg';
-// import HomeSvg from './imgs/icon_home_D.svg';
 import UncollapsedSvg from './imgs/icon_zk.svg';
 import CollapsedSvg from './imgs/icon_sq.svg';
 // import InfoSvg from './imgs/icon_Info_D.svg';
@@ -18,19 +16,19 @@ import collapseSvg from './imgs/collapse.svg';
 import CertikSvg from './imgs/certik.svg';
 import GalaxySvg from './imgs/galaxy.svg';
 import TradeSvg from '../svg/Trade';
-// import FarmSvg from '../svg/Farm';
+import FarmSvg from '../svg/Farm';
 // import NftSvg from '../svg/Nft';
-// import HomeSvg from '../svg/Home';
+import HomeSvg from '../svg/Home';
 // import PoolsSvg from '../svg/PoolsSvg';
 // import InfoSvg from '../svg/InfoSvg';
-// import LogoSvg from './imgs/icon_logo.svg';
+import LogoSvg from './imgs/icon_logo.svg';
 import Header from './Header';
 import { useEffect } from 'react';
 import { Flex, Text, useMatchBreakpoints } from '@kaco/uikit';
 import TwitterIcon from '../svg/Twitter';
 import TelegramIcon from '../svg/Telegram';
 import DocLink from './imgs/DocLink';
-// import { useKacoPrice } from 'hooks/useKacoPrice';
+import { useKacoPrice } from 'hooks/useKacoPrice';
 
 const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   display: flex;
@@ -253,7 +251,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
 
 const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
   const [collapsed, setCollapsed] = useState(false);
-  // const kacoPrice = useKacoPrice();
+  const kacoPrice = useKacoPrice();
   const { isXs, isSm, isMd } = useMatchBreakpoints();
   const { pathname } = useLocation();
   const [menuItems, setMenuItems] = useState<
@@ -265,11 +263,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       children?: { text: string; link: string }[] | undefined;
     }[]
   >([
-    // {
-    //   text: 'Home',
-    //   img: HomeSvg,
-    //   link: '/',
-    // },
+    {
+      text: 'Home',
+      img: HomeSvg,
+      link: '/home',
+    },
     {
       text: 'Trade',
       img: TradeSvg,
@@ -280,11 +278,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
     //   imgs: [MintSvg, MintNSvg],
     //   link: '/mint',
     // },
-    // {
-    //   text: 'Farm',
-    //   img: FarmSvg,
-    //   link: '/farms',
-    // },
+    {
+      text: 'Farm',
+      img: FarmSvg,
+      link: '/farms',
+    },
     // {
     //   text: 'Pools',
     //   img: PoolsSvg,
@@ -405,14 +403,14 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
           ))}
         </div>
         <div className="account-info">
-          {/* <Flex className="balance" alignItems="center">
+          <Flex className="balance" alignItems="center">
             <img src={LogoSvg} alt="" />
             {!collapsed && (
               <Text color="#1BD3D5" bold fontSize="16px" ml="10px">
                 ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(2)}
               </Text>
             )}
-          </Flex> */}
+          </Flex>
           {!collapsed && (
             <div className="links">
               <a target="_blank" rel="noreferrer" href="https://twitter.com/KACOFinance">

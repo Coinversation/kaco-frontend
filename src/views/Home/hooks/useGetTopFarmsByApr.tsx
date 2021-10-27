@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { ChainId } from 'config/constants/tokens';
 import { useFarms, usePriceCakeBusd } from 'state/farms/hooks';
 import { useAppDispatch } from 'state';
@@ -9,6 +9,7 @@ import { orderBy } from 'lodash';
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard';
 import { Farm } from 'state/types';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
+import { PriceContext } from 'contexts/PriceProvider';
 
 enum FetchStatus {
   NOT_FETCHED = 'not-fetched',
@@ -24,13 +25,14 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
   const [topFarms, setTopFarms] = useState<FarmWithStakedValue[]>([null, null, null, null, null]);
   const cakePriceBusd = usePriceCakeBusd();
   const kacPerBlock = useKacPerBlock();
+  const { priceVsBusdMap } = useContext(PriceContext);
 
   useEffect(() => {
     const fetchFarmData = async () => {
       setFetchStatus(FetchStatus.FETCHING);
       const activeFarms = nonArchivedFarms.filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X');
       try {
-        await dispatch(fetchFarmsPublicDataAsync(activeFarms.map((farm) => farm.pid)));
+        await dispatch(fetchFarmsPublicDataAsync({ pids: activeFarms.map((farm) => farm.pid), priceVsBusdMap }));
         setFetchStatus(FetchStatus.SUCCESS);
       } catch (e) {
         console.error(e);
@@ -41,7 +43,7 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
     if (isIntersecting && fetchStatus === FetchStatus.NOT_FETCHED) {
       fetchFarmData();
     }
-  }, [dispatch, setFetchStatus, fetchStatus, topFarms, isIntersecting]);
+  }, [dispatch, setFetchStatus, fetchStatus, topFarms, isIntersecting, priceVsBusdMap]);
 
   useEffect(() => {
     const getTopFarmsByApr = (farmsState: Farm[]) => {

@@ -11,6 +11,7 @@ import {
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser';
 import { FarmsState, Farm } from '../types';
+import BigNumber from 'bignumber.js';
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
@@ -27,28 +28,32 @@ const initialState: FarmsState = { data: noAccountFarmConfig, loadArchivedFarmsD
 export const nonArchivedFarms = farmsConfig.filter(({ pid }) => !isArchivedPid(pid));
 
 // Async thunks
-export const fetchFarmsPublicDataAsync = createAsyncThunk<Farm[], number[]>(
-  'farms/fetchFarmsPublicDataAsync',
-  async (pids) => {
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid));
+export const fetchFarmsPublicDataAsync = createAsyncThunk<
+  Farm[],
+  { pids: number[]; priceVsBusdMap: Record<string, BigNumber> }
+>('farms/fetchFarmsPublicDataAsync', async (args: { pids: number[]; priceVsBusdMap: Record<string, BigNumber> }) => {
+  const { pids, priceVsBusdMap } = args;
+  const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid));
 
-    // Add price helper farms
-    const farmsWithPriceHelpers = farmsToFetch.concat([]);
-    // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
-
+  // Add price helper farms
+  const farmsWithPriceHelpers = farmsToFetch.concat([]);
+  // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
+  let farmsWithPrices;
+  try {
     const farms = await fetchFarms(farmsWithPriceHelpers);
-
-    const farmsWithPrices = await fetchFarmsPrices(farms);
+    farmsWithPrices = fetchFarmsPrices(farms, priceVsBusdMap);
     // Filter out price helper LP config farms
     // console.log('farmsWithPrices', pids, farmsWithPrices);
+  } catch (e) {
+    console.log('eeeeeeeee', e);
+  }
 
-    const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
-      return farm.pid || farm.pid === 0;
-    });
+  const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
+    return farm.pid || farm.pid === 0;
+  });
 
-    return farmsWithoutHelperLps;
-  },
-);
+  return farmsWithoutHelperLps;
+});
 
 interface FarmUserDataResponse {
   pid: number;

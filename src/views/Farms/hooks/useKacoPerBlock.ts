@@ -19,7 +19,7 @@ const useKacPerBlock = (): RealBigNumber => {
     multicall(masterChef, [
       {
         address: addresses.masterChef[chainId],
-        name: 'cakePerBlock',
+        name: 'kacPerShidenBlock',
       },
     ]).then(([kacPerBlock]) => setKacPerBlock(new RealBigNumber(kacPerBlock.toString()).div(base)));
   }, [chainId]);
