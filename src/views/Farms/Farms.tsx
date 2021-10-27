@@ -68,7 +68,6 @@ const Farms: React.FC = () => {
   const [sortOption] = useState('hot');
   const chosenFarmsLength = useRef(0);
   const kacPerBlock = useKacPerBlock();
-  // const [kacPerBlock] = useState(new BigNumber(1.5));
   const isArchived = pathname.includes('archived');
   const isInactive = pathname.includes('history');
   const isActive = !isInactive && !isArchived;
@@ -84,24 +83,35 @@ const Farms: React.FC = () => {
   // const activeFarms = farmsLP.filter(
   //   (farm) => farm.pid !== KACO_LP_PID && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
   // );
-  const filtedFarmsLP = farmsLP.filter(
-    (farm) =>
-      farm.token.symbol.toLowerCase().includes(filter.toLowerCase()) ||
-      farm.quoteToken.symbol.toLowerCase().includes(filter.toLowerCase()),
+  const filtedFarmsLP = useMemo(
+    () =>
+      farmsLP.filter(
+        (farm) =>
+          farm.token.symbol.toLowerCase().includes(filter.toLowerCase()) ||
+          farm.quoteToken.symbol.toLowerCase().includes(filter.toLowerCase()),
+      ),
+    [farmsLP, filter],
   );
 
-  const activeFarms = filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && !isArchivedPid(farm.pid));
-  const inactiveFarms = filtedFarmsLP.filter(
-    (farm) => farm.pid !== KACO_LP_PID && farm.multiplier === '0X' && !isArchivedPid(farm.pid),
+  const activeFarms = useMemo(
+    () => filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && !isArchivedPid(farm.pid)),
+    [filtedFarmsLP],
   );
-  const archivedFarms = filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid));
+  const inactiveFarms = useMemo(
+    () =>
+      filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && farm.multiplier === '0X' && !isArchivedPid(farm.pid)),
+    [filtedFarmsLP],
+  );
+  const archivedFarms = useMemo(() => filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid)), [filtedFarmsLP]);
 
-  const stakedOnlyFarms = activeFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+  const stakedOnlyFarms = useMemo(
+    () => activeFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
+    [activeFarms],
   );
 
-  const stakedArchivedFarms = archivedFarms.filter(
-    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+  const stakedArchivedFarms = useMemo(
+    () => archivedFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
+    [archivedFarms],
   );
 
   const farmsList = useCallback(

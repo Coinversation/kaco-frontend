@@ -7,7 +7,6 @@ import BigNumber from 'bignumber.js';
 import { BIG_ZERO } from 'utils/bigNumber';
 import { getBalanceAmount } from 'utils/formatBalance';
 import { farmsConfig } from 'config/constants';
-import useRefresh from 'hooks/useRefresh';
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.';
 import { State, Farm, FarmsState } from '../types';
 // import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
@@ -16,11 +15,14 @@ import tokens from 'config/constants/tokens';
 
 export const usePollFarmsData = (includeArchive = false) => {
   const dispatch = useAppDispatch();
-  const { slowRefresh } = useRefresh();
   const { account } = useWeb3React();
   const { priceVsBusdMap } = useContext(PriceContext);
 
   useEffect(() => {
+    if (Object.keys(priceVsBusdMap).length === 0) {
+      return;
+    }
+    console.log('fetch with price map', priceVsBusdMap);
     const farmsToFetch = includeArchive ? farmsConfig : nonArchivedFarms;
     const pids = farmsToFetch.map((farmToFetch) => farmToFetch.pid);
 
@@ -29,7 +31,7 @@ export const usePollFarmsData = (includeArchive = false) => {
     if (account) {
       dispatch(fetchFarmUserDataAsync({ account, pids }));
     }
-  }, [includeArchive, dispatch, slowRefresh, account, priceVsBusdMap]);
+  }, [includeArchive, dispatch, account, priceVsBusdMap]);
 };
 
 /**

@@ -42,6 +42,20 @@ export const getFarmApr = (
   const kacRewardsDaylyApr = daylyKacRewardAllocation.times(kacPriceUsd).div(poolLiquidityUsd).toNumber();
   const kacRewardsApy = new BigNumber(kacRewardsDaylyApr + 1).pow(365).multipliedBy(100);
 
+  // console.log(
+  //   'farmAddress',
+  //   farmAddress,
+  //   '-------------',
+  //   BLOCKS_PER_DAY.toString(),
+  //   kacPerBlock.toString(),
+  //   poolWeight.toString(),
+  //   daylyKacRewardAllocation.toString(),
+  //   kacRewardsDaylyApr.toString(),
+  //   'kacPriceUsd',
+  //   kacPriceUsd.toFixed(8),
+  //   'poolLiquidityUsd',
+  //   poolLiquidityUsd.toString(),
+  // );
   const yearlyKacRewardAllocation = kacPerBlock.times(BLOCKS_PER_YEAR).times(poolWeight);
   const kacRewardsApr = yearlyKacRewardAllocation.times(kacPriceUsd).div(poolLiquidityUsd).times(100);
   let kacRewardsAprAsNumber = null;
@@ -56,6 +70,15 @@ export const getFarmApr = (
 
   const lpRewardsApr = lpAprs[farmAddress?.toLocaleLowerCase()] ?? 0;
 
+  // console.log(
+  //   'kacRewardsAprAsNumber',
+  //   kacRewardsAprAsNumber,
+  //   kacRewardsApr.toJSON(),
+  //   lpRewardsApr,
+  //   'kacRewardsApyAsNumber',
+  //   kacRewardsApyAsNumber,
+  //   kacRewardsApy.toString(),
+  // );
   return { kacRewardsApr: kacRewardsAprAsNumber, lpRewardsApr, kacRewardApy: kacRewardsApyAsNumber };
 };
 
