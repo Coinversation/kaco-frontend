@@ -11,23 +11,17 @@ export interface Call {
 interface MulticallOptions {
   requireSuccess?: boolean;
 }
-let i = 0;
+
 const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
   try {
-    i += 1;
-
     const multi = getMulticallContract();
     const itf = new ethers.utils.Interface(abi);
-
     const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)]);
     const { returnData } = await multi.aggregate(calldata);
-
-    // console.log(`after multi calls ${i}`, calls, returnData);
     const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call));
-    // console.log(`after multi decode ${i}`);
     return res;
   } catch (error) {
-    console.log(`error ${i}`, error, abi || [], calls);
+    // console.log(`error ${i}`, error, abi || [], calls);
     throw new Error(error);
     // return Promise.reject();
   }

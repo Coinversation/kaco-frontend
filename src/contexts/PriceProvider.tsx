@@ -4,6 +4,8 @@ import usePairLength from 'views/Home/hooks/usePairsLength';
 import fetchPairsAddress from 'views/Home/hooks/fetchPairsAddress';
 import fetchPairsData, { PairsMap } from 'views/Home/hooks/fetchPairsData';
 import tokens, { chainId } from 'config/constants/tokens';
+import useRefresh from 'hooks/useRefresh';
+
 // import tokenlist from 'config/constants/tokenLists/pancake-default.tokenlist.json';
 function getPriceVsBusd(
   tokenAddress: string,
@@ -51,6 +53,7 @@ export const PriceProvider = React.memo(({ children }: { children: React.ReactNo
   const pairsCount = usePairLength();
   const [total, setTotal] = useState<BigNumber>(new BigNumber(0));
   const [priceVsBusdMap, setPriceVsBusdMap] = useState<Record<string, BigNumber>>({});
+  const { slowRefresh } = useRefresh();
 
   useEffect(() => {
     fetchPairsAddress(pairsCount)
@@ -82,7 +85,7 @@ export const PriceProvider = React.memo(({ children }: { children: React.ReactNo
         setPriceVsBusdMap(priceVsBusdMap);
         setTotal(total);
       });
-  }, [pairsCount]);
+  }, [pairsCount, slowRefresh]);
 
   return (
     <PriceContext.Provider
