@@ -102,7 +102,7 @@ const Farms: React.FC = () => {
       filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && farm.multiplier === '0X' && !isArchivedPid(farm.pid)),
     [filtedFarmsLP],
   );
-  const archivedFarms = useMemo(() => filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid)), []);
+  const archivedFarms = useMemo(() => filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid)), [filtedFarmsLP]);
 
   const stakedOnlyFarms = useMemo(
     () => activeFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
