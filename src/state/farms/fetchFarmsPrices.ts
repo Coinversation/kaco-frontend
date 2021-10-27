@@ -99,12 +99,12 @@ const fetchFarmsPrices = (farms: (Farm & PublicFarmData)[], priceVsBusdMap: Reco
         ? priceVsBusdMap[quoteTokenAddress.toLowerCase()].toString()
         : '0',
     };
-    console.log(
-      `farm ${farm.pid}: ${tokenAddress.slice(0, 7)}-${token.busdPrice.slice(0, 7)}, : ${quoteTokenAddress.slice(
-        0,
-        7,
-      )}-${quoteToken.busdPrice.slice(0, 7)}`,
-    );
+    // console.log(
+    //   `farm ${farm.pid}: ${tokenAddress.slice(0, 7)}-${token.busdPrice.slice(0, 7)}, : ${quoteTokenAddress.slice(
+    //     0,
+    //     7,
+    //   )}-${quoteToken.busdPrice.slice(0, 7)}`,
+    // );
 
     return { ...farm, token, quoteToken };
   });

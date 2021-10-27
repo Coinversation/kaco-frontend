@@ -60,17 +60,17 @@ export const PriceProvider = React.memo(({ children }: { children: React.ReactNo
 
         Object.keys(source).forEach((tokenAddress) => getPriceVsBusd(tokenAddress, source, priceVsBusdMap));
 
-        console.log(
-          'priceVsBusdMap',
-          Object.keys(priceVsBusdMap).map((key) => `${key.slice(0, 7)}-${priceVsBusdMap[key].toFixed(5)}`),
-          'countup',
-          Object.keys(countup).map(
-            (key) =>
-              `${
-                tokenlist.tokens.find((t) => t.address.toLowerCase() === key.toLowerCase())?.symbol || key
-              }: $${priceVsBusdMap[key].toFixed(2)} * ${countup[key].toFixed(2)}`,
-          ),
-        );
+        // console.log(
+        //   'priceVsBusdMap',
+        //   Object.keys(priceVsBusdMap).map((key) => `${key.slice(0, 7)}-${priceVsBusdMap[key].toFixed(5)}`),
+        //   'countup',
+        //   Object.keys(countup).map(
+        //     (key) =>
+        //       `${
+        //         tokenlist.tokens.find((t) => t.address.toLowerCase() === key.toLowerCase())?.symbol || key
+        //       }: $${priceVsBusdMap[key].toFixed(2)} * ${countup[key].toFixed(2)}`,
+        //   ),
+        // );
         const total = Object.entries(countup).reduce((all, [tokenAddress, amount]) => {
           const price = priceVsBusdMap[tokenAddress] || new BigNumber(0);
 

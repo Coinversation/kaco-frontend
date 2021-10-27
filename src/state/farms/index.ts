@@ -43,7 +43,7 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
     const farms = await fetchFarms(farmsWithPriceHelpers);
     farmsWithPrices = fetchFarmsPrices(farms, priceVsBusdMap);
     // Filter out price helper LP config farms
-    console.log('farmsWithPrices', pids, farmsWithPrices);
+    // console.log('farmsWithPrices', pids, farmsWithPrices);
   } catch (e) {
     console.log('eeeeeeeee', e);
   }
