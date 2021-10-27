@@ -7,7 +7,8 @@ import { useTranslation } from 'contexts/Localization';
 import { Text, Flex } from '@kaco/uikit';
 import { useMatchBreakpoints } from '@kaco/uikit';
 import { useBurnedBalance, useTotalSupply } from 'hooks/useTokenBalance';
-import formatLocalisedCompactNumber, { getBalanceNumber } from 'utils/formatBalance';
+// import formatLocalisedCompactNumber, { getBalanceNumber } from 'utils/formatBalance';
+import { getBalanceNumber } from 'utils/formatBalance';
 import { getCakeAddress } from 'utils/addressHelpers';
 // import useCap from './hooks/useCap';
 import Balance from 'components/Balance';
@@ -22,8 +23,8 @@ const Home: React.FC<{ className?: string }> = ({ className }) => {
   const burnedBalance = getBalanceNumber(useBurnedBalance(getCakeAddress()));
   const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0;
   const kacoPrice = useKacoPrice();
-  const mcap = kacoPrice.times(cakeSupply);
-  const mcapString = formatLocalisedCompactNumber(mcap.isNaN() ? 0 : mcap.toNumber());
+  // const mcap = kacoPrice.times(cakeSupply);
+  // const mcapString = formatLocalisedCompactNumber(mcap.isNaN() ? 0 : mcap.toNumber());
   // const cap = useCap();
 
   return (
@@ -52,15 +53,15 @@ const Home: React.FC<{ className?: string }> = ({ className }) => {
                 KAC Total：{cap}
               </Text> */}
               <Text mb="20px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
-                KAC Circulation：{cakeSupply.toFixed()}
+                KAC Bridged：{cakeSupply.toFixed()}
               </Text>
 
               <Text mb="20px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
                 KAC Burnt：{burnedBalance.toFixed()}
               </Text>
-              <Text mb="20px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
+              {/* <Text mb="20px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
                 KAC Market CAP： ${mcapString}
-              </Text>
+              </Text> */}
             </>
           ) : (
             <>
@@ -72,16 +73,16 @@ const Home: React.FC<{ className?: string }> = ({ className }) => {
                   KAC Total：{cap}
                 </Text> */}
                 <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
-                  KAC Circulation：{cakeSupply.toFixed()}
+                  KAC Bridged：{cakeSupply.toFixed()}
                 </Text>
               </Flex>
               <Flex>
                 <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
                   KAC Burnt：{burnedBalance.toFixed()}
                 </Text>
-                <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
+                {/* <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
                   KAC Market CAP： ${mcapString}
-                </Text>
+                </Text> */}
                 <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color=""></Text>
               </Flex>
             </>
