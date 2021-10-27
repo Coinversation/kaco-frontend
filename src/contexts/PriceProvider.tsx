@@ -4,6 +4,7 @@ import usePairLength from 'views/Home/hooks/usePairsLength';
 import fetchPairsAddress from 'views/Home/hooks/fetchPairsAddress';
 import fetchPairsData, { PairsMap } from 'views/Home/hooks/fetchPairsData';
 import tokens, { chainId } from 'config/constants/tokens';
+// import tokenlist from 'config/constants/tokenLists/pancake-default.tokenlist.json';
 function getPriceVsBusd(
   tokenAddress: string,
   source: PairsMap,
