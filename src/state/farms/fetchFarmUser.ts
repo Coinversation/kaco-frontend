@@ -66,9 +66,13 @@ export const fetchFarmUserEarnings = async (account: string, farmsToFetch: FarmC
     };
   });
 
-  const rawEarnings = await multicall(masterchefABI, calls);
-  const parsedEarnings = rawEarnings.map((earnings) => {
-    return new BigNumber(earnings).toJSON();
-  });
-  return parsedEarnings;
+  try {
+    const rawEarnings = await multicall(masterchefABI, calls);
+    const parsedEarnings = rawEarnings.map((earnings) => {
+      return new BigNumber(earnings).toJSON();
+    });
+    return parsedEarnings;
+  } catch (e) {
+    return farmsToFetch.map(() => new BigNumber(0).toJSON());
+  }
 };
