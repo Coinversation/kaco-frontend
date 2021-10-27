@@ -4,6 +4,7 @@ import { HelpIcon, Skeleton, useTooltip } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 
 const ReferenceElement = styled.div`
+  margin-left: 5px;
   display: inline-block;
 `;
 
@@ -13,7 +14,6 @@ export interface MultiplierProps {
 
 const MultiplierWrapper = styled.div`
   color: ${({ theme }) => theme.colors.text};
-  width: 36px;
   text-align: right;
   margin-right: 14px;
 
@@ -44,6 +44,7 @@ const Multiplier: React.FunctionComponent<MultiplierProps> = ({ multiplier }) =>
     tooltipOffset: [20, 10],
   });
 
+  console.log('multiplier', multiplier);
   return (
     <Container>
       <MultiplierWrapper>{displayMultiplier}</MultiplierWrapper>
