@@ -60,7 +60,7 @@
     {
       "name": "BUSD",
       "symbol": "BUSD",
-      "address": "0x7c598c96d02398d89fbcb9d41eab3df0c16f227d",
+      "address": "0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a",
       "chainId": 336,
       "decimals": 18,
       "logoURI": "/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.svg"

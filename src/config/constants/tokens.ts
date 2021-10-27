@@ -181,7 +181,7 @@ const tokens = {
   busd: {
     symbol: 'BUSD',
     address: {
-      [ChainId.MAINNET]: '0x7c598c96d02398d89fbcb9d41eab3df0c16f227d',
+      [ChainId.MAINNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
     decimals: 18,
@@ -238,7 +238,7 @@ export const Kaco: { [chainId: number]: Token } = {
 export const BUSD: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET as any,
-    '0x7c598c96d02398d89fbcb9d41eab3df0c16f227d',
+    '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
     18,
     'BUSD',
     'Binance USD',
