@@ -21,7 +21,7 @@ import { RowProps } from './components/FarmTable/Row';
 import { DesktopColumnSchema, ViewMode } from './components/types';
 import FarmHeader from './components/FarmHeader';
 import { KACO_LP_PID } from 'config/constants/farms';
-// import useKacPerBlock from './hooks/useKacoPerBlock';
+import useKacPerBlock from './hooks/useKacoPerBlock';
 // import { PriceContext } from 'contexts/PriceProvider';
 
 // const StyledImage = styled(Image)`
@@ -67,8 +67,8 @@ const Farms: React.FC = () => {
   const { account } = useWeb3React();
   const [sortOption] = useState('hot');
   const chosenFarmsLength = useRef(0);
-  // const kacPerBlock = useKacPerBlock();
-  const [kacPerBlock] = useState(new BigNumber(1.5));
+  const kacPerBlock = useKacPerBlock();
+  // const [kacPerBlock] = useState(new BigNumber(1.5));
   const isArchived = pathname.includes('archived');
   const isInactive = pathname.includes('history');
   const isActive = !isInactive && !isArchived;
