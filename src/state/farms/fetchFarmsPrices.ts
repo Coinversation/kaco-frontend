@@ -85,11 +85,20 @@ import { PublicFarmData } from './fetchPublicFarmData';
 
 const fetchFarmsPrices = (farms: (Farm & PublicFarmData)[], priceVsBusdMap: Record<string, BigNumber>) => {
   const farmsWithPrices = farms.map((farm) => {
-    const tokenAddress = farm.token.address[chainId];
-    const quoteTokenAddress = farm.quoteToken.address[chainId];
-    const token = { ...farm.token, busdPrice: priceVsBusdMap[tokenAddress].toString() };
-    const quoteToken = { ...farm.quoteToken, busdPrice: priceVsBusdMap[quoteTokenAddress].toString() };
-
+    const tokenAddress: string = farm.token.address[chainId];
+    const quoteTokenAddress: string = farm.quoteToken.address[chainId];
+    const token = {
+      ...farm.token,
+      busdPrice: priceVsBusdMap[tokenAddress.toLowerCase()]
+        ? priceVsBusdMap[tokenAddress.toLowerCase()].toString()
+        : '0',
+    };
+    const quoteToken = {
+      ...farm.quoteToken,
+      busdPrice: priceVsBusdMap[quoteTokenAddress.toLowerCase()]
+        ? priceVsBusdMap[quoteTokenAddress.toLowerCase()].toString()
+        : '0',
+    };
     console.log(
       `farm ${farm.pid}: ${tokenAddress.slice(0, 7)}-${token.busdPrice.slice(0, 7)}, : ${quoteTokenAddress.slice(
         0,

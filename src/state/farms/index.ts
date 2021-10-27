@@ -38,13 +38,15 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
   // Add price helper farms
   const farmsWithPriceHelpers = farmsToFetch.concat([]);
   // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
-
-  console.log('fetch farms', farmsToFetch);
-  const farms = await fetchFarms(farmsWithPriceHelpers);
-
-  const farmsWithPrices = fetchFarmsPrices(farms, priceVsBusdMap);
-  // Filter out price helper LP config farms
-  // console.log('farmsWithPrices', pids, farmsWithPrices);
+  let farmsWithPrices;
+  try {
+    const farms = await fetchFarms(farmsWithPriceHelpers);
+    farmsWithPrices = fetchFarmsPrices(farms, priceVsBusdMap);
+    // Filter out price helper LP config farms
+    console.log('farmsWithPrices', pids, farmsWithPrices);
+  } catch (e) {
+    console.log('eeeeeeeee', e);
+  }
 
   const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
     return farm.pid || farm.pid === 0;

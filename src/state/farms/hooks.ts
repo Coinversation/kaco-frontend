@@ -10,7 +10,7 @@ import { farmsConfig } from 'config/constants';
 import useRefresh from 'hooks/useRefresh';
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.';
 import { State, Farm, FarmsState } from '../types';
-import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
+// import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import tokens from 'config/constants/tokens';
 
@@ -37,15 +37,15 @@ export const usePollFarmsData = (includeArchive = false) => {
  * 1 = CAKE-BNB LP
  * 2 = BUSD-BNB LP
  */
-export const usePollCoreFarmData = () => {
-  const dispatch = useAppDispatch();
-  const { fastRefresh } = useRefresh();
-  const { priceVsBusdMap } = useContext(PriceContext);
+// export const usePollCoreFarmData = () => {
+//   const dispatch = useAppDispatch();
+//   const { fastRefresh } = useRefresh();
+//   const { priceVsBusdMap } = useContext(PriceContext);
 
-  useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync({ pids: [KACO_BNB_LP_PID, BUSD_BNB_LP_PID], priceVsBusdMap }));
-  }, [dispatch, fastRefresh, priceVsBusdMap]);
-};
+//   useEffect(() => {
+//     dispatch(fetchFarmsPublicDataAsync({ pids: [KACO_BNB_LP_PID, BUSD_BNB_LP_PID], priceVsBusdMap }));
+//   }, [dispatch, fastRefresh, priceVsBusdMap]);
+// };
 
 export const useFarms = (): FarmsState => {
   const farms = useSelector((state: State) => state.farms);
