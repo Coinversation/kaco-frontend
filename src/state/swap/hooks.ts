@@ -31,12 +31,6 @@ export function useSwapActionHandlers(): {
   const dispatch = useDispatch<AppDispatch>();
   const onCurrencySelection = useCallback(
     (field: Field, currency: Currency) => {
-      console.log(
-        'xxx',
-        currency instanceof Token ? currency.address : currency === ETHER ? 'SDN' : '',
-        currency,
-        ETHER,
-      );
       dispatch(
         selectCurrency({
           field,
@@ -133,10 +127,6 @@ export function useDerivedSwapInfo(): {
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
-  console.log('inputCurrencyId', inputCurrencyId);
-  console.log('outputCurrencyId', outputCurrencyId);
-  console.log('inputCurrency', inputCurrency);
-  console.log('outputCurrency', outputCurrency);
   const to: string | null = (recipient === null ? account : recipientLookup.address) ?? null;
 
   const relevantTokenBalances = useCurrencyBalances(account ?? undefined, [

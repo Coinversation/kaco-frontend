@@ -4,7 +4,7 @@ import { ChainId } from './tokens';
 export default {
   masterChef: {
     [ChainId.TESTNET]: '0x7DE7fF5D0290695c7f8a4531ff77FFCC8461C29e',
-    [ChainId.MAINNET]: '0x81b71D0bC2De38e37978E6701C342d0b7AA67D59',
+    [ChainId.MAINNET]: '0xf96429A7aE52dA7d07E60BE95A3ece8B042016fB',
   },
   sousChef: {
     [ChainId.TESTNET]: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',

@@ -1,4 +1,5 @@
-import { useEffect, useMemo } from 'react';
+import { PriceContext } from 'contexts/PriceProvider';
+import { useEffect, useMemo, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'state';
 import { useWeb3React } from '@web3-react/core';
@@ -10,22 +11,25 @@ import useRefresh from 'hooks/useRefresh';
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.';
 import { State, Farm, FarmsState } from '../types';
 import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
+import useActiveWeb3React from 'hooks/useActiveWeb3React';
+import tokens from 'config/constants/tokens';
 
 export const usePollFarmsData = (includeArchive = false) => {
   const dispatch = useAppDispatch();
   const { slowRefresh } = useRefresh();
   const { account } = useWeb3React();
+  const { priceVsBusdMap } = useContext(PriceContext);
 
   useEffect(() => {
     const farmsToFetch = includeArchive ? farmsConfig : nonArchivedFarms;
     const pids = farmsToFetch.map((farmToFetch) => farmToFetch.pid);
 
-    dispatch(fetchFarmsPublicDataAsync(pids));
+    dispatch(fetchFarmsPublicDataAsync({ pids, priceVsBusdMap }));
 
     if (account) {
       dispatch(fetchFarmUserDataAsync({ account, pids }));
     }
-  }, [includeArchive, dispatch, slowRefresh, account]);
+  }, [includeArchive, dispatch, slowRefresh, account, priceVsBusdMap]);
 };
 
 /**
@@ -36,10 +40,11 @@ export const usePollFarmsData = (includeArchive = false) => {
 export const usePollCoreFarmData = () => {
   const dispatch = useAppDispatch();
   const { fastRefresh } = useRefresh();
+  const { priceVsBusdMap } = useContext(PriceContext);
 
   useEffect(() => {
-    dispatch(fetchFarmsPublicDataAsync([KACO_BNB_LP_PID, BUSD_BNB_LP_PID]));
-  }, [dispatch, fastRefresh]);
+    dispatch(fetchFarmsPublicDataAsync({ pids: [KACO_BNB_LP_PID, BUSD_BNB_LP_PID], priceVsBusdMap }));
+  }, [dispatch, fastRefresh, priceVsBusdMap]);
 };
 
 export const useFarms = (): FarmsState => {
@@ -95,17 +100,25 @@ export const useLpTokenPrice = (symbol: string) => {
 // /!\ Deprecated , use the BUSD hook in /hooks
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const bnbBusdFarm = useFarmFromPid(BUSD_BNB_LP_PID);
-  return new BigNumber(bnbBusdFarm.quoteToken.busdPrice);
+  const { priceVsBusdMap } = useContext(PriceContext);
+  const { chainId } = useActiveWeb3React();
+
+  const bnbPrice = useMemo(
+    () => priceVsBusdMap[tokens.wbnb.address[chainId].toLowerCase()] || new BigNumber(0),
+    [priceVsBusdMap, chainId],
+  );
+
+  return bnbPrice;
 };
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const cakeBnbFarm = useFarmFromPid(KACO_BNB_LP_PID);
+  const { priceVsBusdMap } = useContext(PriceContext);
+  const { chainId } = useActiveWeb3React();
 
-  const cakePriceBusdAsString = cakeBnbFarm.token.busdPrice;
-  const cakePriceBusd = useMemo(() => {
-    return new BigNumber(cakePriceBusdAsString);
-  }, [cakePriceBusdAsString]);
+  const kacoPrice = useMemo(
+    () => priceVsBusdMap[tokens.kaco.address[chainId].toLowerCase()] || new BigNumber(0),
+    [priceVsBusdMap, chainId],
+  );
 
-  return cakePriceBusd;
+  return kacoPrice;
 };

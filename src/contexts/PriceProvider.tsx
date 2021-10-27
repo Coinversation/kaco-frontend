@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 import usePairLength from 'views/Home/hooks/usePairsLength';
 import fetchPairsAddress from 'views/Home/hooks/fetchPairsAddress';
 import fetchPairsData, { PairsMap } from 'views/Home/hooks/fetchPairsData';
-import { BUSD, chainId } from 'config/constants/tokens';
+import { USDC } from 'config/constants/tokens';
 
 function getPriceVsBusd(
   tokenAddress: string,
@@ -11,7 +11,7 @@ function getPriceVsBusd(
   priceVsBusdMap: { [key: string]: BigNumber },
   from?: string,
 ): BigNumber | undefined {
-  const busdAddress = BUSD[chainId].address.toLowerCase();
+  const busdAddress = USDC.address;
 
   Object.entries(source[tokenAddress]).find(([quoteTokenAddress, pair]) => {
     if (quoteTokenAddress === from) {
@@ -60,6 +60,12 @@ export const PriceProvider = React.memo(({ children }: { children: React.ReactNo
 
         Object.keys(source).forEach((tokenAddress) => getPriceVsBusd(tokenAddress, source, priceVsBusdMap));
 
+        console.log(
+          'priceVsBusdMap',
+          priceVsBusdMap,
+          'countup',
+          Object.keys(countup).map((key) => `${key.slice(0, 5)}-${countup[key].toFixed(5)}`),
+        );
         const total = Object.entries(countup).reduce((all, [tokenAddress, amount]) => {
           const price = priceVsBusdMap[tokenAddress] || new BigNumber(0);
 

@@ -82,7 +82,6 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
     hideArrow: true,
     tooltipOffset: [20, 10],
   });
-  console.log('tooltipVisible', tooltipVisible);
   // const [onPresentClaim] = useModal(<ClaimModal />);
   return (
     <div className={className}>

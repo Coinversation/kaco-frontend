@@ -44,6 +44,11 @@ import Page from '../Page';
 import SwapWarningModal from './components/SwapWarningModal';
 import ArrowDownIcon from '../../components/svg/ArrowDown';
 import SwapSvg from './components/imgs/swap.svg';
+// import { useSingleCallResult } from 'state/multicall/hooks';
+// import Abi from 'config/abi/factory.json';
+// import { FACTORY_ADDRESS } from 'config/constants';
+// import { useContract } from 'hooks/useContract';
+// import { chainId } from 'config/constants/tokens';
 const Label = styled(Text)`
   font-size: 12px;
   font-weight: bold;
@@ -52,6 +57,12 @@ const Label = styled(Text)`
 
 export default function Swap({ history }: RouteComponentProps) {
   const loadedUrlParams = useDefaultsFromURLSearch();
+  // const contract = useContract(FACTORY_ADDRESS[chainId], Abi);
+  // const r = useSingleCallResult(contract, 'allPairsLength');
+
+  // useEffect(() => {
+  //   console.log('rrrrr', r);
+  // }, [r]);
 
   const { t } = useTranslation();
 

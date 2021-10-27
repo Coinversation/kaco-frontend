@@ -15,6 +15,7 @@ import Balance from 'components/Balance';
 import { useKacoPrice } from 'hooks/useKacoPrice';
 
 const Home: React.FC<{ className?: string }> = ({ className }) => {
+  return <div>xxx</div>;
   const { t } = useTranslation();
   const { isXs, isSm } = useMatchBreakpoints();
   const totalSupply = useTotalSupply();

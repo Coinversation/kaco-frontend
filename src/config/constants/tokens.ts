@@ -28,7 +28,7 @@ const tokens = {
   syrup: {
     symbol: 'SYRUP',
     address: {
-      [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.MAINNET]: '0x3Ac06B3DDf753369289c1C35f7fcbc38c73e91aC',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
     decimals: 18,
