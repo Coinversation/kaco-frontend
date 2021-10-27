@@ -145,8 +145,12 @@ export default function AddLiquidity({
       estimate = router.estimateGas.addLiquidityETH;
       method = router.addLiquidityETH;
 
+      const commonToken: Currency = tokenBIsETH ? currencyA : currencyB;
       const rawAmountA = (tokenBIsETH ? parsedAmountA : parsedAmountB).raw;
-      const amountPrecion = JSBI.BigInt(1000000000000);
+      let amountPrecion = JSBI.BigInt(1);
+      if (commonToken.decimals >= 18) {
+        amountPrecion = JSBI.BigInt(1000000000000);
+      }
       const concatAmountA = JSBI.multiply(JSBI.divide(rawAmountA, amountPrecion), amountPrecion);
       console.log('concatAmountA; ', concatAmountA.toString());
 
