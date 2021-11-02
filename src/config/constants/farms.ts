@@ -40,6 +40,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 6,
+    lpSymbol: 'SDN-JPYC LP',
+    lpAddresses: {
+      [ChainId.TESTNET]: '0x756f158A2C02246Bf00bbdB051729804F2efd9c7',
+      [ChainId.MAINNET]: '0x1Ba530cf929ea5bc7f1Af241495C97331Ddb4f70',
+    },
+    token: tokens.jpyc,
+    quoteToken: tokens.wbnb,
+  },
+  {
     pid: 3,
     lpSymbol: 'ETH-SDN LP',
     lpAddresses: {
@@ -69,9 +79,6 @@ const farms: FarmConfig[] = [
     token: tokens.busd,
     quoteToken: tokens.usdc,
   },
-  /**
-   * V3 by order of release (some may be out of PID order due to multiplier boost)
-   */
 ];
 
 export default farms;
