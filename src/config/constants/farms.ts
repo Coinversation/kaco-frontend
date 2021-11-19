@@ -70,6 +70,16 @@ const farms: FarmConfig[] = [
     quoteToken: tokens.usdc,
   },
   {
+    pid: 7,
+    lpSymbol: 'JPYC-USDC LP',
+    lpAddresses: {
+      [ChainId.TESTNET]: '0xe2c19eb0f91c80275cc254f90ed0f18f26650ec5',
+      [ChainId.MAINNET]: '0xe2c19eb0f91c80275cc254f90ed0f18f26650ec5',
+    },
+    token: tokens.jpyc,
+    quoteToken: tokens.usdc,
+  },
+  {
     pid: 5,
     lpSymbol: 'BUSD-USDC LP',
     lpAddresses: {
