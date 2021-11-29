@@ -1,10 +1,10 @@
-import BN from "bn.js";
-import type { Signer } from "@polkadot/api/types";
-import type { SignerOptions } from "@polkadot/api/submittable/types";
-import type { IKeyringPair } from "@polkadot/types/types";
-import type { RegistryTypes } from "@polkadot/types/types/registry";
-import envs from "./envs.json";
-import definitions from "./interfaces/definitions";
+import BN from 'bn.js';
+import type { Signer } from '@polkadot/api/types';
+import type { SignerOptions } from '@polkadot/api/submittable/types';
+import type { IKeyringPair } from '@polkadot/types/types';
+import type { RegistryTypes } from '@polkadot/types/types/registry';
+import envs from './envs.json';
+import * as definitions from './interfaces/definitions';
 type EnvNames = keyof typeof envs;
 export const getEnv = (envName: any) => {
   if (!envName) {
@@ -18,26 +18,21 @@ export const getEnv = (envName: any) => {
 };
 
 export const buildTypes = () => {
-  let types: RegistryTypes = {
-    AccountInfo: "AccountInfoWithDualRefCount",
+  const types: RegistryTypes = {
+    AccountInfo: 'AccountInfoWithDualRefCount',
   };
-  for (const [n, t] of Object.entries(definitions.types)) {
+  for (const [n, t] of Object.values(definitions).flatMap((d) => Object.entries(d.types))) {
     types[n] = t;
   }
   return types;
 };
 
-export type KeyringPairOrAddressAndSigner =
-  | IKeyringPair
-  | { addrss: string; signer: Signer };
+export type KeyringPairOrAddressAndSigner = IKeyringPair | { addrss: string; signer: Signer };
 
-export const extractTxArgs = (
-  account: KeyringPairOrAddressAndSigner,
-  powSolution?: BN
-) => {
+export const extractTxArgs = (account: KeyringPairOrAddressAndSigner, powSolution?: BN) => {
   let pairOrAddress: IKeyringPair | string;
-  let options: Partial<SignerOptions> = {};
-  if ("signer" in account) {
+  const options: Partial<SignerOptions> = {};
+  if ('signer' in account) {
     pairOrAddress = account.addrss;
     options.signer = account.signer;
   } else {
@@ -49,10 +44,7 @@ export const extractTxArgs = (
   return [pairOrAddress, options] as const;
 };
 
-export const withToggleAsync = async <T>(
-  toggle: (b: boolean) => void,
-  main: () => Promise<T>
-) => {
+export const withToggleAsync = async <T>(toggle: (b: boolean) => void, main: () => Promise<T>) => {
   toggle(true);
   const result = await main();
   toggle(false);

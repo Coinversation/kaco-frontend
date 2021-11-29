@@ -7,7 +7,7 @@ import PolkadotLearnMore from './PolkadotLearnMore';
 type Phase = 'none' | 'setup' | 'shop' | 'battle' | 'result';
 
 const PolkadotAccount_TSX: FC<{ className?: string }> = ({ className }) => {
-  const [phase, setPhase] = useState<Phase>('none');
+  const [phase, setPhase] = useState<Phase>('setup');
   const connectWallet = useCallback(() => {
     setPhase('setup');
   }, []);

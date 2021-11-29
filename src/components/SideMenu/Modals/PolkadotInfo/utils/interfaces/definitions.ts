@@ -1,3 +1,1 @@
-import def from "./_definitions.json";
-
-export default { types: def };
+export { default as all } from './definitions_all';

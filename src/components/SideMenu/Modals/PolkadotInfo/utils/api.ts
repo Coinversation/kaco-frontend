@@ -15,6 +15,7 @@ let apiPromise: ApiPromise | null = null;
 const registry = new TypeRegistry();
 const types = buildTypes();
 registry.register(types);
+const profileApiUrl = process.env.REACT_APP_API_PROFILE;
 
 export const connected = async (endpoint: string, f: () => Promise<any>) => {
   let api: ApiPromise | null = null;
@@ -150,3 +151,46 @@ export const createType = <T extends Codec = Codec, K extends string = string>(
 
 // slow, be careful
 export const buildKeyringPair = (mnemonic: string) => new Keyring({ type: 'ed25519' }).createFromUri(mnemonic);
+// 查询绑定地址
+export const getSignAddress = async (publickeys: string[]): Promise<any> => {
+  try {
+    const response = await fetch(`${profileApiUrl}/sign/address?polkadotKeys=${publickeys.join(',')}`);
+    console.log({ response });
+    if (response.status !== 200) {
+      return null;
+    }
+    const signAddresses = await response.json();
+    return signAddresses;
+  } catch (error) {
+    return null;
+  }
+};
+
+// 绑定
+export const postSignAddress = async (
+  sigInfos: {
+    polkadotKey: string;
+    evmAddress: string;
+    signature: string;
+  }[],
+): Promise<any> => {
+  try {
+    const response = await fetch(`${profileApiUrl}/sign/address`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sigInfos: sigInfos,
+      }),
+    });
+    console.log({ response });
+    if (response.status !== 200) {
+      return null;
+    }
+    const signAddressRes = await response.json();
+    return signAddressRes;
+  } catch (error) {
+    return null;
+  }
+};
