@@ -29,6 +29,9 @@
     ]
   },
   "dependencies": {
+    "@polkadot/api": "6.0.5",
+    "@polkadot/types": "6.0.5",
+    "@polkadot/extension-dapp": "0.40.3",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
     "@kaco/sdk": "^3.5.9",

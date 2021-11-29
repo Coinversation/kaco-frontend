@@ -5,7 +5,7 @@ import SelectedSvg from '../imgs/icon_select.svg';
 import SdnSvg from '../imgs/icon_sd.png';
 import SlSvg from '../imgs/icon_sl.svg';
 
-const chainKey = 'BSC';
+const chainKey = 'SDN';
 const SwitchChain = () => {
   const { targetRef, tooltip, tooltipVisible } = useTooltip(SwitchChainTooltip, {
     trigger: 'click',

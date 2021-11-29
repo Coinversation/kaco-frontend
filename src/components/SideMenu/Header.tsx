@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { LogoutIcon, useMatchBreakpoints, useTooltip } from '@kaco/uikit';
+import { useMatchBreakpoints } from '@kaco/uikit';
 import UncollapsedSvg from './imgs/icon_sq.svg';
-import PolkadotAccounts from './Modals/PolkadotAccounts';
 import SwitchChain from './Modals/SwitchChain';
 import AccountInfo from './Modals/AccountInfo';
 // import ClaimModal from './Modals/ClaimModal';
@@ -10,7 +9,6 @@ export enum ThemeChoice {
   Dark,
   White,
 }
-
 const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => void; collapsed: boolean }> = ({
   className,
   setCollapsed,
@@ -18,19 +16,6 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
 }) => {
   const { isXs, isSm } = useMatchBreakpoints();
 
-  const {
-    targetRef: targetRef_P,
-    tooltip: tooltip_P,
-    tooltipVisible: tooltipVisible_P,
-  } = useTooltip(PolkadotAccounts, {
-    trigger: 'click',
-    tootipStyle: { background: '#1F252A', padding: '20px 30px' },
-    placement: 'top-end',
-    hideArrow: true,
-    tooltipOffset: [20, 10],
-  });
-
-  // const [onPresentClaim] = useModal(<ClaimModal />);
   return (
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
