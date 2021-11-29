@@ -1,16 +1,12 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { useWeb3React } from '@web3-react/core';
 import ConnectWalletButton from '../ConnectWalletButton';
-// import { LogoutIcon, useMatchBreakpoints, useModal } from '@kaco/uikit';
-import { Text, Flex, LogoutIcon, useMatchBreakpoints, useTooltip } from '@kaco/uikit';
+import { useWeb3React } from '@web3-react/core';
+import { LogoutIcon, useMatchBreakpoints, useTooltip } from '@kaco/uikit';
 import UncollapsedSvg from './imgs/icon_sq.svg';
-import BscSvg from './imgs/icon_bsc.svg';
-import SdnSvg from './imgs/icon_sd.png';
-import SelectedSvg from './imgs/icon_select.svg';
-import SlSvg from './imgs/icon_sl.svg';
 import useAuth from 'hooks/useAuth';
-import { useTranslation } from 'contexts/Localization';
+import PolkadotAccounts from './Modals/PolkadotAccounts';
+import SwitchChain from './Modals/SwitchChain';
 // import ClaimModal from './Modals/ClaimModal';
 export enum ThemeChoice {
   Dark,
@@ -22,107 +18,28 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
   setCollapsed,
   collapsed,
 }) => {
-  const { account } = useWeb3React();
   const { isXs, isSm } = useMatchBreakpoints();
   const { logout } = useAuth();
-  const { t } = useTranslation();
-  const tooltipContent = (
-    <div>
-      <Text fontSize="16px" bold color="#1BD3D5">
-        Select a Network
-      </Text>
-      <Text fontSize="12px" bold mb="25px" mt="15px">
-        {t('You are currently browsing Kaco on SDN network')}
-      </Text>
-      <Flex
-        style={{ cursor: 'pointer' }}
-        mb="12px"
-        py="14px"
-        px="19px"
-        alignItems="center"
-        justifyContent="space-between"
-        background="#272E32"
-        borderRadius="16px"
-        onClick={() => (window.location.href = 'https://www.kaco.finance/')}
-      >
-        <Flex alignItems="center">
-          <img src={BscSvg} alt="" />
-          <Text color="white" fontSize="16px" bold ml="21px">
-            BSC
-          </Text>
-        </Flex>
-      </Flex>
+  const { account } = useWeb3React();
 
-      <Flex
-        style={{ cursor: 'pointer' }}
-        mb="12px"
-        py="14px"
-        px="19px"
-        alignItems="center"
-        justifyContent="space-between"
-        background="#272E32"
-        borderRadius="16px"
-        onClick={() => (window.location.href = 'https://shiden.kaco.finance/')}
-      >
-        <Flex alignItems="center">
-          <img src={SdnSvg} alt="" />
-          <Text color="white" fontSize="16px" bold ml="21px">
-            SDN
-          </Text>
-        </Flex>
-        <img src={SelectedSvg} alt="" />
-      </Flex>
-      <Flex></Flex>
-    </div>
-  );
-  const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, {
+  const {
+    targetRef: targetRef_P,
+    tooltip: tooltip_P,
+    tooltipVisible: tooltipVisible_P,
+  } = useTooltip(PolkadotAccounts, {
     trigger: 'click',
-    tootipStyle: { background: '#1F252A' },
+    tootipStyle: { background: '#1F252A', padding: '20px 30px' },
     placement: 'top-end',
     hideArrow: true,
     tooltipOffset: [20, 10],
   });
+
   // const [onPresentClaim] = useModal(<ClaimModal />);
   return (
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
-        {/* {account ? (
-          <div className="claim_kac" onClick={onPresentClaim}>
-            Claim KAC
-          </div>
-        ) : null} */}
-        {/* <div className="icons">
-          <a target="_blank" rel="noreferrer" href="https://twitter.com/KACOFinance">
-            <TwitterIcon height="28px" />
-          </a>
-          <a target="_blank" rel="noreferrer" href="https://t.me/coinversationofficial">
-            <TelegramIcon height="28px" />
-          </a>
-        </div> */}
-        {tooltipVisible && tooltip}
-
-        <Flex
-          style={{ cursor: 'pointer' }}
-          ref={targetRef}
-          alignItems="center"
-          borderRadius="12px"
-          border="2px solid #1BD3D5"
-          height="36px"
-          width="100px"
-          justifyContent="space-between"
-          padding="0px 16px"
-          mr="16px"
-        >
-          <Text color="#1BD3D5" fontSize="12px" bold>
-            SDN
-          </Text>
-          <img
-            style={{ width: '10px', height: '6px', transform: tooltipVisible ? '' : 'scaleY(-1)' }}
-            src={SlSvg}
-            alt=""
-          />
-        </Flex>
+        <SwitchChain />
         {account ? (
           <div className="account">
             <span>{account}</span>

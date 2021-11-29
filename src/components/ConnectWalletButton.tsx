@@ -1,16 +1,15 @@
 import React from 'react';
-import { Button, useWalletModal } from '@kaco/uikit';
+import { Button, useWalletModal, useMatchBreakpoints } from '@kaco/uikit';
 import useAuth from 'hooks/useAuth';
-import { useTranslation } from 'contexts/Localization';
 
 const ConnectWalletButton = (props) => {
-  const { t } = useTranslation();
   const { login, logout } = useAuth();
   const { onPresentConnectModal } = useWalletModal(login, logout);
+  const { isXs, isSm } = useMatchBreakpoints();
 
   return (
-    <Button onClick={onPresentConnectModal} {...props}>
-      {t('Connect Wallet')}
+    <Button style={{ height: '34px' }} onClick={onPresentConnectModal} {...props}>
+      {isXs || isSm ? 'Connect' : 'Connect Wallet'}
     </Button>
   );
 };
