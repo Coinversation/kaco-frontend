@@ -1,12 +1,10 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import ConnectWalletButton from '../ConnectWalletButton';
-import { useWeb3React } from '@web3-react/core';
 import { LogoutIcon, useMatchBreakpoints, useTooltip } from '@kaco/uikit';
 import UncollapsedSvg from './imgs/icon_sq.svg';
-import useAuth from 'hooks/useAuth';
 import PolkadotAccounts from './Modals/PolkadotAccounts';
 import SwitchChain from './Modals/SwitchChain';
+import AccountInfo from './Modals/AccountInfo';
 // import ClaimModal from './Modals/ClaimModal';
 export enum ThemeChoice {
   Dark,
@@ -19,8 +17,6 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
   collapsed,
 }) => {
   const { isXs, isSm } = useMatchBreakpoints();
-  const { logout } = useAuth();
-  const { account } = useWeb3React();
 
   const {
     targetRef: targetRef_P,
@@ -40,14 +36,7 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
         <SwitchChain />
-        {account ? (
-          <div className="account">
-            <span>{account}</span>
-            <LogoutIcon onClick={logout} />
-          </div>
-        ) : (
-          <ConnectWalletButton scale="sm" />
-        )}
+        <AccountInfo />
       </div>
     </div>
   );
