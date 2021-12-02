@@ -3,7 +3,11 @@ import styled from 'styled-components';
 const PolkadotLearnMore_TSX: FC<{ className?: string }> = ({ className }) => {
   return (
     <div className={className}>
-      <a href="https://contraposition.feishu.cn/docs/doccnjMeHVmO4zz5t2YJw8Yatid" target="_blank" rel="noreferrer">
+      <a
+        href="https://coinversationofficial.medium.com/tutorial-signature-system-for-distributing-kac-reward-d4ec7c59c5c6"
+        target="_blank"
+        rel="noreferrer"
+      >
         Learn More&gt;&gt;
       </a>
     </div>
