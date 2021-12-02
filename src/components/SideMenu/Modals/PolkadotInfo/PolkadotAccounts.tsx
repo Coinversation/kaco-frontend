@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import AccountEVM from './AccountEVM';
 import PolkadotNoAccount from './PolkadotNoAccount';
@@ -7,30 +7,25 @@ import PolkadotLearnMore from './PolkadotLearnMore';
 type Phase = 'none' | 'setup' | 'shop' | 'battle' | 'result';
 
 const PolkadotAccount_TSX: FC<{ className?: string }> = ({ className }) => {
-  const [phase, setPhase] = useState<Phase>('setup');
-  const connectWallet = useCallback(() => {
+  const [phase, setPhase] = useState<Phase>(
+    (window.localStorage.getItem('PolkadotAccount_TSX_phase') as Phase) || 'none',
+  );
+  const connectWallet = () => {
     setPhase('setup');
-  }, []);
-  switch (phase) {
-    case 'setup':
-      // React.useEffect(() => {
-      //   console.log(33333);
-      //   // setup().then((r) => {
-      //   //   if (r.kind === 'ok') {
-      //   //     setInjectedAccounts(r.injectedAccounts);
-      //   //   }
-      //   // });
-      // }, []);
-      return (
-        <div className={className}>
-          <p className="text">Polkadot Wallet</p>
-          <PolkadoAccountInfo />
-        </div>
-      );
+    window.localStorage.setItem('PolkadotAccount_TSX_phase', 'setup');
+  };
+
+  if (phase === 'setup') {
+    return (
+      <div className={className}>
+        <p className="text">Bind Shiden address</p>
+        <PolkadoAccountInfo />
+      </div>
+    );
   }
   return (
     <div className={className}>
-      <p className="text">Polkadot Wallet</p>
+      <p className="text">Bind Shiden address</p>
       <PolkadotNoAccount connectWallet={connectWallet} />
     </div>
   );

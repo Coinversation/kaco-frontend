@@ -14,6 +14,7 @@ interface mInjectedAccountWithMeta extends InjectedAccountWithMeta {
   signed?: Signed;
   publickey?: string;
   evmAddress?: string;
+  shidenAddress?: string;
 }
 const getAddressStatus = (
   waiting: boolean,
@@ -52,7 +53,7 @@ const getAddressStatus = (
         setInjectedAccounts(_a);
       }
     } else {
-      // setInjectedAccounts(arr);
+      setInjectedAccounts(arr);
     }
   });
 };
@@ -62,7 +63,7 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
   const [message, setMessage] = useState('');
   const { account } = useWeb3React();
   const { toastSuccess } = useToast();
-
+  // console.log(1111);
   // 链接钱包
   React.useEffect(() => {
     setup(setWaiting, null).then((r) => {
@@ -70,6 +71,7 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
         // 获取publicKey
         const _arr = r.injectedAccounts.map((v) => {
           const publickey = u8aToHex(decodeAddress(v.address, true));
+
           return {
             ...v,
             publickey,
@@ -189,7 +191,7 @@ const PolkadoAccountInfo = styled(PolkadoAccountInfo_TSX)`
       }
       img {
         width: 20px;
-        margin-right: 24px;
+        // margin-right: 24px;
       }
     }
   }

@@ -10,7 +10,7 @@ export const setupExtension = async () => {
       message: 'Please install Polkadot{.js} extension and try again.',
     };
   }
-  const injectedAccounts = await web3Accounts();
+  const injectedAccounts = await web3Accounts({ ss58Format: 5 });
   if (injectedAccounts.length === 0) {
     return {
       kind: 'ng' as const,
@@ -47,6 +47,5 @@ export const polkadotSignMessage = async (evmAddress: string, polkadotAddress: s
     address: polkadotAddress,
     type: 'bytes',
   });
-  console.log('Polkadot signature:' + JSON.stringify(ret));
   return ret.signature;
 };
