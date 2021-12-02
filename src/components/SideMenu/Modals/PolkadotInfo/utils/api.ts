@@ -15,7 +15,7 @@ let apiPromise: ApiPromise | null = null;
 const registry = new TypeRegistry();
 const types = buildTypes();
 registry.register(types);
-const profileApiUrl = process.env.REACT_APP_API_PROFILE;
+const profileApiUrl = 'https://bind.kaco.finance';
 
 export const connected = async (endpoint: string, f: () => Promise<any>) => {
   let api: ApiPromise | null = null;
