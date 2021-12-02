@@ -1,6 +1,6 @@
-import React, { FC, useCallback, useState, SetStateAction, Dispatch } from 'react';
+import React, { FC, useState, SetStateAction, Dispatch } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-import { decodeAddress, signatureVerify } from '@polkadot/util-crypto';
+import { decodeAddress } from '@polkadot/util-crypto';
 import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
 import { u8aToHex } from '@polkadot/util';
