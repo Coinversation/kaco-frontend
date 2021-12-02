@@ -17,6 +17,7 @@ const PolkadotLearnMore = styled(PolkadotLearnMore_TSX)`
     font-weight: bold;
     color: #f1842c;
     font-size: 14px;
+    margin-top: 10px;
     margin-bottom: 24px;
   }
 `;

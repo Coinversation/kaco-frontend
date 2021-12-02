@@ -15,7 +15,7 @@ let apiPromise: ApiPromise | null = null;
 const registry = new TypeRegistry();
 const types = buildTypes();
 registry.register(types);
-const profileApiUrl = process.env.REACT_APP_API_PROFILE;
+const profileApiUrl = '';
 
 export const connected = async (endpoint: string, f: () => Promise<any>) => {
   let api: ApiPromise | null = null;
@@ -63,7 +63,6 @@ const getApi = () => {
 
 export const query = <T>(f: (query: ApiPromise['query']) => Promise<T>): Promise<T> => {
   const api = getApi();
-  console.log({ f });
   return f(api.query);
 };
 
@@ -155,7 +154,6 @@ export const buildKeyringPair = (mnemonic: string) => new Keyring({ type: 'ed255
 export const getSignAddress = async (publickeys: string[]): Promise<any> => {
   try {
     const response = await fetch(`${profileApiUrl}/sign/address?polkadotKeys=${publickeys.join(',')}`);
-    console.log({ response });
     if (response.status !== 200) {
       return null;
     }
@@ -184,7 +182,6 @@ export const postSignAddress = async (
         sigInfos: sigInfos,
       }),
     });
-    console.log({ response });
     if (response.status !== 200) {
       return null;
     }

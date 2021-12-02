@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState, SetStateAction, Dispatch } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
-import { decodeAddress } from '@polkadot/util-crypto';
+import { decodeAddress, signatureVerify } from '@polkadot/util-crypto';
 import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
 import { u8aToHex } from '@polkadot/util';
@@ -8,6 +8,7 @@ import { setup, getSignStatus, postSignStatus } from './utils/task';
 import OkSvg from './img/icon_ok.svg';
 import { polkadotSignMessage } from './utils/accountUtils';
 import WarnInfo from './warnInfo';
+import useToast from 'hooks/useToast';
 type Signed = 0 | 1 | 2;
 interface mInjectedAccountWithMeta extends InjectedAccountWithMeta {
   signed?: Signed;
@@ -27,25 +28,31 @@ const getAddressStatus = (
   getSignStatus(
     setWaiting,
     arr.map((v) => v.publickey),
-  ).then((v) => {
-    if (v) {
+  ).then(({ data: v }) => {
+    if (v && v.length) {
+      const _it = {};
+      for (let i = 0; i < v.length; i++) {
+        _it[`${Object.keys(v[i])}`] = `${Object.values(v[i])}`;
+      }
       const _a = [];
       // 0 未签名   1 已签名  2 签名不是当前EVM用户
       for (let i = 0; i < arr.length; i++) {
         const item = arr[i];
-        if (v[item.publickey]) {
-          if (v[item.publickey] === account) {
-            _a.push({ ...item, signed: 1, evmAddress: v[item.publickey] });
+        if (_it[item.publickey]) {
+          if (_it[item.publickey] === account) {
+            _a.push({ ...item, signed: 1, evmAddress: _it[item.publickey] });
           } else {
-            _a.push({ ...item, signed: 2, evmAddress: v[item.publickey] });
+            _a.push({ ...item, signed: 2, evmAddress: _it[item.publickey] });
           }
         } else {
           _a.push({ ...item, signed: 0 });
         }
       }
-      setInjectedAccounts(_a);
+      if (_a.length) {
+        setInjectedAccounts(_a);
+      }
     } else {
-      setInjectedAccounts(arr);
+      // setInjectedAccounts(arr);
     }
   });
 };
@@ -54,6 +61,7 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
   const [waiting, setWaiting] = useState(false);
   const [message, setMessage] = useState('');
   const { account } = useWeb3React();
+  const { toastSuccess } = useToast();
 
   // 链接钱包
   React.useEffect(() => {
@@ -74,24 +82,31 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
     });
     // eslint-disable-next-line
   }, []);
-  const signAddress = useCallback(
-    async (v: mInjectedAccountWithMeta) => {
-      const ret = await polkadotSignMessage(v.address);
-      const sigInfos = {
-        polkadotKey: v.publickey,
-        evmAddress: account,
-        signature: ret,
-      };
-      postSignStatus(setWaiting, [sigInfos]).then((res) => {
-        console.log(res);
-        if (res) {
-          getAddressStatus(waiting, setWaiting, account, setInjectedAccounts, injectedAccounts);
-        }
-      });
-    },
-    // eslint-disable-next-line
-    [],
-  );
+  const signAddress = async (v: mInjectedAccountWithMeta) => {
+    const ret = await polkadotSignMessage(account, v.address);
+    const sigInfos = {
+      polkadotKey: v.publickey,
+      evmAddress: account,
+      signature: ret,
+    };
+    // const isValidSignature = (signedMessage: string, signature: string, polkadotPubKey: string) => {
+    //   try {
+    //     const publicKey = decodeAddress(polkadotPubKey);
+    //     const hexPublicKey = u8aToHex(publicKey);
+    //     return signatureVerify(signedMessage, signature, hexPublicKey).isValid;
+    //   } catch (error) {
+    //     console.error({ error });
+    //     return false;
+    //   }
+    // };
+    // const _isValidSignature = isValidSignature(account, ret, v.publickey);
+    postSignStatus(setWaiting, [sigInfos]).then((res) => {
+      if (res) {
+        toastSuccess('Bind successful!');
+        getAddressStatus(waiting, setWaiting, account, setInjectedAccounts, injectedAccounts);
+      }
+    });
+  };
 
   return (
     <div className={className}>
@@ -125,6 +140,11 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
 
 const PolkadoAccountInfo = styled(PolkadoAccountInfo_TSX)`
   padding: 0 20px 0 20px;
+  max-height: 300px;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   h4 {
     padding: 10px 20px;
     color: #ad3d3d;

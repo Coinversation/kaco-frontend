@@ -37,8 +37,8 @@ export const setupAccounts = async (account: Account | null) => {
     injectedAccounts,
   };
 };
-export const polkadotSignMessage = async (polkadotAddress: string): Promise<string> => {
-  const wrapped = u8aWrapBytes(polkadotAddress.toLowerCase());
+export const polkadotSignMessage = async (evmAddress: string, polkadotAddress: string): Promise<string> => {
+  const wrapped = u8aWrapBytes(evmAddress.toLowerCase());
   const injected: any = await web3Enable('clv');
 
   const currentInjected = injected[0];
@@ -47,11 +47,6 @@ export const polkadotSignMessage = async (polkadotAddress: string): Promise<stri
     address: polkadotAddress,
     type: 'bytes',
   });
-  // const ret = await currentInjected.sign.signMessage({
-  //   data: u8aToHex(wrapped),
-  //   address: polkadotAddress,
-  //   type: "bytes",
-  // });
   console.log('Polkadot signature:' + JSON.stringify(ret));
-  return JSON.stringify(ret);
+  return ret.signature;
 };
