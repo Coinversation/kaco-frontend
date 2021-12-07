@@ -32,7 +32,6 @@ const getAddressStatus = (
   ).then((res) => {
     if (res) {
       const { data: v } = res || {};
-      console.log(8888);
       if (v && v.length) {
         const _it = {};
         for (let i = 0; i < v.length; i++) {
@@ -56,11 +55,9 @@ const getAddressStatus = (
           setInjectedAccounts(_a);
         }
       } else {
-        console.log(911199, arr);
         setInjectedAccounts(arr);
       }
     } else {
-      console.log(999, arr);
       setInjectedAccounts(arr);
     }
   });
@@ -71,16 +68,13 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
   const [message, setMessage] = useState('');
   const { account } = useWeb3React();
   const { toastSuccess } = useToast();
-  // console.log(1111);
   // 链接钱包
   useEffect(() => {
     setup(setWaiting, null).then((r) => {
       if (r.kind === 'ok') {
         // 获取publicKey
         const _arr = r.injectedAccounts.map((v) => {
-          console.log(111);
           const publickey = u8aToHex(decodeAddress(v.address, true));
-          console.log(3333);
           return {
             ...v,
             publickey,
@@ -119,7 +113,6 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
     });
   };
 
-  console.log({ injectedAccounts });
   return (
     <div className={className}>
       {waiting ? (
