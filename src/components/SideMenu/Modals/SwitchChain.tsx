@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, useTooltip } from '@kaco/uikit';
+import { Text, Flex, useTooltip, useMatchBreakpoints } from '@kaco/uikit';
 import BscSvg from '../imgs/icon_bsc.svg';
 import SelectedSvg from '../imgs/icon_select.svg';
 import SdnSvg from '../imgs/icon_sd.png';
@@ -7,6 +7,7 @@ import SlSvg from '../imgs/icon_sl.svg';
 
 const chainKey = 'SDN';
 const SwitchChain = () => {
+  const { isXs, isSm } = useMatchBreakpoints();
   const { targetRef, tooltip, tooltipVisible } = useTooltip(SwitchChainTooltip, {
     trigger: 'click',
     tootipStyle: { background: '#1F252A', padding: '20px 30px' },
@@ -27,7 +28,7 @@ const SwitchChain = () => {
         width="100px"
         justifyContent="space-between"
         padding="0px 16px"
-        mr="16px"
+        mr={isXs || isSm ? '8px' : '16px'}
       >
         {/*  @ts-ignore */}
         {chainKey === 'SDN' ? (

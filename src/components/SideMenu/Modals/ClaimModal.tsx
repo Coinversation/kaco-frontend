@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Flex, Text, IconButton, CloseIcon } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import Modal from 'components/Modal/Modal';
 import Claim_KAC_Token_PNG from './Claim_KAC_Token_PNG.png';
 import Balance from 'components/Balance';
 import styled from 'styled-components';
-// import { ethers } from 'ethers';
+import { useMerkleDistributorContract } from 'hooks/useContract';
+import useToast from 'hooks/useToast';
 import { useWeb3React } from '@web3-react/core';
-// import useToast from 'hooks/useToast';
-// import ConnectWalletButton from 'components/ConnectWalletButton';
-// todo
-// import { getAddressByType } from 'utils/collectibles';
-// import { useERC721 } from 'hooks/useContract';
+import merkle from 'config/constants/merkle.json';
 
+import { getBalanceAmount } from 'utils/formatBalance';
 const HeaderStyled = styled(Flex)`
   img {
     width: 60px;
@@ -51,40 +49,63 @@ const BgButton = styled(Button)`
 interface CollectModalProps {
   onDismiss?: () => void;
 }
+
+const getClaimObjectFromAddress = (address: string) => {
+  const keys = Object.keys(merkle.claims);
+  return merkle.claims[keys.find((key) => key.toLowerCase() === address.toLowerCase())];
+};
 const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
   const { t } = useTranslation();
-  const [isLoading] = useState(false);
-  // const [value, setValue] = useState('');
-  // const [error, setError] = useState(null);
-  // const contract = useERC721(getAddressByType('pancake'));
   const { account } = useWeb3React();
-  // const { toastSuccess } = useToast();
-
-  // const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value: inputValue } = evt.target;
-  //   setValue(inputValue);
-  // };
-  const handleConfirm = async () => {
-    // try {
-    // const isValidAddress = ethers.utils.isAddress(value);
-    // if (!isValidAddress) {
-    //   setError(t('Please enter a valid wallet address'));
-    // } else {
-    // const tx = await contract.transferFrom(account, value, tokenIds[0]);
-    // setIsLoading(true);
-    // const receipt = await tx.wait();
-    // if (receipt.status) {
-    //   onDismiss();
-    //   onSuccess();
-    //   toastSuccess(t('NFT successfully transferred!'));
-    // } else {
-    //   setError(t('Unable to transfer NFT'));
-    //   setIsLoading(false);
-    // }
-    // }
-    // } catch (err) {
-    //   console.error('Unable to Claim KAC Token:', err);
-    // }
+  const airdropContract = useMerkleDistributorContract();
+  const [claimable, setClaimable] = useState('0');
+  const { toastError, toastSuccess } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    (async () => {
+      const address = account;
+      if (address && airdropContract) {
+        const claimObject: any = getClaimObjectFromAddress(address);
+        const claimedRewards = await airdropContract.claimedRewards(address);
+        const a = getBalanceAmount(claimObject?.amount ?? 0, 18).toNumber();
+        const b = getBalanceAmount(claimedRewards, 18).toNumber();
+        const c = a - b;
+        setClaimable(`${c < 0 ? 0 : c}`);
+      }
+    })();
+  }, [account, airdropContract]);
+  const claimAirdrop = async () => {
+    try {
+      const address = account;
+      // is Eligibility
+      const claimObject = getClaimObjectFromAddress(address);
+      if (!claimObject) {
+        toastError('Error', 'Address has no available claim');
+        return false;
+      }
+      // is claimed
+      // const isClaimed = await airdropContract.isClaimed(claimObject.index);
+      const isClaimed = Number(claimable) <= 0;
+      if (isClaimed) {
+        toastError('Claimed Error', 'you have already claimed your airdrop');
+        return false;
+      }
+      setIsLoading(true);
+      const tx = await airdropContract.claim(claimObject.index, address, claimObject.amount, claimObject.proof, {
+        from: account,
+      });
+      toastSuccess('Recoreded', 'Your transaction has been recoreded');
+      const receipt = await tx.wait();
+      if (receipt.status) {
+        toastSuccess('successfully claimed', 'You have successfully claimed your airdrop');
+      } else {
+        toastError('Transation was not Successful');
+      }
+      setIsLoading(false);
+    } catch (e: any) {
+      setIsLoading(false);
+      toastError(e?.data?.message ?? 'Claimed Error');
+    }
   };
 
   return (
@@ -93,7 +114,7 @@ const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
         <HeaderStyled>
           <img src={Claim_KAC_Token_PNG} alt="Claim_KAC_Token_PNG" />
           <div>
-            <Balance fontSize="28px" bold value={620.89} decimals={2} unit="KAC" />
+            <Balance fontSize="28px" bold value={+claimable} decimals={2} unit=" KAC" />
             <Text bold fontSize="14px">
               Claim KAC Token
             </Text>
@@ -106,8 +127,7 @@ const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
       </Flex>
 
       <Text padding="0 4%" mt="20px" mb="30px" bold fontSize="14px" lineHeight="24px" color="#9DA6A6">
-        Enter an address to trigger a KAC claim. If the address has any claimable KAC it will be sent to them on
-        submission.
+        Kac Bonus for dAppsStaking users staked before Era40
       </Text>
       {/* <BorderDiv>
         {error && (
@@ -133,7 +153,7 @@ const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
       <BgButton
         minWidth="150px"
         variant="secondary"
-        onClick={handleConfirm}
+        onClick={claimAirdrop}
         disabled={!account || isLoading}
         ml="8px"
         mr="8px"

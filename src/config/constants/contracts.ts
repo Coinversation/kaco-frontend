@@ -74,4 +74,8 @@ export default {
     [ChainId.MAINNET]: '0xb92Ab7c1edcb273AbA24b0656cEb3681654805D2',
     [ChainId.TESTNET]: '0x3F9602593b4f7C67ab045DB51BbDEa94E40fA9Fe',
   },
+  merkle: {
+    [ChainId.MAINNET]: '0x478D879Dbfbe7f6F66Ad73622d7cb25aD9b1b605',
+    [ChainId.TESTNET]: '0x478D879Dbfbe7f6F66Ad73622d7cb25aD9b1b605',
+  },
 };

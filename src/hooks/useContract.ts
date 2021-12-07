@@ -24,6 +24,7 @@ import {
   getBunnySpecialCakeVaultContract,
   getBunnySpecialPredictionContract,
   getFarmAuctionContract,
+  getMerkleContract,
 } from 'utils/contractHelpers';
 import { getMulticallAddress } from 'utils/addressHelpers';
 
@@ -150,6 +151,11 @@ export const useChainlinkOracleContract = () => {
 export const useSpecialBunnyCakeVaultContract = () => {
   const { library } = useActiveWeb3React();
   return useMemo(() => getBunnySpecialCakeVaultContract(library.getSigner()), [library]);
+};
+
+export const useMerkleDistributorContract = () => {
+  const { account, library } = useActiveWeb3React();
+  return useMemo(() => getMerkleContract(account ? library.getSigner() : library), [library, account]);
 };
 
 export const useSpecialBunnyPredictionContract = () => {

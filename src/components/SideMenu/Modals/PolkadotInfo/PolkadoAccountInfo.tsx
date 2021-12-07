@@ -1,4 +1,4 @@
-import React, { FC, useState, SetStateAction, Dispatch } from 'react';
+import React, { useEffect, FC, useState, SetStateAction, Dispatch } from 'react';
 import type { InjectedAccountWithMeta } from '@polkadot/extension-inject/types';
 import { decodeAddress } from '@polkadot/util-crypto';
 import styled from 'styled-components';
@@ -29,28 +29,31 @@ const getAddressStatus = (
   getSignStatus(
     setWaiting,
     arr.map((v) => v.publickey),
-  ).then(({ data: v }) => {
-    if (v && v.length) {
-      const _it = {};
-      for (let i = 0; i < v.length; i++) {
-        _it[`${Object.keys(v[i])}`] = `${Object.values(v[i])}`;
-      }
-      const _a = [];
-      // 0 未签名   1 已签名  2 签名不是当前EVM用户
-      for (let i = 0; i < arr.length; i++) {
-        const item = arr[i];
-        if (_it[item.publickey]) {
-          if (_it[item.publickey] === account) {
-            _a.push({ ...item, signed: 1, evmAddress: _it[item.publickey] });
-          } else {
-            _a.push({ ...item, signed: 2, evmAddress: _it[item.publickey] });
-          }
-        } else {
-          _a.push({ ...item, signed: 0 });
+  ).then((res) => {
+    if (res) {
+      const { data: v } = res || {};
+      if (v && v.length) {
+        const _it = {};
+        for (let i = 0; i < v.length; i++) {
+          _it[`${Object.keys(v[i])}`] = `${Object.values(v[i])}`;
         }
-      }
-      if (_a.length) {
-        setInjectedAccounts(_a);
+        const _a = [];
+        // 0 未签名   1 已签名  2 签名不是当前EVM用户
+        for (let i = 0; i < arr.length; i++) {
+          const item = arr[i];
+          if (_it[item.publickey]) {
+            if (_it[item.publickey] === account) {
+              _a.push({ ...item, signed: 1, evmAddress: _it[item.publickey] });
+            } else {
+              _a.push({ ...item, signed: 2, evmAddress: _it[item.publickey] });
+            }
+          } else {
+            _a.push({ ...item, signed: 0 });
+          }
+        }
+        if (_a.length) {
+          setInjectedAccounts(_a);
+        }
       }
     } else {
       setInjectedAccounts(arr);
@@ -65,7 +68,7 @@ const PolkadoAccountInfo_TSX: FC<{ className?: string }> = ({ className }) => {
   const { toastSuccess } = useToast();
   // console.log(1111);
   // 链接钱包
-  React.useEffect(() => {
+  useEffect(() => {
     setup(setWaiting, null).then((r) => {
       if (r.kind === 'ok') {
         // 获取publicKey
