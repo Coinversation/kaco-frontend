@@ -56,6 +56,7 @@ const getClaimObjectFromAddress = (address: string) => {
 };
 const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
   const { t } = useTranslation();
+  // const account = '0x4Bfe64F934eeb3CF0bCBf50777f26a7f0DD9f976';
   const { account } = useWeb3React();
   const airdropContract = useMerkleDistributorContract();
   const [claimable, setClaimable] = useState('0');
@@ -68,8 +69,11 @@ const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
         const claimObject: any = getClaimObjectFromAddress(address);
         const claimedRewards = await airdropContract.claimedRewards(address);
         const a = getBalanceAmount(claimObject?.amount ?? 0, 18).toNumber();
-        const b = getBalanceAmount(claimedRewards, 18).toNumber();
+        // console.log({ a }, claimObject?.amount);
+        const b = getBalanceAmount(claimedRewards.toString(), 18).toNumber();
+        // console.log({ b, claimedRewards });
         const c = a - b;
+        // console.log({ c });
         setClaimable(`${c < 0 ? 0 : c}`);
       }
     })();
