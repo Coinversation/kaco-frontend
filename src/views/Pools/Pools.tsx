@@ -30,11 +30,11 @@ const Pools: React.FC = () => {
   const location = useLocation();
   const { account } = useWeb3React();
   const { pools: poolsWithoutAutoVault, userDataLoaded: userDataReady } = usePools(account);
-  const [stakedOnly, setStakedOnly] = usePersistState(false, { localStorageKey: 'pancake_pool_staked' });
+  const [stakedOnly, setStakedOnly] = usePersistState(false, { localStorageKey: 'kaco_pool_staked' });
   const [numberOfPoolsVisible, setNumberOfPoolsVisible] = useState(NUMBER_OF_FARMS_VISIBLE);
   const [observerIsSet, setObserverIsSet] = useState(false);
   const loadMoreRef = useRef<HTMLDivElement>(null);
-  const [viewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'panceke_pool_view' });
+  const [viewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'kaco_pool_view' });
   const [filter, setFilter] = useState('');
   const [sortOption] = useState('hot');
   const chosenPoolsLength = useRef(0);
@@ -145,6 +145,7 @@ const Pools: React.FC = () => {
       latinise(pool.earningToken.symbol.toLowerCase()).includes(lowercaseQuery),
     );
   }
+  chosenPools.push(...(finishedPools || []));
   chosenPools = sortPools(chosenPools).slice(0, numberOfPoolsVisible);
   chosenPoolsLength.current = chosenPools.length;
 

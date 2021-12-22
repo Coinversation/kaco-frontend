@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'contexts/Localization';
-import styled from 'styled-components';
-import { Text, Button, OpenNewIcon, Link } from '@kaco/uikit';
+// import styled from 'styled-components';
+import { Text, Button } from '@kaco/uikit';
 import Modal from 'components/Modal/Modal';
 
 interface NotEnoughTokensModalProps {
@@ -9,9 +9,9 @@ interface NotEnoughTokensModalProps {
   onDismiss?: () => void;
 }
 
-const StyledLink = styled(Link)`
-  width: 100%;
-`;
+// const StyledLink = styled(Link)`
+//   width: 100%;
+// `;
 
 const NotEnoughTokensModal: React.FC<NotEnoughTokensModalProps> = ({ tokenSymbol, onDismiss }) => {
   const { t } = useTranslation();
@@ -30,12 +30,12 @@ const NotEnoughTokensModal: React.FC<NotEnoughTokensModalProps> = ({ tokenSymbol
       <Button mt="24px" as="a" external href="/swap">
         {t('Buy')} {tokenSymbol}
       </Button>
-      <StyledLink href="https://yieldwatch.net" external>
+      {/* <StyledLink href="https://yieldwatch.net" external>
         <Button variant="secondary" mt="8px" width="100%">
           {t('Locate Assets')}
           <OpenNewIcon color="primary" ml="4px" />
         </Button>
-      </StyledLink>
+      </StyledLink> */}
       <Button variant="text" onClick={onDismiss}>
         {t('Close Window')}
       </Button>

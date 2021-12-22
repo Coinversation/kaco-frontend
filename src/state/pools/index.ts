@@ -16,7 +16,7 @@ import {
 import { fetchPublicVaultData, fetchVaultFees } from './fetchVaultPublic';
 import fetchVaultUser from './fetchVaultUser';
 import { getTokenPricesFromFarm } from './helpers';
-import { fetchTokenPerBlock, usePoolWeight } from 'views/Pools/hooks/useTokenPerBlock';
+import { fetchTokenPerBlock, fetchRewardPerBlock, usePoolWeight } from 'views/Pools/hooks/useTokenPerBlock';
 const initialState: PoolsState = {
   data: [...poolsConfig],
   userDataLoaded: false,
@@ -63,12 +63,13 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
 
     const earningTokenAddress = pool.earningToken.address ? getAddress(pool.earningToken.address).toLowerCase() : null;
     const earningTokenPrice = earningTokenAddress ? prices[earningTokenAddress] : 0;
+    const _rewardPerBlock = await fetchRewardPerBlock(pool);
     const apr = !isPoolFinished
       ? getPoolApr(
           stakingTokenPrice,
           earningTokenPrice,
           getBalanceNumber(new BigNumber(totalStaking.totalStaked), pool.stakingToken.decimals),
-          _tokenPerBlock.toNumber() * _poolWeight.toNumber(),
+          pool.sousId === 0 ? _tokenPerBlock.toNumber() * _poolWeight.toNumber() : _rewardPerBlock.toNumber(),
         )
       : 0;
     liveData.push({
@@ -79,7 +80,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
       apr,
       isFinished: isPoolFinished,
     });
-    if (poolsConfig.length - 1 === index) {
+    if (poolsConfig.length === liveData.length) {
       dispatch(setPoolsPublicData(liveData));
     }
   });
@@ -192,7 +193,10 @@ export const PoolsSlice = createSlice({
       const userData = action.payload;
       state.data = state.data.map((pool) => {
         const userPoolData = userData.find((entry) => entry.sousId === pool.sousId);
-        return { ...pool, userData: userPoolData };
+        if (userPoolData) {
+          return { ...pool, userData: userPoolData };
+        }
+        return pool;
       });
       state.userDataLoaded = true;
     },

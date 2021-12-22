@@ -94,9 +94,12 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
   if (!account) {
     return (
       <ActionContainer style={{ maxWidth: '380px' }}>
-        <ActionTitles>{actionTitle}</ActionTitles>
+        <ActionTitles>
+          {actionTitle}
+          <Heading style={{ marginTop: '4px' }}>0</Heading>
+        </ActionTitles>
+
         <ActionContent>
-          <Heading>0</Heading>
           <Button disabled>{isCompoundPool ? t('Collect') : t('Harvest')}</Button>
         </ActionContent>
       </ActionContainer>

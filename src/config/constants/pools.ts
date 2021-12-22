@@ -7,8 +7,8 @@ const pools: PoolConfig[] = [
     stakingToken: tokens.kaco,
     earningToken: tokens.kaco,
     contractAddress: {
-      [ChainId.TESTNET]: '0x7DE7fF5D0290695c7f8a4531ff77FFCC8461C29e',
-      [ChainId.MAINNET]: '0x81b71D0bC2De38e37978E6701C342d0b7AA67D59',
+      [ChainId.TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
@@ -16,19 +16,6 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
   },
-  // {
-  //   sousId: 210,
-  //   stakingToken: tokens.kaco,
-  //   earningToken: tokens.pots,
-  //   contractAddress: {
-  //     [ChainId.TESTNET]: '',
-  //     [ChainId.MAINNET]: '0xBeDb490970204cb3CC7B0fea94463BeD67d5364D',
-  //   },
-  //   poolCategory: PoolCategory.CORE,
-  //   harvest: true,
-  //   sortOrder: 999,
-  //   tokenPerBlock: '0.0868',
-  // },
 ];
 
 export default pools;

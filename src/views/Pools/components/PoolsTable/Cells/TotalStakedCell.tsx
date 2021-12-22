@@ -28,7 +28,6 @@ const TotalStakedCell: React.FC<TotalStakedCellProps> = ({ pool }) => {
     return getBalanceNumber(totalStaked, stakingToken.decimals);
   }, [totalStaked, stakingToken.decimals]);
   // }, [isAutoVault, totalCakeInVault, isManualCakePool, totalStaked, stakingToken.decimals]);
-
   return totalStaked && totalStaked.gte(0) ? (
     <Balance fontSize="16px" bold value={totalStakedBalance} decimals={0} unit={` ${stakingToken.symbol}`} />
   ) : (

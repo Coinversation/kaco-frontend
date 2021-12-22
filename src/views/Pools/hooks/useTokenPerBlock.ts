@@ -4,9 +4,11 @@ import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber';
 import BigNumber from 'bignumber.js';
 import masterChef from 'config/abi/masterchef.json';
 import masterchefABI from 'config/abi/masterchef.json';
+import sousChefABI from 'config/abi/sousChefV2.json';
 import { getMasterChefAddress } from 'utils/addressHelpers';
 import { PoolConfig } from 'config/constants/types';
 import { chainId } from 'config/constants/tokens';
+import pools from 'config/constants/pools';
 
 const base = BIG_TEN.pow(new BigNumber(18));
 
@@ -14,13 +16,32 @@ export const fetchTokenPerBlock = async () => {
   const res = await multicall(masterChef, [
     {
       address: addresses.masterChef[chainId],
-      name: 'cakePerBlock',
+      name: 'kacPerShidenBlock',
     },
   ]);
 
   const tokenPerBlock = new BigNumber(res.toString()).div(base);
+  console.log(tokenPerBlock.toNumber());
   return tokenPerBlock;
 };
+
+export const fetchRewardPerBlock = async (pool: PoolConfig) => {
+  // console.log(`${pool.sousId}` !== '0');
+  if (pool.sousId !== 0) {
+    // console.log(pool.sousId, addresses.masterChef[chainId]);
+    const res = await multicall(sousChefABI, [
+      {
+        address: pools[pool.sousId].contractAddress[chainId],
+        name: 'rewardPerBlock',
+      },
+    ]);
+    const rewardPerBlock = new BigNumber(res.toString()).div(base);
+    return rewardPerBlock;
+  } else {
+    return new BigNumber(0);
+  }
+};
+
 export const usePoolWeight = async (pool: PoolConfig) => {
   const { sousId } = pool;
 
