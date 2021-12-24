@@ -25,32 +25,38 @@ const SwitchChain = () => {
         borderRadius="12px"
         border={`1.4px solid ${tooltipVisible ? '#1BD3D5' : '#238485'}`}
         height="36px"
-        width="100px"
+        width={isXs || isSm ? '40px' : '100px'}
         justifyContent="space-between"
-        padding="0px 16px"
+        padding={isXs || isSm ? '0px 10px' : '0px 16px'}
         mr={isXs || isSm ? '8px' : '16px'}
       >
         {/*  @ts-ignore */}
         {chainKey === 'SDN' ? (
           <>
             <img style={{ width: '16px' }} src={SdnSvg} alt="" />
-            <Text color="#1BD3D5" fontSize="14px" bold>
-              SDN
-            </Text>
+            {isXs || isSm ? null : (
+              <Text color="#1BD3D5" fontSize="14px" bold>
+                SDN
+              </Text>
+            )}
           </>
         ) : (
           <>
             <img style={{ width: '16px' }} src={BscSvg} alt="" />
-            <Text color="#1BD3D5" fontSize="14px" bold>
-              BSC
-            </Text>
+            {isXs || isSm ? null : (
+              <Text color="#1BD3D5" fontSize="14px" bold>
+                BSC
+              </Text>
+            )}
           </>
         )}
-        <img
-          style={{ width: '8px', height: '4px', transform: tooltipVisible ? '' : 'scaleY(-1)' }}
-          src={SlSvg}
-          alt=""
-        />
+        {isXs || isSm ? null : (
+          <img
+            style={{ width: '8px', height: '4px', transform: tooltipVisible ? '' : 'scaleY(-1)' }}
+            src={SlSvg}
+            alt=""
+          />
+        )}
       </Flex>
     </>
   );
