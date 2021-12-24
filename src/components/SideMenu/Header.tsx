@@ -23,6 +23,14 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
+        <div
+          className="auction_event"
+          onClick={() => {
+            window.open('https://www.coinversation.io/joinus');
+          }}
+        >
+          Auction Event
+        </div>
         {account ? (
           <div className="claim_kac" onClick={onPresentClaim}>
             {isXs || isSm ? 'Claim' : '  Claim Kac  '}
@@ -36,8 +44,8 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
 };
 
 export default styled(Header)`
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,10 +58,9 @@ export default styled(Header)`
     justify-content: flex-end;
   }
   > img {
-    width: 20px;
+    width: 25px;
     height: 20px;
   }
-
   > .right {
     display: flex;
     align-items: center;
@@ -110,6 +117,27 @@ export default styled(Header)`
         padding: 0px 16px;
       }
     }
+    .auction_event {
+      padding: 0px 10px;
+      overflow: hidden;
+      height: 36px;
+      line-height: 36px;
+      font-size: 14px;
+      color: #fff;
+      background: linear-gradient(90deg, #fc00ff, #00dbde);
+      border-radius: 12px;
+      font-weight: bold;
+      margin-right: 8px;
+      cursor: pointer;
+      ${({ theme }) => theme.mediaQueries.xs} {
+        margin-right: 8px;
+        padding: 0px 10px;
+      }
+      ${({ theme }) => theme.mediaQueries.sm} {
+        margin-right: 16px;
+        padding: 0px 16px;
+      }
+    }
     > .account {
       > svg {
         &:hover {
@@ -137,7 +165,6 @@ export default styled(Header)`
       max-width: 80px;
       ${({ theme }) => theme.mediaQueries.xs} {
         padding: 2px 16px;
-        max-width: 120px;
       }
       ${({ theme }) => theme.mediaQueries.sm} {
         padding: 2px 16px;
