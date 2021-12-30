@@ -14,6 +14,7 @@ import EasterEgg from './components/EasterEgg';
 import history from './routerHistory';
 // Views included in the main bundle
 import Pools from './views/Pools';
+import Dappstake from './views/Dappstake';
 import Swap from './views/Swap';
 import {
   RedirectDuplicateTokenIds,
@@ -102,6 +103,10 @@ const App: React.FC = () => {
             </Route>
             <Route path="/nft/wallet/mint">
               <NftMint />
+            </Route>
+
+            <Route path="/dappstake">
+              <Dappstake />
             </Route>
             {/* <Route exact path="/teams">
               <Teams />

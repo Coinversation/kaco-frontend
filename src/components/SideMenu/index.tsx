@@ -20,6 +20,8 @@ import GalaxySvg from './imgs/galaxy.svg';
 import TradeSvg from '../svg/Trade';
 import FarmSvg from '../svg/Farm';
 import NftSvg from '../svg/Nft';
+import DappstakeSvg from '../svg/Dappstake';
+
 import HomeSvg from '../svg/Home';
 import PoolsSvg from '../svg/PoolsSvg';
 import KarsierSvg from '../svg/KarsierSvg';
@@ -301,6 +303,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
         { text: 'Markets', link: '/nft/pools' },
         { text: 'My Wallet', link: '/nft/wallet' },
       ],
+    },
+    {
+      text: 'Dappstake',
+      img: DappstakeSvg,
+      link: '/dappstake',
     },
     // {
     //   text: 'Pools',
