@@ -99,7 +99,6 @@ const fetchFarmsPrices = async (farms: (Farm & PublicFarmData)[]) => {
       quoteTokenPrice = new BigNumber(0.6219);
     }
 
-
     const token = { ...farm.token, busdPrice: baseTokenPrice.toJSON() };
     const quoteToken = { ...farm.quoteToken, busdPrice: quoteTokenPrice.toJSON() };
 
