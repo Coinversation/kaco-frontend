@@ -295,6 +295,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       link: '/pools',
     },
     {
+      text: 'Dappstake',
+      img: DappstakeSvg,
+      link: '/dappstake',
+    },
+    {
       text: 'NFT',
       img: NftSvg,
       collapsed: true,
@@ -304,11 +309,7 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
         { text: 'My Wallet', link: '/nft/wallet' },
       ],
     },
-    {
-      text: 'Dappstake',
-      img: DappstakeSvg,
-      link: '/dappstake',
-    },
+
     // {
     //   text: 'Pools',
     //   imgs: [PoolsSvg, PoolsNSvg],

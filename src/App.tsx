@@ -13,9 +13,6 @@ import PageLoader from './components/Loader/PageLoader';
 import EasterEgg from './components/EasterEgg';
 import history from './routerHistory';
 // Views included in the main bundle
-import Pools from './views/Pools';
-import Dappstake from './views/Dappstake';
-import Swap from './views/Swap';
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
@@ -29,7 +26,13 @@ import { usePollCoreFarmData } from './state/farms/hooks';
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'));
+const Swap = lazy(() => import('./views/Swap'));
 const Farms = lazy(() => import('./views/Farms'));
+const Pools = lazy(() => import('./views/Pools'));
+const DappstakePage = lazy(() => import('./views/Dappstake/Page'));
+const DappstakeStake = lazy(() => import('./views/Dappstake/Stake'));
+const DappstakeUnstake = lazy(() => import('./views/Dappstake/Unstake'));
+
 // const FarmAuction = lazy(() => import('./views/FarmAuction'));
 // const Lottery = lazy(() => import('./views/Lottery'));
 // const Ifos = lazy(() => import('./views/Ifos'));
@@ -83,6 +86,18 @@ const App: React.FC = () => {
             <Route path="/pools">
               <Pools />
             </Route>
+            <DappstakePage>
+              <Route path="/dappstake/stake">
+                <DappstakeStake />
+              </Route>
+              <Route path="/dappstake/unstake">
+                <DappstakeUnstake />
+              </Route>
+              <Route exact path="/dappstake">
+                <DappstakeStake />
+              </Route>
+            </DappstakePage>
+
             {/* <Route path="/lottery">
               <Lottery />
             </Route> */}
@@ -105,9 +120,6 @@ const App: React.FC = () => {
               <NftMint />
             </Route>
 
-            <Route path="/dappstake">
-              <Dappstake />
-            </Route>
             {/* <Route exact path="/teams">
               <Teams />
             </Route>
