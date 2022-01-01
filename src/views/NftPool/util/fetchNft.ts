@@ -178,20 +178,14 @@ async function fetchPid1(nftAddress: string, id: number, owner: string, abi: any
   try {
     if (nftAddress.toLocaleLowerCase() === '0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07'.toLowerCase()) {
       const nftName = extractPancakeName(uri);
-      if (nftName.length > 20) {
-        const res = await fetch(u);
-        const info: NftMeta = await res.json();
-        if (!res.ok || !info) {
-          return;
-        }
-        const _nftName = extractPancakeName(info.name);
+      if (nftName === 'QmYUHFzEvPsoseNWcHtqE18Ao8HPBRktLPoDMKpdD') {
         return {
           id,
           balance: balance.toNumber(),
           uri: u,
-          // image: toUri(info.image),
-          image: toPancakeUri(nftName, nftAddress, _nftName),
-          name: info.name,
+          image:
+            'https://static-nft.pancakeswap.com/mainnet/0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07/pancake-christmas-2021',
+          name: 'Pancake Christmas 2021',
           attributes: [],
         };
       } else {
@@ -265,12 +259,6 @@ function extractName(name: string, id: string) {
   return name.trim().replaceAll(' ', '-').toLowerCase() + '-' + id;
 }
 function toPancakeUri(name: string, contractAddress: string, basename?: string) {
-  if (name.length > 20) {
-    // pancake-christmas
-    return `https://static-nft.pancakeswap.com/mainnet/0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07/${basename
-      .toLocaleLowerCase()
-      .replace(' ', '-')}-2021`;
-  }
   return `https://static-nft.pancakeswap.com/mainnet/${contractAddress}/${name}-1000.png`;
   // return 'https://static-nft.pancakeswap.com/mainnet/0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07/' + name + '-1000.png';
 }
