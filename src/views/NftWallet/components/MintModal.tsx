@@ -122,8 +122,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft, pair }) => {
               <img src={nft.image} alt="" style={{ width: '69px', height: '69px' }} />
             ) : (
               <video width="69px" height="69px" autoPlay={true} loop={true} playsInline={true}>
-                <source src={`${nft.image}.webm`} type="video/webm" />
-                <source src={`${nft.image}.mp4`} type="video/mp4" />
+                <source src={`${nft.image}`} type="video/mp4" />
               </video>
             )}
             <Text bold fontSize="16px" color="white" ml="30px">
@@ -182,13 +181,12 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft, pair }) => {
                 alignItems: 'center',
               }}
             >
-              {!nft || !nft?.image ? null : nft.image.indexOf('.png') > -1 || nft.image.indexOf('.jpg') > -1 ? (
-                <img src={nft.image} alt="" style={{ width: '69px', height: '69px' }} />
-              ) : (
-                <video width="69px" height="69px" autoPlay={true} loop={true} playsInline={true}>
-                  <source src={`${nft.image}.webm`} type="video/webm" />
-                  <source src={`${nft.image}.mp4`} type="video/mp4" />
+              {nft.image.indexOf('.mp4') > -1 ? (
+                <video width="100%" height="100%" autoPlay={true} loop={true} playsInline={true}>
+                  <source src={`${nft.image}`} type="video/mp4" />
                 </video>
+              ) : (
+                <img src={nft.image} alt="" />
               )}
               <div>
                 <Text bold fontSize="16px" color="white" ml="30px">

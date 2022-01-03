@@ -184,7 +184,7 @@ async function fetchPid1(nftAddress: string, id: number, owner: string, abi: any
           balance: balance.toNumber(),
           uri: u,
           image:
-            'https://static-nft.pancakeswap.com/mainnet/0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07/pancake-christmas-2021',
+            'https://static-nft.pancakeswap.com/mainnet/0xDf7952B35f24aCF7fC0487D01c8d5690a60DBa07/pancake-christmas-2021.mp4',
           name: 'Pancake Christmas 2021',
           attributes: [],
         };
