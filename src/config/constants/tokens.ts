@@ -206,7 +206,7 @@ const tokens = {
     projectLink: 'https://www.kaco.finance/',
   },
   jpyc: {
-    symbol: 'JPCY',
+    symbol: 'JPYC',
     address: {
       [ChainId.MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -340,4 +340,7 @@ export const USDC = new Token(
   'USDC',
   'USD Coin',
 );
+
+export const JPYC = new Token(ChainId.MAINNET as any, '0x735abe48e8782948a37c7765ecb76b98cde97b0f', 6, 'JPYC', 'JPYC');
+
 export default tokens;

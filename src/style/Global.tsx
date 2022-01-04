@@ -10,13 +10,13 @@ declare module 'styled-components' {
 const GlobalStyle = createGlobalStyle`
     
   @font-face {
-    font-family: 'Microsoft sYaHei';
+    font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 400;
-    // src: url(/fonts-NO/ms-yahei.ttf);
+    src: url(/fonts/ms-yahei.ttf);
   }
   * {
-    font-family: Microsoft sYaHei;
+    font-family: Microsoft YaHei;
   }
   html {
     height: 100%;

@@ -205,6 +205,7 @@ export function useTrackedTokenPairs(): [Token, Token][] {
                   if (base.address === token.address) {
                     return null;
                   }
+
                   return [base, token];
                 })
                 .filter((p): p is [Token, Token] => p !== null)
