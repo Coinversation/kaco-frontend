@@ -22,7 +22,7 @@ export const usePollFarmsData = (includeArchive = false) => {
     if (Object.keys(priceVsBusdMap).length === 0) {
       return;
     }
-    console.log('fetch with price map', priceVsBusdMap);
+    // console.log('fetch with price map', priceVsBusdMap);
     const farmsToFetch = includeArchive ? farmsConfig : nonArchivedFarms;
     const pids = farmsToFetch.map((farmToFetch) => farmToFetch.pid);
 

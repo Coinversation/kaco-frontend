@@ -1,5 +1,5 @@
 import { JSBI, Percent, Token, WETH } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, UST, ETH, USDC, DOT, KSM, ChainId } from './tokens';
+import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, ChainId, JPYC, DOT, KSM, UST, ETH } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -50,7 +50,15 @@ export const SUGGESTED_BASES: ChainTokenList = {
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [WETH[ChainId.MAINNET], DAI, BUSD[ChainId.MAINNET], USDT],
+  [ChainId.MAINNET]: [
+    WETH[ChainId.MAINNET],
+    // DAI,
+    // BUSD[ChainId.MAINNET],
+    WBNB,
+    // USDT,
+    JPYC,
+    USDC,
+  ],
   [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
 };
 
