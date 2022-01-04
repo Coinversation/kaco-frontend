@@ -53,7 +53,7 @@ const Card_: FC<{
             <source src={`${nft.image}`} type="video/mp4" />
           </video>
         ) : (
-          <img src={nft.image} alt="" />
+          <img src={nft.image} alt={`${nft.name}#${nft.id}`} />
         )}
         {lockInfo && (
           <div className="locked">

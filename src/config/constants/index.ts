@@ -1,5 +1,5 @@
 import { JSBI, Percent, Token, WETH } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, ALPACA, ETH, DOT, KSM, ChainId } from './tokens';
+import { BUSD, DAI, USDT, BTCB, Kaco, CAKE, WBNB, ALPACA, ETH, DOT, KSM, ChainId } from './tokens';
 
 export const ROUTER_ADDRESS = '0xB44A8AEb4805a5404a8d20A1294a61C95Ae6F256';
 
@@ -17,7 +17,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     KSM[ChainId.MAINNET],
     BUSD[ChainId.MAINNET],
     USDT,
-    ALPACA,
+    ALPACA[ChainId.MAINNET],
     // BTCB[ChainId.MAINNET],
     // UST,
     ETH,
@@ -62,7 +62,16 @@ export const SUGGESTED_BASES: ChainTokenList = {
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [WETH[ChainId.MAINNET], DAI, BUSD[ChainId.MAINNET], USDT],
+  [ChainId.MAINNET]: [
+    // WETH[ChainId.MAINNET],
+    // DAI,
+    ALPACA[ChainId.MAINNET],
+    CAKE[ChainId.MAINNET],
+    Kaco[ChainId.MAINNET],
+    DOT[ChainId.MAINNET],
+    BUSD[ChainId.MAINNET],
+    USDT,
+  ],
   [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
 };
 

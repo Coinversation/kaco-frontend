@@ -1915,6 +1915,23 @@ const tokens = {
 
 export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WBNB', 'Wrapped BNB');
 
+export const CAKE: { [chainId: number]: Token } = {
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET as any,
+    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    18,
+    'CAKE',
+    'PancakeSwap Token',
+  ),
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET as any,
+    '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
+    18,
+    'CAKE',
+    'PancakeSwap Token',
+  ),
+};
+
 export const Kaco: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET as any,
@@ -1965,7 +1982,22 @@ export const DOT: { [chainId: number]: Token } = {
     'FAKE DOT',
   ),
 };
-
+export const ALPACA: { [chainId: number]: Token } = {
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET as any,
+    '0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F',
+    18,
+    'ALPACA',
+    'Alpaca',
+  ),
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET as any,
+    '0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F',
+    18,
+    'ALPACA',
+    'Alpaca',
+  ),
+};
 export const KSM: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET as any,
@@ -2031,7 +2063,6 @@ export const ETH = new Token(
   'Binance-Peg Ethereum Token',
 );
 
-export const ALPACA = new Token(ChainId.MAINNET, '0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F', 18, 'ALPACA', 'Alpaca');
 export const USDC = new Token(
   ChainId.MAINNET as any,
   '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
