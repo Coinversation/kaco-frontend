@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
-import { Flex } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikit';
 import orderBy from 'lodash/orderBy';
 import partition from 'lodash/partition';
 import usePersistState from 'hooks/usePersistState';
@@ -145,7 +145,7 @@ const Pools: React.FC = () => {
       latinise(pool.earningToken.symbol.toLowerCase()).includes(lowercaseQuery),
     );
   }
-  chosenPools.push(...(finishedPools || []));
+  // chosenPools.push(...(finishedPools || []));
   chosenPools = sortPools(chosenPools).slice(0, numberOfPoolsVisible);
   chosenPoolsLength.current = chosenPools.length;
 
@@ -165,6 +165,7 @@ const Pools: React.FC = () => {
       </CardLayout>
     );
   };
+  const hasStakeInFinishedPools = useMemo(() => stakedOnlyFinishedPools.length > 0, [stakedOnlyFinishedPools]);
   return (
     <>
       <div style={{ background: 'rgba(0,0,0,0)' }}>
@@ -174,8 +175,14 @@ const Pools: React.FC = () => {
             filter={filter}
             onFilterChange={setFilter}
             onStakedOnlyChange={setStakedOnly}
+            hasStakeInFinishedPools={hasStakeInFinishedPools}
             placeholder="Search Pool"
           />
+          {showFinishedPools && (
+            <Text fontSize="14px" color="#9DA6A6" pb="32px">
+              These pools are no longer distributing rewards. Please unstake your tokens.
+            </Text>
+          )}
           {renderContent()}
           {account && !userDataReady && stakedOnly && (
             <Flex justifyContent="center">

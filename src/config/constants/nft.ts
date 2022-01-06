@@ -20,6 +20,8 @@ export interface NftPairConfig {
   type: NFT_TYPE;
   nftAbi: any;
   logo: string;
+  updateNFTID: string;
+  excludeNFT?: string[];
 }
 
 export interface NftItemConfig {
@@ -40,6 +42,8 @@ export const NFT_PAIRS: NftPairConfig[] = [
     type: NFT_TYPE.NFT1155,
     nftAbi: KacoNftAbi,
     logo: KacoLogo,
+    updateNFTID: '-',
+    excludeNFT: [],
   },
   {
     address: '0xa70c4580F1e00C1d7A9D0280832c0D513a6D530F',
@@ -50,6 +54,8 @@ export const NFT_PAIRS: NftPairConfig[] = [
     type: NFT_TYPE.NFT721,
     nftAbi: PancakeNftAbi,
     logo: PancakeLogo,
+    updateNFTID: '-',
+    excludeNFT: [],
   },
   {
     address: '0xBd6D17123Ec731adFf1cE2F9f7Af1aBC26E5EBfd',
@@ -60,6 +66,8 @@ export const NFT_PAIRS: NftPairConfig[] = [
     type: NFT_TYPE.NFT1155,
     nftAbi: KacoNftAbi,
     logo: AlpacaLogo,
+    updateNFTID: '53872',
+    excludeNFT: ['Alpaca Proficiency Exam (APE)', 'Welcome to the Herd!'],
   },
   {
     address: '0xc799B336f15A42AD506b0a792543907245c81110',
@@ -70,6 +78,8 @@ export const NFT_PAIRS: NftPairConfig[] = [
     type: NFT_TYPE.NFT721,
     nftAbi: PancakeNftAbi,
     logo: AlpiesLogo,
+    updateNFTID: '-',
+    excludeNFT: [],
   },
 ];
 

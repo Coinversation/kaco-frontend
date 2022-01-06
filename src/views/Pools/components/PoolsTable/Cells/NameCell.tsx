@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
 import { Text, useMatchBreakpoints } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
@@ -46,6 +47,7 @@ const TokenWrapper = styled.div`
 `;
 
 const NameCell: React.FC<NameCellProps> = ({ pool }) => {
+  const location = useLocation();
   const { t } = useTranslation();
   const { isXs, isSm } = useMatchBreakpoints();
   const { sousId, stakingToken, earningToken, userData, isFinished, isAutoVault } = pool;
@@ -62,7 +64,7 @@ const NameCell: React.FC<NameCellProps> = ({ pool }) => {
   const isManualCakePool = sousId === 0;
 
   const showStakedTag = isAutoVault ? hasVaultShares : isStaked;
-
+  console.log({ showStakedTag, hasVaultShares, isStaked });
   let title = `${t('Earn')} ${earningTokenSymbol}`;
   let subtitle = `${t('Stake')} ${stakingTokenSymbol}`;
   const showSubtitle = sousId !== 0 || (sousId === 0 && !isXs && !isSm);
@@ -74,6 +76,7 @@ const NameCell: React.FC<NameCellProps> = ({ pool }) => {
     title = t('Earn KAC');
     subtitle = `${t('Stake').toLocaleLowerCase()} KAC ${t('Earn')} KAC`;
   }
+  const showFinishedPools = location.pathname.includes('history');
 
   return (
     <Container>
@@ -85,8 +88,14 @@ const NameCell: React.FC<NameCellProps> = ({ pool }) => {
         )}
       </TokenWrapper>
       <CellContent>
-        {showStakedTag && (
-          <Text fontSize="12px" bold color={isFinished ? 'failure' : 'secondary'} textTransform="uppercase">
+        {showFinishedPools && (
+          <Text
+            fontSize="12px"
+            bold
+            color={isFinished ? 'failure' : 'secondary'}
+            textTransform="uppercase"
+            paddingBottom="3px"
+          >
             {t('Staked')}
           </Text>
         )}

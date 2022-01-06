@@ -52,6 +52,13 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
             </Text>
             <Text fontSize="12px">KCoin Supply</Text>
           </div>
+
+          <div className="info second-line">
+            <Text fontSize="18px" bold mb="4px">
+              {NFT_PAIRS[pairIndex].updateNFTID}
+            </Text>
+            <Text fontSize="12px">Update NFT ID</Text>
+          </div>
         </Flex>
       </div>
     </div>

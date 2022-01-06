@@ -11,7 +11,7 @@ const DropDownHeader = styled.div`
   justify-content: space-between;
 
   background: #122124;
-  border: 2px solid #1bd3d5;
+  border: 2px solid #238485;
   border-radius: 12px;
 `;
 

@@ -20,7 +20,7 @@ export default Card;
 export const LightCard = styled(Card)``;
 
 export const LightGreyCard = styled(Card)`
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  border: 1px solid #238485;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
@@ -29,17 +29,17 @@ export const GreyCard = styled(Card)`
 `;
 
 export const SolidCard = styled(Card)`
-  border: 2px solid ${({ theme }) => theme.colors.cardBorder};
+  border: 2px solid #238485;
   background-color: ${({ theme }) => theme.colors.cardBackground};
 `;
 
 export const PlainCard = styled(Card)`
-  background: ${({ theme }) => theme.colors.cardBorder};
+  background: #238485;
   border-radius: 8px;
 `;
 
 export const DashedPrimayCard = styled(Card)`
-  background: ${({ theme }) => theme.colors.cardBorder};
+  background: #238485;
   border: 1px dashed ${({ theme }) => theme.colors.primarySecondary};
   border-radius: 12px;
 `;

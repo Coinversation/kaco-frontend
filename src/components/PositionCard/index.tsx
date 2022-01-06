@@ -275,7 +275,7 @@ export default function FullPositionCard({ pair, ...props }: PositionCardProps) 
                 style={{
                   height: '48px',
                   background: '#272E32',
-                  border: '2px solid #1BD3D5',
+                  border: '2px solid #238485',
                   borderRadius: '12px',
                 }}
                 as={Link}

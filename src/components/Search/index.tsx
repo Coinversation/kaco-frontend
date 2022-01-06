@@ -12,7 +12,7 @@ const Wrapper = styled.div<{ focused: boolean }>`
   padding: 0px 18px;
   display: flex;
   align-items: center;
-  border: ${(props) => (props.focused ? '2px solid #1bd3d5' : '')};
+  border: ${(props) => (props.focused ? '2px solid #238485' : '')};
   > input {
     flex: 1;
     background: #122124;

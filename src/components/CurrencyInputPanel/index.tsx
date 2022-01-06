@@ -45,7 +45,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
   color: white;
   /* &:active {
     > .currency {
-      border: 2px solid #1bd3d5;
+      border: 2px solid #238485;
     }
   }
   &:focus {
@@ -56,7 +56,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: ${(props) => (props.focused ? '2px solid #1bd3d5' : '')};
+    border: ${(props) => (props.focused ? '2px solid #238485' : '')};
     height: 72px;
     padding: 8px;
     ${({ theme }) => theme.mediaQueries.sm} {

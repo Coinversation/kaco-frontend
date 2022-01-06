@@ -11,12 +11,12 @@ import { PriceContext } from 'contexts/PriceProvider';
 import { formatFloat } from 'views/NftPool/util/format';
 import { NFT_PAIRS } from 'config/constants/nft';
 import ArrowSvg from '../svg/arrow.svg';
-
 const StyledTr = styled.tr`
   border-bottom: 1px solid #122124;
 
   td > .link {
     visibility: hidden;
+    padding-right: 10px;
   }
 
   ${({ theme }) => theme.mediaQueries.md} {
@@ -67,7 +67,7 @@ const PoolName = styled(PoolName_)`
   padding: 12px 20px;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    padding: 18px 30px;
+    padding: 18px 0 18px 30px;
   }
 
   > div > img {
@@ -101,7 +101,6 @@ const Row: FC<{ pair: NftPair; simpleMode: boolean }> = ({ pair, simpleMode }) =
   const history = useHistory();
   const [collapsed, setCollapsed] = useState(false);
   const { priceVsBusdMap } = useContext(PriceContext);
-
   return (
     <>
       <StyledTr
@@ -138,11 +137,17 @@ const Row: FC<{ pair: NftPair; simpleMode: boolean }> = ({ pair, simpleMode }) =
           />
         </td>
 
-        {!simpleMode && (
-          <>
-            {/* <td>
+        <td>
+          <TitledItem
+            title="Update NFT ID"
+            value={NFT_PAIRS.find((p) => pair.pairAddress.toLowerCase() === p.address.toLowerCase())?.updateNFTID}
+          />
+        </td>
+        {/* <td>
               <TitledItem title="7 Days Change" value={0} />
             </td> */}
+        {!simpleMode && (
+          <>
             <td>
               <div className="link">
                 <img src={ArrowSvg} alt="" />

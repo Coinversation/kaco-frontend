@@ -27,7 +27,7 @@ const StyledPage = styled.div`
 
 const Page: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
   return (
-    <PageLayout style={{ minHeight: '0px', maxWidth: '1054px' }}>
+    <PageLayout style={{ minHeight: '0px' }}>
       <NftWalletSubNav />
       <StyledPage {...props}>{children}</StyledPage>
     </PageLayout>

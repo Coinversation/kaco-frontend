@@ -19,6 +19,8 @@ const Wrapper = styled.div<{ checked: boolean }>`
   background-color: ${(props) => (props.checked ? 'rgb(27, 211, 213)' : 'rgb(18, 33, 36)')};
   border-radius: 32px;
   padding: 6px;
+  border: 1px solid #1f373b;
+
   > .inside {
     margin-left: ${(props) => (props.checked ? '34px' : '0px')};
     transition: margin-left 0.08s;

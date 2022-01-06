@@ -224,13 +224,27 @@ const Pools_: FC<{
           </ul>
         </div>
       ) : null}
+      {pair?.excludeNFT && pair.excludeNFT.length ? (
+        <div className="exclude_nft">
+          <h3>
+            Exclude NFT <span>+{pair.excludeNFT.length}</span>
+          </h3>
+
+          <div className="exclude_nft_pop">
+            <h4>Exclude NFT</h4>
+            {pair.excludeNFT.map((v, index) => (
+              <p key={index}>{v}</p>
+            ))}
+          </div>
+        </div>
+      ) : null}
       {!nfts || fetching ? (
         <PageLoader />
       ) : !nfts.length ? (
         <NoBalance />
       ) : (
         <>
-          <Grid gridGap="10px" className="pools" ref={container}>
+          <Grid gridGap="20px" className="pools" ref={container}>
             {nfts.map((item, index) => (
               <NftItem nft={item} key={index} now={now} pairPid={pair.pid} />
             ))}
@@ -246,10 +260,76 @@ export const GoodsInPool = styled(Pools_)`
   border-radius: 24px;
   z-index: 2;
   position: relative;
-  padding-top: 30px;
+  padding-top: 70px;
   ${({ theme }) => theme.mediaQueries.md} {
     background: #122124;
-    padding: 40px;
+    padding: 50px 40px;
+  }
+  .exclude_nft {
+    position: absolute;
+    top: 22px;
+    right: 0;
+    color: #fff;
+    ${({ theme }) => theme.mediaQueries.md} {
+      top: 62px;
+      right: 50px;
+    }
+    h3 {
+      color: #9da6a6;
+      font-size: 18px;
+      padding-bottom: 10px;
+      cursor: pointer;
+    }
+    h4 {
+      color: #1bd3d5;
+      font-size: 20px;
+      padding-bottom: 10px;
+    }
+    p {
+      color: #fff;
+    }
+    span {
+      font-size: 14px;
+      background: #1f373b;
+      border-radius: 12px;
+      margin-left: 12px;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      vertical-align: middle;
+      padding: 0 10px;
+      color: #1bd3d5;
+      font-weight: 700;
+    }
+    &:hover {
+      .exclude_nft_pop {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    .exclude_nft_pop {
+      position: absolute;
+      top: 38px;
+      right: 20px;
+      z-index: 20;
+      background-color: #1f252a;
+      min-width: 200px;
+      list-style: none;
+      color: #9da6a6;
+      border: 2px solid #238485;
+      border-radius: 16px;
+      line-height: 32px;
+      font-size: 14px;
+      padding: 10px 18px;
+      font-weight: 600;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: opacity 0.1s ease;
+      ${({ theme }) => theme.mediaQueries.md} {
+        min-width: 300px;
+      }
+    }
   }
   .searchWrap {
     margin-bottom: 22px;
@@ -265,7 +345,7 @@ export const GoodsInPool = styled(Pools_)`
       width: 100%;
       list-style: none;
       color: #9da6a6;
-      border: 2px solid #1bd3d5;
+      border: 2px solid #238485;
       border-radius: 16px;
       line-height: 32px;
       font-size: 14px;
@@ -298,7 +378,7 @@ export const GoodsInPool = styled(Pools_)`
   > .pools {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
-
+    margin-top: 40px;
     @media screen and (min-width: 1040px) {
       grid-template-columns: 1fr 1fr 1fr;
     }

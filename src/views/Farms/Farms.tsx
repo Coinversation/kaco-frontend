@@ -88,7 +88,9 @@ const Farms: React.FC = () => {
       farm.quoteToken.symbol.toLowerCase().includes(filter.toLowerCase()),
   );
 
-  const activeFarms = filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && !isArchivedPid(farm.pid));
+  const activeFarms = farmsLP.filter(
+    (farm) => farm.pid !== KACO_LP_PID && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
+  );
   const inactiveFarms = filtedFarmsLP.filter(
     (farm) => farm.pid !== KACO_LP_PID && farm.multiplier === '0X' && !isArchivedPid(farm.pid),
   );
@@ -97,7 +99,9 @@ const Farms: React.FC = () => {
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   );
-
+  const stakedInactiveFarms = inactiveFarms.filter(
+    (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
+  );
   const stakedArchivedFarms = archivedFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
   );
@@ -182,7 +186,7 @@ const Farms: React.FC = () => {
       chosenFarms = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(activeFarms);
     }
     if (isInactive) {
-      chosenFarms = stakedOnly ? farmsList(stakedOnlyFarms) : farmsList(inactiveFarms);
+      chosenFarms = stakedOnly ? farmsList(stakedInactiveFarms) : farmsList(inactiveFarms);
     }
     if (isArchived) {
       chosenFarms = stakedOnly ? farmsList(stakedArchivedFarms) : farmsList(archivedFarms);
@@ -199,6 +203,7 @@ const Farms: React.FC = () => {
     isInactive,
     isArchived,
     stakedArchivedFarms,
+    stakedInactiveFarms,
     stakedOnly,
     stakedOnlyFarms,
     numberOfFarmsVisible,

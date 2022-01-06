@@ -32,7 +32,7 @@ const Nft: FC<{ className?: string; nft: NFT; pair: NftPair }> = ({ className, n
 export default styled(Nft)`
   width: 100%;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 224px;
+    width: 250px;
   }
   background: #122124;
   border: 2px solid #1e3337;
