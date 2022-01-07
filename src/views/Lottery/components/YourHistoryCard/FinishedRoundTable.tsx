@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Box, Flex } from '@kaco/uikit';
+import { Text, Box, Flex } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { LotteryStatus } from 'config/constants/types';
 import { useGetUserLotteriesGraphData } from 'state/lottery/hooks';

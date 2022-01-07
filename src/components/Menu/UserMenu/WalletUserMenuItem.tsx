@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, UserMenuItem, WarningIcon } from '@kaco/uikit';
+import { Flex, UserMenuItem, WarningIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 interface WalletUserMenuItemProps {

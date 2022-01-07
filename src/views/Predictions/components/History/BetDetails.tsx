@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Bet } from 'state/types';
 import { useTranslation } from 'contexts/Localization';
 import { getBscScanLink } from 'utils';
-import { Flex, Text, Link, Heading } from '@kaco/uikit';
+import { Flex, Text, Link, Heading } from '@kaco/uikitv2';
 import { Result } from 'state/predictions/helpers';
 import { PayoutRow, RoundResultHistory } from '../RoundResult';
 import BetResult from './BetResult';

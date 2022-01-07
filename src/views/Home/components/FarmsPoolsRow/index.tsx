@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
-import { Flex, Box, SwapVertIcon, IconButton } from '@kaco/uikit';
+import { Flex, Box, SwapVertIcon, IconButton } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { Pool } from 'state/types';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';

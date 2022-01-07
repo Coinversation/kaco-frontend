@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text } from '@kaco/uikit';
+import { Heading, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import SecondaryCard from './SecondaryCard';
 import CardContent from './CardContent';

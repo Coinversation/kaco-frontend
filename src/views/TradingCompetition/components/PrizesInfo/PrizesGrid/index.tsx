@@ -15,7 +15,7 @@ import {
   Text,
   TeamPlayerIcon,
   TrophyGoldIcon,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import easterPrizes, { Tiers, Rank } from 'config/constants/trading-competition/easter';
 import { Td, BoldTd, StyledPrizeTable } from '../../StyledPrizeTable';

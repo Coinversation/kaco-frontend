@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useContext, useState } from 'react';
 import styled from 'styled-components';
-import { Button, Text, Grid, Flex, useMatchBreakpoints } from '@kaco/uikit';
+import { Button, Text, Grid, Flex, useMatchBreakpoints } from '@kaco/uikitv2';
 import { NftContext } from '../providers/nft.provider';
 import RemoveSVG from '../img/remove.svg';
 import { NFT } from './GoodsInPool';

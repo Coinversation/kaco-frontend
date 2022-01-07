@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Heading, IconButton, Text, NotificationDot } from '@kaco/uikit';
+import { Flex, Heading, IconButton, Text, NotificationDot } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import { useExpertModeManager } from 'state/user/hooks';
 import GlobalSettings from 'components/Menu/GlobalSettings';

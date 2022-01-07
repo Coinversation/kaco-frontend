@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useModal } from '@kaco/uikit';
+import { useModal } from '@kaco/uikitv2';
 import EditProfileModal from './EditProfileModal';
 import ProfileAvatar, { ProfileAvatarProps } from './ProfileAvatar';
 

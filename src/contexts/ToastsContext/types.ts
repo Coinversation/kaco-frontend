@@ -1,4 +1,4 @@
-import { Toast } from '@kaco/uikit';
+import { Toast } from '@kaco/uikitv2';
 
 type ToastSignature = (title: Toast['title'], description?: Toast['description']) => void;
 

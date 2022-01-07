@@ -1,5 +1,5 @@
 import React, { ElementType, ReactNode } from 'react';
-import { Flex, Heading, Text, TextProps } from '@kaco/uikit';
+import { Flex, Heading, Text, TextProps } from '@kaco/uikitv2';
 import SecondaryCard from './SecondaryCard';
 
 interface StatBoxProps extends TextProps {

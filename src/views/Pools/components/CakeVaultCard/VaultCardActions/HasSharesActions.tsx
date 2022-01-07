@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, IconButton, AddIcon, MinusIcon, useModal, Skeleton } from '@kaco/uikit';
+import { Flex, Text, IconButton, AddIcon, MinusIcon, useModal, Skeleton } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { getBalanceNumber } from 'utils/formatBalance';
 import { Pool } from 'state/types';

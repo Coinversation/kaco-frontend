@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Modal, Text, LinkExternal, Flex, Box } from '@kaco/uikit';
+import { Modal, Text, LinkExternal, Flex, Box } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { tokenEarnedPerThousandDollarsCompounding, getRoi } from 'utils/compoundApyHelpers';
 

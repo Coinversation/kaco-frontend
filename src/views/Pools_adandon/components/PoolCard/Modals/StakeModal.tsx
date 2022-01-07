@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Modal, Text, Flex, Image, Button, Slider, BalanceInput, AutoRenewIcon, Link } from '@kaco/uikit';
+import { Modal, Text, Flex, Image, Button, Slider, BalanceInput, AutoRenewIcon, Link } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';
 import useToast from 'hooks/useToast';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ListViewIcon, CardViewIcon, IconButton } from '@kaco/uikit';
+import { ListViewIcon, CardViewIcon, IconButton } from '@kaco/uikitv2';
 import { ViewMode } from '../types';
 
 interface ToggleViewProps {

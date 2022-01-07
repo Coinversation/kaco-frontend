@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Button, HelpIcon, Link } from '@kaco/uikit';
+import { Text, Button, HelpIcon, Link } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 const ButtonText = styled(Text)`

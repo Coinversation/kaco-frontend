@@ -1,7 +1,7 @@
 import Page from './Page';
 import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Grid, Text } from '@kaco/uikit';
+import { Grid, Text } from '@kaco/uikitv2';
 import Nft from './components/Nft';
 import { fetchAllTokens, filterNft } from 'views/NftPool/util/fetchNft';
 import { NFT } from 'views/NftPool/components/GoodsInPool';

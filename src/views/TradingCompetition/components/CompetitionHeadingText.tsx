@@ -1,4 +1,4 @@
-import { Heading } from '@kaco/uikit';
+import { Heading } from '@kaco/uikitv2';
 import styled, { DefaultTheme } from 'styled-components';
 
 const H1SizeStyles = (theme: DefaultTheme) => `

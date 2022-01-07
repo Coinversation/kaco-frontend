@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HelpIcon, Skeleton, useTooltip } from '@kaco/uikit';
+import { HelpIcon, Skeleton, useTooltip } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 const ReferenceElement = styled.div`

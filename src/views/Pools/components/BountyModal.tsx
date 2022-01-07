@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import styled from 'styled-components';
-import { Modal, Text, Flex, Button, HelpIcon, AutoRenewIcon, useTooltip } from '@kaco/uikit';
+import { Modal, Text, Flex, Button, HelpIcon, AutoRenewIcon, useTooltip } from '@kaco/uikitv2';
 import { getBalanceNumber } from 'utils/formatBalance';
 import { useCakeVaultContract } from 'hooks/useContract';
 import useTheme from 'hooks/useTheme';

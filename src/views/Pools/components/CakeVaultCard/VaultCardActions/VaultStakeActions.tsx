@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Button, useModal, Skeleton } from '@kaco/uikit';
+import { Flex, Button, useModal, Skeleton } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { useTranslation } from 'contexts/Localization';
 import { Pool } from 'state/types';

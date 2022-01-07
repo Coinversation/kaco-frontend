@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
-import { Flex, Text } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikitv2';
 import orderBy from 'lodash/orderBy';
 import partition from 'lodash/partition';
 import usePersistState from 'hooks/usePersistState';

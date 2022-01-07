@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BigNumber from 'bignumber.js';
-import { Card, CardBody, Heading, Text } from '@kaco/uikit';
+import { Card, CardBody, Heading, Text } from '@kaco/uikitv2';
 import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from 'contexts/Localization';
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction';

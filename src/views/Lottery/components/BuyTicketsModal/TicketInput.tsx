@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
-import { Flex, Text } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { Ticket, UpdateTicketAction } from './useTicketsReducer';
 

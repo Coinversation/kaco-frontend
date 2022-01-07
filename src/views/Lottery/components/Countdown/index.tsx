@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Heading, Skeleton } from '@kaco/uikit';
+import { Flex, Heading, Skeleton } from '@kaco/uikitv2';
 import getTimePeriods from 'utils/getTimePeriods';
 import Timer from './Timer';
 import useNextEventCountdown from '../../hooks/useNextEventCountdown';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ethers } from 'ethers';
 import { useWeb3React } from '@web3-react/core';
-import { Button, Input, Modal, Text } from '@kaco/uikit';
+import { Button, Input, Modal, Text } from '@kaco/uikitv2';
 import { getAddressByType } from 'utils/collectibles';
 import { Nft } from 'config/constants/types';
 import { useTranslation } from 'contexts/Localization';

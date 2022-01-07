@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
-import { ResetCSS } from '@kaco/uikit';
+import { ResetCSS } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import useEagerConnect from 'hooks/useEagerConnect';
 import { usePollBlockNumber } from 'state/block/hooks';

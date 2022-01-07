@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { Flex, Text } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { formatBnb } from '../helpers';
 

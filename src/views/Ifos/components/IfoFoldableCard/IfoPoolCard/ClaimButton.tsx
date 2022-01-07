@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoRenewIcon, Button } from '@kaco/uikit';
+import { AutoRenewIcon, Button } from '@kaco/uikitv2';
 import { PoolIds } from 'config/constants/types';
 import { WalletIfoData } from 'views/Ifos/types';
 import { useTranslation } from 'contexts/Localization';

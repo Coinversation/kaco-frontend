@@ -1,9 +1,9 @@
-import { Text, Flex } from '@kaco/uikit';
+import { Text, Flex } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
 import { useLocation, useRouteMatch, Link } from 'react-router-dom';
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikit';
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikitv2';
 import LogoPng from '../imgs/farms.svg';
 import Toggle from 'components/Menu/GlobalSettings/Toggle';
 import Search from 'components/Search';

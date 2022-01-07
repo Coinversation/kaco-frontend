@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Modal, Text, Flex, Button, ArrowBackIcon, AutoRenewIcon } from '@kaco/uikit';
+import { Modal, Text, Flex, Button, ArrowBackIcon, AutoRenewIcon } from '@kaco/uikitv2';
 import useTheme from 'hooks/useTheme';
 import { useTranslation } from 'contexts/Localization';
 import TicketInput from './TicketInput';

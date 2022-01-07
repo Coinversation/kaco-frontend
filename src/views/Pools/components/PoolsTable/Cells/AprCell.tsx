@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMatchBreakpoints } from '@kaco/uikit';
+import { useMatchBreakpoints } from '@kaco/uikitv2';
 import { Pool } from 'state/types';
 import { useTranslation } from 'contexts/Localization';
 import Apr from '../Apr';

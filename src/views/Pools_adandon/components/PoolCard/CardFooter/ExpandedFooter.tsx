@@ -15,7 +15,7 @@ import {
   Button,
   Link,
   HelpIcon,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { BASE_BSC_SCAN_URL } from 'config';
 import { useBlock } from 'state/block/hooks';
 import { useCakeVault } from 'state/pools/hooks';

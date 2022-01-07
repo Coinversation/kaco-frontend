@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { Box } from '@kaco/uikit';
+import { Box } from '@kaco/uikitv2';
 
 const floatingAnim = (x: string, y: string) => keyframes`
   from {

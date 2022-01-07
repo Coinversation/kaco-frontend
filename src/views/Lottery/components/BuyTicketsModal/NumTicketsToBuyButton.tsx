@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '@kaco/uikit';
+import { Button } from '@kaco/uikitv2';
 
 interface NumTicketsToBuyButtonProps {
   onClick: () => void;

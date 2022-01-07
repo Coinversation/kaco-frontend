@@ -1,5 +1,5 @@
 import React from 'react';
-import { Svg, SvgProps } from '@kaco/uikit';
+import { Svg, SvgProps } from '@kaco/uikitv2';
 
 export const MatchExampleA: React.FC<{ isDark: boolean } & SvgProps> = ({ isDark, ...rest }) => {
   return (

@@ -1,5 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-import { AutoRenewIcon, Button, ButtonProps } from '@kaco/uikit';
+import { AutoRenewIcon, Button, ButtonProps } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { usePredictionsContract } from 'hooks/useContract';
 import useToast from 'hooks/useToast';

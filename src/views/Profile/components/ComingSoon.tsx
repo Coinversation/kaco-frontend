@@ -1,5 +1,5 @@
 import React from 'react';
-import { BunnyPlaceholderIcon, Flex, Heading } from '@kaco/uikit';
+import { BunnyPlaceholderIcon, Flex, Heading } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 interface ComingSoonProps {

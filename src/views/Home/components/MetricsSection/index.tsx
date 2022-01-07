@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon } from '@kaco/uikit';
+import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useGetStats } from 'hooks/api';
 import useTheme from 'hooks/useTheme';

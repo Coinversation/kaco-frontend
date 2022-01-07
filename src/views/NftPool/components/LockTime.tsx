@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import styled from 'styled-components';
-import { Flex, Text } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikitv2';
 import { BLOCK_INTERVAL } from 'config/constants/nft';
 
 function getLastDate(

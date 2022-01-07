@@ -1,4 +1,4 @@
-import { MenuEntry } from '@kaco/uikit';
+import { MenuEntry } from '@kaco/uikitv2';
 import { ContextApi } from 'contexts/Localization/types';
 
 const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [

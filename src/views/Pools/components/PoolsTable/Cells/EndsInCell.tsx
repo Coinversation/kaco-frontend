@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Link, Skeleton, Text, TimerIcon } from '@kaco/uikit';
+import { Flex, Link, Skeleton, Text, TimerIcon } from '@kaco/uikitv2';
 import { getBscScanLink } from 'utils';
 import { Pool } from 'state/types';
 import { useBlock } from 'state/block/hooks';

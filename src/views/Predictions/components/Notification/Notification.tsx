@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card, CardBody, Heading } from '@kaco/uikit';
+import { Card, CardBody, Heading } from '@kaco/uikitv2';
 
 interface NotificationProps {
   title: string;

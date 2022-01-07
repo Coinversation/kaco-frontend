@@ -1,9 +1,9 @@
-import { Text, Flex } from '@kaco/uikit';
+import { Text, Flex } from '@kaco/uikitv2';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
-import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikit';
+import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikitv2';
 import LogoPng from './PoolHeader.svg';
 import Toggle from 'components/Menu/GlobalSettings/Toggle';
 import Search from 'components/Search';

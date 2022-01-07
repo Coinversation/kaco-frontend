@@ -11,7 +11,7 @@ import {
   LaurelRightIcon,
   CheckmarkCircleIcon,
   useModal,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { CLAIM, OVER } from 'config/constants/trading-competition/easterPhases';
 import ConnectWalletButton from 'components/ConnectWalletButton';
 import { useTranslation } from 'contexts/Localization';

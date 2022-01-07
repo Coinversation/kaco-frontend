@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
-import { Box } from '@kaco/uikit';
+import { Box } from '@kaco/uikitv2';
 import { ClipFill } from '../types';
 
 interface CurveProps {

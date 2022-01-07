@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, Heading, Text, Flex, Link, Breadcrumbs } from '@kaco/uikit';
+import { Button, Heading, Text, Flex, Link, Breadcrumbs } from '@kaco/uikitv2';
 import { useWeb3React } from '@web3-react/core';
 import { useTranslation } from 'contexts/Localization';
 import PageHeader from 'components/PageHeader';

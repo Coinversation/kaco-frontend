@@ -1,4 +1,4 @@
-import { Image } from '@kaco/uikit';
+import { Image } from '@kaco/uikitv2';
 import styled from 'styled-components';
 
 const DesktopImage = styled(Image)`

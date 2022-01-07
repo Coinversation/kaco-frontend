@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'contexts/Localization';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { SVG, WonSlice, LostSlice, Wrapper, Info } from './PnlChartStyles';
 
 /**

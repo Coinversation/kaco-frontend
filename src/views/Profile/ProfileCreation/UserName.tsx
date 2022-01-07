@@ -15,7 +15,7 @@ import {
   useModal,
   Skeleton,
   Checkbox,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { parseISO, formatDistance } from 'date-fns';
 import { useWeb3React } from '@web3-react/core';
 import useToast from 'hooks/useToast';

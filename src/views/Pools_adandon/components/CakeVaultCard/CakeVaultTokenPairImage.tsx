@@ -1,5 +1,5 @@
 import React from 'react';
-import { TokenPairImage, ImageProps } from '@kaco/uikit';
+import { TokenPairImage, ImageProps } from '@kaco/uikitv2';
 import tokens from 'config/constants/tokens';
 import { getAddress } from 'utils/addressHelpers';
 

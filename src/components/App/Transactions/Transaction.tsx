@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CheckmarkIcon, CloseIcon, LinkExternal } from '@kaco/uikit';
+import { CheckmarkIcon, CloseIcon, LinkExternal } from '@kaco/uikitv2';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { getBscScanLink } from 'utils';
 import { TransactionDetails } from 'state/transactions/reducer';

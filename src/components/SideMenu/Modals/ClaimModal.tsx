@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Flex, Text, IconButton, CloseIcon } from '@kaco/uikit';
+import { Button, Flex, Text, IconButton, CloseIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import Modal from 'components/Modal/Modal';
 import Claim_KAC_Token_PNG from './Claim_KAC_Token_PNG.png';

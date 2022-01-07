@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card, CardBody, CardHeader, Flex, Heading, LinkExternal, Text } from '@kaco/uikit';
+import { Box, Card, CardBody, CardHeader, Flex, Heading, LinkExternal, Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { format } from 'date-fns';
 import { Proposal } from 'state/types';

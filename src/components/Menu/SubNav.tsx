@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
+import { ButtonMenu, ButtonMenuItem } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 const StyledNav = styled.nav`

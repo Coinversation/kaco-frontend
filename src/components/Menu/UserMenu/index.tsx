@@ -1,6 +1,6 @@
 import React from 'react';
 import { useWeb3React } from '@web3-react/core';
-import { Flex, LogoutIcon, useModal, UserMenu as UIKitUserMenu, UserMenuDivider, UserMenuItem } from '@kaco/uikit';
+import { Flex, LogoutIcon, useModal, UserMenu as UIKitUserMenu, UserMenuDivider, UserMenuItem } from '@kaco/uikitv2';
 import useAuth from 'hooks/useAuth';
 import { useProfile } from 'state/profile/hooks';
 import ConnectWalletButton from 'components/ConnectWalletButton';

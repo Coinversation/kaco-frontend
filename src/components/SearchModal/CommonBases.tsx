@@ -1,6 +1,6 @@
 import React from 'react';
 import { Currency, currencyEquals, ETHER, Token } from '@kaco/sdk';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import { ChainId } from 'config/constants/tokens';

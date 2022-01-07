@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Modal, Text, InjectedModalProps, Button, AutoRenewIcon } from '@kaco/uikit';
+import { Modal, Text, InjectedModalProps, Button, AutoRenewIcon } from '@kaco/uikitv2';
 import { useWeb3React } from '@web3-react/core';
 import useToast from 'hooks/useToast';
 import { useClaimRefundContract } from 'hooks/useContract';

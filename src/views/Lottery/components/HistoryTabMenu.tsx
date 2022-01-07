@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
+import { ButtonMenu, ButtonMenuItem } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 const HistoryTabMenu = ({ setActiveIndex, activeIndex }) => {

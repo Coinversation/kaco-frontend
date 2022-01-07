@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Heading, Text, Flex, Checkbox, AutoRenewIcon } from '@kaco/uikit';
+import { Button, Heading, Text, Flex, Checkbox, AutoRenewIcon } from '@kaco/uikitv2';
 import { useTradingCompetitionContract } from 'hooks/useContract';
 import { useTranslation } from 'contexts/Localization';
 import useToast from 'hooks/useToast';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InjectedModalProps, Modal } from '@kaco/uikit';
+import { InjectedModalProps, Modal } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useEditProfile, { Views } from './reducer';
 import StartView from './StartView';

@@ -27,7 +27,7 @@ import KarsierSvg from '../svg/KarsierSvg';
 import LogoSvg from './imgs/icon_logo.svg';
 import Header from './Header';
 import { useEffect } from 'react';
-import { Flex, Text, useMatchBreakpoints } from '@kaco/uikit';
+import { Flex, Text, useMatchBreakpoints } from '@kaco/uikitv2';
 import TwitterIcon from '../svg/Twitter';
 import TelegramIcon from '../svg/Telegram';
 import DocLink from './imgs/DocLink';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TextProps } from '@kaco/uikit';
+import { Text, TextProps } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { TranslatableText as AchievementDescriptionType } from 'state/types';
 import styled from 'styled-components';

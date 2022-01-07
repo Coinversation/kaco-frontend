@@ -14,7 +14,7 @@ import {
   SubMenuItem,
   EllipsisIcon,
   LinkExternal,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { getBscScanLink } from 'utils';
 import { getBalanceNumber } from 'utils/formatBalance';
 import { useTranslation } from 'contexts/Localization';

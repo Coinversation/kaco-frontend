@@ -15,7 +15,7 @@ import {
   BlockIcon,
   VisibilityOn,
   VisibilityOff,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useProfile } from 'state/profile/hooks';
 import usePersistState from 'hooks/usePersistState';

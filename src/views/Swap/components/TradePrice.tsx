@@ -1,6 +1,6 @@
 import React from 'react';
 import { Price } from '@kaco/sdk';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import SwapSVG from './imgs/swap-price.svg';
 
 interface TradePriceProps {

@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import React, { useCallback, useMemo, useState } from 'react';
-import { Button, Modal, LinkExternal } from '@kaco/uikit';
+import { Button, Modal, LinkExternal } from '@kaco/uikitv2';
 import { ModalActions, ModalInput } from 'components/Modal';
 import { useTranslation } from 'contexts/Localization';
 import { getFullDisplayBalance } from 'utils/formatBalance';

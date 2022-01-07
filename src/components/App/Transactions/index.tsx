@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, useModal } from '@kaco/uikit';
+import { Button, useModal } from '@kaco/uikitv2';
 import TransactionsModal from './TransactionsModal';
 import HistorySvg from '../../svg/history.svg';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, Message, Box, HelpIcon } from '@kaco/uikit';
+import { Text, Flex, Message, Box, HelpIcon } from '@kaco/uikitv2';
 import { Auction, ConnectedBidder } from 'config/constants/types';
 import { useTranslation } from 'contexts/Localization';
 

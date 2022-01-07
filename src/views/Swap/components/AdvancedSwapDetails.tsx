@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trade, TradeType } from '@kaco/sdk';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { Field } from 'state/swap/actions';
 import { useUserSlippageTolerance } from 'state/user/hooks';
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from 'utils/prices';

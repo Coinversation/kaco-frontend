@@ -1,6 +1,6 @@
 import { Currency, CurrencyAmount, Fraction, Percent } from '@kaco/sdk';
 import React from 'react';
-import { Button, Text } from '@kaco/uikit';
+import { Button, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { RowBetween, RowFixed } from '../../components/Layout/Row';
 import { CurrencyLogo } from '../../components/Logo';

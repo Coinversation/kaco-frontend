@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { ModalBody, ModalContainer, Message, ModalHeader, Box, Heading } from '@kaco/uikit';
+import { ModalBody, ModalContainer, Message, ModalHeader, Box, Heading } from '@kaco/uikitv2';
 import useTheme from 'hooks/useTheme';
 import { getAddress } from 'utils/addressHelpers';
 import { useTranslation } from 'contexts/Localization';

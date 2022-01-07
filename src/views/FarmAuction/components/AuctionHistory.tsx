@@ -13,7 +13,7 @@ import {
   BunnyPlaceholderIcon,
   Spinner,
   useMatchBreakpoints,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useAuctionHistory from '../hooks/useAuctionHistory';
 import AuctionLeaderboardTable from './AuctionLeaderboard/AuctionLeaderboardTable';

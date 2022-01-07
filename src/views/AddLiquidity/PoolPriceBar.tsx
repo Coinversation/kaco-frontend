@@ -1,6 +1,6 @@
 import { Currency, Percent, Price } from '@kaco/sdk';
 import React from 'react';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { AutoColumn } from '../../components/Layout/Column';
 import { AutoRow } from '../../components/Layout/Row';

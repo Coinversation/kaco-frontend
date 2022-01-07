@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '@kaco/uikit';
+import { Flex } from '@kaco/uikitv2';
 import PrizesText from './PrizesText';
 import PrizesCard from './PrizesCard';
 

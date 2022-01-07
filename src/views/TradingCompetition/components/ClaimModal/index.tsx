@@ -11,7 +11,7 @@ import {
   CrownIcon,
   TrophyGoldIcon,
   TeamPlayerIcon,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useTradingCompetitionContract } from 'hooks/useContract';
 import useToast from 'hooks/useToast';

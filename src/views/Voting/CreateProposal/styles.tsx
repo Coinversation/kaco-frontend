@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text } from '@kaco/uikit';
+import { Box, Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 
 const BaseLabel = styled.label`

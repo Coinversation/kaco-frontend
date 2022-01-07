@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Skeleton } from '@kaco/uikit';
+import { Text, Skeleton } from '@kaco/uikitv2';
 // import { useTranslation } from 'contexts/Localization';
 import BigNumber from 'bignumber.js';
 

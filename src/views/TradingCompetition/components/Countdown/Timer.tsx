@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Heading, Text, Link, useTooltip } from '@kaco/uikit';
+import { Flex, Heading, Text, Link, useTooltip } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { ContextApi } from 'contexts/Localization/types';
 import { getBscScanLink } from 'utils';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu as UikitMenu } from '@kaco/uikit';
+import { Menu as UikitMenu } from '@kaco/uikitv2';
 import { languageList } from 'config/localization/languages';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';

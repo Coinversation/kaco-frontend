@@ -1,7 +1,7 @@
 import React from 'react';
 import { ethers } from 'ethers';
 import styled from 'styled-components';
-import { CheckmarkCircleIcon, CheckmarkCircleFillIcon, Tag, useTooltip } from '@kaco/uikit';
+import { CheckmarkCircleIcon, CheckmarkCircleFillIcon, Tag, useTooltip } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { formatBnbv2 } from '../../helpers';
 

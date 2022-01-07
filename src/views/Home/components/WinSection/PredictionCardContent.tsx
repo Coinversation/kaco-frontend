@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Flex, Text, Skeleton, Link, Button, ArrowForwardIcon, Heading } from '@kaco/uikit';
+import { Flex, Text, Skeleton, Link, Button, ArrowForwardIcon, Heading } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { formatLocalisedCompactNumber } from 'utils/formatBalance';
 import useRefresh from 'hooks/useRefresh';

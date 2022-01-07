@@ -11,7 +11,7 @@ import {
   useModal,
   CardRibbon,
   useMatchBreakpoints,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { LotteryRound } from 'state/types';
 import { useGetUserLotteriesGraphData, useLottery } from 'state/lottery/hooks';
 import { LotteryStatus } from 'config/constants/types';

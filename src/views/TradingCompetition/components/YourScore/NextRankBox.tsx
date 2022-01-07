@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
-import { Flex, Text, FlexProps, ArrowForwardIcon } from '@kaco/uikit';
+import { Flex, Text, FlexProps, ArrowForwardIcon } from '@kaco/uikitv2';
 
 interface NextRankProps extends FlexProps {
   title?: string;

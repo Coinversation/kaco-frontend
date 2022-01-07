@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { toDate, format } from 'date-fns';
 import { useTranslation } from 'contexts/Localization';
 import { ProposalState } from 'state/types';

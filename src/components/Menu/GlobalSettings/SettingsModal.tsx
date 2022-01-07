@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, Flex, Modal, InjectedModalProps } from '@kaco/uikit';
+import { Text, Flex, Modal, InjectedModalProps } from '@kaco/uikitv2';
 import { useExpertModeManager, useUserSingleHopOnly } from 'state/user/hooks';
 import { useTranslation } from 'contexts/Localization';
 import { useSwapActionHandlers } from 'state/swap/hooks';

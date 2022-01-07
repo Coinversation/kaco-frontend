@@ -2,7 +2,7 @@ import { FC, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { Text, Flex } from '@kaco/uikit';
+import { Text, Flex } from '@kaco/uikitv2';
 
 // import LogoSvg from '../svg/demo.svg';
 import { RowBetween } from '../../../components/Layout/Row';

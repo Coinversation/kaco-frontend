@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BoxProps, Box, Flex, FlexProps } from '@kaco/uikit';
+import { BoxProps, Box, Flex, FlexProps } from '@kaco/uikitv2';
 import Container from 'components/Layout/Container';
 import CurvedDivider from './CurvedDivider';
 import { ClipFill, DividerFill } from './types';

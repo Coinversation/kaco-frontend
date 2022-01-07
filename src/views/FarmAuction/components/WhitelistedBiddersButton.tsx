@@ -1,5 +1,5 @@
 import React from 'react';
-import { useModal, Button, Skeleton } from '@kaco/uikit';
+import { useModal, Button, Skeleton } from '@kaco/uikitv2';
 import WhitelistedBiddersModal from './WhitelistedBiddersModal';
 import useWhitelistedAddresses from '../hooks/useWhitelistedAddresses';
 

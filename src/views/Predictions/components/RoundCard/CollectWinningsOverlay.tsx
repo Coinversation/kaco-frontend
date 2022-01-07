@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, TrophyGoldIcon } from '@kaco/uikit';
+import { Flex, TrophyGoldIcon } from '@kaco/uikitv2';
 import { useGetIsClaimable } from 'state/predictions/hooks';
 import { useTranslation } from 'contexts/Localization';
 import CollectWinningsButton from '../CollectWinningsButton';

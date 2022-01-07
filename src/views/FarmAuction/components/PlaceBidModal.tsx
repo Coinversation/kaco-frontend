@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
-import { Modal, Text, Flex, BalanceInput, Box, Button, PancakeRoundIcon } from '@kaco/uikit';
+import { Modal, Text, Flex, BalanceInput, Box, Button, PancakeRoundIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useWeb3React } from '@web3-react/core';
 import { formatNumber, getBalanceAmount, getBalanceNumber } from 'utils/formatBalance';

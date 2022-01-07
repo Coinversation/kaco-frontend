@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SwiperCore, { Keyboard, Mousewheel } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Box } from '@kaco/uikit';
+import { Box } from '@kaco/uikitv2';
 import { useGetCurrentEpoch, useGetSortedRounds } from 'state/predictions/hooks';
 import 'swiper/swiper.min.css';
 import RoundCard from './components/RoundCard';

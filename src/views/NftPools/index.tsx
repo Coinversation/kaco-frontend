@@ -1,7 +1,7 @@
 import React, { FC, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import Page from 'components/Layout/Page';
-import { useMatchBreakpoints, Text, Flex } from '@kaco/uikit';
+import { useMatchBreakpoints, Text, Flex } from '@kaco/uikitv2';
 import Row from './components/Row';
 import AnimalSvg from './svg/animal.png';
 import MarketSvg from './svg/market.svg';

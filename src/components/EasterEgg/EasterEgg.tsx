@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { FallingBunnies, FallingBunniesProps, useKonamiCheatCode } from '@kaco/uikit';
+import { FallingBunnies, FallingBunniesProps, useKonamiCheatCode } from '@kaco/uikitv2';
 
 const EasterEgg: React.FC<FallingBunniesProps> = (props) => {
   const [show, setShow] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ChevronDownIcon, useMatchBreakpoints } from '@kaco/uikit';
+import { ChevronDownIcon, useMatchBreakpoints } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 interface DetailsProps {

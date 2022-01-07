@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Flex } from '@kaco/uikit';
+import { Box, Flex } from '@kaco/uikitv2';
 import { useGetPredictionsStatus, useIsChartPaneOpen, useIsHistoryPaneOpen } from 'state/predictions/hooks';
 import { PredictionStatus } from 'state/types';
 import MobileMenu from './components/MobileMenu';

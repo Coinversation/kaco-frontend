@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, Flex, ChevronRightIcon, Box, SmallDotIcon, PrizeIcon } from '@kaco/uikit';
+import { Text, Flex, ChevronRightIcon, Box, SmallDotIcon, PrizeIcon } from '@kaco/uikitv2';
 import { dateOptions, timeOptions } from '../../helpers';
 
 interface FinishedRoundRowProps {

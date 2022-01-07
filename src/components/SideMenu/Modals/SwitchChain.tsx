@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, useTooltip, useMatchBreakpoints } from '@kaco/uikit';
+import { Text, Flex, useTooltip, useMatchBreakpoints } from '@kaco/uikitv2';
 import BscSvg from '../imgs/icon_bsc.svg';
 import SelectedSvg from '../imgs/icon_select.svg';
 import SdnSvg from '../imgs/icon_sd.png';

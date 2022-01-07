@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Button, Text } from '@kaco/uikit';
+import { Button, Text } from '@kaco/uikitv2';
 import NoHavePng from '../img/nohave.png';
 import { Link } from 'react-router-dom';
 

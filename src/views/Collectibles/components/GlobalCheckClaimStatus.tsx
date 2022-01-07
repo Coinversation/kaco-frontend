@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core';
-import { useModal } from '@kaco/uikit';
+import { useModal } from '@kaco/uikitv2';
 import { useProfile } from 'state/profile/hooks';
 import { useEasterNftContract } from 'hooks/useContract';
 import NftGiveawayModal from './NftGiveawayModal';

@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Text, Flex, Button, Modal, InjectedModalProps, Grid as KacoGrid } from '@kaco/uikit';
+import { Text, Flex, Button, Modal, InjectedModalProps, Grid as KacoGrid } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';

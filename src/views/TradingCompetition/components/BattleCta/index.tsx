@@ -10,7 +10,7 @@ import {
   CheckmarkCircleIcon,
   useWalletModal,
   useModal,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import { useTranslation } from 'contexts/Localization';

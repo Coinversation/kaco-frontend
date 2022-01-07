@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Card, Radio } from '@kaco/uikit';
+import { Card, Radio } from '@kaco/uikitv2';
 
 interface SelectionCardProps {
   name: string;

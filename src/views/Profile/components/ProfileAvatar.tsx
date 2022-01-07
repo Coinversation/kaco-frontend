@@ -1,5 +1,5 @@
 import React from 'react';
-import { NoProfileAvatarIcon } from '@kaco/uikit';
+import { NoProfileAvatarIcon } from '@kaco/uikitv2';
 import { Profile } from 'state/types';
 import styled from 'styled-components';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Skeleton } from '@kaco/uikit';
+import { Skeleton } from '@kaco/uikitv2';
 
 export interface EarnedProps {
   earnings: number;

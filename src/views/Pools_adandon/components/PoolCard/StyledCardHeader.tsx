@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardHeader, Heading, Text, Flex } from '@kaco/uikit';
+import { CardHeader, Heading, Text, Flex } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import { Token } from 'config/constants/types';

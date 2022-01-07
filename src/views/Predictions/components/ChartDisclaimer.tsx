@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalContainer, ModalBody, Text, Button, InjectedModalProps, LinkExternal, Flex } from '@kaco/uikit';
+import { ModalContainer, ModalBody, Text, Button, InjectedModalProps, LinkExternal, Flex } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 interface ChartDisclaimerProps extends InjectedModalProps {

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
-import { Button, Flex, Text } from '@kaco/uikit';
+import { Button, Flex, Text } from '@kaco/uikitv2';
 import { getAddress } from 'utils/addressHelpers';
 import { useAppDispatch } from 'state';
 import { fetchFarmUserDataAsync } from 'state/farms';

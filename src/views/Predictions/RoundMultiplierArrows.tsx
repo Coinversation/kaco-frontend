@@ -1,6 +1,6 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
-import { Svg, SvgProps } from '@kaco/uikit';
+import useTheme from 'hooks/useTheme';
+import { Svg, SvgProps } from '@kaco/uikitv2';
 
 interface MultiplierProps extends SvgProps {
   isActive: boolean;

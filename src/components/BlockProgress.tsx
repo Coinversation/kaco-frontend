@@ -1,5 +1,5 @@
 import React from 'react';
-import { Progress, ProgressProps } from '@kaco/uikit';
+import { Progress, ProgressProps } from '@kaco/uikitv2';
 import { useBlock } from 'state/block/hooks';
 
 interface BlockProgressProps extends ProgressProps {

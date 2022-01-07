@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Button, Text, useModal } from '@kaco/uikit';
+import { Button, Text, useModal } from '@kaco/uikitv2';
 import MintModal from './MintModal';
 import { NFT } from 'views/NftPool/components/GoodsInPool';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';

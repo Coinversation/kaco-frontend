@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Currency, ETHER, JSBI, TokenAmount } from '@kaco/sdk';
-import { Button, ChevronDownIcon, Text, AddIcon, useModal } from '@kaco/uikit';
+import { Button, ChevronDownIcon, Text, AddIcon, useModal } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import { LightCard } from '../../components/Card';

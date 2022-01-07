@@ -1,4 +1,4 @@
-import { InjectedModalProps } from '@kaco/uikit';
+import { InjectedModalProps } from '@kaco/uikitv2';
 
 export enum ConfirmVoteView {
   MAIN = 'main',

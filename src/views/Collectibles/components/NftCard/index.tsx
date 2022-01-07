@@ -12,7 +12,7 @@ import {
   Text,
   CardFooter,
   useModal,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useProfile } from 'state/profile/hooks';
 import { useTranslation } from 'contexts/Localization';
 import { Nft } from 'config/constants/types';

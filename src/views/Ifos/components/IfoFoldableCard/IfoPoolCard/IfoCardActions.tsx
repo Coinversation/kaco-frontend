@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'contexts/Localization';
-import { Button } from '@kaco/uikit';
+import { Button } from '@kaco/uikitv2';
 import { useWeb3React } from '@web3-react/core';
 import { Link } from 'react-router-dom';
 import { Ifo, PoolIds } from 'config/constants/types';

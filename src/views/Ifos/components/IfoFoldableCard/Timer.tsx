@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'contexts/Localization';
 import { getBscScanLink } from 'utils';
-import { Flex, Link, PocketWatchIcon, Text, Skeleton } from '@kaco/uikit';
+import { Flex, Link, PocketWatchIcon, Text, Skeleton } from '@kaco/uikitv2';
 import getTimePeriods from 'utils/getTimePeriods';
 import { PublicIfoData } from 'views/Ifos/types';
 

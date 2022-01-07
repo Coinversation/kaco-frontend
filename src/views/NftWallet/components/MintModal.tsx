@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Text, Flex, Button, Modal, InjectedModalProps } from '@kaco/uikit';
+import { Text, Flex, Button, Modal, InjectedModalProps } from '@kaco/uikitv2';
 import { ModalActions } from 'components/Modal';
 import { useTranslation } from 'contexts/Localization';
 import MintSvg from '../img/mint.svg';
@@ -8,7 +8,7 @@ import { NFT } from 'views/NftPool/components/GoodsInPool';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BLOCK_INTERVAL, NFT_PAIRS, NFT_TYPE } from 'config/constants/nft';
-import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
+import { ButtonMenu, ButtonMenuItem } from '@kaco/uikitv2';
 import { useContract } from 'hooks/useContract';
 import Erc721 from 'config/abi/erc-721.json';
 import Erc1155 from 'config/abi/ERC1155.json';

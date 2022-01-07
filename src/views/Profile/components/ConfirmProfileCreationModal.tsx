@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Flex, Text } from '@kaco/uikit';
+import { Modal, Flex, Text } from '@kaco/uikitv2';
 import { useAppDispatch } from 'state';
 import BigNumber from 'bignumber.js';
 import { useTranslation } from 'contexts/Localization';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Token } from '@kaco/sdk';
-import { Modal, InjectedModalProps } from '@kaco/uikit';
+import { Modal, InjectedModalProps } from '@kaco/uikitv2';
 import ImportToken from 'components/SearchModal/ImportToken';
 
 interface Props extends InjectedModalProps {

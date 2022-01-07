@@ -1,6 +1,6 @@
 import React from 'react';
 import { Currency, Token } from '@kaco/sdk';
-import { Button, Text, Modal, useModal, InjectedModalProps, Link } from '@kaco/uikit';
+import { Button, Text, Modal, useModal, InjectedModalProps, Link } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { AutoRow } from 'components/Layout/Row';
 import { AutoColumn } from 'components/Layout/Column';

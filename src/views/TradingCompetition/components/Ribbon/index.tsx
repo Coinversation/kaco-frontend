@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, LaurelLeftIcon, LaurelRightIcon } from '@kaco/uikit';
+import { Flex, LaurelLeftIcon, LaurelRightIcon } from '@kaco/uikitv2';
 import { RibbonProps } from '../../types';
 import {
   RibbonDownMidExpanding,

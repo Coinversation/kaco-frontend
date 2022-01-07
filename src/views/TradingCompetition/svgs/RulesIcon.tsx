@@ -1,5 +1,5 @@
 import React from 'react';
-import { Svg, SvgProps } from '@kaco/uikit';
+import { Svg, SvgProps } from '@kaco/uikitv2';
 
 const Prizes: React.FC<SvgProps> = (props) => {
   return (

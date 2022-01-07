@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Flex, Box, Skeleton } from '@kaco/uikit';
+import { Text, Flex, Box, Skeleton } from '@kaco/uikitv2';
 import { PublicIfoData } from 'views/Ifos/types';
 import { useTranslation } from 'contexts/Localization';
 import { Ifo, PoolIds } from 'config/constants/types';

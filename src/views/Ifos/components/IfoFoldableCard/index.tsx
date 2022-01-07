@@ -10,7 +10,7 @@ import {
   Progress,
   Button,
   ChevronUpIcon,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import { Ifo, IfoStatus, PoolIds } from 'config/constants/types';

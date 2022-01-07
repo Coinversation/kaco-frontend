@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'contexts/Localization';
-import { Text, Flex, Checkbox, Button } from '@kaco/uikit';
+import { Text, Flex, Checkbox, Button } from '@kaco/uikitv2';
 
 interface AcknowledgementProps {
   handleContinueClick: () => void;

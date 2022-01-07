@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowBackIcon, Box, Button, Flex, Heading } from '@kaco/uikit';
+import { ArrowBackIcon, Box, Button, Flex, Heading } from '@kaco/uikitv2';
 import { useWeb3React } from '@web3-react/core';
 import { Link, useParams } from 'react-router-dom';
 import { useAppDispatch } from 'state';

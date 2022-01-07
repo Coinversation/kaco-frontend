@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Text } from '@kaco/uikit';
+import { Box, Button, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useAppDispatch } from 'state';
 import { setHistoryPaneState } from 'state/predictions';

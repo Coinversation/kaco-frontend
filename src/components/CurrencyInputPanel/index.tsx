@@ -1,6 +1,6 @@
 import React from 'react';
 import { Currency, Pair } from '@kaco/sdk';
-import { Button, useModal, Flex } from '@kaco/uikit';
+import { Button, useModal, Flex } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';

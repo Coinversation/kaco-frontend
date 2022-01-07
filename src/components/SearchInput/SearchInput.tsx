@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Input } from '@kaco/uikit';
+import { Input } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import debounce from 'lodash/debounce';
 import { useTranslation } from 'contexts/Localization';

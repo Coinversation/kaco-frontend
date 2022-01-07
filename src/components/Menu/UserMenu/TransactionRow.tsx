@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlockIcon, CheckmarkCircleIcon, Flex, Link, OpenNewIcon, RefreshIcon } from '@kaco/uikit';
+import { BlockIcon, CheckmarkCircleIcon, Flex, Link, OpenNewIcon, RefreshIcon } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { TransactionDetails } from 'state/transactions/reducer';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';

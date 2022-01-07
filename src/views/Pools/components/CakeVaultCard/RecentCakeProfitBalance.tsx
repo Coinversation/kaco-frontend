@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TooltipText, useTooltip } from '@kaco/uikit';
+import { Text, TooltipText, useTooltip } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import Balance from 'components/Balance';
 

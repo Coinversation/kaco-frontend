@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, Button, Input, Flex, Box } from '@kaco/uikit';
+import { Text, Button, Input, Flex, Box } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks';
 import QuestionHelper from '../../QuestionHelper';

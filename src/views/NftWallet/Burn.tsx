@@ -1,6 +1,6 @@
 import Page from './Page';
 import { FC, useEffect, useState } from 'react';
-import { Button, Grid, Text, Flex, useModal } from '@kaco/uikit';
+import { Button, Grid, Text, Flex, useModal } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import BurnModal from './components/BurnModal';
 import { NftPair, useNftPairs } from 'views/NftPools/hooks/useNftPools';

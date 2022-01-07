@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Skeleton, Text, useTooltip, HelpIcon, Flex, Box, useModal, useMatchBreakpoints } from '@kaco/uikit';
+import { Skeleton, Text, useTooltip, HelpIcon, Flex, Box, useModal, useMatchBreakpoints } from '@kaco/uikitv2';
 import { Pool } from 'state/types';
 import BigNumber from 'bignumber.js';
 import { PoolCategory } from 'config/constants/types';

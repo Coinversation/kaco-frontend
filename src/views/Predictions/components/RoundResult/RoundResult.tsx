@@ -1,6 +1,6 @@
 import React from 'react';
 import { ethers } from 'ethers';
-import { BoxProps, Flex, Skeleton, Text } from '@kaco/uikit';
+import { BoxProps, Flex, Skeleton, Text } from '@kaco/uikitv2';
 import { BetPosition, NodeRound } from 'state/types';
 import { useTranslation } from 'contexts/Localization';
 import { formatUsdv2, getPriceDifference } from '../../helpers';

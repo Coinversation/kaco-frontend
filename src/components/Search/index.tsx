@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, FC, useState } from 'react';
 import styled from 'styled-components';
-import { Input } from '@kaco/uikit';
+import { Input } from '@kaco/uikitv2';
 import SearchSvg from '../svg/search.svg';
 
 const Wrapper = styled.div<{ focused: boolean }>`

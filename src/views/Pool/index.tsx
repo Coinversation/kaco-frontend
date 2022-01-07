@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Pair } from '@kaco/sdk';
-import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@kaco/uikit';
+import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';

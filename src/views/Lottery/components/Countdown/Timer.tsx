@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Heading } from '@kaco/uikit';
+import { Flex, Heading } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 
 export interface TimerProps {

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useTable, ColumnType } from '@kaco/uikit';
+import { useTable, ColumnType } from '@kaco/uikitv2';
 
 import Row, { RowProps } from './Row';
 

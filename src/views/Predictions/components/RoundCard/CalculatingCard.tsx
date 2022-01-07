@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardBody, Flex, Spinner, WaitIcon, TooltipText, useTooltip, InfoIcon } from '@kaco/uikit';
+import { Card, CardBody, Flex, Spinner, WaitIcon, TooltipText, useTooltip, InfoIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { NodeRound, BetPosition } from 'state/types';
 import { useGetTotalIntervalBlocks } from 'state/predictions/hooks';

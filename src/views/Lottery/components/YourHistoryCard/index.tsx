@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import styled from 'styled-components';
-import { CardHeader, Card, CardBody, Text, CardFooter, ArrowBackIcon, Flex, Heading, Skeleton, Box } from '@kaco/uikit';
+import {
+  CardHeader,
+  Card,
+  CardBody,
+  Text,
+  CardFooter,
+  ArrowBackIcon,
+  Flex,
+  Heading,
+  Skeleton,
+  Box,
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { LotteryStatus } from 'config/constants/types';
 import { useGetUserLotteriesGraphData, useLottery } from 'state/lottery/hooks';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from '@kaco/uikit';
+import { Card } from '@kaco/uikitv2';
 
 export const StyledCard = styled(Card)<{ isFinished?: boolean }>`
   max-width: 352px;

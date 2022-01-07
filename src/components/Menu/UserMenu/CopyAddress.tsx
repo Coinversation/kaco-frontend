@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, CopyIcon, Flex, FlexProps, IconButton } from '@kaco/uikit';
+import { Box, CopyIcon, Flex, FlexProps, IconButton } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 

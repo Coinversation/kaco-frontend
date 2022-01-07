@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Button, Link } from '@kaco/uikit';
+import { Flex, Text, Button, Link } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import CompositeImage, { CompositeImageProps } from '../CompositeImage';
 import PurpleWordHeading from '../PurpleWordHeading';

@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { currencyEquals, Trade } from '@kaco/sdk';
-import { InjectedModalProps } from '@kaco/uikit';
+import { InjectedModalProps } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

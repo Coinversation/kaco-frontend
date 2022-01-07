@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { AutoRenewIcon, Button, Flex } from '@kaco/uikit';
+import { AutoRenewIcon, Button, Flex } from '@kaco/uikitv2';
 import { Achievement } from 'state/types';
 import useToast from 'hooks/useToast';
 import { useTranslation } from 'contexts/Localization';

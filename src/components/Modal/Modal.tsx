@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Heading, CloseIcon, ArrowBackIcon, IconButton } from '@kaco/uikit';
+import { Flex, Heading, CloseIcon, ArrowBackIcon, IconButton } from '@kaco/uikitv2';
 type Handler = () => void;
 interface InjectedProps {
   onDismiss?: Handler;

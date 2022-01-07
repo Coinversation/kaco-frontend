@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex } from '@kaco/uikit';
+import { Box, Flex } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import HarvestCard from './HarvestCard';
 import UserDetail from './UserDetail';

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import { Helmet } from 'react-helmet-async';
-import { useMatchBreakpoints, useModal } from '@kaco/uikit';
+import { useMatchBreakpoints, useModal } from '@kaco/uikitv2';
 import { useAppDispatch } from 'state';
 import { useGetPredictionsStatus, useIsChartPaneOpen } from 'state/predictions/hooks';
 import { useInitialBlock } from 'state/block/hooks';

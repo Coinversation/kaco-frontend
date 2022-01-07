@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useWeb3React } from '@web3-react/core';
-import { Flex, Button, Text, AutoRenewIcon, PresentWonIcon } from '@kaco/uikit';
+import { Flex, Button, Text, AutoRenewIcon, PresentWonIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { LotteryTicket, LotteryTicketClaimData } from 'config/constants/types';
 import { getBalanceAmount } from 'utils/formatBalance';

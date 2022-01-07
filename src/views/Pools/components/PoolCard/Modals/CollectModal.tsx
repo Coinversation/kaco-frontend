@@ -9,7 +9,7 @@ import {
   ButtonMenuItem,
   HelpIcon,
   useTooltip,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useToast from 'hooks/useToast';
 import { Token } from 'config/constants/types';

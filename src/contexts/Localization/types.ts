@@ -1,5 +1,5 @@
 import { ReactText } from 'react';
-import { Language } from '@kaco/uikit';
+import { Language } from '@kaco/uikitv2';
 
 export type ContextData = {
   [key: string]: ReactText;

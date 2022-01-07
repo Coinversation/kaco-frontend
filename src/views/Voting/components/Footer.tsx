@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Text, Heading, ProposalIcon, Flex } from '@kaco/uikit';
+import { Box, Button, Text, Heading, ProposalIcon, Flex } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';

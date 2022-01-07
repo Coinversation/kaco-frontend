@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Heading, Card, CardBody } from '@kaco/uikit';
+import { Heading, Card, CardBody } from '@kaco/uikitv2';
 
 interface HowToCardProps {
   number?: number;

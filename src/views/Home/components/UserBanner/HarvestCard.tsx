@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { AutoRenewIcon, Button, Card, CardBody, Flex, Skeleton, Text, Link, ArrowForwardIcon } from '@kaco/uikit';
+import { AutoRenewIcon, Button, Card, CardBody, Flex, Skeleton, Text, Link, ArrowForwardIcon } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { useTranslation } from 'contexts/Localization';
 import { usePriceCakeBusd } from 'state/farms/hooks';

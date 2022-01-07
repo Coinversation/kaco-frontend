@@ -10,7 +10,7 @@ import {
   InjectedModalProps,
   Heading,
   Button,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import styled from 'styled-components';
 import usePrevious from 'hooks/usePreviousValue';
 import { TokenList } from '@uniswap/token-lists';

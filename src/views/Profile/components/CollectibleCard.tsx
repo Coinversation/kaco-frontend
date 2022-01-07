@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { Nft } from 'config/constants/types';
 
 interface CollectibleCardProps {

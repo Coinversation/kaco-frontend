@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Heading, Text } from '@kaco/uikit';
+import { Box, Heading, Text } from '@kaco/uikitv2';
 import Container from 'components/Layout/Container';
 import { useTranslation } from 'contexts/Localization';
 

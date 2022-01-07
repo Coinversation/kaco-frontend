@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Skeleton } from '@kaco/uikit';
+import { Flex, Skeleton } from '@kaco/uikitv2';
 
 export const SkeletonCardActions = () => {
   return <Skeleton height="48px" />;

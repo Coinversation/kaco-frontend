@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
-import { Button, useModal, IconButton, Skeleton, useTooltip, Text } from '@kaco/uikit';
+import { Button, useModal, IconButton, Skeleton, useTooltip, Text } from '@kaco/uikitv2';
 import MinusIcon from './iocn_jianhao.png';
 import AddIcon from './icon_jiahao.png';
 import ConnectWalletButton from 'components/ConnectWalletButton';

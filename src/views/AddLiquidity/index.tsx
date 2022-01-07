@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
 import { TransactionResponse } from '@ethersproject/providers';
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@kaco/sdk';
-import { Button, Text, Flex, AddIcon, CardBody, useModal, useMatchBreakpoints } from '@kaco/uikit';
+import { Button, Text, Flex, AddIcon, CardBody, useModal, useMatchBreakpoints } from '@kaco/uikitv2';
 import { RouteComponentProps } from 'react-router-dom';
 import { useIsTransactionUnsupported } from 'hooks/Trades';
 import { useTranslation } from 'contexts/Localization';

@@ -1,5 +1,5 @@
 import styled, { DefaultTheme } from 'styled-components';
-import { CardHeader as UIKitCardHeader } from '@kaco/uikit';
+import { CardHeader as UIKitCardHeader } from '@kaco/uikitv2';
 
 const getBackground = (theme: DefaultTheme) => {
   if (theme.isDark) {

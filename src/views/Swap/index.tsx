@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { CurrencyAmount, JSBI, Token, Trade } from '@kaco/sdk';
-import { Button, Text, Box, useModal } from '@kaco/uikit';
+import { Button, Text, Box, useModal } from '@kaco/uikitv2';
 import { useIsTransactionUnsupported } from 'hooks/Trades';
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter';
 import { RouteComponentProps } from 'react-router-dom';

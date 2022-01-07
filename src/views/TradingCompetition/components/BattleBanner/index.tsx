@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Heading, Image } from '@kaco/uikit';
+import { Flex, Text, Heading, Image } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import useTheme from 'hooks/useTheme';

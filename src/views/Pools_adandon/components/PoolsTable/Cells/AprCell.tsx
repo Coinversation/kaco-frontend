@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, useMatchBreakpoints } from '@kaco/uikit';
+import { Text, useMatchBreakpoints } from '@kaco/uikitv2';
 import { Pool } from 'state/types';
 import { useTranslation } from 'contexts/Localization';
 import BaseCell, { CellContent } from './BaseCell';

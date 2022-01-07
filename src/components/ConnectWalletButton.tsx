@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, useWalletModal } from '@kaco/uikit';
+import { Button, useWalletModal } from '@kaco/uikitv2';
 import useAuth from 'hooks/useAuth';
 import { useTranslation } from 'contexts/Localization';
 

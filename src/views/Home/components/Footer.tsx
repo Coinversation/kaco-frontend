@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Heading, Text, Link } from '@kaco/uikit';
+import { Flex, Heading, Text, Link } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import ConnectWalletButton from 'components/ConnectWalletButton';
 import Container from 'components/Layout/Container';

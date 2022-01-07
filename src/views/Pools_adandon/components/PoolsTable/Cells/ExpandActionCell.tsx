@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text, ChevronDownIcon } from '@kaco/uikit';
+import { Text, ChevronDownIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import BaseCell from './BaseCell';
 

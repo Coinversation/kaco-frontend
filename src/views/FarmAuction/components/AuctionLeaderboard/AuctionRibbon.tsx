@@ -1,4 +1,4 @@
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 import { Auction, AuctionStatus } from 'config/constants/types';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';

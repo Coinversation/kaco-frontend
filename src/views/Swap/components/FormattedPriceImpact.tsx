@@ -1,7 +1,7 @@
 import { Percent } from '@kaco/sdk';
 import React from 'react';
 import { ONE_BIPS } from '../../../config/constants';
-import { Text } from '@kaco/uikit';
+import { Text } from '@kaco/uikitv2';
 
 /**
  * Formatted version of price impact text with warning colors

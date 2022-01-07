@@ -12,7 +12,7 @@ import {
   Text,
   TimerIcon,
   useTooltip,
-} from '@kaco/uikit';
+} from '@kaco/uikitv2';
 import { BASE_BSC_SCAN_URL } from 'config';
 import { getBscScanLink } from 'utils';
 import { useBlock } from 'state/block/hooks';

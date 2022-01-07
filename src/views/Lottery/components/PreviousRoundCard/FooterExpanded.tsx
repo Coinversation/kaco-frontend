@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
-import { Flex, Skeleton, Heading, Box, Text } from '@kaco/uikit';
+import { Flex, Skeleton, Heading, Box, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { LotteryRound } from 'state/types';
 import { usePriceCakeBusd } from 'state/farms/hooks';

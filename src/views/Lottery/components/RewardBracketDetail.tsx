@@ -1,6 +1,6 @@
 import React from 'react';
 import BigNumber from 'bignumber.js';
-import { Flex, Skeleton, Text } from '@kaco/uikit';
+import { Flex, Skeleton, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { usePriceCakeBusd } from 'state/farms/hooks';
 import Balance from 'components/Balance';

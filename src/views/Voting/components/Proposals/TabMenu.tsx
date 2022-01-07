@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TabMenu as UIKitTabMenu, Tab, Flex, VerifiedIcon, CommunityIcon } from '@kaco/uikit';
+import { TabMenu as UIKitTabMenu, Tab, Flex, VerifiedIcon, CommunityIcon } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { ProposalType } from 'state/types';
 

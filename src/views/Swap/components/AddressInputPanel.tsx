@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { Text, Link } from '@kaco/uikit';
+import { Text, Link } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import useENS from '../../../hooks/ENS/useENS';
 import useActiveWeb3React from '../../../hooks/useActiveWeb3React';

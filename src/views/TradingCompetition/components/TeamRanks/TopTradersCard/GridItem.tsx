@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text, Flex } from '@kaco/uikit';
+import { Heading, Text, Flex } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import truncateWalletAddress from 'utils/truncateWalletAddress';
 import { LeaderboardDataItem } from '../../../types';

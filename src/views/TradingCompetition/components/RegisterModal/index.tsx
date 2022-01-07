@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Modal, Button, NoProfileAvatarIcon, Flex } from '@kaco/uikit';
+import { Modal, Button, NoProfileAvatarIcon, Flex } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { CompetitionProps } from '../../types';
 import MakeProfile from './MakeProfile';

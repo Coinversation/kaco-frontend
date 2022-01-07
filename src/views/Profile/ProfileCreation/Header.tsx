@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Breadcrumbs, Heading, Text } from '@kaco/uikit';
+import { Breadcrumbs, Heading, Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { ProfileCreationContext } from './contexts/ProfileCreationProvider';
 

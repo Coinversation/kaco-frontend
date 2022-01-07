@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text } from '@kaco/uikit';
+import { Flex, Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
 import RulesCard from './RulesCard';
