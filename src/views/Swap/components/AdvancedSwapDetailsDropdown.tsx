@@ -12,7 +12,7 @@ const AdvancedDetailsFooter = styled.div<{ show: boolean }>`
   transform: ${({ show }) => (show ? 'translateY(0%)' : 'translateY(-100%)')};
   transition: transform 300ms ease-in-out;
 
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 12px;
 
   padding: 12px;

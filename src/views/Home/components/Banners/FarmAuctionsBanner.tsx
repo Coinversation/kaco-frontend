@@ -13,7 +13,7 @@ const StyledSubheading = styled(Heading)`
 `;
 
 const StyledHeading = styled(Heading)`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.text};
   background: -webkit-linear-gradient(#7645d9 0%, #452a7a 100%);
   background-clip: text;
   -webkit-background-clip: text;

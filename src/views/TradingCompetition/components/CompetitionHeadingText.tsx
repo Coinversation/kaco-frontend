@@ -22,7 +22,7 @@ const H2SizeStyles = (theme: DefaultTheme) => `
 const sharedStyles = (props: HeadingProps) => `
   text-align: center;
   line-height: 110%;
-  color: #ffffff;
+   color: ${({ theme }) => theme.colors.text};
   background:  ${props.background ? props.background : 'linear-gradient(#7645d9 0%, #452a7a 100%)'};
   background-clip: text;
   -webkit-background-clip: text;

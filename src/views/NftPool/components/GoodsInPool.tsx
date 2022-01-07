@@ -262,7 +262,7 @@ export const GoodsInPool = styled(Pools_)`
   position: relative;
   padding-top: 70px;
   ${({ theme }) => theme.mediaQueries.md} {
-    background: #122124;
+    background: ${({ theme }) => theme.colors.cardBackground};
     padding: 50px 40px;
   }
   .exclude_nft {
@@ -290,7 +290,7 @@ export const GoodsInPool = styled(Pools_)`
     }
     span {
       font-size: 14px;
-      background: #1f373b;
+      background: ${({ theme }) => theme.colors.cardBackground};
       border-radius: 12px;
       margin-left: 12px;
       display: inline-block;

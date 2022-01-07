@@ -20,7 +20,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
   #token-search-input {
     background: #1f252a;
-    border: 1px solid #12171a;
+    border: 1px solid ${({ theme }) => theme.colors.cardBackground};
     border-radius: 12px;
     font-size: 12px;
     color: #9da6a6;

@@ -10,7 +10,7 @@ const DropDownHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border: 2px solid #238485;
   border-radius: 12px;
 `;

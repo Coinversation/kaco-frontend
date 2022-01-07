@@ -35,7 +35,7 @@ const NftsGroupByPool = styled(NftsGroupByPool_)`
   border-radius: 24px;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    background: #122124;
+    background: ${({ theme }) => theme.colors.cardBackground};
     padding: 30px 40px;
   }
 

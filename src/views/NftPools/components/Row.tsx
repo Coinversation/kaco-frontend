@@ -12,7 +12,7 @@ import { formatFloat } from 'views/NftPool/util/format';
 import { NFT_PAIRS } from 'config/constants/nft';
 import ArrowSvg from '../svg/arrow.svg';
 const StyledTr = styled.tr`
-  border-bottom: 1px solid #122124;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.background};
 
   td > .link {
     visibility: hidden;
@@ -21,7 +21,7 @@ const StyledTr = styled.tr`
 
   ${({ theme }) => theme.mediaQueries.md} {
     &:hover {
-      background-color: #122124;
+      background-color: ${({ theme }) => theme.colors.cardBackground};
       td > .link {
         color: ${({ theme }) => theme.colors.primary};
         visibility: visible;
@@ -38,7 +38,7 @@ const StyledTr = styled.tr`
   }
 `;
 const MoreTr = styled.tr`
-  background-color: #122124;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
   overflow: hidden;
 `;
 
@@ -57,7 +57,9 @@ const PoolName_: FC<{ poolName: string; fragmentName: string; className?: string
         <Text bold fontSize="16px" mb={{ xs: '4px', md: '7px' }}>
           {poolName}
         </Text>
-        <Text>{fragmentName}</Text>
+        <Text fontSize="14px" color="textSubtle">
+          {fragmentName}
+        </Text>
       </div>
     </Flex>
   );
@@ -89,7 +91,7 @@ const TitledItem_: FC<{ title: string; value: string | number }> = ({ title, val
       <Text color="#9DA6A6" fontSize="12px" mb={{ md: '12px', xs: '6px' }}>
         {title}
       </Text>
-      <Text bold fontSize="15px">
+      <Text bold fontSize="14px">
         {value}
       </Text>
     </div>

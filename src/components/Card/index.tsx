@@ -45,6 +45,6 @@ export const DashedPrimayCard = styled(Card)`
 `;
 
 export const ErrorCard = styled(Card)`
-  background: #1f373b;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 8px;
 `;

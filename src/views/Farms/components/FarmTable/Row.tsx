@@ -53,7 +53,9 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr<{ isLast: boolean }>`
   cursor: pointer;
-  ${(props) => !props.isLast && 'border-bottom: 1px solid #122124;'}
+  border-bottom-style: solid;
+  border-bottom-width: ${(props) => (!props.isLast ? '1px' : '0')};
+  border-bottom-color: ${(props) => (!props.isLast ? ({ theme }) => theme.colors.background : 'none')};
 `;
 
 const EarnedMobileCell = styled.td`

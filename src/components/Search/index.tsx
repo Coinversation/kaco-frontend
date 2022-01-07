@@ -6,8 +6,8 @@ import SearchSvg from '../svg/search.svg';
 const Wrapper = styled.div<{ focused: boolean }>`
   width: 100%;
   height: 52px;
-  background: #122124;
-  border: 1px solid #1f373b;
+  background: ${({ theme }) => theme.colors.cardBackground};
+  border: 1px solid ${({ theme }) => theme.colors.cardBackground};
   border-radius: 16px;
   padding: 0px 18px;
   display: flex;
@@ -15,7 +15,7 @@ const Wrapper = styled.div<{ focused: boolean }>`
   border: ${(props) => (props.focused ? '2px solid #238485' : '')};
   > input {
     flex: 1;
-    background: #122124;
+    background: ${({ theme }) => theme.colors.cardBackground};
     border-width: 0px;
   }
 `;
@@ -49,7 +49,7 @@ const Search: FC<{
             onBlur(false);
           }
         }}
-        onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => onKeyDown(e)}
+        onKeyDown={onKeyDown}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

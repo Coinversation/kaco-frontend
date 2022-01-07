@@ -2,7 +2,6 @@ import React, { FC, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import LogoPng from './imgs/logo.svg';
-import BgPng from './imgs/bg.png';
 // import FarmSvg from './imgs/icon_Farm_D.svg';
 // import HomeSvg from './imgs/icon_home_D.svg';
 import UncollapsedSvg from './imgs/icon_zk.svg';
@@ -81,9 +80,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
   > .body-container {
     display: flex;
     flex-direction: column;
-    background-image: url(${BgPng});
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: ${({ theme }) => theme.colors.background};
     ${({ theme }) => theme.mediaQueries.xs} {
       padding-left: 0px;
     }
@@ -114,9 +111,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
     display: flex;
     background: #11171b;
     ${({ theme }) => theme.mediaQueries.md} {
-      /* background: linear-gradient(0deg, #114228, #40f2f4);
-      */
-      background: linear-gradient(0deg, #11171b, #142a2f);
+      background: ${({ theme }) => theme.colors.background};
     }
 
     > img {
@@ -139,7 +134,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
       margin-top: 20px;
 
       .sub-menu {
-        background-color: #12171a;
+        background-color: ${({ theme }) => theme.colors.cardBackground};
         padding-left: 60px;
         > a:hover {
           background: none;
@@ -149,7 +144,6 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
     }
 
     > .account-info {
-      border-top: 1px solid #272e32;
       height: 212px;
       padding: ${(props) => (props.collapsed ? '0px 18px' : '0px 20px')};
 

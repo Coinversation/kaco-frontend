@@ -146,7 +146,12 @@ const SlippageTabs = () => {
             flex="1"
             alignItems="center"
             width="76px"
-            style={{ padding: '0px 16px', background: '#12171A', border: '1px solid #272E32', borderRadius: '12px' }}
+            style={{
+              padding: '0px 16px',
+              background: theme.colors.cardBackground,
+              border: '1px solid #272E32',
+              borderRadius: '12px',
+            }}
           >
             <Input
               style={{
@@ -192,7 +197,7 @@ const SlippageTabs = () => {
       </Flex>
       <Box
         style={{
-          background: '#12171A',
+          background: theme.colors.cardBackground,
           border: '1px solid #272E32',
           padding: '0px 16px',
           width: '50%',

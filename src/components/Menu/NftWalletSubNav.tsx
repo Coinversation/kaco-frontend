@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
   justify-content: center;
 
   > div {
-    background-color: #122124;
+    background-color: ${({ theme }) => theme.colors.cardBackground};
   }
 `;
 
@@ -30,7 +30,11 @@ const Nav = () => {
     <StyledNav>
       <ButtonMenu py="6px" activeIndex={activeIndex} scale="sm" variant="subtle">
         <ButtonMenuItem
-          style={activeIndex === 0 ? { color: theme.colors.primary, background: '#1F373B' } : { color: 'white' }}
+          style={
+            activeIndex === 0
+              ? { color: theme.colors.primary, background: theme.colors.cardBackground }
+              : { color: 'white' }
+          }
           width="112px"
           height="44px"
           id="swap-nav-link"
@@ -40,7 +44,11 @@ const Nav = () => {
           NFT
         </ButtonMenuItem>
         <ButtonMenuItem
-          style={activeIndex === 1 ? { color: theme.colors.primary, background: '#1F373B' } : { color: 'white' }}
+          style={
+            activeIndex === 1
+              ? { color: theme.colors.primary, background: theme.colors.cardBackground }
+              : { color: 'white' }
+          }
           height="44px"
           width="112px"
           id="pool-nav-link"

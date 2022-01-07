@@ -4,7 +4,7 @@ import DisconnectedPng from './imgs/disconnected.png';
 import NoLiquidityPng from './imgs/no-liquidity.png';
 
 const Body = styled.div`
-  background: #12171a;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border: 2px dashed #272e32;
   border-radius: 16px;
   display: flex;

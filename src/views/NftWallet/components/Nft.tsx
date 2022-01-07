@@ -34,7 +34,7 @@ export default styled(Nft)`
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 250px;
   }
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border: 2px solid #1e3337;
   border-radius: 12px;
   padding: 12px;

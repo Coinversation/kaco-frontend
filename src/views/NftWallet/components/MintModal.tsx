@@ -22,13 +22,13 @@ const StyledNav = styled.nav<{ activeIndex: number }>`
   justify-content: center;
 
   > div {
-    background: #12171a;
+    background: ${({ theme }) => theme.colors.cardBackground};
     padding: 6px;
     > button {
       height: 36px !important;
     }
     > button${(props) => (props.activeIndex ? ':last-child' : ':first-child')} {
-      background: #1f373b !important;
+      background: ${({ theme }) => theme.colors.cardBackground} !important;
     }
   }
 `;

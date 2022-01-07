@@ -1,7 +1,7 @@
 import React, { memo, useCallback, useMemo, useState, useEffect } from 'react';
 import { Button, Text, CheckmarkIcon, CogIcon, Input, LinkExternal, useTooltip } from '@kaco/uikit';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { TokenList, Version } from '@uniswap/token-lists';
 import Card from 'components/Card';
 import { UNSUPPORTED_LIST_URLS } from 'config/constants/lists';
@@ -30,7 +30,7 @@ const Wrapper = styled(Column)`
 `;
 
 const RowWrapper = styled(Row)<{ active: boolean }>`
-  background-color: ${({ active, theme }) => (active ? '#1F373B' : 'transparent')};
+  background-color: ${({ active, theme }) => (active ? theme.colors.cardBackground : 'transparent')};
   border: solid 2px;
   border-color: ${({ active, theme }) => (active ? '#238485' : '#272E32')};
   transition: 200ms;
@@ -145,7 +145,7 @@ function ManageLists({
   setListUrl: (url: string) => void;
 }) {
   const [listUrlInput, setListUrlInput] = useState<string>('');
-
+  const theme = useTheme();
   const { t } = useTranslation();
 
   const lists = useAllLists();
@@ -247,7 +247,7 @@ function ManageLists({
               boxShadow: 'none',
               height: '48px',
               background: '#1F252A',
-              border: '1px solid #12171A',
+              border: `1px solid  ${theme.colors.cardBackground}`,
               borderRadius: '12px',
               fontSize: '12px',
             }}

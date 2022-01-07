@@ -205,7 +205,7 @@ export default styled(Header)`
       align-items: center;
       font-size: 14px;
       font-weight: bold;
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.text};
       height: 38px;
       background: #1f252a;
       border: 1px solid #2f363b;

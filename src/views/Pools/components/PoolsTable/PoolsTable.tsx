@@ -36,7 +36,7 @@ const StyledTable = styled.table`
 
 const TableBody = styled.tbody`
   & tr {
-    background: #1f373b;
+    background: ${({ theme }) => theme.colors.cardBackground};
     td {
       font-size: 16px;
       vertical-align: middle;

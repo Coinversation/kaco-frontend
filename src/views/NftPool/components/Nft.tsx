@@ -73,7 +73,7 @@ export default styled(Nft)`
     padding: 12px;
     width: 250px;
   }
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border: 2px solid #1e3337;
   border-radius: 12px;
   text-align: center;
@@ -100,7 +100,7 @@ export default styled(Nft)`
     z-index: 9;
     text-align: left;
     width: 90%;
-    background-color: #122124;
+    background-color: ${({ theme }) => theme.colors.cardBackground};
     color: #9da6a6;
     border: 2px solid #238485;
     border-radius: 16px;

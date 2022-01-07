@@ -125,7 +125,7 @@ const Burn: FC<{ className?: string }> = ({ className }) => {
 
 export default styled(Burn)`
   width: 100%;
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 24px;
   padding: 15px;
 
@@ -153,7 +153,7 @@ export default styled(Burn)`
         padding: 18px 30px;
       }
       height: 88px;
-      background: #1f373b;
+      background: ${({ theme }) => theme.colors.cardBackground};
       border-radius: 16px;
       align-items: center;
 

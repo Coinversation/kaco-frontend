@@ -15,7 +15,7 @@ const Amount = styled.span<{ earned: number }>`
   /* color: ${({ earned, theme }) => (earned ? theme.colors.text : theme.colors.textDisabled)}; */
   font-size: 16px;
   font-weight: bold;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   align-items: center;
 `;

@@ -139,7 +139,7 @@ export default styled(ShopCart)`
     max-width: 1086px;
     justify-content: space-between;
     padding: 40px 20px 20px 20px;
-    background: #1f373b;
+    background: ${({ theme }) => theme.colors.cardBackground};
     box-shadow: 0px 5px 16px 4px rgba(0, 0, 0, 0.2);
     opacity: 0.98;
     border-radius: 24px;

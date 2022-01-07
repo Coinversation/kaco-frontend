@@ -52,7 +52,7 @@ const Container = styled.div<{ expanded }>`
         `};
   overflow: hidden;
   /* background: ${({ theme }) => theme.colors.background}; */
-  background: #122124;
+  background: ${({ theme }) => theme.colors.cardBackground};
   display: flex;
   width: 100%;
   flex-direction: column-reverse;

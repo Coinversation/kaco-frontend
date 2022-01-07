@@ -42,7 +42,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
   ${({ theme }) => theme.mediaQueries.sm} {
     padding: 10px 16px;
   }
-  color: white;
+  color: ${({ theme }) => theme.colors.text};
   /* &:active {
     > .currency {
       border: 2px solid #238485;
@@ -56,7 +56,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    border: ${(props) => (props.focused ? '2px solid #238485' : '')};
+    // border: ${(props) => (props.focused ? '2px solid #238485' : '')};
     height: 72px;
     padding: 8px;
     ${({ theme }) => theme.mediaQueries.sm} {
@@ -79,7 +79,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
       .currency-name {
         font-size: 16px;
         font-weight: bold;
-        color: #ffffff;
+        color: ${({ theme }) => theme.colors.text};
       }
     }
   }
@@ -114,7 +114,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
       text-align: right;
       font-size: 20px;
       font-weight: bold;
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.text};
     }
   }
 `;

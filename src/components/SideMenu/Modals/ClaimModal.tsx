@@ -20,13 +20,13 @@ const HeaderStyled = styled(Flex)`
 `;
 // const BorderDiv = styled.div`
 //   padding: 15px 5%;
-//   background: #12171a;
+//   background:  ${({ theme }) => theme.colors.cardBackground};
 //   border: 1px solid #272e32;
 //   border-radius: 12px;
 //   margin-bottom: 30px;
 // `;
 // const BorderInput = styled(Input)`
-//   background: #12171a;
+//   background:  ${({ theme }) => theme.colors.cardBackground};
 //   border: none;
 //   padding: 0;
 //   font-size: 16px;

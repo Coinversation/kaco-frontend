@@ -2,7 +2,7 @@ import { Text, Flex } from '@kaco/uikit';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikit';
 import LogoPng from './PoolHeader.svg';
 import Toggle from 'components/Menu/GlobalSettings/Toggle';
@@ -21,9 +21,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 34px;
-  background-color: #122124;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
   height: 34px;
-  border: 1px solid #1f373b;
+  border: 1px solid ${({ theme }) => theme.colors.cardBackground};
   a {
     padding-left: 12px;
     padding-right: 12px;
@@ -49,12 +49,13 @@ const PoolHeader: React.FC<{
 }> = ({ className, onStakedOnlyChange, filter, onFilterChange, stakedOnly, hasStakeInFinishedPools, placeholder }) => {
   const { url, isExact } = useRouteMatch();
   const { t } = useTranslation();
+  const theme = useTheme();
   const liveOrFinishedSwitch = (
     <Wrapper>
       <WrapperButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="primary">
         <ButtonMenuItem
           as={Link}
-          style={{ color: isExact ? '#fff' : '#9DA6A6', borderRadius: '32px', margin: 0 }}
+          style={{ color: isExact ? theme.colors.btnTextColor : '#9DA6A6', borderRadius: '32px', margin: 0 }}
           to={`${url}`}
           // onClick={() => {
           //   console.log
@@ -66,7 +67,7 @@ const PoolHeader: React.FC<{
         <NotificationDot show={false}>
           <ButtonMenuItem
             id="finished-pools-button"
-            style={{ color: isExact ? '#9DA6A6' : '#fff', borderRadius: '32px', margin: 0 }}
+            style={{ color: isExact ? '#9DA6A6' : theme.colors.btnTextColor, borderRadius: '32px', margin: 0 }}
             as={Link}
             to={`${url}/history`}
           >

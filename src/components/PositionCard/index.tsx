@@ -173,7 +173,7 @@ const Wrapper = styled.div`
       > span {
         font-weight: bold;
         margin-right: 12px;
-        color: #ffffff;
+        color: ${({ theme }) => theme.colors.text};
       }
     }
   }

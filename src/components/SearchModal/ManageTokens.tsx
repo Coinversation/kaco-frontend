@@ -1,7 +1,7 @@
 import React, { useRef, RefObject, useCallback, useState, useMemo } from 'react';
 import { Token } from '@kaco/sdk';
 import { Text, Button, CloseIcon, IconButton, LinkExternal, Input, Link } from '@kaco/uikit';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import Row, { RowBetween, RowFixed } from 'components/Layout/Row';
 import { useToken } from 'hooks/Tokens';
 import { useRemoveUserAddedToken } from 'state/user/hooks';
@@ -37,6 +37,7 @@ export default function ManageTokens({
   setModalView: (view: CurrencyModalView) => void;
   setImportToken: (token: Token) => void;
 }) {
+  const theme = useTheme();
   const { chainId } = useActiveWeb3React();
 
   const { t } = useTranslation();
@@ -100,7 +101,7 @@ export default function ManageTokens({
                 boxShadow: 'none',
                 height: '48px',
                 background: '#1F252A',
-                border: '1px solid #12171A',
+                border: `1px solid ${theme.colors.cardBackground}`,
                 borderRadius: '12px',
                 fontSize: '12px',
               }}

@@ -53,13 +53,13 @@ const MenuItem = styled(RowBetween)<{ disabled: boolean; selected: boolean }>`
   pointer-events: ${({ disabled }) => disabled && 'none'};
   :hover {
     /* background-color: ${({ theme, disabled }) => !disabled && theme.colors.background}; */
-    background-color: #12171a;
+    background-color: ${({ theme }) => theme.colors.cardBackground};
   }
   opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
 
   .symbol {
     font-size: 16px;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.text};
   }
   .symbol-text {
     margin-top: 7px;

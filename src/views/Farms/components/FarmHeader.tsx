@@ -1,7 +1,7 @@
 import { Text, Flex } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { useLocation, useRouteMatch, Link } from 'react-router-dom';
 import { ButtonMenu, ButtonMenuItem, NotificationDot } from '@kaco/uikit';
 import LogoPng from '../imgs/farms.svg';
@@ -22,9 +22,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 34px;
-  background-color: #122124;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
   height: 34px;
-  border: 1px solid #1f373b;
+  border: 1px solid ${({ theme }) => theme.colors.cardBackground};
   a {
     padding-left: 12px;
     padding-right: 12px;
@@ -49,7 +49,7 @@ const FarmHeader: React.FC<{
   const { url, isExact } = useRouteMatch();
   const location = useLocation();
   const { t } = useTranslation();
-
+  const theme = useTheme();
   let activeIndex;
   switch (location.pathname) {
     case '/farms':
@@ -70,7 +70,7 @@ const FarmHeader: React.FC<{
       <WrapperButtonMenu activeIndex={activeIndex} scale="sm" variant="primary">
         <ButtonMenuItem
           as={Link}
-          style={{ color: isExact ? '#fff' : '#9DA6A6', borderRadius: '32px', margin: 0 }}
+          style={{ color: isExact ? theme.colors.btnTextColor : '#9DA6A6', borderRadius: '32px', margin: 0 }}
           to={`${url}`}
         >
           {t('Live')}
@@ -78,7 +78,7 @@ const FarmHeader: React.FC<{
         <NotificationDot show={false}>
           <ButtonMenuItem
             id="finished-pools-button"
-            style={{ color: isExact ? '#9DA6A6' : '#fff', borderRadius: '32px', margin: 0 }}
+            style={{ color: isExact ? '#9DA6A6' : theme.colors.btnTextColor, borderRadius: '32px', margin: 0 }}
             as={Link}
             to={`${url}/history`}
           >

@@ -7,9 +7,7 @@ export const BodyWrapper = styled(Card)`
   max-width: 486px;
   width: 100%;
   z-index: 1;
-  background: #12171a;
-  border: 3px solid #238485;
-  box-shadow: 3px 7px 13px 3px rgba(9, 2, 18, 0.3);
+  background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 20px;
   > div {
     background: rgba(0, 0, 0, 0);

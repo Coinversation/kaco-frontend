@@ -49,7 +49,7 @@ const Header = styled(Flex)`
 const PoolList = styled.div`
   border-radius: 16px;
   overflow: hidden;
-  background-color: #1f373b;
+  background-color: ${({ theme }) => theme.colors.cardBackground};
   z-index: 2;
   position: relative;
   > table {
@@ -57,7 +57,7 @@ const PoolList = styled.div`
   }
   > div {
     > .line {
-      background-color: #1f373b;
+      background-color: ${({ theme }) => theme.colors.cardBackground};
       height: 88px;
     }
     > .more {

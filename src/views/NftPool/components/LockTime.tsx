@@ -96,7 +96,7 @@ export default styled(LockTime)`
     width: 40px;
     height: 68px;
     ${({ theme }) => theme.mediaQueries.sm} {
-      background: #1f373b;
+      background: ${({ theme }) => theme.colors.cardBackground};
     }
     border-radius: 12px;
     display: flex;
