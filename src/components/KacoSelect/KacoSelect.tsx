@@ -86,7 +86,7 @@ const ListItem = styled.li`
   padding: 12px 16px;
   &:hover {
     > div {
-      color: #1bd3d5;
+      color: ${({ theme }) => theme.colors.primary};
     }
   }
 `;
@@ -143,7 +143,7 @@ const KacoSelect: React.FunctionComponent<SelectProps> = ({ options, onChange, s
     <DropDownContainer style={style} isOpen={isOpen} ref={containerRef} {...containerSize}>
       {containerSize.width !== 0 && (
         <DropDownHeader onClick={toggling}>
-          <Text fontSize="14px" color="#1bd3d5">
+          <Text fontSize="14px" color="primary">
             {options[selectedOptionIndex].label}
           </Text>
           <ArrowDropDownIcon style={{ position: 'static', transform: 'none' }} color="white" onClick={toggling} />

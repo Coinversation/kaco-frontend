@@ -38,7 +38,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   display: flex;
   align-items: center;
   font-size: 14px;
-  ${(props) => (props.active === 't' ? 'color: #1bd3d5;' : '  color: #ffffff;')}
+  color: ${(props) => (props.active === 't' ? ({ theme }) => theme.colors.primary : '#ffffff')};
   height: 48px;
   margin-bottom: 4px;
   transition: all 0.3s ease;
@@ -68,7 +68,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
     justify-content: center;
     margin-left: 16px;
     svg {
-      ${(props) => (props.active === 't' ? 'fill: #1bd3d5;' : '')}
+      fill: ${(props) => (props.active === 't' ? ({ theme }) => theme.colors.primary : '#fff')};
     }
   }
 `;
@@ -143,7 +143,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
         padding-left: 60px;
         > a:hover {
           background: none;
-          color: #1bd3d5;
+          color: ${({ theme }) => theme.colors.primary};
         }
       }
     }
@@ -176,7 +176,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
         svg {
           fill: white;
           &:hover {
-            fill: #1bd3d5;
+            fill: ${({ theme }) => theme.colors.primary};
           }
         }
         > div {
@@ -196,7 +196,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
           }
           &:hover {
             svg {
-              fill: #1bd3d5;
+              fill: ${({ theme }) => theme.colors.primary};
             }
             background: none;
           }
@@ -206,7 +206,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
         svg {
           fill: white;
           &:hover {
-            fill: #1bd3d5;
+            fill: ${({ theme }) => theme.colors.primary};
           }
         }
       }
@@ -217,7 +217,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
         svg {
           fill: white;
           &:hover {
-            fill: #1bd3d5;
+            fill: ${({ theme }) => theme.colors.primary};
           }
           /* width: 28px;
           height: 28px;
@@ -243,7 +243,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
           }
           &:hover {
             svg {
-              fill: #1bd3d5;
+              fill: ${({ theme }) => theme.colors.primary};
             }
             background: none;
           }
@@ -419,7 +419,7 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
           <Flex className="balance" alignItems="center">
             <img src={LogoSvg} alt="" />
             {!collapsed && (
-              <Text color="#1BD3D5" bold fontSize="16px" ml="10px">
+              <Text color="primary" bold fontSize="16px" ml="10px">
                 ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(2)}
               </Text>
             )}

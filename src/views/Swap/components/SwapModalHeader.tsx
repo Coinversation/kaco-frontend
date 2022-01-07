@@ -37,7 +37,7 @@ export default function SwapModalHeader({
           </Text>
         </RowFixed>
         <RowFixed gap="0px">
-          <TruncatedText fontSize="14px" color="#1BD3D5">
+          <TruncatedText fontSize="14px" color="primary">
             {trade.inputAmount.toSignificant(6)}
           </TruncatedText>
         </RowFixed>
@@ -50,7 +50,7 @@ export default function SwapModalHeader({
           </Text>
         </RowFixed>
         <RowFixed gap="0px">
-          <TruncatedText fontSize="14px" color="#1BD3D5">
+          <TruncatedText fontSize="14px" color="primary">
             {trade.outputAmount.toSignificant(6)}
           </TruncatedText>
         </RowFixed>

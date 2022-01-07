@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
+import useTheme from 'hooks/useTheme';
 
 const StyledNav = styled.nav`
   margin-bottom: 40px;
@@ -23,12 +24,13 @@ const getActiveIndex = (pathname: string): number => {
 const Nav = () => {
   const location = useLocation();
   const activeIndex = getActiveIndex(location.pathname);
+  const { theme } = useTheme();
 
   return (
     <StyledNav>
       <ButtonMenu py="6px" activeIndex={activeIndex} scale="sm" variant="subtle">
         <ButtonMenuItem
-          style={activeIndex === 0 ? { color: '#1BD3D5', background: '#1F373B' } : { color: 'white' }}
+          style={activeIndex === 0 ? { color: theme.colors.primary, background: '#1F373B' } : { color: 'white' }}
           width="112px"
           height="44px"
           id="swap-nav-link"
@@ -38,7 +40,7 @@ const Nav = () => {
           NFT
         </ButtonMenuItem>
         <ButtonMenuItem
-          style={activeIndex === 1 ? { color: '#1BD3D5', background: '#1F373B' } : { color: 'white' }}
+          style={activeIndex === 1 ? { color: theme.colors.primary, background: '#1F373B' } : { color: 'white' }}
           height="44px"
           width="112px"
           id="pool-nav-link"

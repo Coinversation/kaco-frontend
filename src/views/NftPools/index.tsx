@@ -78,7 +78,7 @@ const NftPools: FC = () => {
           <div className="banner">
             <img src={MarketSvg} alt="" />
           </div>
-          <Text className="text" color="#1BD3D5" bold fontSize="20px" mt="23px" mb="40px">
+          <Text className="text" color="primary" bold fontSize="20px" mt="23px" mb="40px">
             Trade, Swap, Fractionalized Your NFTS
           </Text>
           <Search placeholder="Search NFT" value={filter} onChange={setFilter} />

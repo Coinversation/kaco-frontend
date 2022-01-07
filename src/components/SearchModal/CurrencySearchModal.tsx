@@ -47,7 +47,7 @@ const StyledModalBody = styled(ModalBody)`
     height: 36px;
     background: #272e32;
     border-radius: 12px;
-    color: #1bd3d5;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

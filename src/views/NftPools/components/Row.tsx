@@ -23,7 +23,7 @@ const StyledTr = styled.tr`
     &:hover {
       background-color: #122124;
       td > .link {
-        color: #1bd3d5;
+        color: ${({ theme }) => theme.colors.primary};
         visibility: visible;
         cursor: pointer;
       }

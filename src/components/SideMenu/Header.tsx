@@ -152,7 +152,7 @@ export default styled(Header)`
       line-height: 36px;
       font-size: 14px;
       color: #fff;
-      background: linear-gradient(90deg, #1bd3d5, #d755d9, #ec9b5a);
+      background: linear-gradient(90deg, ${({ theme }) => theme.colors.primary}, #d755d9, #ec9b5a);
       border-radius: 12px;
       font-weight: bold;
       margin-right: 8px;

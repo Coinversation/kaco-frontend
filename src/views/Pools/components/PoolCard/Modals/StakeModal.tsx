@@ -40,7 +40,7 @@ const StyledRadio = styled.div`
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: #1bd3d5;
+  background: ${({ theme }) => theme.colors.primary};
   border-radius: 50%;
 `;
 const StakeModal: React.FC<StakeModalProps> = ({

@@ -100,7 +100,7 @@ const FarmHeader: React.FC<{
     <Flex className={className} justifyContent="space-between" flexWrap="wrap">
       <div className="left">
         <img src={LogoPng} alt="" />
-        {/* <Text color="#1BD3D5" fontSize="20px">
+        {/* <Text color="primary" fontSize="20px">
           {t('Happy Farming :)')}
         </Text> */}
       </div>

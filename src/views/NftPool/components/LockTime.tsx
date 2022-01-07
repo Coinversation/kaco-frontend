@@ -50,34 +50,34 @@ const LockTime: FC<{ className?: string; lastBlock: number; now: number }> = ({ 
   return (
     <Flex className={className}>
       <div>
-        <Text fontSize="20px" bold color="#1BD3D5">
+        <Text fontSize="20px" bold color="primary">
           {nowDate.days || '?'}
         </Text>
-        <Text fontSize="12px" color="#1BD3D5">
+        <Text fontSize="12px" color="primary">
           Days
         </Text>
       </div>
       <div>
-        <Text fontSize="20px" bold color="#1BD3D5">
+        <Text fontSize="20px" bold color="primary">
           {nowDate.hours || '?'}
         </Text>
-        <Text fontSize="12px" color="#1BD3D5">
+        <Text fontSize="12px" color="primary">
           Hrs
         </Text>
       </div>
       <div>
-        <Text fontSize="20px" bold color="#1BD3D5">
+        <Text fontSize="20px" bold color="primary">
           {nowDate.mins || '?'}
         </Text>
-        <Text fontSize="12px" color="#1BD3D5">
+        <Text fontSize="12px" color="primary">
           Mins
         </Text>
       </div>
       <div>
-        <Text fontSize="20px" bold color="#1BD3D5">
+        <Text fontSize="20px" bold color="primary">
           {nowDate.secs || '?'}
         </Text>
-        <Text fontSize="12px" color="#1BD3D5">
+        <Text fontSize="12px" color="primary">
           Secs
         </Text>
       </div>

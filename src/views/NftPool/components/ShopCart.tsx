@@ -38,7 +38,7 @@ const Item: FC<{ className?: string; item: NFT; floorPrice: number; symbol: stri
       <Text color="white" bold fontSize="12px" mt="14px" mb="12px">
         {item.name}#{item.id}
       </Text>
-      <Text color="#1BD3D5" bold fontSize="12px">
+      <Text color="primary" bold fontSize="12px">
         {floorPrice}&nbsp;{symbol}
       </Text>
     </div>
@@ -101,7 +101,7 @@ const ShopCart: FC<{ className?: string; floorPrice: number; symbol: string; pai
           ))}
         </Grid>
         <Flex className="right">
-          <Text className="price" color="#1BD3D5" bold>
+          <Text className="price" color="primary" bold>
             {formatFloat(items.length * floorPrice)}&nbsp;{symbol}
           </Text>
           {isXs || isSm || isMd ? (

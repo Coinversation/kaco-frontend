@@ -4,6 +4,7 @@ import { useTranslation } from 'contexts/Localization';
 import { useUserSlippageTolerance, useUserTransactionTTL } from 'state/user/hooks';
 import QuestionHelper from '../../QuestionHelper';
 import styled from 'styled-components';
+import useTheme from 'hooks/useTheme';
 enum SlippageError {
   InvalidInput = 'InvalidInput',
   RiskyLow = 'RiskyLow',
@@ -21,6 +22,7 @@ const StyledInput = styled(Input)`
 `;
 
 const SlippageTabs = () => {
+  const { theme } = useTheme();
   const [userSlippageTolerance, setUserslippageTolerance] = useUserSlippageTolerance();
   const [ttl, setTtl] = useUserTransactionTTL();
   const [slippageInput, setSlippageInput] = useState('');
@@ -94,7 +96,7 @@ const SlippageTabs = () => {
               height: '36px',
               fontSize: '14px',
               color: 'white',
-              background: userSlippageTolerance === 10 ? '#1BD3D5' : '#272E32',
+              background: userSlippageTolerance === 10 ? theme.colors.primary : '#272E32',
               fontWeight: 'bold',
             }}
             mr="12px"
@@ -111,7 +113,7 @@ const SlippageTabs = () => {
               height: '36px',
               fontSize: '14px',
               color: 'white',
-              background: userSlippageTolerance === 50 ? '#1BD3D5' : '#272E32',
+              background: userSlippageTolerance === 50 ? theme.colors.primary : '#272E32',
               fontWeight: 'bold',
             }}
             mr="12px"
@@ -126,7 +128,7 @@ const SlippageTabs = () => {
           <Button
             style={{
               height: '36px',
-              background: userSlippageTolerance === 100 ? '#1BD3D5' : '#272E32',
+              background: userSlippageTolerance === 100 ? theme.colors.primary : '#272E32',
               color: 'white',
               fontSize: '14px',
               fontWeight: 'bold',

@@ -119,7 +119,7 @@ export default styled(Nft)`
     }
     h3 {
       word-break: break-all;
-      color: #1bd3d5;
+      color: ${({ theme }) => theme.colors.primary};
       font-size: 18px;
       font-weight: 800;
     }

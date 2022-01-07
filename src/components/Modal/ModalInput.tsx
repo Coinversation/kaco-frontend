@@ -76,7 +76,7 @@ const ModalInput: React.FC<ModalInputProps> = ({
           <Text fontSize="12px">{inputTitle}</Text>
           <Flex alignItems="center">
             <Text fontSize="12px">{t('Balance: %balance%', { balance: displayBalance(max) })}</Text>
-            <Text fontSize="12px" style={{ cursor: 'pointer' }} color="#1BD3D5" ml="8px" onClick={onSelectMax}>
+            <Text fontSize="12px" style={{ cursor: 'pointer' }} color="primary" ml="8px" onClick={onSelectMax}>
               {t('Max')}
             </Text>
           </Flex>

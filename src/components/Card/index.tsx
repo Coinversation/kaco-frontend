@@ -40,7 +40,7 @@ export const PlainCard = styled(Card)`
 
 export const DashedPrimayCard = styled(Card)`
   background: #238485;
-  border: 1px dashed ${({ theme }) => theme.colors.primarySecondary};
+  border: 1px dashed #238485;
   border-radius: 12px;
 `;
 

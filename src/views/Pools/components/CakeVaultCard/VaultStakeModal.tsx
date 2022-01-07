@@ -138,7 +138,7 @@ const VaultStakeModal: React.FC<VaultStakeModalProps> = ({ pool, stakingMax, isR
           <Text mt="8px" ml="auto" color="textSubtle" fontSize="12px" mb="8px">
             {t('Balance: %balance%', { balance: getFullDisplayBalance(stakingMax, stakingToken.decimals) })}
           </Text>
-          <Text color="#1BD3D5" onClick={() => handleChangePercent(100)}>
+          <Text color="primary" onClick={() => handleChangePercent(100)}>
             {t('Max')}
           </Text>
         </div>

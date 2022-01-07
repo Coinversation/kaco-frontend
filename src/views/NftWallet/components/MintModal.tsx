@@ -169,7 +169,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft, pair }) => {
               <Text bold fontSize="20px" color="white">
                 {pair.symbol}
               </Text>
-              <Text fontSize="12px" color="#1BD3D5">
+              <Text fontSize="12px" color="primary">
                 Quantity {100 - FEE}
               </Text>
             </Flex>
@@ -279,7 +279,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft, pair }) => {
               <Text bold fontSize="20px" color="white">
                 {pair.symbol}
               </Text>
-              <Text fontSize="12px" color="#1BD3D5">
+              <Text fontSize="12px" color="primary">
                 Quantity {100 - FEE - FEE_DAYLIY * lockdays}
               </Text>
             </Flex>

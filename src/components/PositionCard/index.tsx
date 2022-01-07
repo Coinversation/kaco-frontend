@@ -79,7 +79,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                 </Text>
               </RowFixed>
               <RowFixed>
-                <Text fontSize="12px" color="#1BD3D5">
+                <Text fontSize="12px" color="primary">
                   {userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}
                 </Text>
               </RowFixed>
@@ -164,7 +164,7 @@ const Wrapper = styled.div`
       > span {
         font-size: 16px;
         font-weight: bold;
-        color: #1bd3d5;
+        color: ${({ theme }) => theme.colors.primary};
         margin-left: 14px;
       }
     }

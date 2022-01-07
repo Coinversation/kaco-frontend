@@ -281,7 +281,7 @@ export const GoodsInPool = styled(Pools_)`
       cursor: pointer;
     }
     h4 {
-      color: #1bd3d5;
+      color: ${({ theme }) => theme.colors.primary};
       font-size: 20px;
       padding-bottom: 10px;
     }
@@ -298,7 +298,7 @@ export const GoodsInPool = styled(Pools_)`
       line-height: 30px;
       vertical-align: middle;
       padding: 0 10px;
-      color: #1bd3d5;
+      color: ${({ theme }) => theme.colors.primary};
       font-weight: 700;
     }
     &:hover {
@@ -369,7 +369,7 @@ export const GoodsInPool = styled(Pools_)`
         cursor: pointer;
         &:hover,
         &.on {
-          color: #1bd3d5;
+          color: ${({ theme }) => theme.colors.primary};
         }
       }
     }

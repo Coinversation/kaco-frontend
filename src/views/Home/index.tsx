@@ -106,7 +106,7 @@ export default styled(Home)`
   background-size: 100%;
   background-position-y: 30%;
   background-repeat: no-repeat;
-  color: #1bd3d5;
+  color: ${({ theme }) => theme.colors.primary};
   padding-bottom: 30px;
   /* ${({ theme }) => theme.mediaQueries.md} {
     padding-left: 64px;
@@ -162,7 +162,7 @@ export default styled(Home)`
           font-size: 60px;
           > div > span {
             font-size: 60px;
-            color: #1bd3d5;
+            color: ${({ theme }) => theme.colors.primary};
           }
           ${lg} {
             font-size: 40px;
@@ -205,7 +205,7 @@ export default styled(Home)`
           margin-bottom: 51px;
         }
         font-weight: bold;
-        color: #1bd3d5;
+        color: ${({ theme }) => theme.colors.primary};
       }
     }
   }

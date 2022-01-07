@@ -104,7 +104,7 @@ export const PoolHeader = styled(PoolHeader_)`
 
     > h1 {
       height: 43px;
-      color: #1bd3d5;
+      color: ${({ theme }) => theme.colors.primary};
       padding: 19px 0px 0px 66px;
       font-size: 24px;
       font-weight: bold;

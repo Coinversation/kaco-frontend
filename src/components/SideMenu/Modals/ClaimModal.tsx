@@ -32,7 +32,7 @@ const HeaderStyled = styled(Flex)`
 //   font-size: 16px;
 // `;
 const BgButton = styled(Button)`
-  background-color: #1bd3d5;
+  background-color: ${({ theme }) => theme.colors.primary};
   border: none;
   padding: 0;
   margin: 0;

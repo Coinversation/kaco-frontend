@@ -39,6 +39,7 @@ import { useUserSlippageTolerance } from '../../state/user/hooks';
 import Page from '../Page';
 import ArrowSvg from './imgs/arrow.svg';
 import { DashedPrimayCard } from 'components/Card';
+import useTheme from 'hooks/useTheme';
 
 const BorderCard = styled.div`
   padding: 16px;
@@ -50,6 +51,7 @@ export default function RemoveLiquidity({
     params: { currencyIdA, currencyIdB },
   },
 }: RouteComponentProps<{ currencyIdA: string; currencyIdB: string }>) {
+  const { theme } = useTheme();
   const [currencyA, currencyB] = [useCurrency(currencyIdA) ?? undefined, useCurrency(currencyIdB) ?? undefined];
   const { account, chainId, library } = useActiveWeb3React();
   const [tokenA, tokenB] = useMemo(
@@ -325,7 +327,7 @@ export default function RemoveLiquidity({
                 {currencyA?.symbol}
               </Text>
             </RowFixed>
-            <Text fontSize="32px" color="#1BD3D5">
+            <Text fontSize="32px" color="primary">
               {parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}
             </Text>
           </RowBetween>
@@ -336,7 +338,7 @@ export default function RemoveLiquidity({
                 {currencyB?.symbol}
               </Text>
             </RowFixed>
-            <Text fontSize="32px" color="#1BD3D5">
+            <Text fontSize="32px" color="primary">
               {parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}
             </Text>
           </RowBetween>
@@ -491,10 +493,10 @@ export default function RemoveLiquidity({
             {!showDetailed && (
               <BorderCard>
                 <Flex mb="26px" alignItems="flex-end">
-                  <Text fontSize="32px" color="#1BD3D5" bold style={{ lineHeight: 1 }}>
+                  <Text fontSize="32px" color="primary" bold style={{ lineHeight: 1 }}>
                     {formattedAmounts[Field.LIQUIDITY_PERCENT]}%
                   </Text>
-                  <Text color="#1BD3D5" fontSize="12px" marginLeft="10px">
+                  <Text color="primary" fontSize="12px" marginLeft="10px">
                     {t('Amount')}
                   </Text>
                 </Flex>
@@ -510,8 +512,8 @@ export default function RemoveLiquidity({
                   <Button
                     style={{
                       marginTop: '16px',
-                      color: innerLiquidityPercentage === 25 ? 'white' : '#1BD3D5',
-                      background: innerLiquidityPercentage === 25 ? '#1BD3D5' : '#1F252A',
+                      color: innerLiquidityPercentage === 25 ? 'white' : theme.colors.primary,
+                      background: innerLiquidityPercentage === 25 ? theme.colors.primary : '#1F252A',
                       borderRadius: '12px',
                     }}
                     variant="tertiary"
@@ -523,8 +525,8 @@ export default function RemoveLiquidity({
                   <Button
                     style={{
                       marginTop: '16px',
-                      color: innerLiquidityPercentage === 50 ? 'white' : '#1BD3D5',
-                      background: innerLiquidityPercentage === 50 ? '#1BD3D5' : '#1F252A',
+                      color: innerLiquidityPercentage === 50 ? 'white' : theme.colors.primary,
+                      background: innerLiquidityPercentage === 50 ? theme.colors.primary : '#1F252A',
                       borderRadius: '12px',
                     }}
                     variant="tertiary"
@@ -536,8 +538,8 @@ export default function RemoveLiquidity({
                   <Button
                     style={{
                       marginTop: '16px',
-                      color: innerLiquidityPercentage === 75 ? 'white' : '#1BD3D5',
-                      background: innerLiquidityPercentage === 75 ? '#1BD3D5' : '#1F252A',
+                      color: innerLiquidityPercentage === 75 ? 'white' : theme.colors.primary,
+                      background: innerLiquidityPercentage === 75 ? theme.colors.primary : '#1F252A',
                       borderRadius: '12px',
                     }}
                     variant="tertiary"
@@ -549,8 +551,8 @@ export default function RemoveLiquidity({
                   <Button
                     style={{
                       marginTop: '16px',
-                      color: innerLiquidityPercentage === 100 ? 'white' : '#1BD3D5',
-                      background: innerLiquidityPercentage === 100 ? '#1BD3D5' : '#1F252A',
+                      color: innerLiquidityPercentage === 100 ? 'white' : theme.colors.primary,
+                      background: innerLiquidityPercentage === 100 ? theme.colors.primary : '#1F252A',
                       borderRadius: '12px',
                     }}
                     variant="tertiary"

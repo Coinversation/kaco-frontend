@@ -93,7 +93,7 @@ const Burn: FC<{ className?: string }> = ({ className }) => {
                 />
                 <Flex flex="1" justifyContent="space-between" alignItems="center">
                   <div className="">
-                    <Text color="#1BD3D5" bold fontSize="20px">
+                    <Text color="primary" bold fontSize="20px">
                       {formatFloat(balance.balance)}
                     </Text>
                     <Text color="white" bold>
