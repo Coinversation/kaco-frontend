@@ -32,8 +32,8 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@kaco/sdk": "^2.5.4",
-    "@kaco/uikit": "^0.46.31",
+    "@kaco/sdk": "../kaco-toolkit/packages/kaco-swap-sdk-bsc",
+    "@kaco/uikit": "../kaco-toolkit/packages/kaco-uikit",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",
     "@types/node": "^13.13.5",
@@ -43,6 +43,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/react-window": "^1.8.3",
     "@types/styled-components": "^5.1.7",
+    "@types/styled-system": "^5.1.10",
     "@uniswap/token-lists": "^1.0.0-beta.19",
     "@uniswap/v2-core": "^1.0.0",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
@@ -82,6 +83,7 @@
     "split-grid": "^1.0.11",
     "styled-components": "^5.3.0",
     "swiper": "^6.6.1",
+    "styled-system": "^5.1.5",
     "typescript": "^4.3.2"
   },
   "devDependencies": {
