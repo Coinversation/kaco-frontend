@@ -33,7 +33,7 @@
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
     "@kaco/sdk": "../kaco-toolkit/packages/kaco-swap-sdk-bsc",
-    "@kaco/uikit": "../kaco-toolkit/packages/kaco-uikit",
+    "@kaco/uikitv2": "../kaco-toolkit/packages/kaco-uikit",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",
     "@types/node": "^13.13.5",
