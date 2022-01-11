@@ -5,6 +5,7 @@ import HeaderBgSvg from '../img/header-bg.svg';
 import { formatFloat } from '../util/format';
 import { NFT_PAIRS } from 'config/constants/nft';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
+import { usePollPrice } from 'state/price/hooks';
 export interface Pool {
   poolName: string;
   fragmentName: string;
@@ -21,7 +22,7 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
   pair,
 }) => {
   // const pair = useNftPair(pairIndex);
-
+  usePollPrice(NFT_PAIRS[pairIndex].address, '100');
   return (
     <div className={className}>
       <div>

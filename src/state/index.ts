@@ -7,6 +7,7 @@ import predictionsReducer from './predictions';
 import profileReducer from './profile';
 import teamsReducer from './teams';
 import achievementsReducer from './achievements';
+import priceReducer from './price';
 import blockReducer from './block';
 import collectiblesReducer from './collectibles';
 import votingReducer from './voting';
@@ -28,6 +29,7 @@ const store = configureStore({
   reducer: {
     achievements: achievementsReducer,
     block: blockReducer,
+    price: priceReducer,
     farms: farmsReducer,
     pools: poolsReducer,
     predictions: predictionsReducer,
