@@ -33,10 +33,11 @@ const NftsGroupByPool_: FC<{
 const NftsGroupByPool = styled(NftsGroupByPool_)`
   width: 100%;
   border-radius: 24px;
+  margin-top: 10px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     background: #122124;
-    padding: 30px 40px;
+    padding: 30px 20px;
   }
 
   > .nfts {

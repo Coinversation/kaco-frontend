@@ -5,13 +5,16 @@ import MintModal from './MintModal';
 import { NFT } from 'views/NftPool/components/GoodsInPool';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
 
-const Nft: FC<{ className?: string; nft: NFT; pair: NftPair }> = ({ className, nft, pair }) => {
+const Nft: FC<{ className?: string; nft: NFT; pair: NftPair }> = ({ className, nft = {} as NFT, pair }) => {
   const [onMint] = useModal(<MintModal nft={nft} pair={pair} />);
+  if (!nft || !nft.image) {
+    return null;
+  }
 
   return (
     <div className={className}>
       <div className="show">
-        {nft.image.indexOf('.mp4') > -1 ? (
+        {(nft?.image ?? '').indexOf('.mp4') > -1 ? (
           <video width="100%" height="100%" autoPlay={true} loop={true} playsInline={true}>
             <source src={`${nft.image}`} type="video/mp4" />
           </video>

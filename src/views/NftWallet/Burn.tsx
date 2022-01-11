@@ -128,9 +128,10 @@ export default styled(Burn)`
   background: #122124;
   border-radius: 24px;
   padding: 15px;
+  margin-top: 10px;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    padding: 30px 40px;
+    padding: 30px 20px;
   }
 
   > .nfts {

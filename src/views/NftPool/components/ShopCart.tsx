@@ -24,19 +24,19 @@ const Item: FC<{ className?: string; item: NFT; floorPrice: number; symbol: stri
   return (
     <div className="item">
       <div className="show" onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)}>
-        {item.image.indexOf('.mp4') > -1 ? (
+        {(item?.image ?? '').indexOf('.mp4') > -1 ? (
           <video width="100%" height="100%" autoPlay={true} loop={true} playsInline={true}>
             <source src={`${item.image}`} type="video/mp4" />
           </video>
         ) : (
-          <img src={item.image} alt="" />
+          <img src={item?.image} alt="" />
         )}
         <div className="mask" style={{ opacity: isHover ? '1' : '0' }} onClick={() => remove(item)}>
           <img src={RemoveSVG} alt="" />
         </div>
       </div>
       <Text color="white" bold fontSize="12px" mt="14px" mb="12px">
-        {item.name}#{item.id}
+        {item?.name}#{item?.id}
       </Text>
       <Text color="#1BD3D5" bold fontSize="12px">
         {floorPrice}&nbsp;{symbol}
