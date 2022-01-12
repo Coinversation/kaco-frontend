@@ -9,7 +9,7 @@ import PoolsSvg from '../svg/PoolsSvg';
 import KarsierSvg from '../svg/KarsierSvg';
 import { useEffect } from 'react';
 import { useMatchBreakpoints } from '@kaco/uikitv2';
-import { useKacoPrice } from 'hooks/useKacoPrice';
+
 import Header from './Header';
 const Wrapper = styled.div<{ collapsed: boolean }>`
   background: #1f252a;

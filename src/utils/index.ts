@@ -104,3 +104,10 @@ export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currenc
   if (currency === ETHER) return true;
   return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address]);
 }
+
+export function sortName(name: string) {
+  if (name && name.length > 5) {
+    return `${name.slice(0, 5)}...${name.slice(name.length - 4, name.length)}`;
+  }
+  return name;
+}

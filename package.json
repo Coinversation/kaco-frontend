@@ -30,6 +30,9 @@
     ]
   },
   "dependencies": {
+    "@polkadot/api": "6.0.5",
+    "@polkadot/extension-dapp": "0.40.3",
+    "@polkadot/types": "6.0.5",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
     "@kaco/sdk": "../kaco-toolkit/packages/kaco-swap-sdk-bsc",
