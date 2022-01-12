@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, useTooltip } from '@kaco/uikitv2';
-import { chainKey } from './config';
+import { chainKey } from '../config';
 import ConnectWalletButton from '../../ConnectWalletButton';
 import PolkadotAccounts from './WalletAccountInfo/PolkadotAccounts';
 import BscAccountInfo from './WalletAccountInfo/BscAccountInfo';
@@ -14,7 +14,7 @@ const WalletAccountInfo = () => {
     tooltipVisible: tooltipVisible_P,
     // @ts-ignore
   } = useTooltip(chainKey === 'SDN' ? PolkadotAccounts : BscAccountInfo, {
-    trigger: 'click',
+    trigger: 'hover',
     placement: 'top-end',
     hideArrow: false,
     tooltipOffset: [20, 10],
@@ -46,6 +46,7 @@ const WalletAccount = styled(Flex)`
   border-radius: 12px;
   width: 140px;
   padding: 0 12px;
+  cursor: pointer;
   .head_icon {
     display: block;
     width: 24px;

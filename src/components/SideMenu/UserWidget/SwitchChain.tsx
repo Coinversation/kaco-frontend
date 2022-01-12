@@ -1,15 +1,14 @@
 import React from 'react';
-import { Text, Flex, useTooltip, useMatchBreakpoints, Heading } from '@kaco/uikitv2';
+import { Text, Flex, useTooltip, Heading } from '@kaco/uikitv2';
 import BscSvg from '../imgs/icon_bsc.svg';
 import SelectedSvg from '../imgs/icon_select.svg';
 import SdnSvg from '../imgs/icon_sd.png';
 import SlSvg from '../imgs/icon_sl.svg';
-import { chainKey } from './config';
+import { chainKey } from '../config';
 const SwitchChain = () => {
-  const { isXs, isSm } = useMatchBreakpoints();
   const { targetRef, tooltip, tooltipVisible } = useTooltip(SwitchChainTooltip, {
-    trigger: 'click',
-    tootipStyle: { padding: '30px 34px 20px', maxWidth: '360px' },
+    trigger: 'hover',
+    tootipStyle: { padding: '30px 34px 20px' },
     placement: 'top-end',
     hideArrow: false,
     tooltipOffset: [20, 10],
@@ -30,29 +29,23 @@ const SwitchChain = () => {
         {chainKey === 'SDN' ? (
           <>
             <img style={{ width: '20px' }} src={SdnSvg} alt="" />
-            {isXs || isSm ? null : (
-              <Text color="text" fontSize="14px" bold>
-                SDN
-              </Text>
-            )}
+            <Text color="text" fontSize="14px" bold>
+              SDN
+            </Text>
           </>
         ) : (
           <>
             <img style={{ width: '20px' }} src={BscSvg} alt="" />
-            {isXs || isSm ? null : (
-              <Text color="text" fontSize="14px" bold>
-                BSC
-              </Text>
-            )}
+            <Text color="text" fontSize="14px" bold>
+              BSC
+            </Text>
           </>
         )}
-        {isXs || isSm ? null : (
-          <img
-            style={{ width: '9px', height: '5px', transform: tooltipVisible ? '' : 'scaleY(-1)' }}
-            src={SlSvg}
-            alt=""
-          />
-        )}
+        <img
+          style={{ width: '9px', height: '5px', transform: tooltipVisible ? '' : 'scaleY(-1)' }}
+          src={SlSvg}
+          alt=""
+        />
       </Flex>
     </>
   );
