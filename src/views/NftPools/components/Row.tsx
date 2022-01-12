@@ -119,15 +119,10 @@ const Row: FC<{ pair: NftPair; simpleMode: boolean }> = ({ pair, simpleMode }) =
         {!simpleMode && (
           <>
             <td>
-              <TitledItem title="NFT IN Pool" value={pair.supply} />
+              <TitledItem title="NFT IN Pool" value={pair.supply.toLocaleString()} />
             </td>
             <td>
-              <TitledItem
-                title="Liquidity"
-                value={
-                  '$' + formatFloat((Number(priceVsBusdMap[pair.pairAddress.toLowerCase()]) || 0) * pair.supply * 100)
-                }
-              />
+              <TitledItem title="Liquidity" value={pair.liquidity ? '$' + pair.liquidity.toLocaleString() : '-'} />
             </td>
           </>
         )}

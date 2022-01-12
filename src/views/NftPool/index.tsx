@@ -9,15 +9,19 @@ import { GoodsInPool } from './components/GoodsInPool';
 import { useNftPair } from 'views/NftPools/hooks/useNftPools';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
 import { usePrice } from 'state/price/hooks';
+import { useFarms, usePollFarmsData } from 'state/farms/hooks';
 
 const NFTPool: FC<{ className?: string }> = ({ className }) => {
+  const { data: farmsLP } = useFarms();
+  usePollFarmsData();
   const { items } = useContext(NftContext);
   const { pairAddress } = useParams<{ pairAddress: string }>();
-  const index = NFT_PAIRS.findIndex((pair) => pair.address.toLocaleLowerCase() === pairAddress.toLocaleLowerCase());
+  const _index = NFT_PAIRS.findIndex((pair) => pair.address.toLocaleLowerCase() === pairAddress.toLocaleLowerCase());
+  const index = _index < 0 ? 0 : _index;
   const pair = NFT_PAIRS[index];
-  const pairDetail: NftPair = useNftPair(index);
+  const pairDetail: NftPair = useNftPair(index, farmsLP);
   const { priceVsBusdMap } = usePrice();
-  console.log({ priceVsBusdMap });
+
   return (
     <div style={{ background: 'rgba(0,0,0,0)' }}>
       <Page className={className}>

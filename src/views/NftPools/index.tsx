@@ -8,6 +8,7 @@ import MarketSvg from './svg/market.svg';
 import { useNftPairs } from './hooks/useNftPools';
 import Search from 'components/Search';
 import PageLoader from 'components/Loader/PageLoader';
+import { useFarms, usePollFarmsData } from 'state/farms/hooks';
 
 const Header = styled(Flex)`
   justify-content: space-between;
@@ -67,9 +68,11 @@ const PoolList = styled.div`
 
 const NftPools: FC = () => {
   const { isXs, isSm } = useMatchBreakpoints();
-  const pairs = useNftPairs();
   const [filter, setFilter] = useState<string>('');
   const simpleMode = useMemo(() => isXs || isSm, [isXs, isSm]);
+  const { data: farmsLP } = useFarms();
+  usePollFarmsData();
+  const pairs = useNftPairs(farmsLP);
 
   return (
     <Page>

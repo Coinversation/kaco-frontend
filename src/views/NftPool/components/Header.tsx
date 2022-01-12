@@ -21,7 +21,6 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
   floorPrice,
   pair,
 }) => {
-  // const pair = useNftPair(pairIndex);
   usePollPrice(NFT_PAIRS[pairIndex].address, '100');
   return (
     <div className={className}>
@@ -31,7 +30,7 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
         <Flex className="pool-info">
           <div className="info">
             <Text fontSize="18px" bold mb="4px">
-              {pair?.supply || 0}
+              {pair?.supply.toLocaleString() || 0}
             </Text>
             <Text fontSize="12px">NFT In Pool</Text>
           </div>
@@ -43,13 +42,13 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
           </div>
           <div className="info second-line">
             <Text fontSize="18px" bold mb="4px">
-              ${formatFloat(floorPrice * (pair?.supply || 0) * 100)}
+              ${pair?.liquidity ? pair.liquidity.toLocaleString() : '-'}
             </Text>
             <Text fontSize="12px">Liquidity</Text>
           </div>
           <div className="info second-line">
             <Text fontSize="18px" bold mb="4px">
-              {(pair?.supply || 0) * 100}
+              {((pair?.supply || 0) * 100).toLocaleString()}
             </Text>
             <Text fontSize="12px">KCoin Supply</Text>
           </div>
