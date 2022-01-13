@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Button, useModal, IconButton, AddIcon, MinusIcon, Skeleton, Text } from '@kaco/uikitv2';
+import { Button, useModal, IconButton, Skeleton, Text } from '@kaco/uikitv2';
 import { useLocation } from 'react-router-dom';
 import { BigNumber } from 'bignumber.js';
 import ConnectWalletButton from 'components/ConnectWalletButton';

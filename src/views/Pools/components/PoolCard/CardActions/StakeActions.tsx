@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Button, IconButton, AddIcon, MinusIcon, useModal, Skeleton, useTooltip } from '@kaco/uikitv2';
+import { Flex, Text, Button, IconButton, useModal, Skeleton, useTooltip } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { useTranslation } from 'contexts/Localization';
 import { getBalanceNumber } from 'utils/formatBalance';
@@ -88,7 +88,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
           {reachStakingLimit ? (
             <span ref={targetRef}>
               <IconButton variant="secondary" disabled>
-                <img src="/images/AddIcon.svg" width="24px" height="24px" />
+                <img src="/images/AddIcon.svg" alt="AddIcon" width="24px" height="24px" />
               </IconButton>
             </span>
           ) : (
@@ -97,7 +97,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
               onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}
               disabled={isFinished}
             >
-              <img src="/images/AddIcon.svg" width="24px" height="24px" />
+              <img src="/images/AddIcon.svg" alt="AddIcon" width="24px" height="24px" />
             </IconButton>
           )}
         </Flex>

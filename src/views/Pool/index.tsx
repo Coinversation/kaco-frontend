@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Pair } from '@kaco/sdk';
-import { Text, Flex, CardBody, CardFooter, Button, AddIcon } from '@kaco/uikitv2';
+import { Text, Flex, CardBody, CardFooter, Button } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
@@ -102,7 +102,7 @@ export default function Pool() {
             as={Link}
             to="/add"
             width="100%"
-            startIcon={<img src="/images/AddIcon.svg" color="btnTextColor" />}
+            startIcon={<img src="/images/AddIcon.svg" alt="AddIcon" color="btnTextColor" />}
           >
             {t('Add Liquidity')}
           </Button>

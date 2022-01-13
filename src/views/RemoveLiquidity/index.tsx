@@ -4,7 +4,7 @@ import { splitSignature } from '@ethersproject/bytes';
 import { Contract } from '@ethersproject/contracts';
 import { TransactionResponse } from '@ethersproject/providers';
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@kaco/sdk';
-import { Button, Text, AddIcon, ArrowDownIcon, CardBody, Slider, Box, Flex, useModal } from '@kaco/uikitv2';
+import { Button, Text, ArrowDownIcon, CardBody, Slider, Box, Flex, useModal } from '@kaco/uikitv2';
 import { RouteComponentProps } from 'react-router';
 import { BigNumber } from '@ethersproject/bignumber';
 import { useTranslation } from 'contexts/Localization';
@@ -651,7 +651,7 @@ export default function RemoveLiquidity({
                 id="remove-liquidity-tokena"
               />
               <ColumnCenter>
-                <img src="/images/AddIcon.svg" width="24px" />
+                <img src="/images/AddIcon.svg" alt="AddIcon" width="24px" />
               </ColumnCenter>
               <CurrencyInputPanel
                 hideBalance

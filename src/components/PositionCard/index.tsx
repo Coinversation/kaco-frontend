@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { JSBI, Pair, Percent } from '@kaco/sdk';
-import { Button, Text, Flex, CardProps, AddIcon } from '@kaco/uikitv2';
+import { Button, Text, Flex, CardProps } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';

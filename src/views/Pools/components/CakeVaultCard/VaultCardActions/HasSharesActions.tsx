@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, IconButton, AddIcon, MinusIcon, useModal, Skeleton } from '@kaco/uikitv2';
+import { Flex, Text, IconButton, useModal, Skeleton } from '@kaco/uikitv2';
 import BigNumber from 'bignumber.js';
 import { getBalanceNumber } from 'utils/formatBalance';
 import { Pool } from 'state/types';
@@ -45,10 +45,10 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
       </Flex>
       <Flex>
         <IconButton variant="secondary" onClick={onPresentUnstake} mr="6px">
-          <img src="/images/MinusIcon.svg" alt="MinusIcon" />
+          <img src="/images/MinusIcon.svg" alt="MinusIcon" width="24px" height="24px" />
         </IconButton>
         <IconButton variant="secondary" onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}>
-          <img src="/images/AddIcon.svg" width="24px" height="24px" />
+          <img src="/images/AddIcon.svg" alt="AddIcon" width="24px" height="24px" />
         </IconButton>
       </Flex>
     </Flex>
