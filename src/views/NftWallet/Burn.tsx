@@ -83,7 +83,7 @@ const Burn: FC<{ className?: string }> = ({ className }) => {
         <NoBalance />
       ) : (
         <div className={className}>
-          <Text bold color="white" mb="20px" fontSize="20px">
+          <Text bold color="text" mb="20px" fontSize="20px">
             NFT100
           </Text>
           <Grid gridGap={{ xs: '4px', md: '16px' }} className="nfts">
@@ -99,7 +99,7 @@ const Burn: FC<{ className?: string }> = ({ className }) => {
                     <Text color="primary" bold fontSize="20px">
                       {formatFloat(balance.balance)}
                     </Text>
-                    <Text color="white" bold>
+                    <Text color="text" bold>
                       {balance.symbol}
                     </Text>
                   </div>

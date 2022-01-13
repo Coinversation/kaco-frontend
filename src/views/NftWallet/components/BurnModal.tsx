@@ -64,7 +64,7 @@ const Card_: FC<{
           </div>
         )}
       </div>
-      <Text bold color="white" textAlign="center" mt="16px" mb="13px">
+      <Text bold color="text" textAlign="center" mt="16px" mb="13px">
         {nft.name}#{nft.id}
       </Text>
       <Flex justifyContent="center">

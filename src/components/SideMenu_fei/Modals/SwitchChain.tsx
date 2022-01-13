@@ -87,7 +87,7 @@ const SwitchChainTooltip = () => {
       >
         <Flex alignItems="center">
           <img src={BscSvg} width="24px" alt="" />
-          <Text color="white" fontSize="16px" bold ml="21px">
+          <Text color="text" fontSize="16px" bold ml="21px">
             BSC
           </Text>
         </Flex>
@@ -108,7 +108,7 @@ const SwitchChainTooltip = () => {
       >
         <Flex alignItems="center">
           <img src={SdnSvg} width="24px" alt="" />
-          <Text color="white" fontSize="16px" bold ml="21px">
+          <Text color="text" fontSize="16px" bold ml="21px">
             SDN
           </Text>
         </Flex>

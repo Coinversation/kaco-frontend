@@ -32,7 +32,7 @@ export default function SwapModalHeader({
       <RowBetween align="flex-end">
         <RowFixed gap="0px">
           <CurrencyLogo currency={trade.inputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
-          <Text fontSize="14px" color="white" ml="10px">
+          <Text fontSize="14px" color="text" ml="10px">
             {trade.inputAmount.currency.symbol}
           </Text>
         </RowFixed>
@@ -45,7 +45,7 @@ export default function SwapModalHeader({
       <RowBetween align="flex-end">
         <RowFixed gap="0px">
           <CurrencyLogo currency={trade.outputAmount.currency} size="24px" style={{ marginRight: '12px' }} />
-          <Text fontSize="14px" color="white">
+          <Text fontSize="14px" color="text">
             {trade.outputAmount.currency.symbol}
           </Text>
         </RowFixed>

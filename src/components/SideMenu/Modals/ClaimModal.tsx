@@ -39,7 +39,7 @@ const BgButton = styled(Button)`
   font-size: 16px;
   font-weight: bold;
   font-size: 14px;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.btnTextColor};
   height: 48px;
   margin-bottom: 20px;
   &:disabled {

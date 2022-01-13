@@ -35,7 +35,7 @@ const Item: FC<{ className?: string; item: NFT; floorPrice: number; symbol: stri
           <img src={RemoveSVG} alt="" />
         </div>
       </div>
-      <Text color="white" bold fontSize="12px" mt="14px" mb="12px">
+      <Text color="text" bold fontSize="12px" mt="14px" mb="12px">
         {item?.name}#{item?.id}
       </Text>
       <Text color="primary" bold fontSize="12px">
@@ -106,14 +106,14 @@ const ShopCart: FC<{ className?: string; floorPrice: number; symbol: string; pai
           </Text>
           {isXs || isSm || isMd ? (
             <Flex alignItems="flex-end">
-              <Text className="tip" color="white" bold fontSize="12px" textAlign="right">
+              <Text className="tip" color="text" bold fontSize="12px" textAlign="right">
                 Total Cost
               </Text>
               <Button onClick={onBuy}>Buy</Button>
             </Flex>
           ) : (
             <>
-              <Text className="tip-desktop" color="white" bold fontSize="12px" textAlign="right">
+              <Text className="tip-desktop" color="text" bold fontSize="12px" textAlign="right">
                 Total Cost
               </Text>
               <Button maxWidth="136px" width="100%" onClick={onBuy}>

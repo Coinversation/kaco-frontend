@@ -78,12 +78,12 @@ export default function SwapModalFooter({
             /> */}
           </RowFixed>
           <RowFixed>
-            <Text fontSize="12px" color="white">
+            <Text fontSize="12px" color="text">
               {trade.tradeType === TradeType.EXACT_INPUT
                 ? slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4) ?? '-'
                 : slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4) ?? '-'}
             </Text>
-            <Text fontSize="12px" color="white" marginLeft="4px">
+            <Text fontSize="12px" color="text" marginLeft="4px">
               {trade.tradeType === TradeType.EXACT_INPUT
                 ? trade.outputAmount.currency.symbol
                 : trade.inputAmount.currency.symbol}
@@ -95,7 +95,7 @@ export default function SwapModalFooter({
             <Text fontSize="12px">Price Impact</Text>
             {/* <QuestionHelper text="The difference between the market price and your price due to trade size." ml="4px" /> */}
           </RowFixed>
-          <Text fontSize="12px" color="white">
+          <Text fontSize="12px" color="text">
             {priceImpactWithoutFee
               ? priceImpactWithoutFee.lessThan(ONE_BIPS)
                 ? '<0.01%'
@@ -118,7 +118,7 @@ export default function SwapModalFooter({
               ml="4px"
             /> */}
           </RowFixed>
-          <Text fontSize="12px" color="white">
+          <Text fontSize="12px" color="text">
             {realizedLPFee ? `${realizedLPFee?.toSignificant(6)} ${trade.inputAmount.currency.symbol}` : '-'}
           </Text>
         </RowBetween>

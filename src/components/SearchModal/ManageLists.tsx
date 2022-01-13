@@ -102,7 +102,7 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
       )}
       <Column style={{ flex: '1' }}>
         <Row>
-          <Text bold color="white" fontSize="16px">
+          <Text bold color="text" fontSize="16px">
             {list.name}
           </Text>
         </Row>

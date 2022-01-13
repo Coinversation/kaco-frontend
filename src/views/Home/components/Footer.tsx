@@ -101,13 +101,13 @@ const Footer = () => {
         </BottomRightImgWrapper>
       </FloatingPancakesWrapper>
       <Wrapper>
-        <Heading mb="24px" scale="xl" color="white">
+        <Heading mb="24px" scale="xl" color="text">
           {t('Start in seconds.')}
         </Heading>
-        <Text textAlign="center" color="white">
+        <Text textAlign="center" color="text">
           {t('Connect your crypto wallet to start using the app in seconds.')}
         </Text>
-        <Text mb="24px" bold color="white">
+        <Text mb="24px" bold color="text">
           {t('No registration needed.')}
         </Text>
 

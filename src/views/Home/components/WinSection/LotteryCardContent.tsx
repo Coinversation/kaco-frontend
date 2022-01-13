@@ -71,11 +71,11 @@ const LotteryCardContent = () => {
     <>
       <Flex flexDirection="column" mt="48px">
         <div ref={observerRef} />
-        <Text color="white" bold fontSize="16px">
+        <Text color="text" bold fontSize="16px">
           {t('Lottery')}
         </Text>
         {pretext && (
-          <Text color="white" mt="12px" bold fontSize="16px">
+          <Text color="text" mt="12px" bold fontSize="16px">
             {pretext}
           </Text>
         )}
@@ -93,10 +93,10 @@ const LotteryCardContent = () => {
             <div ref={observerRef} />
           </>
         )}
-        <Text color="white" mb="24px" bold fontSize="16px">
+        <Text color="text" mb="24px" bold fontSize="16px">
           {prizesThisRound}
         </Text>
-        <Text color="white" mb="40px">
+        <Text color="text" mb="40px">
           {t('Buy tickets with CAKE, win KAC if your numbers match')}
         </Text>
       </Flex>

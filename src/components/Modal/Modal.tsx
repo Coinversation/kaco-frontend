@@ -14,10 +14,10 @@ interface Props extends InjectedProps {
 }
 
 const StyledModal = styled.div`
-  background: #1f252a;
+  background: ${({ theme }) => theme.colors.tooltipColors.background};
   box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
-  border: 1px solid #238485;
-  border-radius: 32px;
+  border: 1px solid ${({ theme }) => theme.colors.tooltipColors.borderColor};
+  border-radius: 12px;
   width: 100%;
   z-index: ${({ theme }) => theme.zIndices.modal};
   overflow-y: auto;
@@ -67,7 +67,7 @@ const Modal: React.FC<Props> = ({
         </ModalTitle>
         {!hideCloseButton && (
           <IconButton variant="text" onClick={onDismiss} aria-label="Close the dialog">
-            <CloseIcon color="#484E4E" width="24" />
+            <CloseIcon fill="text" width="24" />
           </IconButton>
         )}
       </ModalHeader>

@@ -70,7 +70,13 @@ const FarmHeader: React.FC<{
       <WrapperButtonMenu activeIndex={activeIndex} scale="sm" variant="primary">
         <ButtonMenuItem
           as={Link}
-          style={{ color: isExact ? theme.colors.btnTextColor : '#9DA6A6', borderRadius: '32px', margin: 0 }}
+          style={{
+            color: isExact ? theme.colors.btnTextColor : '#9DA6A6',
+            borderRadius: '32px',
+            margin: 0,
+            lineHeight: '32px',
+            height: '32px',
+          }}
           to={`${url}`}
         >
           {t('Live')}

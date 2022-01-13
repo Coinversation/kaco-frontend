@@ -219,7 +219,7 @@ export default function AddLiquidity({
           />
         </Flex>
         <Row mt="10px">
-          <Text fontSize="14px" color="white">
+          <Text fontSize="14px" color="text">
             {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
           </Text>
           <Text fontSize="14px">&nbsp;Pool Tokens</Text>

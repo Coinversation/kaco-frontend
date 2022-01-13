@@ -150,7 +150,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
                 onClick={onPresentDeposit}
                 disabled={['history', 'archived'].some((item) => location.pathname.includes(item))}
               >
-                <AddIcon color="white" width="20px" />
+                <AddIcon color="text" width="20px" />
               </IconButton>
             </IconButtonWrapper>
           </ActionContent>
@@ -164,7 +164,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px" pr="4px">
             {t('Stake').toUpperCase()}
           </Text>
-          <Text bold textTransform="uppercase" color="white" fontSize="12px">
+          <Text bold textTransform="uppercase" color="text" fontSize="12px">
             {lpSymbol}
           </Text>
         </ActionTitles>

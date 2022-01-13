@@ -19,7 +19,7 @@ const NftsGroupByPool_: FC<{
 }> = ({ className, title, nfts, pair }) => {
   return (
     <div className={className}>
-      <Text bold color="white" mb="20px" fontSize="20px">
+      <Text bold color="text" mb="20px" fontSize="20px">
         {title}
       </Text>
       <Grid gridGap={{ xs: '4px', md: '10px' }} className="nfts">

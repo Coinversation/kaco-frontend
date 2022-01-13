@@ -74,7 +74,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
             <FixedHeightRow onClick={() => setShowMore(!showMore)}>
               <RowFixed>
                 <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
-                <Text fontSize="12px" small bold color="white">
+                <Text fontSize="12px" small bold color="text">
                   {currency0.symbol}-{currency1.symbol} LP
                 </Text>
               </RowFixed>
@@ -89,7 +89,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                 <Text fontSize="12px" color="secondary" small>
                   {t('Share of Pool')}:
                 </Text>
-                <Text fontSize="12px" color="white">
+                <Text fontSize="12px" color="text">
                   {poolTokenPercentage ? `${poolTokenPercentage.toFixed(6)}%` : '-'}
                 </Text>
               </FixedHeightRow>
@@ -99,7 +99,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                 </Text>
                 {token0Deposited ? (
                   <RowFixed>
-                    <Text fontSize="12px" ml="6px" color="white">
+                    <Text fontSize="12px" ml="6px" color="text">
                       {token0Deposited?.toSignificant(6)}
                     </Text>
                   </RowFixed>
@@ -113,7 +113,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
                 </Text>
                 {token1Deposited ? (
                   <RowFixed>
-                    <Text fontSize="12px" ml="6px" color="white">
+                    <Text fontSize="12px" ml="6px" color="text">
                       {token1Deposited?.toSignificant(6)}
                     </Text>
                   </RowFixed>

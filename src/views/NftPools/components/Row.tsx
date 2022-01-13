@@ -175,17 +175,17 @@ const Row: FC<{ pair: NftPair; simpleMode: boolean }> = ({ pair, simpleMode }) =
             >
               <RowBetween padding="8px 12px">
                 <Text fontSize="12px">NFT IN Pool</Text>
-                <Text color="white">{pair.supply}</Text>
+                <Text color="text">{pair.supply}</Text>
               </RowBetween>
               <RowBetween padding="8px 12px">
                 <Text fontSize="12px">Liquidity</Text>
-                <Text color="white">
+                <Text color="text">
                   {'$' + formatFloat(Number(priceVsBusdMap[pair.pairAddress.toLowerCase()] || 0) * pair.supply * 100)}
                 </Text>
               </RowBetween>
               {/* <RowBetween padding="8px 12px">
                 <Text fontSize="12px">7 Days Change</Text>
-                <Text color="white">{0}</Text>
+                <Text color="text">{0}</Text>
               </RowBetween> */}
             </div>
           </td>

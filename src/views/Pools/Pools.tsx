@@ -14,12 +14,12 @@ import FlexLayout from 'components/Layout/Flex';
 import Page from 'components/Layout/Page';
 import PoolHeader from './components/PoolHeader/PoolHeader';
 import { Pool } from 'state/types';
-import Loading from 'components/Loading';
 import PoolCard from './components/PoolCard/PoolCard';
 import CakeVaultCard from './components/CakeVaultCard';
 import PoolsTable from './components/PoolsTable/PoolsTable';
 import { ViewMode } from './components/ToggleView/ToggleView';
 import { getAprData, getCakeVaultEarnings } from './helpers';
+import Loading from 'components/Loader/PageLoader';
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;

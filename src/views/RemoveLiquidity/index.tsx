@@ -374,13 +374,13 @@ export default function RemoveLiquidity({
             <React.Fragment>
               <RowBetween mb="6px">
                 <Text fontSize="12px">{t('Price')}</Text>
-                <Text fontSize="12px" color="white">
+                <Text fontSize="12px" color="text">
                   1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
                 </Text>
               </RowBetween>
               <RowBetween>
                 <div />
-                <Text fontSize="12px" color="white">
+                <Text fontSize="12px" color="text">
                   1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
                 </Text>
               </RowBetween>
@@ -675,10 +675,10 @@ export default function RemoveLiquidity({
                     {t('Prices')}:&nbsp;
                   </Text>
 
-                  <Text fontSize="12px" small color="white">
+                  <Text fontSize="12px" small color="text">
                     1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
                   </Text>
-                  <Text fontSize="12px" small color="white" ml="24px">
+                  <Text fontSize="12px" small color="text" ml="24px">
                     1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
                   </Text>
                 </Flex>

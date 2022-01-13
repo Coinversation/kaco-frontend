@@ -47,7 +47,7 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
       bodyPadding="0px 24px 24px 24px"
       title={t('Settings')}
       onDismiss={onDismiss}
-      style={{ width: '100%', maxWidth: '480px', border: '2px solid #238485' }}
+      style={{ width: '100%', maxWidth: '480px' }}
     >
       <Flex flexDirection="column">
         <TransactionSettings />

@@ -33,9 +33,9 @@ const SunburstSvg: React.FC<SvgProps> = (props) => {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(978 978) rotate(90) scale(958)"
         >
-          <stop offset="0.114547" stopColor="white" stopOpacity="0" />
-          <stop offset="0.374975" stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop offset="0.114547" stopColor="text" stopOpacity="0" />
+          <stop offset="0.374975" stopColor="text" />
+          <stop offset="1" stopColor="text" stopOpacity="0" />
         </radialGradient>
       </defs>
     </Svg>

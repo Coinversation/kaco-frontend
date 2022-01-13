@@ -82,7 +82,7 @@ const ModalInput: React.FC<ModalInputProps> = ({
           </Flex>
         </Flex>
         <Flex alignItems="center" justifyContent="spance-between">
-          <Text fontSize="14px" color="white">
+          <Text fontSize="14px" color="text">
             {symbol}
           </Text>
           <StyledInput

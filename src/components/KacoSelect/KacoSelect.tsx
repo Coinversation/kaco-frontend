@@ -146,7 +146,7 @@ const KacoSelect: React.FunctionComponent<SelectProps> = ({ options, onChange, s
           <Text fontSize="14px" color="primary">
             {options[selectedOptionIndex].label}
           </Text>
-          <ArrowDropDownIcon style={{ position: 'static', transform: 'none' }} color="white" onClick={toggling} />
+          <ArrowDropDownIcon style={{ position: 'static', transform: 'none' }} color="text" onClick={toggling} />
         </DropDownHeader>
       )}
       <DropDownListContainer>

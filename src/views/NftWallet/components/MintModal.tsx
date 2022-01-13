@@ -142,7 +142,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
                 alt={`${nft.name}#${nft.id}`}
               />
             )}
-            <Text bold fontSize="16px" color="white" ml="30px">
+            <Text bold fontSize="16px" color="text" ml="30px">
               {nft.name}#{nft.id}
             </Text>
           </Flex>
@@ -168,7 +168,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
               alt=""
             />
             <Flex ml="30px" flexDirection="column" justifyContent="center">
-              <Text bold fontSize="20px" color="white">
+              <Text bold fontSize="20px" color="text">
                 {pair.symbol}
               </Text>
               <Text fontSize="12px" color="primary">
@@ -221,7 +221,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
                   alt={`${nft.name}#${nft.id}`}
                 />
               )}
-              <Text bold fontSize="16px" color="white" ml="30px">
+              <Text bold fontSize="16px" color="text" ml="30px">
                 {nft.name}#{nft.id}
               </Text>
             </Flex>
@@ -278,7 +278,7 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
               alt=""
             />
             <Flex ml="30px" flexDirection="column" justifyContent="center">
-              <Text bold fontSize="20px" color="white">
+              <Text bold fontSize="20px" color="text">
                 {pair.symbol}
               </Text>
               <Text fontSize="12px" color="primary">

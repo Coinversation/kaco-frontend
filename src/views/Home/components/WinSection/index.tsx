@@ -63,7 +63,7 @@ const PredictionCardData: IconCardData = {
 };
 
 const LotteryCardData: IconCardData = {
-  icon: <TicketFillIcon color="white" width="36px" />,
+  icon: <TicketFillIcon color="text" width="36px" />,
   background: ' linear-gradient(180deg, #7645D9 0%, #5121B1 100%);',
   borderColor: '#3C1786',
   rotation: '1.43deg',
