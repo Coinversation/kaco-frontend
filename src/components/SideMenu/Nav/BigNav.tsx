@@ -31,11 +31,11 @@ const BigNav: FC<{ menuItems: IMenu[] }> = ({ menuItems }) => {
       <MoreContent setTooltipVisible={setMoreTooltipVisible.current} />
     </>,
     {
-      trigger: 'click',
+      trigger: 'hover',
       tootipStyle: { padding: '0', minWidth: '620px' },
       placement: 'top-end',
       hideArrow: false,
-      tooltipOffset: [20, 10],
+      tooltipOffset: [100, 10],
     },
   );
   useEffect(() => {
@@ -103,6 +103,7 @@ const NavWrap = styled(Flex)`
     color: ${({ theme }) => theme.colors.text};
     svg {
       fill: ${({ theme }) => theme.colors.text};
+      transform: scaleY(-1);
     }
   }
 `;
@@ -116,7 +117,9 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   font-weight: bolder;
   margin-right: 34px;
   svg {
+    width: 20px;
     fill: ${({ theme, active }) => (active === 't' ? theme.colors.text : theme.colors.textSubtle)};
+    transform: ${({ active }) => (active === 't' ? '' : 'scaleY(-1)')};
   }
 `;
 

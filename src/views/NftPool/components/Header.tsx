@@ -29,42 +29,44 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
         <h1>{pair?.name}</h1>
         <Flex className="pool-info">
           <div className="info">
-            <Text fontSize="18px" bold mb="4px">
+            <TextM fontSize="18px" bold mb="4px">
               {pair?.supply || 0}
-            </Text>
-            <Text fontSize="12px">NFT In Pool</Text>
+            </TextM>
+            <TextM fontSize="12px">NFT In Pool</TextM>
           </div>
           <div className="info">
-            <Text fontSize="18px" bold mb="4px">
+            <TextM fontSize="18px" bold mb="4px">
               ${formatFloat(floorPrice * 100)}
-            </Text>
-            <Text fontSize="12px">NFT Price</Text>
+            </TextM>
+            <TextM fontSize="12px">NFT Price</TextM>
           </div>
           <div className="info second-line">
-            <Text fontSize="18px" bold mb="4px">
+            <TextM fontSize="18px" bold mb="4px">
               ${formatFloat(floorPrice * (pair?.supply || 0) * 100)}
-            </Text>
-            <Text fontSize="12px">Liquidity</Text>
+            </TextM>
+            <TextM fontSize="12px">Liquidity</TextM>
           </div>
           <div className="info second-line">
-            <Text fontSize="18px" bold mb="4px">
+            <TextM fontSize="18px" bold mb="4px">
               {(pair?.supply || 0) * 100}
-            </Text>
-            <Text fontSize="12px">KCoin Supply</Text>
+            </TextM>
+            <TextM fontSize="12px">KCoin Supply</TextM>
           </div>
 
           <div className="info second-line">
-            <Text fontSize="18px" bold mb="4px">
+            <TextM fontSize="18px" bold mb="4px">
               {NFT_PAIRS[pairIndex].updateNFTID}
-            </Text>
-            <Text fontSize="12px">Update NFT ID</Text>
+            </TextM>
+            <TextM fontSize="12px">Update NFT ID</TextM>
           </div>
         </Flex>
       </div>
     </div>
   );
 };
-
+const TextM = styled(Text)`
+  color: ${({ theme }) => theme.colors.text};
+`;
 export const PoolHeader = styled(PoolHeader_)`
   background-image: url(${HeaderBgSvg});
   background-size: 100% 100%;
@@ -120,7 +122,7 @@ export const PoolHeader = styled(PoolHeader_)`
       flex-wrap: wrap;
       margin-top: 30px;
       padding: 10px 30px;
-      background: #238485;
+      background: ${({ theme }) => theme.colors.secondary};
       border-radius: 12px;
       justify-content: space-between;
       > .info {

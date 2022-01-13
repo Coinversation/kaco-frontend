@@ -87,7 +87,7 @@ export default function Pool() {
           {renderBody()}
           {account && !v2IsLoading && (
             <Flex flexDirection="column" alignItems="center" mt="24px">
-              <Text color="secondary" mb="8px">
+              <Text color="textSubtle" mb="8px">
                 {t("Don't see a pool you joined?")}
               </Text>
               <Button id="import-pool-link" variant="secondary" scale="sm" as={Link} to="/find">

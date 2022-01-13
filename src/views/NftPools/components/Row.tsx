@@ -91,7 +91,7 @@ const TitledItem_: FC<{ title: string; value: string | number }> = ({ title, val
       <Text color="#9DA6A6" fontSize="12px" mb={{ md: '12px', xs: '6px' }}>
         {title}
       </Text>
-      <Text bold fontSize="14px">
+      <Text bold fontSize="14px" color="btnTextColor">
         {value}
       </Text>
     </div>

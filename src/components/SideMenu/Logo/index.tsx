@@ -12,8 +12,10 @@ const Logo: FC<{ collapsed: boolean }> = ({ collapsed }) => {
 const LogoStyle = styled.div`
   height: 40px;
   margin-right: 0;
+  margin-top: -10px;
   ${({ theme }) => theme.mediaQueries.md} {
     height: 26px;
+    margin-top: 0;
     margin-right: 48px;
   }
   img {

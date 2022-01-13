@@ -15,7 +15,7 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
         <Logo collapsed={collapsed} />
         <Nav collapsed={collapsed} />
       </FlFlex>
-      <div className="right">
+      <div className="right" style={{ paddingRight: collapsed ? '65px' : '0' }}>
         <UserWidget />
       </div>
     </div>

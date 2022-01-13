@@ -7,7 +7,12 @@ import imageNftBg from '../imgs/image_nft_bg.png';
 import IconKarsier from '../imgs/iconKarsier';
 import IconIn from '../imgs/iconIn';
 import ClaimModal from '../Modals/ClaimModal';
-const MoreContentIn = ({ setTooltipVisible }) => {
+
+export const MoreContentIn = ({
+  setTooltipVisible,
+}: {
+  setTooltipVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const { pathname } = useLocation();
   const [onPresentClaim] = useModal(<ClaimModal />);
   return (
@@ -49,24 +54,92 @@ const MoreContentIn = ({ setTooltipVisible }) => {
             </div>
           </NavLink>
         ))}
-        <div
-          className="claim_kac"
+        <ClaimKac
           onClick={() => {
             setTooltipVisible(false);
             onPresentClaim();
           }}
         >
           Claim Kac
-        </div>
+        </ClaimKac>
       </Fr>
     </MoreContentWrap>
   );
 };
+export const MoreContentInSmall = ({
+  setTooltipVisible,
+}: {
+  setTooltipVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const { pathname } = useLocation();
+  const [onPresentClaim] = useModal(<ClaimModal />);
+  return (
+    <MoreContentWrapSmall>
+      <NavLinkKarsier
+        active="f"
+        to="https://karsier.kaco.finance/"
+        onClick={() => {
+          window.open('https://karsier.kaco.finance/');
+          return;
+        }}
+      >
+        <div className="icon-holder">
+          <IconKarsier />
+        </div>
+        <div className="fr">
+          <h3>Karsier</h3>
+          <DetailText>Karsier is the smallest primate in the world.</DetailText>
+        </div>
+      </NavLinkKarsier>
+
+      {MorePathConfig.map((item: IMenuDetail, index) => (
+        <NavLink
+          to={item.link}
+          key={index}
+          onClick={() => {
+            if (item.link.indexOf('https://') > -1) {
+              window.open(item.link);
+              return;
+            }
+          }}
+          active={pathname.startsWith(item.link) ? 't' : 'f'}
+        >
+          <div className="icon-holder">{item.img()}</div>
+          <div className="fr">
+            <h3>{item.text}</h3>
+            <DetailText>{item.detail}</DetailText>
+          </div>
+        </NavLink>
+      ))}
+      <ClaimKac
+        onClick={() => {
+          setTooltipVisible(false);
+          onPresentClaim();
+        }}
+      >
+        Claim Kac
+      </ClaimKac>
+    </MoreContentWrapSmall>
+  );
+};
+const MoreContentWrapSmall = styled.div``;
 const PositionBg = styled.img`
   position: absolute;
   width: 140px;
   top: -20px;
   right: 20px;
+`;
+const ClaimKac = styled.div`
+  margin: 32px 10px 0;
+  height: 48px;
+  line-height: 48px;
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.btnTextColor};
+  background-image: linear-gradient(90deg, #ff34f3 0%, #4aeeef 100%);
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
 `;
 const Content = styled.div`
   padding-left: 10px;
@@ -103,19 +176,8 @@ const MoreContentWrap = styled(Flex)`
   justify-content: space-between;
   background: #171e1e;
   background-image: linear-gradient(90deg, rgba(27, 211, 213, 0.4) 0%, rgba(27, 211, 213, 0.1) 99%);
-  .claim_kac {
-    margin: 32px 10px 0;
-    height: 48px;
-    line-height: 48px;
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.btnTextColor};
-    background-image: linear-gradient(90deg, #ff34f3 0%, #4aeeef 100%);
-    border-radius: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-  }
 `;
+
 const Fl = styled.div`
   padding: 28px 23px;
   max-width: 280px;
@@ -163,5 +225,10 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
     }
   }
 `;
-
+const NavLinkKarsier = styled(NavLink)`
+  background-image: linear-gradient(90deg, rgba(27, 211, 213, 0.4) 0%, rgba(27, 211, 213, 0.2) 99%);
+  div {
+    color: ${({ theme }) => theme.colors.text};
+  }
+`;
 export default MoreContentIn;

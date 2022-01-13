@@ -7,12 +7,11 @@ const Wrapper = styled.div<{ focused: boolean }>`
   width: 100%;
   height: 52px;
   background: ${({ theme }) => theme.colors.cardBackground};
-  border: 1px solid ${({ theme }) => theme.colors.cardBackground};
+  border: 1px solid ${({ theme }) => theme.colors.borderColor};
   border-radius: 16px;
   padding: 0px 18px;
   display: flex;
   align-items: center;
-  border: ${(props) => (props.focused ? '2px solid #238485' : '')};
   > input {
     flex: 1;
     background: ${({ theme }) => theme.colors.cardBackground};

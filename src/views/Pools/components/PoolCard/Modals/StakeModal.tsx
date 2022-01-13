@@ -135,7 +135,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
       onDismiss={onDismiss}
     >
       {stakingLimit.gt(0) && !isRemovingStake && (
-        <Text color="secondary" bold mb="24px" style={{ textAlign: 'center' }} fontSize="16px">
+        <Text color="textSubtle" bold mb="24px" style={{ textAlign: 'center' }} fontSize="16px">
           {t('Max stake for this pool: %amount% %token%', {
             amount: getFullDisplayBalance(stakingLimit, stakingToken.decimals, 0),
             token: stakingToken.symbol,

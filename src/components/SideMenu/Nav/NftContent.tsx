@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { Text } from '@kaco/uikitv2';
 import { NFTPathConfig, IMenuDetail } from '../config';
-const NftContentIn = () => {
+export const NftContentIn = () => {
   const { pathname } = useLocation();
   return (
     <>

@@ -46,7 +46,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
     margin-bottom: 0px;
   }
   svg {
-    fill: white;
+    fill: ${({ theme }) => theme.colors.text};
   }
   > .text {
     flex: 1;
@@ -168,7 +168,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
           }
         }
         svg {
-          fill: white;
+          fill: ${({ theme }) => theme.colors.text};
           &:hover {
             fill: ${({ theme }) => theme.colors.primary};
           }
@@ -198,7 +198,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
       }
       > .links-collapsed {
         svg {
-          fill: white;
+          fill: ${({ theme }) => theme.colors.text};
           &:hover {
             fill: ${({ theme }) => theme.colors.primary};
           }
@@ -209,7 +209,7 @@ const Wrapper = styled.div<{ collapsed: boolean }>`
         display: flex;
         align-items: center;
         svg {
-          fill: white;
+          fill: ${({ theme }) => theme.colors.text};
           &:hover {
             fill: ${({ theme }) => theme.colors.primary};
           }
