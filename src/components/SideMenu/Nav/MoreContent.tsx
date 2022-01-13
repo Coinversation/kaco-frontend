@@ -1,13 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import { Text, Flex, Heading } from '@kaco/uikitv2';
+import { Text, Flex, Heading, useModal } from '@kaco/uikitv2';
 import { MorePathConfig, IMenuDetail } from '../config';
 import imageNftBg from '../imgs/image_nft_bg.png';
 import IconKarsier from '../imgs/iconKarsier';
 import IconIn from '../imgs/iconIn';
-const MoreContentIn = () => {
+import ClaimModal from '../Modals/ClaimModal';
+const MoreContentIn = ({ setTooltipVisible }) => {
   const { pathname } = useLocation();
+  const [onPresentClaim] = useModal(<ClaimModal />);
   return (
     <MoreContentWrap>
       <Fl>
@@ -15,15 +17,17 @@ const MoreContentIn = () => {
         <IconKarsierWrap>
           <IconKarsier />
         </IconKarsierWrap>
-        <Heading>Karsier</Heading>
-        <Text>
-          Karsier is the smallest primate in the world. Karsier came to the blockchain world to create some fun for us.
-          Following the logic of evolution
-        </Text>
-        <a href="https://karsier.kaco.finance/" target="_blank" rel="noreferrer">
-          <i>To Karsier</i>
-          <IconIn />
-        </a>
+        <Content>
+          <Heading>Karsier</Heading>
+          <ContentDetail>
+            Karsier is the smallest primate in the world. Karsier came to the blockchain world to create some fun for
+            us. Following the logic of evolution
+          </ContentDetail>
+          <a href="https://karsier.kaco.finance/" target="_blank" rel="noreferrer">
+            <i>To Karsier</i>
+            <IconIn />
+          </a>
+        </Content>
       </Fl>
       <Fr>
         {MorePathConfig.map((item: IMenuDetail, index) => (
@@ -45,6 +49,15 @@ const MoreContentIn = () => {
             </div>
           </NavLink>
         ))}
+        <div
+          className="claim_kac"
+          onClick={() => {
+            setTooltipVisible(false);
+            onPresentClaim();
+          }}
+        >
+          Claim Kac
+        </div>
       </Fr>
     </MoreContentWrap>
   );
@@ -53,10 +66,30 @@ const PositionBg = styled.img`
   position: absolute;
   width: 140px;
   top: -20px;
-  right: 230px;
+  right: 20px;
 `;
 const Content = styled.div`
-  padding-left: 20px;
+  padding-left: 10px;
+  a {
+    font-size: 14px;
+    font-weight: 600;
+    i {
+      padding-right: 6px;
+      font-style: normal;
+      text-decoration: underline;
+    }
+    svg {
+      width: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+`;
+const ContentDetail = styled(Text)`
+  padding-top: 14px;
+  padding-bottom: 22px;
+  font-size: 12px;
+  line-height: 20px;
 `;
 const IconKarsierWrap = styled.div`
   padding-bottom: 20px;
@@ -69,17 +102,27 @@ const MoreContentWrap = styled(Flex)`
   align-items: start;
   justify-content: space-between;
   background: #171e1e;
-  background-image: linear-gradient(90deg, rgba(27, 211, 213, 0.4) 0%, rgba(27, 211, 213, 0.2) 99%);
+  background-image: linear-gradient(90deg, rgba(27, 211, 213, 0.4) 0%, rgba(27, 211, 213, 0.1) 99%);
+  .claim_kac {
+    margin: 32px 10px 0;
+    height: 48px;
+    line-height: 48px;
+    font-size: 15px;
+    color: ${({ theme }) => theme.colors.btnTextColor};
+    background-image: linear-gradient(90deg, #ff34f3 0%, #4aeeef 100%);
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+  }
 `;
 const Fl = styled.div`
   padding: 28px 23px;
-  min-width: 280px;
+  max-width: 280px;
   position: relative;
-  svg {
-    width: 20px;
-  }
 `;
 const Fr = styled.div`
+  width: 340px;
   padding: 10px 20px 40px;
   background-color: ${({ theme }) => theme.colors.cardBackground};
 `;
@@ -120,9 +163,5 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
     }
   }
 `;
-const MoreContent = (
-  <>
-    <MoreContentIn />
-  </>
-);
-export default MoreContent;
+
+export default MoreContentIn;

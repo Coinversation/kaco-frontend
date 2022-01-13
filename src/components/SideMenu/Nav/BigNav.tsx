@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import { IMenu } from '../config';
@@ -20,18 +20,27 @@ const BigNav: FC<{ menuItems: IMenu[] }> = ({ menuItems }) => {
     hideArrow: false,
     tooltipOffset: [20, 10],
   });
+  const setMoreTooltipVisible = useRef<React.Dispatch<React.SetStateAction<boolean>>>();
   const {
     targetRef: MoreTargetRef,
     tooltip: MoreTooltip,
     tooltipVisible: MoreTooltipVisible,
-  } = useTooltip(MoreContent, {
-    trigger: 'hover',
-    tootipStyle: { padding: '0', minWidth: '620px' },
-    placement: 'top-end',
-    hideArrow: false,
-    tooltipOffset: [20, 10],
-  });
-
+    setTooltipVisible,
+  } = useTooltip(
+    <>
+      <MoreContent setTooltipVisible={setMoreTooltipVisible.current} />
+    </>,
+    {
+      trigger: 'click',
+      tootipStyle: { padding: '0', minWidth: '620px' },
+      placement: 'top-end',
+      hideArrow: false,
+      tooltipOffset: [20, 10],
+    },
+  );
+  useEffect(() => {
+    setMoreTooltipVisible.current = setTooltipVisible;
+  }, [setTooltipVisible]);
   return (
     <>
       {NftTooltipVisible && NftTooltip}
