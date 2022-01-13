@@ -152,6 +152,10 @@ export interface BlockState {
   currentBlock: number;
   initialBlock: number;
 }
+// Price
+export interface PriceState {
+  priceVsBusdMap: Record<string, string>;
+}
 
 // Collectibles
 
@@ -471,6 +475,7 @@ export type UserTicketsResponse = [ethers.BigNumber[], number[], boolean[]];
 export interface State {
   achievements: AchievementState;
   block: BlockState;
+  price: PriceState;
   farms: FarmsState;
   pools: PoolsState;
   predictions: PredictionsState;

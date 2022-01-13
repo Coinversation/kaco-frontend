@@ -9,13 +9,16 @@ import LockTime from './LockTime';
 
 const Nft: FC<{ className?: string; nft: NftInfoWithLock; now: number; pairPid: number }> = ({
   className,
-  nft,
+  nft = {} as NftInfoWithLock,
   now,
   pairPid,
 }) => {
   const { add, items } = useContext(NftContext);
   const { account } = useActiveWeb3React();
   const added = useMemo(() => !!items.find((item) => item.id === nft.id), [items, nft]);
+  if (!nft || !nft.image) {
+    return null;
+  }
   return (
     <div className={className}>
       {nft.attributes.length && pairPid === 3 ? (
@@ -37,12 +40,12 @@ const Nft: FC<{ className?: string; nft: NftInfoWithLock; now: number; pairPid: 
         </div>
       ) : null}
       <div className="show">
-        {nft.image.indexOf('.mp4') > -1 ? (
+        {(nft?.image ?? '').indexOf('.mp4') > -1 ? (
           <video width="100%" height="100%" autoPlay={true} loop={true} playsInline={true}>
             <source src={`${nft.image}`} type="video/mp4" />
           </video>
         ) : (
-          <img src={nft.image} alt="" />
+          <img src={nft?.image} alt="" />
         )}
         {nft.lastBlock > now && (
           <div className="locked">

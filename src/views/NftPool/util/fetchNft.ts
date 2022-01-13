@@ -52,7 +52,6 @@ export async function fetchAllTokens(account: string) {
   try {
     const apiUrl = `https://nftview.bounce.finance/v2/bsc/nft?user_address=${account}`;
     const data = await fetch(apiUrl);
-
     const rawData: {
       code: number;
       data: BounceData;
@@ -72,12 +71,9 @@ export async function fetchAllTokens(account: string) {
 
 export async function filterNft(items: BounceItem[], nftAddress: string) {
   const flawItems = items.filter(
-    (token) =>
-      token.contract_addr.toLocaleLowerCase() === nftAddress.toLocaleLowerCase() &&
-      token.balance > 0 &&
-      (!token.image || token.image.length === 0),
+    (token) => token.contract_addr.toLocaleLowerCase() === nftAddress.toLocaleLowerCase() && token.balance > 0,
   );
-  const promises = flawItems.map(async (item) => {
+  const promises = flawItems.map((item) => {
     const temp = fetchNftInfo(nftAddress, item.token_id, item.owner_addr);
     return temp;
   });
@@ -85,10 +81,7 @@ export async function filterNft(items: BounceItem[], nftAddress: string) {
   results.push(
     ...items
       .filter(
-        (token) =>
-          token.contract_addr.toLocaleLowerCase() === nftAddress.toLocaleLowerCase() &&
-          token.balance > 0 &&
-          token.image,
+        (token) => token.contract_addr.toLocaleLowerCase() === nftAddress.toLocaleLowerCase() && token.balance > 0,
       )
       // .reduce((nfts, curr) => nfts.concat(curr.nft_data), [])
       .map((nft) => ({
@@ -100,7 +93,21 @@ export async function filterNft(items: BounceItem[], nftAddress: string) {
         attributes: nft?.attributes || {},
       })),
   );
-  return results;
+  // unique
+  const uniqueArr = [];
+  const obj = {};
+  if (results.length) {
+    for (let i = 0; i < results.length; i++) {
+      if (results[i]) {
+        const id = results[i].id || results[i]['token_id'];
+        if (!obj[id]) {
+          uniqueArr.push(results[i]);
+          obj[id] = true;
+        }
+      }
+    }
+  }
+  return uniqueArr;
 }
 
 export async function fetchNftInfo(nftAddress: string, id: number, owner: string, nft?: any): Promise<NFT | undefined> {

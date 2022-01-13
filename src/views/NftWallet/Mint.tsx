@@ -8,6 +8,7 @@ import { NFT } from 'views/NftPool/components/GoodsInPool';
 import { useWeb3React } from '@web3-react/core';
 import { NftPair, useNftPairs } from 'views/NftPools/hooks/useNftPools';
 import PageLoader from 'components/Loader/PageLoader';
+import { useFarms, usePollFarmsData } from 'state/farms/hooks';
 import NoBalance from './components/NoBalance';
 
 const NftsGroupByPool_: FC<{
@@ -33,6 +34,7 @@ const NftsGroupByPool_: FC<{
 const NftsGroupByPool = styled(NftsGroupByPool_)`
   width: 100%;
   border-radius: 24px;
+  margin-top: 10px;
 
   ${({ theme }) => theme.mediaQueries.md} {
     background: ${({ theme }) => theme.colors.cardBackground};
@@ -65,7 +67,9 @@ const Mint: FC<{ className?: string }> = ({ className }) => {
   }
   const [pools, setPools] = useState<({ nfts: NFT[] } & NftPair)[]>(_pairs);
   const { account } = useWeb3React();
-  const pairs = useNftPairs();
+  const { data: farmsLP } = useFarms();
+  usePollFarmsData();
+  const pairs = useNftPairs(farmsLP);
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {

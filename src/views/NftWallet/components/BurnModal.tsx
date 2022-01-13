@@ -37,18 +37,20 @@ const Card_: FC<{
   nft: NFT;
   lockInfo: LockInfo | undefined;
   account: string | undefined;
-}> = ({ className, onBurn, nft, lockInfo, account }) => {
+}> = ({ className, onBurn, nft = {} as NFT, lockInfo, account }) => {
   const { t } = useTranslation();
   const [now, setNow] = useState(0);
 
   useEffect(() => {
     simpleRpcProvider.getBlockNumber().then(setNow);
   }, []);
-
+  if (!nft || !nft.image) {
+    return null;
+  }
   return (
     <div className={className}>
       <div className="show">
-        {nft.image.indexOf('.mp4') > -1 ? (
+        {(nft?.image ?? '').indexOf('.mp4') > -1 ? (
           <video width="100%" height="100%" autoPlay={true} loop={true} playsInline={true}>
             <source src={`${nft.image}`} type="video/mp4" />
           </video>

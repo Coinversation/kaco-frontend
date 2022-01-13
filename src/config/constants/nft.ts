@@ -22,6 +22,7 @@ export interface NftPairConfig {
   logo: string;
   updateNFTID: string;
   excludeNFT?: string[];
+  pairs: string;
 }
 
 export interface NftItemConfig {
@@ -44,6 +45,7 @@ export const NFT_PAIRS: NftPairConfig[] = [
     logo: KacoLogo,
     updateNFTID: '-',
     excludeNFT: [],
+    pairs: 'KKAC-KAC LP',
   },
   {
     address: '0xa70c4580F1e00C1d7A9D0280832c0D513a6D530F',
@@ -56,6 +58,7 @@ export const NFT_PAIRS: NftPairConfig[] = [
     logo: PancakeLogo,
     updateNFTID: '-',
     excludeNFT: [],
+    pairs: 'KCAKE-CAKE LP',
   },
   {
     address: '0xBd6D17123Ec731adFf1cE2F9f7Af1aBC26E5EBfd',
@@ -68,6 +71,7 @@ export const NFT_PAIRS: NftPairConfig[] = [
     logo: AlpacaLogo,
     updateNFTID: '53872',
     excludeNFT: ['Alpaca Proficiency Exam (APE)', 'Welcome to the Herd!'],
+    pairs: 'KALPACA-ALPACA LP',
   },
   {
     address: '0xc799B336f15A42AD506b0a792543907245c81110',
@@ -80,6 +84,7 @@ export const NFT_PAIRS: NftPairConfig[] = [
     logo: AlpiesLogo,
     updateNFTID: '-',
     excludeNFT: [],
+    pairs: 'KALPIE-ALPACA LP',
   },
 ];
 

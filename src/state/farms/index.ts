@@ -27,28 +27,28 @@ const initialState: FarmsState = { data: noAccountFarmConfig, loadArchivedFarmsD
 export const nonArchivedFarms = farmsConfig.filter(({ pid }) => !isArchivedPid(pid));
 
 // Async thunks
-export const fetchFarmsPublicDataAsync = createAsyncThunk<Farm[], number[]>(
-  'farms/fetchFarmsPublicDataAsync',
-  async (pids) => {
-    const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid));
+export const fetchFarmsPublicDataAsync = createAsyncThunk<
+  Farm[],
+  // number[],
+  { pids: number[]; priceVsBusdMap: Record<string, string> }
+>('farms/fetchFarmsPublicDataAsync', async ({ pids, priceVsBusdMap }) => {
+  const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid));
 
-    // Add price helper farms
-    const farmsWithPriceHelpers = farmsToFetch.concat([]);
-    // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
+  // Add price helper farms
+  const farmsWithPriceHelpers = farmsToFetch.concat([]);
+  // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
 
-    const farms = await fetchFarms(farmsWithPriceHelpers);
+  const farms = await fetchFarms(farmsWithPriceHelpers);
+  const farmsWithPrices = await fetchFarmsPrices(farms, priceVsBusdMap);
+  // Filter out price helper LP config farms
+  // console.log('farmsWithPrices', pids, farmsWithPrices);
 
-    const farmsWithPrices = await fetchFarmsPrices(farms);
-    // Filter out price helper LP config farms
-    // console.log('farmsWithPrices', pids, farmsWithPrices);
+  const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
+    return farm.pid || farm.pid === 0;
+  });
 
-    const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
-      return farm.pid || farm.pid === 0;
-    });
-
-    return farmsWithoutHelperLps;
-  },
-);
+  return farmsWithoutHelperLps;
+});
 
 interface FarmUserDataResponse {
   pid: number;

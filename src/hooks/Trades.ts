@@ -4,8 +4,10 @@ import { Currency, CurrencyAmount, Pair, Token, Trade } from '@kaco/sdk';
 import flatMap from 'lodash/flatMap';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
-
+import DEFAULT_TOKEN_LIST from 'config/constants/tokenLists/pancake-default.tokenlist.json';
+import BigNumber from 'bignumber.js';
 import { useUserSingleHopOnly } from 'state/user/hooks';
+import { useCurrency } from 'hooks/Tokens';
 import {
   BASES_TO_CHECK_TRADES_AGAINST,
   CUSTOM_BASES,
@@ -16,6 +18,8 @@ import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
 
 import { useUnsupportedTokens } from './Tokens';
+import { tryParseAmount } from 'state/swap/hooks';
+import { USDT } from 'config/constants/tokens';
 
 function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   const { chainId } = useActiveWeb3React();
@@ -175,4 +179,25 @@ export function useIsTransactionUnsupported(currencyIn?: Currency, currencyOut?:
   }
 
   return false;
+}
+declare global {
+  interface Window {
+    priceVsBusdMap: Record<string, BigNumber>;
+  }
+}
+window.priceVsBusdMap = {};
+
+export function useSingleCurrencyTradeExact(_address: string): Record<string, BigNumber> {
+  const address = _address.toLocaleLowerCase();
+  const tokenArr = DEFAULT_TOKEN_LIST.tokens.filter((v) => v.address.toLocaleLowerCase() === address);
+  if (!tokenArr.length) {
+    window.priceVsBusdMap[address] = new BigNumber(0);
+  }
+  const token = tokenArr[0];
+  const inputCurrency = useCurrency(token?.address);
+  const currencyIn: CurrencyAmount = tryParseAmount('1', inputCurrency);
+  const currencyOut: Currency = USDT;
+  const bestTradeExactIn = useTradeExactIn(currencyIn, currencyOut);
+  window.priceVsBusdMap[address] = new BigNumber(bestTradeExactIn?.executionPrice.toFixed());
+  return window.priceVsBusdMap;
 }

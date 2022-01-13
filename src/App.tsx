@@ -14,6 +14,7 @@ import EasterEgg from './components/EasterEgg';
 import history from './routerHistory';
 // Views included in the main bundle
 
+import { PriceProvider } from 'contexts/PriceProvider';
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
@@ -56,6 +57,7 @@ const App: React.FC = () => {
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
+      <PriceProvider />
       <SideMenu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>

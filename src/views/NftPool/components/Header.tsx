@@ -5,6 +5,7 @@ import HeaderBgSvg from '../img/header-bg.svg';
 import { formatFloat } from '../util/format';
 import { NFT_PAIRS } from 'config/constants/nft';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
+import { usePollPrice } from 'state/price/hooks';
 export interface Pool {
   poolName: string;
   fragmentName: string;
@@ -20,8 +21,7 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
   floorPrice,
   pair,
 }) => {
-  // const pair = useNftPair(pairIndex);
-
+  usePollPrice(NFT_PAIRS[pairIndex].address, '100');
   return (
     <div className={className}>
       <div>
@@ -30,7 +30,7 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
         <Flex className="pool-info">
           <div className="info">
             <TextM fontSize="18px" bold mb="4px">
-              {pair?.supply || 0}
+              {pair?.supply.toLocaleString() || 0}
             </TextM>
             <TextM fontSize="12px">NFT In Pool</TextM>
           </div>
@@ -42,13 +42,13 @@ const PoolHeader_: FC<{ className?: string; pairIndex: number; floorPrice: numbe
           </div>
           <div className="info second-line">
             <TextM fontSize="18px" bold mb="4px">
-              ${formatFloat(floorPrice * (pair?.supply || 0) * 100)}
+              ${pair?.liquidity ? pair.liquidity.toLocaleString() : '-'}
             </TextM>
             <TextM fontSize="12px">Liquidity</TextM>
           </div>
           <div className="info second-line">
             <TextM fontSize="18px" bold mb="4px">
-              {(pair?.supply || 0) * 100}
+              {((pair?.supply || 0) * 100).toLocaleString()}
             </TextM>
             <TextM fontSize="12px">KCoin Supply</TextM>
           </div>

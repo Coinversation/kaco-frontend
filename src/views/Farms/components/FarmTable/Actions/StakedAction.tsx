@@ -114,7 +114,6 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
       </ActionContainer>
     );
   }
-
   if (isApproved) {
     if (stakedBalance.gt(0)) {
       return (

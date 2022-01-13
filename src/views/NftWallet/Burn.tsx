@@ -12,10 +12,13 @@ import PageLoader from 'components/Loader/PageLoader';
 import NoBalance from './components/NoBalance';
 import RealBigNumber from 'bignumber.js';
 import { formatFloat } from 'views/NftPool/util/format';
+import { useFarms, usePollFarmsData } from 'state/farms/hooks';
 import { NFT_PAIRS } from 'config/constants/nft';
 
 const Burn: FC<{ className?: string }> = ({ className }) => {
-  const pairs = useNftPairs();
+  const { data: farmsLP } = useFarms();
+  usePollFarmsData();
+  const pairs = useNftPairs(farmsLP);
   const { account } = useWeb3React();
   const [balancesOfNft100, setBalancesOfNft100] = useState<(NftPair & { balance: number })[]>([]);
   const [nft100Index, setNft100Index] = useState(-1);
@@ -128,9 +131,10 @@ export default styled(Burn)`
   background: ${({ theme }) => theme.colors.cardBackground};
   border-radius: 24px;
   padding: 15px;
+  margin-top: 10px;
 
   ${({ theme }) => theme.mediaQueries.md} {
-    padding: 30px 40px;
+    padding: 30px 20px;
   }
 
   > .nfts {
