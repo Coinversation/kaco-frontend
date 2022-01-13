@@ -154,7 +154,7 @@ export default styled(Header)`
       color: #fff;
       background: linear-gradient(90deg, ${({ theme }) => theme.colors.primary}, #d755d9, #ec9b5a);
       border-radius: 12px;
-      font-weight: bold;
+      font-weight: 500;
       margin-right: 8px;
       cursor: pointer;
       ${({ theme }) => theme.mediaQueries.xs} {
@@ -175,7 +175,7 @@ export default styled(Header)`
       color: #fff;
       background: linear-gradient(90deg, #fc00ff, #00dbde);
       border-radius: 12px;
-      font-weight: bold;
+      font-weight: 500;
       margin-right: 8px;
       cursor: pointer;
       ${({ theme }) => theme.mediaQueries.xs} {
@@ -204,7 +204,7 @@ export default styled(Header)`
       display: flex;
       align-items: center;
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 500;
       color: ${({ theme }) => theme.colors.text};
       height: 38px;
       background: #1f252a;

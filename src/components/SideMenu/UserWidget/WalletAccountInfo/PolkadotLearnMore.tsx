@@ -18,7 +18,7 @@ const PolkadotLearnMore = styled(PolkadotLearnMore_TSX)`
   a {
     display: block;
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
     color: #f1842c;
     font-size: 14px;
     margin-top: 10px;

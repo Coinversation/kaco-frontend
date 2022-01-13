@@ -137,7 +137,7 @@ const ClaimKac = styled.div`
   color: ${({ theme }) => theme.colors.btnTextColor};
   background-image: linear-gradient(90deg, #ff34f3 0%, #4aeeef 100%);
   border-radius: 12px;
-  font-weight: bold;
+  font-weight: 600;
   cursor: pointer;
   text-align: center;
 `;
@@ -199,7 +199,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   align-items: start;
   font-size: 16px;
   transition: all 0.3s ease;
-  font-weight: bolder;
+  font-weight: 600;
   margin-right: 34px;
   padding: 10px 10px 12px;
   border-radius: 12px;

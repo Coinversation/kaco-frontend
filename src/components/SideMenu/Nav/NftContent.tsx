@@ -40,7 +40,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   align-items: start;
   font-size: 16px;
   transition: all 0.3s ease;
-  font-weight: bolder;
+  font-weight: 600;
   margin-right: 34px;
   padding: 10px 10px 12px;
   border-radius: 12px;

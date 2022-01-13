@@ -26,7 +26,7 @@ const Container = styled.div`
   > div {
     > .label {
       font-size: 16px;
-      font-weight: bolder;
+      font-weight: 600;
       color: ${({ theme }) => theme.colors.text};
     }
     > .ratio {

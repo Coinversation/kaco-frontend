@@ -158,7 +158,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   height: 60px;
   line-height: 60px;
   transition: all 0.3s ease;
-  font-weight: bolder;
+  font-weight: 600;
   justify-content: space-between;
   svg {
     width: 36px;

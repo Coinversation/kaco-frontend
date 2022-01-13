@@ -113,7 +113,7 @@ export default function PoolFinder() {
           </StyledButton>
 
           <ColumnCenter>
-            <AddIcon />
+            <img src="/images/AddIcon.svg" />
           </ColumnCenter>
 
           <StyledButton

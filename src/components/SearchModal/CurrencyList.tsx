@@ -28,7 +28,7 @@ const StyledBalanceText = styled(Text)`
   overflow: hidden;
   max-width: 5rem;
   text-overflow: ellipsis;
-  color: white;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 const FixedContentRow = styled.div`

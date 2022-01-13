@@ -14,7 +14,7 @@ const WalletAccountInfo = () => {
     tooltipVisible: tooltipVisible_P,
     // @ts-ignore
   } = useTooltip(chainKey === 'SDN' ? PolkadotAccounts : BscAccountInfo, {
-    trigger: 'hover',
+    trigger: 'click',
     placement: 'top-end',
     hideArrow: false,
     tooltipOffset: [20, 10],
@@ -39,7 +39,7 @@ const WalletAccount = styled(Flex)`
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.btnTextColor};
   height: 40px;
   background: ${({ theme }) => theme.colors.primary};

@@ -41,7 +41,7 @@ const NavLink = styled(Link)<{ active: 't' | 'f' }>`
   height: 48px;
   margin-bottom: 4px;
   transition: all 0.3s ease;
-  font-weight: bolder;
+  font-weight: 600;
   &:last-child {
     margin-bottom: 0px;
   }

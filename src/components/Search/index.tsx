@@ -16,6 +16,7 @@ const Wrapper = styled.div<{ focused: boolean }>`
     flex: 1;
     background: ${({ theme }) => theme.colors.cardBackground};
     border-width: 0px;
+    font-weight: 500;
   }
 `;
 

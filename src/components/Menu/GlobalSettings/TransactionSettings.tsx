@@ -95,9 +95,9 @@ const SlippageTabs = () => {
             style={{
               height: '36px',
               fontSize: '14px',
-              color: 'white',
-              background: userSlippageTolerance === 10 ? theme.colors.primary : '#272E32',
-              fontWeight: 'bold',
+              color: userSlippageTolerance === 10 ? theme.colors.btnTextColor : theme.colors.textSubSubtle,
+              background: userSlippageTolerance === 10 ? theme.colors.primary : theme.colors.btnBgSecondaryColor,
+              fontWeight: 600,
             }}
             mr="12px"
             scale="sm"
@@ -112,9 +112,9 @@ const SlippageTabs = () => {
             style={{
               height: '36px',
               fontSize: '14px',
-              color: 'white',
-              background: userSlippageTolerance === 50 ? theme.colors.primary : '#272E32',
-              fontWeight: 'bold',
+              color: userSlippageTolerance === 50 ? theme.colors.btnTextColor : theme.colors.textSubSubtle,
+              background: userSlippageTolerance === 50 ? theme.colors.primary : theme.colors.btnBgSecondaryColor,
+              fontWeight: 600,
             }}
             mr="12px"
             scale="sm"
@@ -128,10 +128,10 @@ const SlippageTabs = () => {
           <Button
             style={{
               height: '36px',
-              background: userSlippageTolerance === 100 ? theme.colors.primary : '#272E32',
-              color: 'white',
+              background: userSlippageTolerance === 100 ? theme.colors.primary : theme.colors.btnBgSecondaryColor,
+              color: userSlippageTolerance === 100 ? theme.colors.btnTextColor : theme.colors.textSubSubtle,
               fontSize: '14px',
-              fontWeight: 'bold',
+              fontWeight: 600,
             }}
             mr="12px"
             scale="sm"
@@ -158,7 +158,7 @@ const SlippageTabs = () => {
                 borderRadius: '0px',
                 margin: '0px',
                 padding: '0px',
-                color: 'white',
+                color: theme.colors.btnTextColor,
                 background: 'rgba(0,0,0,0)',
                 border: '0',
                 fontSize: '14px',
@@ -210,8 +210,8 @@ const SlippageTabs = () => {
             border: 'none',
             padding: '0px',
             fontSize: '14px',
-            fontWeight: 'bold',
-            color: 'white',
+            fontWeight: 600,
+            color: theme.colors.btnTextColor,
             textAlign: 'right',
             borderRadius: '0px',
           }}

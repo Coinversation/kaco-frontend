@@ -43,9 +43,9 @@ const ReferenceElement = styled.div`
 const AprWrapper = styled.div`
   min-width: 60px;
   text-align: left;
-  color: white;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
 `;
 
 const Apr: React.FC<AprProps> = ({

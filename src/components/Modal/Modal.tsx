@@ -41,7 +41,7 @@ const ModalTitle = styled(Flex)`
   align-items: center;
   flex: 1;
   h2 {
-    font-weight: bolder;
+    font-weight: 600;
     font-size: 18px;
   }
 `;

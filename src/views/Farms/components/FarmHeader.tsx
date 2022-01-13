@@ -84,7 +84,13 @@ const FarmHeader: React.FC<{
         <NotificationDot show={false}>
           <ButtonMenuItem
             id="finished-pools-button"
-            style={{ color: isExact ? '#9DA6A6' : theme.colors.btnTextColor, borderRadius: '32px', margin: 0 }}
+            style={{
+              color: isExact ? '#9DA6A6' : theme.colors.btnTextColor,
+              borderRadius: '32px',
+              margin: 0,
+              lineHeight: '32px',
+              height: '32px',
+            }}
             as={Link}
             to={`${url}/history`}
           >

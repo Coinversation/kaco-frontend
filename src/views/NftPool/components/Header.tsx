@@ -109,7 +109,7 @@ export const PoolHeader = styled(PoolHeader_)`
       color: ${({ theme }) => theme.colors.primary};
       padding: 19px 0px 0px 66px;
       font-size: 24px;
-      font-weight: bold;
+      font-weight: 500;
 
       ${({ theme }) => theme.mediaQueries.md} {
         font-size: 26px;

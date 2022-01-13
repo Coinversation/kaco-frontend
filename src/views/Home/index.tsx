@@ -173,11 +173,11 @@ export default styled(Home)`
           }
           ${({ theme }) => theme.mediaQueries.md} {
           }
-          font-weight: bold;
+          font-weight: 500;
           margin-bottom: 30px;
         }
         span {
-          font-weight: bold;
+          font-weight: 500;
           font-size: 20px;
         }
       }
@@ -204,7 +204,7 @@ export default styled(Home)`
           font-size: 24px;
           margin-bottom: 51px;
         }
-        font-weight: bold;
+        font-weight: 500;
         color: ${({ theme }) => theme.colors.primary};
       }
     }

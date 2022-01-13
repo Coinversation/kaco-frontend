@@ -163,7 +163,7 @@ const Wrapper = styled.div`
     > .left {
       > span {
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 500;
         color: ${({ theme }) => theme.colors.primary};
         margin-left: 14px;
       }
@@ -171,7 +171,7 @@ const Wrapper = styled.div`
 
     > .right {
       > span {
-        font-weight: bold;
+        font-weight: 500;
         margin-right: 12px;
         color: ${({ theme }) => theme.colors.text};
       }
@@ -290,7 +290,7 @@ export default function FullPositionCard({ pair, ...props }: PositionCardProps) 
                 as={Link}
                 to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
                 variant="text"
-                startIcon={<AddIcon color="primary" />}
+                startIcon={<img src="/images/AddIcon.svg" alt="add" />}
                 width="100%"
                 style={{ fontSize: '12px' }}
               >

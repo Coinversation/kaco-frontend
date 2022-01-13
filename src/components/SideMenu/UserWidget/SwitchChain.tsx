@@ -7,7 +7,7 @@ import SlSvg from '../imgs/icon_sl.svg';
 import { chainKey } from '../config';
 const SwitchChain = () => {
   const { targetRef, tooltip, tooltipVisible } = useTooltip(SwitchChainTooltip, {
-    trigger: 'hover',
+    trigger: 'click',
     tootipStyle: { padding: '30px 34px 20px' },
     placement: 'top-end',
     hideArrow: false,

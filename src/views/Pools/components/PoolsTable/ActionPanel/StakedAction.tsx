@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import BigNumber from 'bignumber.js';
 import { Button, useModal, IconButton, Skeleton, useTooltip, Text } from '@kaco/uikitv2';
-import MinusIcon from './iocn_jianhao.png';
-import AddIcon from './icon_jiahao.png';
 import ConnectWalletButton from 'components/ConnectWalletButton';
 import { useWeb3React } from '@web3-react/core';
 import { useCakeVault } from 'state/pools/hooks';
@@ -221,12 +219,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
         <ActionContent>
           <IconButtonWrapper>
             <StyledIconButton variant="secondary" onClick={onUnstake} mr="6px" minWidth="50px">
-              <img src={MinusIcon} alt="MinusIcon" />
+              <img src="/images/MinusIcon.svg" alt="MinusIcon" />
             </StyledIconButton>
             {reachStakingLimit ? (
               <span ref={targetRef}>
                 <StyledIconButton variant="secondary" ml="12px" disabled minWidth="50px">
-                  <img src={AddIcon} alt="add" />
+                  <img src="/images/AddIcon.svg" alt="add" />
                 </StyledIconButton>
               </span>
             ) : (
@@ -237,7 +235,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
                 onClick={stakingTokenBalance.gt(0) ? onStake : onPresentTokenRequired}
                 disabled={isFinished}
               >
-                <img src={AddIcon} alt="add" />
+                <img src="/images/AddIcon.svg" alt="add" />
               </StyledIconButton>
             )}
           </IconButtonWrapper>

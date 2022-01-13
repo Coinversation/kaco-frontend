@@ -46,7 +46,7 @@ import ArrowDownIcon from '../../components/svg/ArrowDown';
 import SwapSvg from './components/imgs/swap.svg';
 const Label = styled(Text)`
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   color: ${({ theme }) => theme.colors.secondary};
 `;
 

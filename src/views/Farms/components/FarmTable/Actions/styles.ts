@@ -43,7 +43,7 @@ export const ActionTitles = styled.div`
     }
   }
   > .balance {
-    font-weight: bold;
+    font-weight: 500;
     color: #1bd3d5;
     display: flex;
     align-items: center;

@@ -153,7 +153,7 @@ const PolkadoAccountInfo = styled(PolkadoAccountInfo_TSX)`
   h4 {
     padding: 10px 20px;
     color: #ad3d3d;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 12px;
     background-color: #272e32;
     border-radius: 16px;
@@ -176,7 +176,7 @@ const PolkadoAccountInfo = styled(PolkadoAccountInfo_TSX)`
       margin-bottom: 12px;
       h3 {
         color: #fff;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 16px;
       }
       p {
@@ -184,7 +184,7 @@ const PolkadoAccountInfo = styled(PolkadoAccountInfo_TSX)`
         border: 1px solid #1bd3d5;
         border-radius: 12px;
         color: #1bd3d5;
-        font-weight: bold;
+        font-weight: 500;
         font-size: 14px;
         line-height: 34px;
         padding: 0 20px;

@@ -37,7 +37,7 @@ const BgButton = styled(Button)`
   padding: 0;
   margin: 0;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.btnTextColor};
   height: 48px;

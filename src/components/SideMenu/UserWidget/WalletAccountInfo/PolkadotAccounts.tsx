@@ -33,7 +33,7 @@ const PolkadotAccount_TSX: FC<{ className?: string }> = ({ className }) => {
 const PolkadotAccount = styled(PolkadotAccount_TSX)`
   .text {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     color: #9da6a6;
     margin-bottom: 12px;
     margin-top: 20px;

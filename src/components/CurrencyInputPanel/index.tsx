@@ -78,7 +78,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
 
       .currency-name {
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 500;
         color: ${({ theme }) => theme.colors.text};
       }
     }
@@ -113,7 +113,7 @@ const InputPanel = styled.div<{ hideInput?: boolean; focused: boolean }>`
     .token-amount-input {
       text-align: right;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 500;
       color: ${({ theme }) => theme.colors.text};
     }
   }

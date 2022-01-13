@@ -651,7 +651,7 @@ export default function RemoveLiquidity({
                 id="remove-liquidity-tokena"
               />
               <ColumnCenter>
-                <AddIcon width="24px" my="16px" />
+                <img src="/images/AddIcon.svg" width="24px" />
               </ColumnCenter>
               <CurrencyInputPanel
                 hideBalance

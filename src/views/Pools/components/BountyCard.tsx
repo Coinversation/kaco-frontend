@@ -54,7 +54,7 @@ const BountyCard = () => {
           'Whenever you successfully claim the bounty, you’re also helping out by activating the Auto KAC Pool’s compounding function for everyone.',
         )}
       </Text>
-      <Text style={{ fontWeight: 'bold' }}>
+      <Text style={{ fontWeight: 600 }}>
         {t('Auto-Compound Bounty: %fee%% of all Auto KAC pool users pending yield', { fee: fee / 100 })}
       </Text>
     </>
