@@ -40,7 +40,8 @@ const Multiplier: React.FunctionComponent<MultiplierProps> = ({ multiplier }) =>
     </div>
   );
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, {
-    placement: 'top-end',
+    placement: 'bottom-end',
+    // hideArrow: true,
     tooltipOffset: [20, 10],
   });
 
