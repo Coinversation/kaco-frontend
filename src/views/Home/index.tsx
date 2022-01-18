@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import HomeBgPng from './components/home-bg.png';
 import BannerPng from './components/banner.svg';
@@ -13,10 +13,10 @@ import { getCakeAddress } from 'utils/addressHelpers';
 // import useCap from './hooks/useCap';
 import Balance from 'components/Balance';
 import { useKacoPrice } from 'hooks/useKacoPrice';
-import { usePrice } from 'state/price/hooks';
+import { TotalLiquidityContext } from 'contexts/TotalLiquidityProvider';
 
 const Home: React.FC<{ className?: string }> = ({ className }) => {
-  const { total: totalLiquidity } = usePrice();
+  const { total: totalLiquidity } = useContext(TotalLiquidityContext);
   const { t } = useTranslation();
   const { isXs, isSm } = useMatchBreakpoints();
   const totalSupply = useTotalSupply();

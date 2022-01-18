@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import BigNumber from 'bignumber.js';
 import { PriceState } from 'state/types';
 const initialState: PriceState = {
   priceVsBusdMap: {},

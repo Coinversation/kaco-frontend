@@ -19,7 +19,7 @@ export const usePollPrice = (_address: string, amount = '1') => {
   const inputCurrency = useCurrency(token?.address);
   const currencyIn: CurrencyAmount = tryParseAmount(amount, inputCurrency);
   const currencyOut: Currency = BUSD[chainId];
-  const bestTradeExactIn = useTradeExactIn(currencyIn, currencyOut);
+  const bestTradeExactIn = useTradeExactIn(false, currencyIn, currencyOut);
   const { priceVsBusdMap } = usePrice();
 
   useEffect(() => {
