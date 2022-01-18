@@ -13,32 +13,33 @@ function getPriceVsBusd(
   priceVsBusdMap: { [key: string]: BigNumber },
   from?: string,
 ): BigNumber | undefined {
-  const busdAddress = (tokens.usdc.address[chainId] as string).toLowerCase();
+  try {
+    const busdAddress = (tokens.usdc.address[chainId] as string).toLowerCase();
 
-  Object.entries(source[tokenAddress]).find(([quoteTokenAddress, pair]) => {
-    if (quoteTokenAddress === from) {
+    Object.entries(source[tokenAddress]).find(([quoteTokenAddress, pair]) => {
+      if (quoteTokenAddress === from) {
+        return false;
+      }
+      if (quoteTokenAddress.toLowerCase() === busdAddress) {
+        priceVsBusdMap[tokenAddress] = pair.vs;
+
+        return true;
+      }
+      const quoteVsBusdPrice =
+        priceVsBusdMap[quoteTokenAddress] || getPriceVsBusd(quoteTokenAddress, source, priceVsBusdMap, tokenAddress);
+      if (quoteVsBusdPrice) {
+        priceVsBusdMap[tokenAddress] = quoteVsBusdPrice.times(pair.vs);
+
+        return true;
+      }
+
       return false;
-    }
+    });
 
-    if (quoteTokenAddress.toLowerCase() === busdAddress) {
-      priceVsBusdMap[tokenAddress] = pair.vs;
-
-      return true;
-    }
-
-    const quoteVsBusdPrice =
-      priceVsBusdMap[quoteTokenAddress] || getPriceVsBusd(quoteTokenAddress, source, priceVsBusdMap, tokenAddress);
-
-    if (quoteVsBusdPrice) {
-      priceVsBusdMap[tokenAddress] = quoteVsBusdPrice.times(pair.vs);
-
-      return true;
-    }
-
-    return false;
-  });
-
-  // console.log(`${tokenAddress.slice(0, 5)}`, priceVsBusdMap[tokenAddress].toFixed(5));
+    // console.log(`${tokenAddress.slice(0, 5)}`, priceVsBusdMap[tokenAddress].toFixed(5));
+  } catch (err) {
+    console.log(err);
+  }
   return priceVsBusdMap[tokenAddress];
 }
 
