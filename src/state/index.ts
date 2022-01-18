@@ -20,6 +20,7 @@ import mint from './mint/reducer';
 import lists from './lists/reducer';
 import burn from './burn/reducer';
 import multicall from './multicall/reducer';
+import priceReducer from './price';
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists'];
 
@@ -36,6 +37,7 @@ const store = configureStore({
     collectibles: collectiblesReducer,
     voting: votingReducer,
     lottery: lotteryReducer,
+    price: priceReducer,
 
     // Exchange
     application,

@@ -9,7 +9,7 @@ import { orderBy } from 'lodash';
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard';
 import { Farm } from 'state/types';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
-import { PriceContext } from 'contexts/PriceProvider';
+import { usePrice } from 'state/price/hooks';
 
 enum FetchStatus {
   NOT_FETCHED = 'not-fetched',
@@ -25,7 +25,7 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
   const [topFarms, setTopFarms] = useState<FarmWithStakedValue[]>([null, null, null, null, null]);
   const cakePriceBusd = usePriceCakeBusd();
   const kacPerBlock = useKacPerBlock();
-  const { priceVsBusdMap } = useContext(PriceContext);
+  const { priceVsBusdMap } = usePrice();
 
   useEffect(() => {
     const fetchFarmData = async () => {

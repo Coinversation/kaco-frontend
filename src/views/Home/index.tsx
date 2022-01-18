@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import HomeBgPng from './components/home-bg.png';
 import BannerPng from './components/banner.svg';
@@ -13,10 +13,10 @@ import { getCakeAddress } from 'utils/addressHelpers';
 // import useCap from './hooks/useCap';
 import Balance from 'components/Balance';
 import { useKacoPrice } from 'hooks/useKacoPrice';
-import { PriceContext } from 'contexts/PriceProvider';
+import { usePrice } from 'state/price/hooks';
 
 const Home: React.FC<{ className?: string }> = ({ className }) => {
-  const { total: totalLiquidity } = useContext(PriceContext);
+  const { total: totalLiquidity } = usePrice();
   const { t } = useTranslation();
   const { isXs, isSm } = useMatchBreakpoints();
   const totalSupply = useTotalSupply();
@@ -33,7 +33,7 @@ const Home: React.FC<{ className?: string }> = ({ className }) => {
         <div className="banner">
           <div className="left">
             <h1>
-              $<Balance value={totalLiquidity.toNumber()} />
+              $<Balance value={Number(`${totalLiquidity}`)} />
             </h1>
             <span>{t('Liquidity')}</span>
           </div>

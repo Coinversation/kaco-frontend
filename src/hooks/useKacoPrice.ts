@@ -1,11 +1,11 @@
 import tokens from '../config/constants/tokens';
 import BigNumber from 'bignumber.js';
-import { PriceContext } from 'contexts/PriceProvider';
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import useActiveWeb3React from './useActiveWeb3React';
+import { usePrice } from 'state/price/hooks';
 
 export const useKacoPrice = () => {
-  const { priceVsBusdMap } = useContext(PriceContext);
+  const { priceVsBusdMap } = usePrice();
   const { chainId } = useActiveWeb3React();
 
   const kacoPrice = useMemo(
@@ -13,5 +13,5 @@ export const useKacoPrice = () => {
     [priceVsBusdMap, chainId],
   );
 
-  return kacoPrice;
+  return new BigNumber(kacoPrice);
 };
