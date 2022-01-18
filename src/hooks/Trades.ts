@@ -95,14 +95,18 @@ const MAX_HOPS = 3;
 /**
  * Returns the best trade for the exact amount of tokens in to the given token out
  */
-export function useTradeExactIn(currencyAmountIn?: CurrencyAmount, currencyOut?: Currency): Trade | null {
+export function useTradeExactIn(
+  propsSingleHopOnly: boolean | null,
+  currencyAmountIn?: CurrencyAmount,
+  currencyOut?: Currency,
+): Trade | null {
   const allowedPairs = useAllCommonPairs(currencyAmountIn?.currency, currencyOut);
 
   const [singleHopOnly] = useUserSingleHopOnly();
-
+  const _singleHopOnly = propsSingleHopOnly != null ? propsSingleHopOnly : singleHopOnly;
   return useMemo(() => {
     if (currencyAmountIn && currencyOut && allowedPairs.length > 0) {
-      if (singleHopOnly) {
+      if (_singleHopOnly) {
         return (
           Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: 1, maxNumResults: 1 })[0] ??
           null
@@ -123,7 +127,7 @@ export function useTradeExactIn(currencyAmountIn?: CurrencyAmount, currencyOut?:
     }
 
     return null;
-  }, [allowedPairs, currencyAmountIn, currencyOut, singleHopOnly]);
+  }, [allowedPairs, currencyAmountIn, currencyOut, _singleHopOnly]);
 }
 
 /**

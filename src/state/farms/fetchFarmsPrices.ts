@@ -1,6 +1,5 @@
 import { chainId } from 'config/constants/tokens';
 import { Farm } from 'state/types';
-import BigNumber from 'bignumber.js';
 // import { BIG_ONE, BIG_ZERO } from 'utils/bigNumber';
 // import { filterFarmsByQuoteToken } from 'utils/farmsPriceHelpers';
 // import { FARM_QUOTE_QUOTE_TOKEN_SYMBOL } from 'config/constants/farms';
@@ -83,20 +82,18 @@ import { PublicFarmData } from './fetchPublicFarmData';
 //   return BIG_ZERO;
 // };
 
-const fetchFarmsPrices = (farms: (Farm & PublicFarmData)[], priceVsBusdMap: Record<string, BigNumber>) => {
+const fetchFarmsPrices = (farms: (Farm & PublicFarmData)[], priceVsBusdMap: Record<string, string>) => {
   const farmsWithPrices = farms.map((farm) => {
     const tokenAddress: string = farm.token.address[chainId];
     const quoteTokenAddress: string = farm.quoteToken.address[chainId];
     const token = {
       ...farm.token,
-      busdPrice: priceVsBusdMap[tokenAddress.toLowerCase()]
-        ? priceVsBusdMap[tokenAddress.toLowerCase()].toString()
-        : '0',
+      busdPrice: priceVsBusdMap[tokenAddress.toLowerCase()] ? priceVsBusdMap[tokenAddress.toLowerCase()] : '1',
     };
     const quoteToken = {
       ...farm.quoteToken,
       busdPrice: priceVsBusdMap[quoteTokenAddress.toLowerCase()]
-        ? priceVsBusdMap[quoteTokenAddress.toLowerCase()].toString()
+        ? priceVsBusdMap[quoteTokenAddress.toLowerCase()]
         : '0',
     };
     // console.log(

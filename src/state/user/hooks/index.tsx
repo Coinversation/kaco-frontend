@@ -79,6 +79,7 @@ export function useUserSingleHopOnly(): [boolean, (newSingleHopOnly: boolean) =>
   );
 
   return [singleHopOnly, setSingleHopOnly];
+  // return [false, setSingleHopOnly];
 }
 
 export function useUserSlippageTolerance(): [number, (slippage: number) => void] {

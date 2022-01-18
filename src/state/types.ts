@@ -467,8 +467,14 @@ export interface UserRound {
 export type UserTicketsResponse = [ethers.BigNumber[], number[], boolean[]];
 
 // Global state
+// Price
+export interface PriceState {
+  priceVsBusdMap: Record<string, string>;
+  total: Number;
+}
 
 export interface State {
+  price: PriceState;
   achievements: AchievementState;
   block: BlockState;
   farms: FarmsState;

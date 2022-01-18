@@ -5,6 +5,7 @@ import BigNumber from 'bignumber.js';
 // import useEagerConnect from 'hooks/useEagerConnect';
 // import { usePollBlockNumber } from 'state/block/hooks';
 // import { useFetchProfile } from 'state/profile/hooks';
+import { PriceProvider } from 'contexts/PriceProvider';
 import { DatePickerPortal } from 'components/DatePicker';
 import GlobalStyle from './style/Global';
 import SuspenseWithChunkError from './components/SuspenseWithChunkError';
@@ -67,6 +68,7 @@ const App: React.FC = () => {
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
+      <PriceProvider />
       <SideMenu>
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>

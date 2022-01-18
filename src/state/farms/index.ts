@@ -11,7 +11,6 @@ import {
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser';
 import { FarmsState, Farm } from '../types';
-import BigNumber from 'bignumber.js';
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
@@ -30,9 +29,9 @@ export const nonArchivedFarms = farmsConfig.filter(({ pid }) => !isArchivedPid(p
 // Async thunks
 export const fetchFarmsPublicDataAsync = createAsyncThunk<
   Farm[],
-  { pids: number[]; priceVsBusdMap: Record<string, BigNumber> }
->('farms/fetchFarmsPublicDataAsync', async (args: { pids: number[]; priceVsBusdMap: Record<string, BigNumber> }) => {
-  const { pids, priceVsBusdMap } = args;
+  // number[],
+  { pids: number[]; priceVsBusdMap: Record<string, string> }
+>('farms/fetchFarmsPublicDataAsync', async ({ pids, priceVsBusdMap }) => {
   const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid));
 
   // Add price helper farms

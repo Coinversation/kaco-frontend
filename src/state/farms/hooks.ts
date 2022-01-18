@@ -1,5 +1,4 @@
-import { PriceContext } from 'contexts/PriceProvider';
-import { useEffect, useMemo, useContext } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'state';
 import { useWeb3React } from '@web3-react/core';
@@ -12,21 +11,21 @@ import { State, Farm, FarmsState } from '../types';
 // import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import tokens from 'config/constants/tokens';
+import { usePrice } from 'state/price/hooks';
 
 export const usePollFarmsData = (includeArchive = false) => {
   const dispatch = useAppDispatch();
   const { account } = useWeb3React();
-  const { priceVsBusdMap } = useContext(PriceContext);
+  const { priceVsBusdMap } = usePrice();
 
   useEffect(() => {
     if (Object.keys(priceVsBusdMap).length === 0) {
       return;
     }
-    // console.log('fetch with price map', priceVsBusdMap);
     const farmsToFetch = includeArchive ? farmsConfig : nonArchivedFarms;
     const pids = farmsToFetch.map((farmToFetch) => farmToFetch.pid);
 
-    dispatch(fetchFarmsPublicDataAsync({ pids, priceVsBusdMap }));
+    dispatch(fetchFarmsPublicDataAsync({ pids: pids, priceVsBusdMap: priceVsBusdMap }));
 
     if (account) {
       dispatch(fetchFarmUserDataAsync({ account, pids }));
@@ -102,7 +101,7 @@ export const useLpTokenPrice = (symbol: string) => {
 // /!\ Deprecated , use the BUSD hook in /hooks
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const { priceVsBusdMap } = useContext(PriceContext);
+  const { priceVsBusdMap } = usePrice();
   const { chainId } = useActiveWeb3React();
 
   const bnbPrice = useMemo(
@@ -110,11 +109,11 @@ export const usePriceBnbBusd = (): BigNumber => {
     [priceVsBusdMap, chainId],
   );
 
-  return bnbPrice;
+  return new BigNumber(bnbPrice);
 };
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const { priceVsBusdMap } = useContext(PriceContext);
+  const { priceVsBusdMap } = usePrice();
   const { chainId } = useActiveWeb3React();
 
   const kacoPrice = useMemo(
@@ -122,5 +121,5 @@ export const usePriceCakeBusd = (): BigNumber => {
     [priceVsBusdMap, chainId],
   );
 
-  return kacoPrice;
+  return new BigNumber(kacoPrice);
 };
