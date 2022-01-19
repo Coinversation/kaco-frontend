@@ -13,6 +13,7 @@ import useFetchListCallback from 'hooks/useFetchListCallback';
 import { removeList, enableList } from 'state/lists/actions';
 import { useAllLists } from 'state/lists/hooks';
 import { useTranslation } from 'contexts/Localization';
+import { chainKey } from 'config';
 
 interface ImportProps {
   listURL: string;
@@ -77,7 +78,7 @@ function ImportList({ listURL, list, onImport }: ImportProps) {
                     </Text>
                     <TextDot />
                     <Text small color="textSubtle" ml="6px">
-                      {list.tokens.length} tokens
+                      {list.tokens[chainKey].length} tokens
                     </Text>
                   </RowFixed>
                   <Link

@@ -5,7 +5,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers';
 import { BigNumber } from '@ethersproject/bignumber';
 import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json';
 import { JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@kaco/sdk';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import { ROUTER_ADDRESS } from '../config/constants';
 import { BASE_BSC_SCAN_URLS } from '../config';
 import { TokenAddressMap } from '../state/lists/hooks';

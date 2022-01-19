@@ -1,5 +1,5 @@
-import { JSBI, Percent, Token, WETH } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, ChainId, JPYC, DOT, KSM, UST, ETH } from './tokens';
+import { JSBI, Percent, Token, WETH, ChainId } from '@kaco/sdk';
+import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, JPYC, DOT, KSM, UST, ETH, ALPACA, CAKE } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -10,7 +10,7 @@ type ChainTokenList = {
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  [ChainId.MAINNET]: [
+  [ChainId.ASTR_MAINNET]: [
     WETH[ChainId.MAINNET],
     Kaco[ChainId.MAINNET],
     DOT[ChainId.MAINNET],
@@ -21,6 +21,35 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     UST,
     ETH,
     USDC,
+  ],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+
+  [ChainId.SDN_MAINNET]: [
+    WETH[ChainId.MAINNET],
+    Kaco[ChainId.MAINNET],
+    DOT[ChainId.MAINNET],
+    KSM[ChainId.MAINNET],
+    BUSD[ChainId.MAINNET],
+    USDT,
+    BTCB[ChainId.MAINNET],
+    UST,
+    ETH,
+    USDC,
+  ],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+
+  [ChainId.MAINNET]: [
+    WETH[ChainId.MAINNET],
+    Kaco[ChainId.MAINNET],
+    DOT[ChainId.MAINNET],
+    KSM[ChainId.MAINNET],
+    BUSD[ChainId.MAINNET],
+    USDT,
+    ALPACA[ChainId.MAINNET],
+    // BTCB[ChainId.MAINNET],
+    // UST,
+    ETH,
+    // USDC,
   ],
   [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
 };
@@ -44,13 +73,19 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
+  [ChainId.ASTR_MAINNET]: [BUSD[ChainId.ASTR_MAINNET], Kaco[ChainId.ASTR_MAINNET], BTCB[ChainId.ASTR_MAINNET]],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.ASTR_TESTNET], Kaco[ChainId.ASTR_TESTNET], BUSD[ChainId.ASTR_TESTNET]],
+
+  [ChainId.SDN_MAINNET]: [BUSD[ChainId.SDN_MAINNET], Kaco[ChainId.SDN_MAINNET], BTCB[ChainId.SDN_MAINNET]],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.SDN_TESTNET], Kaco[ChainId.SDN_TESTNET], BUSD[ChainId.SDN_TESTNET]],
+
   [ChainId.MAINNET]: [BUSD[ChainId.MAINNET], Kaco[ChainId.MAINNET], BTCB[ChainId.MAINNET]],
   [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
 };
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  [ChainId.MAINNET]: [
+  [ChainId.ASTR_MAINNET]: [
     WETH[ChainId.MAINNET],
     // DAI,
     // BUSD[ChainId.MAINNET],
@@ -58,6 +93,29 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     // USDT,
     JPYC,
     USDC,
+  ],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+
+  [ChainId.SDN_MAINNET]: [
+    WETH[ChainId.MAINNET],
+    // DAI,
+    // BUSD[ChainId.MAINNET],
+    WBNB,
+    // USDT,
+    JPYC,
+    USDC,
+  ],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+
+  [ChainId.MAINNET]: [
+    // WETH[ChainId.MAINNET],
+    // DAI,
+    ALPACA[ChainId.MAINNET],
+    CAKE[ChainId.MAINNET],
+    Kaco[ChainId.MAINNET],
+    DOT[ChainId.MAINNET],
+    BUSD[ChainId.MAINNET],
+    USDT,
   ],
   [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
 };

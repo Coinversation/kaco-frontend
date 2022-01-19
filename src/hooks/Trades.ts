@@ -16,6 +16,7 @@ import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
 
 import { useUnsupportedTokens } from './Tokens';
+import { chainKey } from 'config';
 
 function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
   const { chainId } = useActiveWeb3React();
@@ -108,16 +109,32 @@ export function useTradeExactIn(
     if (currencyAmountIn && currencyOut && allowedPairs.length > 0) {
       if (_singleHopOnly) {
         return (
-          Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: 1, maxNumResults: 1 })[0] ??
-          null
+          Trade.bestTradeExactIn(
+            allowedPairs,
+            currencyAmountIn,
+            currencyOut,
+            { maxHops: 1, maxNumResults: 1 },
+            undefined,
+            undefined,
+            undefined,
+            chainKey,
+          )[0] ?? null
         );
       }
       // search through trades with varying hops, find best trade out of them
       let bestTradeSoFar: Trade | null = null;
       for (let i = 1; i <= MAX_HOPS; i++) {
         const currentTrade: Trade | null =
-          Trade.bestTradeExactIn(allowedPairs, currencyAmountIn, currencyOut, { maxHops: i, maxNumResults: 1 })[0] ??
-          null;
+          Trade.bestTradeExactIn(
+            allowedPairs,
+            currencyAmountIn,
+            currencyOut,
+            { maxHops: i, maxNumResults: 1 },
+            undefined,
+            undefined,
+            undefined,
+            chainKey,
+          )[0] ?? null;
         // if current trade is best yet, save it
         if (isTradeBetter(bestTradeSoFar, currentTrade, BETTER_TRADE_LESS_HOPS_THRESHOLD)) {
           bestTradeSoFar = currentTrade;
@@ -142,16 +159,32 @@ export function useTradeExactOut(currencyIn?: Currency, currencyAmountOut?: Curr
     if (currencyIn && currencyAmountOut && allowedPairs.length > 0) {
       if (singleHopOnly) {
         return (
-          Trade.bestTradeExactOut(allowedPairs, currencyIn, currencyAmountOut, { maxHops: 1, maxNumResults: 1 })[0] ??
-          null
+          Trade.bestTradeExactOut(
+            allowedPairs,
+            currencyIn,
+            currencyAmountOut,
+            { maxHops: 1, maxNumResults: 1 },
+            undefined,
+            undefined,
+            undefined,
+            chainKey,
+          )[0] ?? null
         );
       }
       // search through trades with varying hops, find best trade out of them
       let bestTradeSoFar: Trade | null = null;
       for (let i = 1; i <= MAX_HOPS; i++) {
         const currentTrade =
-          Trade.bestTradeExactOut(allowedPairs, currencyIn, currencyAmountOut, { maxHops: i, maxNumResults: 1 })[0] ??
-          null;
+          Trade.bestTradeExactOut(
+            allowedPairs,
+            currencyIn,
+            currencyAmountOut,
+            { maxHops: i, maxNumResults: 1 },
+            undefined,
+            undefined,
+            undefined,
+            chainKey,
+          )[0] ?? null;
         if (isTradeBetter(bestTradeSoFar, currentTrade, BETTER_TRADE_LESS_HOPS_THRESHOLD)) {
           bestTradeSoFar = currentTrade;
         }

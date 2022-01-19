@@ -1,4 +1,5 @@
-import tokens, { ChainId } from './tokens';
+import { ChainId } from '@kaco/sdk';
+import tokens from './tokens';
 import { PoolConfig, PoolCategory } from './types';
 
 const pools: PoolConfig[] = [

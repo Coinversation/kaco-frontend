@@ -10,11 +10,12 @@ import { useAppDispatch } from 'state';
 import DEFAULT_TOKEN_LIST from 'config/constants/tokenLists/pancake-default.tokenlist.json';
 import { useEffect } from 'react';
 import { useTradeExactIn } from 'hooks/Trades';
+import { chainKey } from 'config';
 export const usePollPrice = (_address: string, amount = '1') => {
   const address = _address.toLocaleLowerCase();
 
   const dispatch = useAppDispatch();
-  const tokenArr = DEFAULT_TOKEN_LIST.tokens.filter((v) => v.address.toLocaleLowerCase() === address);
+  const tokenArr = DEFAULT_TOKEN_LIST[chainKey].tokens.filter((v) => v.address.toLocaleLowerCase() === address);
   const token = tokenArr[0];
   const inputCurrency = useCurrency(token?.address);
   const currencyIn: CurrencyAmount = tryParseAmount(amount, inputCurrency);

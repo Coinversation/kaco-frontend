@@ -1,4 +1,5 @@
-import tokens, { ChainId } from './tokens';
+import { ChainId } from '@kaco/sdk';
+import tokens from './tokens';
 import { FarmConfig } from './types';
 export const KACO_LP_PID = 0;
 export const KACO_BNB_LP_PID = 1;

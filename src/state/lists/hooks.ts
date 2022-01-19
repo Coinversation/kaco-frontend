@@ -1,4 +1,4 @@
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import { Token } from '@kaco/sdk';
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists';
 import { useMemo } from 'react';
@@ -8,6 +8,7 @@ import { AppState } from '../index';
 import DEFAULT_TOKEN_LIST from '../../config/constants/tokenLists/pancake-default.tokenlist.json';
 import { UNSUPPORTED_LIST_URLS } from '../../config/constants/lists';
 import UNSUPPORTED_TOKEN_LIST from '../../config/constants/tokenLists/pancake-unsupported.tokenlist.json';
+import { chainKey } from 'config';
 
 type TagDetails = Tags[keyof Tags];
 export interface TagInfo extends TagDetails {
@@ -54,6 +55,12 @@ export type TokenAddressMap = Readonly<
 const EMPTY_LIST: TokenAddressMap = {
   [ChainId.MAINNET]: {},
   [ChainId.TESTNET]: {},
+
+  [ChainId.SDN_MAINNET]: {},
+  [ChainId.SDN_TESTNET]: {},
+
+  [ChainId.ASTR_MAINNET]: {},
+  [ChainId.ASTR_TESTNET]: {},
 };
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -106,6 +113,12 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
   return {
     [ChainId.MAINNET]: { ...map1[ChainId.MAINNET], ...map2[ChainId.MAINNET] },
     [ChainId.TESTNET]: { ...map1[ChainId.TESTNET], ...map2[ChainId.TESTNET] },
+
+    [ChainId.SDN_MAINNET]: { ...map1[ChainId.SDN_MAINNET], ...map2[ChainId.SDN_MAINNET] },
+    [ChainId.SDN_TESTNET]: { ...map1[ChainId.SDN_TESTNET], ...map2[ChainId.SDN_TESTNET] },
+
+    [ChainId.ASTR_MAINNET]: { ...map1[ChainId.ASTR_MAINNET], ...map2[ChainId.ASTR_MAINNET] },
+    [ChainId.ASTR_TESTNET]: { ...map1[ChainId.ASTR_TESTNET], ...map2[ChainId.ASTR_TESTNET] },
   };
 }
 
@@ -153,7 +166,7 @@ export function useInactiveListUrls(): string[] {
 export function useCombinedActiveList(): TokenAddressMap {
   const activeListUrls = useActiveListUrls();
   const activeTokens = useCombinedTokenMapFromUrls(activeListUrls);
-  const defaultTokenMap = listToTokenMap(DEFAULT_TOKEN_LIST);
+  const defaultTokenMap = listToTokenMap(DEFAULT_TOKEN_LIST[chainKey]);
   return combineMaps(activeTokens, defaultTokenMap);
 }
 
@@ -165,13 +178,13 @@ export function useCombinedInactiveList(): TokenAddressMap {
 
 // used to hide warnings on import for default tokens
 export function useDefaultTokenList(): TokenAddressMap {
-  return listToTokenMap(DEFAULT_TOKEN_LIST);
+  return listToTokenMap(DEFAULT_TOKEN_LIST[chainKey]);
 }
 
 // list of tokens not supported on interface, used to show warnings and prevent swaps and adds
 export function useUnsupportedTokenList(): TokenAddressMap {
   // get hard coded unsupported tokens
-  const localUnsupportedListMap = listToTokenMap(UNSUPPORTED_TOKEN_LIST);
+  const localUnsupportedListMap = listToTokenMap(UNSUPPORTED_TOKEN_LIST[chainKey]);
 
   // get any loaded unsupported tokens
   const loadedUnsupportedListMap = useCombinedTokenMapFromUrls(UNSUPPORTED_LIST_URLS);

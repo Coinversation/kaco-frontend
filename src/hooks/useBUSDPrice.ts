@@ -4,7 +4,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BUSD, Kaco } from '../config/constants/tokens';
 import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 
 const BUSD_MAINNET = BUSD[ChainId.MAINNET];
 

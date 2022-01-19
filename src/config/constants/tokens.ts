@@ -1,9 +1,6 @@
-import { Token } from '@kaco/sdk';
-
-export enum ChainId {
-  MAINNET = 336,
-  TESTNET = 81,
-}
+import { ChainId, Token } from '@kaco/sdk';
+import { chainKey } from 'config';
+import DEFAULT_TOKEN_LIST from 'config/constants/tokenLists/pancake-default.tokenlist.json';
 
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
@@ -19,6 +16,10 @@ const tokens = {
   dot: {
     symbol: 'DOT',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -28,6 +29,10 @@ const tokens = {
   syrup: {
     symbol: 'SYRUP',
     address: {
+      [ChainId.SDN_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
+      [ChainId.SDN_TESTNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
+      [ChainId.ASTR_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
+      [ChainId.ASTR_TESTNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
       [ChainId.MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -37,6 +42,10 @@ const tokens = {
   kkac: {
     symbol: 'KKAC',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -46,6 +55,10 @@ const tokens = {
   kalpaca: {
     symbol: 'KALPACA',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -55,6 +68,10 @@ const tokens = {
   kcake: {
     symbol: 'SYRUP',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -64,6 +81,10 @@ const tokens = {
   cake: {
     symbol: 'CAKE',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -73,6 +94,10 @@ const tokens = {
   safemoon: {
     symbol: 'safemoon',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -82,6 +107,10 @@ const tokens = {
   bondly: {
     symbol: 'bondly',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -91,6 +120,10 @@ const tokens = {
   alpaca: {
     symbol: 'ALPACA',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -100,6 +133,10 @@ const tokens = {
   ksm: {
     symbol: 'KSM',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -109,6 +146,10 @@ const tokens = {
   kalm: {
     symbol: 'KALM',
     address: {
+      [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -118,6 +159,10 @@ const tokens = {
   kaco: {
     symbol: 'KAC',
     address: {
+      [ChainId.SDN_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.SDN_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.ASTR_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.ASTR_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
       [ChainId.MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -127,6 +172,10 @@ const tokens = {
   usdc: {
     symbol: 'USDC',
     address: {
+      [ChainId.SDN_MAINNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
+      [ChainId.SDN_TESTNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
+      [ChainId.ASTR_MAINNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
+      [ChainId.ASTR_TESTNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
       [ChainId.MAINNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -136,6 +185,10 @@ const tokens = {
   usdt: {
     symbol: 'USDT',
     address: {
+      [ChainId.SDN_MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
+      [ChainId.SDN_TESTNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
+      [ChainId.ASTR_MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
+      [ChainId.ASTR_TESTNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
       [ChainId.MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -145,6 +198,10 @@ const tokens = {
   dai: {
     symbol: 'DAI',
     address: {
+      [ChainId.SDN_MAINNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
+      [ChainId.SDN_TESTNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
+      [ChainId.ASTR_MAINNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
+      [ChainId.ASTR_TESTNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
       [ChainId.MAINNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -154,6 +211,10 @@ const tokens = {
   eth: {
     symbol: 'ETH',
     address: {
+      [ChainId.SDN_MAINNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
+      [ChainId.SDN_TESTNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
+      [ChainId.ASTR_MAINNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
+      [ChainId.ASTR_TESTNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
       [ChainId.MAINNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -163,6 +224,10 @@ const tokens = {
   wbtc: {
     symbol: 'WBTC',
     address: {
+      [ChainId.SDN_MAINNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
+      [ChainId.SDN_TESTNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
+      [ChainId.ASTR_MAINNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
+      [ChainId.ASTR_TESTNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
       [ChainId.MAINNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -172,6 +237,10 @@ const tokens = {
   wbnb: {
     symbol: 'WSDN',
     address: {
+      [ChainId.SDN_MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
+      [ChainId.SDN_TESTNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
+      [ChainId.ASTR_MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
+      [ChainId.ASTR_TESTNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
       [ChainId.MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
       [ChainId.TESTNET]: '0x321F318e7C276c93Cf3094fd3a9d7c4362fd19FB',
     },
@@ -181,6 +250,10 @@ const tokens = {
   busd: {
     symbol: 'BUSD',
     address: {
+      [ChainId.SDN_MAINNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
+      [ChainId.SDN_TESTNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
+      [ChainId.ASTR_MAINNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
+      [ChainId.ASTR_TESTNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
       [ChainId.MAINNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -190,6 +263,10 @@ const tokens = {
   kwik: {
     symbol: 'KWIK',
     address: {
+      [ChainId.SDN_MAINNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
+      [ChainId.SDN_TESTNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
+      [ChainId.ASTR_MAINNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
+      [ChainId.ASTR_TESTNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
       [ChainId.MAINNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -199,6 +276,10 @@ const tokens = {
   pkex: {
     symbol: 'PKEX',
     address: {
+      [ChainId.SDN_MAINNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
+      [ChainId.SDN_TESTNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
+      [ChainId.ASTR_MAINNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
+      [ChainId.ASTR_TESTNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
       [ChainId.MAINNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -208,6 +289,10 @@ const tokens = {
   jpyc: {
     symbol: 'JPYC',
     address: {
+      [ChainId.SDN_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
+      [ChainId.SDN_TESTNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
+      [ChainId.ASTR_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
+      [ChainId.ASTR_TESTNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
       [ChainId.MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
       [ChainId.TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     },
@@ -216,7 +301,13 @@ const tokens = {
   },
 };
 
-export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSDN', 'Wrapped SDN');
+export const WBNB = new Token(
+  chainId,
+  DEFAULT_TOKEN_LIST[chainKey].mainToken.address,
+  DEFAULT_TOKEN_LIST[chainKey].decimals,
+  DEFAULT_TOKEN_LIST[chainKey].symbol,
+  DEFAULT_TOKEN_LIST[chainKey].name,
+);
 
 export const Kaco: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
@@ -342,5 +433,37 @@ export const USDC = new Token(
 );
 
 export const JPYC = new Token(ChainId.MAINNET as any, '0x735abe48e8782948a37c7765ecb76b98cde97b0f', 6, 'JPYC', 'JPYC');
-
+export const ALPACA: { [chainId: number]: Token } = {
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET as any,
+    '0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F',
+    18,
+    'ALPACA',
+    'Alpaca',
+  ),
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET as any,
+    '0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F',
+    18,
+    'ALPACA',
+    'Alpaca',
+  ),
+};
 export default tokens;
+
+export const CAKE: { [chainId: number]: Token } = {
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET as any,
+    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    18,
+    'CAKE',
+    'PancakeSwap Token',
+  ),
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET as any,
+    '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
+    18,
+    'CAKE',
+    'PancakeSwap Token',
+  ),
+};

@@ -1,4 +1,4 @@
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import { createStore, Store } from 'redux';
 import { updateBlockNumber } from './actions';
 import reducer, { ApplicationState } from './reducer';

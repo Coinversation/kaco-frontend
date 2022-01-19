@@ -7,6 +7,7 @@ import SdnSvg from '../imgs/icon_sd.png';
 import SlSvg from '../imgs/icon_sl.svg';
 
 import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdk';
 
 const SwitchChain = () => {
   const { isXs, isSm } = useMatchBreakpoints();
@@ -32,8 +33,7 @@ const SwitchChain = () => {
         padding={isXs || isSm ? '0px 10px' : '0px 16px'}
         mr={isXs || isSm ? '8px' : '16px'}
       >
-        {/*  @ts-ignore */}
-        {chainKey === 'SDN' ? (
+        {chainKey === CHAINKEY.SDN ? (
           <>
             <img style={{ width: '16px' }} src={SdnSvg} alt="" />
             {isXs || isSm ? null : (
@@ -42,8 +42,7 @@ const SwitchChain = () => {
               </Text>
             )}
           </>
-        ) : //  @ts-ignore
-        chainKey === 'ASTR' ? (
+        ) : chainKey === CHAINKEY.ASTR ? (
           <>
             <img style={{ width: '16px' }} src={AstarSvg} alt="" />
             {isXs || isSm ? null : (
@@ -99,8 +98,7 @@ const SwitchChainTooltip = (
           BSC
         </Text>
       </Flex>
-      {/*  @ts-ignore */}
-      {chainKey === 'BSC' ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
+      {chainKey === CHAINKEY.BSC ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
     </Flex>
 
     <Flex
@@ -120,8 +118,7 @@ const SwitchChainTooltip = (
           SDN
         </Text>
       </Flex>
-      {/*  @ts-ignore */}
-      {chainKey === 'SDN' ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
+      {chainKey === CHAINKEY.SDN ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
     </Flex>
     <Flex
       style={{ cursor: 'pointer' }}
@@ -140,8 +137,7 @@ const SwitchChainTooltip = (
           ASTR
         </Text>
       </Flex>
-      {/*  @ts-ignore */}
-      {chainKey === 'ASTR' ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
+      {chainKey === CHAINKEY.ASTR ? <img src={SelectedSvg} style={{ width: '24px' }} alt="" /> : null}
     </Flex>
   </div>
 );

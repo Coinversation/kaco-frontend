@@ -4,14 +4,15 @@ import { useWeb3React } from '@web3-react/core';
 import useAuth from 'hooks/useAuth';
 import ConnectWalletButton from '../../ConnectWalletButton';
 import PolkadotInfo from './PolkadotInfo/index';
-const chainKey = 'SDN';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdk';
 const AccountInfo = () => {
   const { account } = useWeb3React();
   const { logout } = useAuth();
   return (
     <>
       {account ? (
-        chainKey === 'SDN' ? (
+        chainKey === CHAINKEY.SDN || chainKey === CHAINKEY.ASTR ? (
           <PolkadotInfo />
         ) : (
           <div className="account">

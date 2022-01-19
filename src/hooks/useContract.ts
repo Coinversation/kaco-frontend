@@ -30,7 +30,7 @@ import { getMulticallAddress } from 'utils/addressHelpers';
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import { WETH } from '@kaco/sdk';
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import ENS_PUBLIC_RESOLVER_ABI from '../config/abi/ens-public-resolver.json';

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Token } from '@kaco/sdk';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import { useSelector } from 'react-redux';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { AppState } from '../../index';

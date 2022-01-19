@@ -1,8 +1,9 @@
-import { ChainId } from 'config/constants/tokens';
 import BigNumber from 'bignumber.js/bignumber';
 import { BIG_TEN } from 'utils/bigNumber';
+import { CHAINKEY, ChainId } from '@kaco/sdk';
 
-export const chainKey = 'ASTR';
+export const chainKey: CHAINKEY = CHAINKEY.ASTR;
+
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
@@ -11,8 +12,14 @@ BigNumber.config({
 export const BSC_BLOCK_TIME = 12;
 
 export const BASE_BSC_SCAN_URLS = {
-  [ChainId.MAINNET]: 'https://shiden.subscan.io',
-  [ChainId.TESTNET]: 'https://shibuya.subscan.io',
+  [ChainId.ASTR_MAINNET]: 'https://shiden.subscan.io',
+  [ChainId.ASTR_TESTNET]: 'https://shibuya.subscan.io',
+
+  [ChainId.SDN_MAINNET]: 'https://shiden.subscan.io',
+  [ChainId.SDN_TESTNET]: 'https://shibuya.subscan.io',
+
+  [ChainId.MAINNET]: 'https://bscscan.com',
+  [ChainId.TESTNET]: 'https://testnet.bscscan.com',
 };
 
 // CAKE_PER_BLOCK details

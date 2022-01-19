@@ -1,4 +1,4 @@
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdk';
 import addresses from 'config/constants/contracts';
 import tokens, { chainId } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';

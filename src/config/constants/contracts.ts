@@ -1,5 +1,4 @@
-import { ChainId } from './tokens';
-
+import { ChainId } from '@kaco/sdk';
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   masterChef: {
