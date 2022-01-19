@@ -8,6 +8,7 @@ import {
 import tokens from 'config/constants/tokens';
 import { Token } from 'config/constants/types';
 import { getAddress } from 'utils/addressHelpers';
+import { chainKey } from 'config';
 
 interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc' | 'secondarySrc'> {
   primaryToken: Token;
@@ -15,7 +16,7 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 }
 
 const getImageUrlFromToken = (token: Token) => {
-  const address = getAddress(token.symbol === 'SDN' ? tokens.wbnb.address : token.address);
+  const address = getAddress(token.symbol === chainKey ? tokens.wbnb.address : token.address);
   return `/images/tokens/${address}.svg`;
 };
 

@@ -2,6 +2,7 @@ import { ChainId } from 'config/constants/tokens';
 import BigNumber from 'bignumber.js/bignumber';
 import { BIG_TEN } from 'utils/bigNumber';
 
+export const chainKey = 'ASTR';
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
