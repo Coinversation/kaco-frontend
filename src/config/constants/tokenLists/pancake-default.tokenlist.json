@@ -12,14 +12,6 @@
       "KAC",
       "default"
     ],
-    "mainToken": {
-      "name": "WASTR Token",
-      "symbol": "WASTR",
-      "address": "0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720",
-      "chainId": 592,
-      "decimals": 18,
-      "logoURI": "/images/tokens/0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720.svg"
-    },
     "tokens": [
       {
         "name": "Tether USDC",
@@ -72,6 +64,86 @@
     ]
   },
   "SDN": {
+    "name": "KacoSwap Default List",
+    "timestamp": "2021-08-13T07:15:47.764Z",
+    "version": {
+      "major": 3,
+      "minor": 0,
+      "patch": 0
+    },
+    "logoURI": "",
+    "keywords": [
+      "KAC",
+      "default"
+    ],
+    "tokens": [
+      {
+        "name": "SDN Token",
+        "symbol": "WSDN",
+        "address": "0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef.svg"
+      },
+      {
+        "name": "Kaco Token",
+        "symbol": "KAC",
+        "address": "0xb12c13e66ade1f72f71834f2fc5082db8c091358",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0xb12c13e66ade1f72f71834f2fc5082db8c091358.svg"
+      },
+      {
+        "name": "ETH",
+        "symbol": "ETH",
+        "address": "0x765277eebeca2e31912c9946eae1021199b39c61",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0x765277eebeca2e31912c9946eae1021199b39c61.svg"
+      },
+      {
+        "name": "JPYCoin",
+        "symbol": "JPYC",
+        "address": "0x735abe48e8782948a37c7765ecb76b98cde97b0f",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0x735abe48e8782948a37c7765ecb76b98cde97b0f.svg"
+      },
+      {
+        "name": "USDC Token",
+        "symbol": "USDC",
+        "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
+        "chainId": 336,
+        "decimals": 6,
+        "logoURI": "/images/tokens/0xfa9343c3897324496a05fc75abed6bac29f8a40f.svg"
+      },
+      {
+        "name": "DAI",
+        "symbol": "DAI",
+        "address": "0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73.svg"
+      },
+      {
+        "name": "BUSD",
+        "symbol": "BUSD",
+        "address": "0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a.svg"
+      },
+      {
+        "name": "WBTC",
+        "symbol": "WBTC",
+        "address": "0x922d641a426dcffaef11680e5358f34d97d112e1",
+        "chainId": 336,
+        "decimals": 18,
+        "logoURI": "/images/tokens/0x922d641a426dcffaef11680e5358f34d97d112e1.svg"
+      }
+    ]
+  },
+  "BSC": {
     "name": "KacoSwap Default List",
     "timestamp": "2021-08-13T07:15:47.764Z",
     "version": {

@@ -1,20 +1,21 @@
 import { ChainId, Token } from '@kaco/sdk';
-import { chainKey } from 'config';
-import DEFAULT_TOKEN_LIST from 'config/constants/tokenLists/pancake-default.tokenlist.json';
 
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
 const tokens = {
   sdn: {
     symbol: 'SDN',
+    name: 'SDN Token',
     projectLink: 'https://shiden.astar.network/',
   },
   bnb: {
     symbol: 'BNB',
+    name: 'BNB Token',
     projectLink: 'https://www.binance.com/',
   },
   dot: {
     symbol: 'DOT',
+    name: 'DOT Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -28,6 +29,7 @@ const tokens = {
   },
   syrup: {
     symbol: 'SYRUP',
+    name: 'SYRUP Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
       [ChainId.SDN_TESTNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
@@ -41,6 +43,7 @@ const tokens = {
   },
   kkac: {
     symbol: 'KKAC',
+    name: 'KKAC Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -54,6 +57,7 @@ const tokens = {
   },
   kalpaca: {
     symbol: 'KALPACA',
+    name: 'KALPACA Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -67,6 +71,7 @@ const tokens = {
   },
   kcake: {
     symbol: 'SYRUP',
+    name: 'SYRUP Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -80,6 +85,7 @@ const tokens = {
   },
   cake: {
     symbol: 'CAKE',
+    name: 'CAKE Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -93,6 +99,7 @@ const tokens = {
   },
   safemoon: {
     symbol: 'safemoon',
+    name: 'safemoon Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -106,6 +113,7 @@ const tokens = {
   },
   bondly: {
     symbol: 'bondly',
+    name: 'bondly Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -119,6 +127,7 @@ const tokens = {
   },
   alpaca: {
     symbol: 'ALPACA',
+    name: 'ALPACA Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -132,6 +141,7 @@ const tokens = {
   },
   ksm: {
     symbol: 'KSM',
+    name: 'KSM Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -145,6 +155,7 @@ const tokens = {
   },
   kalm: {
     symbol: 'KALM',
+    name: 'KALM Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
@@ -158,6 +169,7 @@ const tokens = {
   },
   kaco: {
     symbol: 'KAC',
+    name: 'KAC Token',
     address: {
       [ChainId.SDN_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
       [ChainId.SDN_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
@@ -171,6 +183,7 @@ const tokens = {
   },
   usdc: {
     symbol: 'USDC',
+    name: 'USDC Token',
     address: {
       [ChainId.SDN_MAINNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
       [ChainId.SDN_TESTNET]: '0xfa9343c3897324496a05fc75abed6bac29f8a40f',
@@ -184,6 +197,7 @@ const tokens = {
   },
   usdt: {
     symbol: 'USDT',
+    name: 'USDT Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
       [ChainId.SDN_TESTNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
@@ -197,6 +211,7 @@ const tokens = {
   },
   dai: {
     symbol: 'DAI',
+    name: 'DAI Token',
     address: {
       [ChainId.SDN_MAINNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
       [ChainId.SDN_TESTNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
@@ -210,6 +225,7 @@ const tokens = {
   },
   eth: {
     symbol: 'ETH',
+    name: 'ETH Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
       [ChainId.SDN_TESTNET]: '0x765277eebeca2e31912c9946eae1021199b39c61',
@@ -223,6 +239,7 @@ const tokens = {
   },
   wbtc: {
     symbol: 'WBTC',
+    name: 'WBTC Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
       [ChainId.SDN_TESTNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
@@ -236,6 +253,7 @@ const tokens = {
   },
   wbnb: {
     symbol: 'WSDN',
+    name: 'WSDN Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
       [ChainId.SDN_TESTNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
@@ -249,6 +267,7 @@ const tokens = {
   },
   busd: {
     symbol: 'BUSD',
+    name: 'BUSD Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
       [ChainId.SDN_TESTNET]: '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
@@ -262,6 +281,7 @@ const tokens = {
   },
   kwik: {
     symbol: 'KWIK',
+    name: 'KWIK Token',
     address: {
       [ChainId.SDN_MAINNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
       [ChainId.SDN_TESTNET]: '0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454',
@@ -275,6 +295,7 @@ const tokens = {
   },
   pkex: {
     symbol: 'PKEX',
+    name: 'PKEX Token',
     address: {
       [ChainId.SDN_MAINNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
       [ChainId.SDN_TESTNET]: '0xdc42728b0ea910349ed3c6e1c9dc06b5fb591f98',
@@ -288,6 +309,7 @@ const tokens = {
   },
   jpyc: {
     symbol: 'JPYC',
+    name: 'JPYC Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
       [ChainId.SDN_TESTNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
@@ -301,30 +323,9 @@ const tokens = {
   },
 };
 
-export const WBNB = new Token(
-  chainId,
-  DEFAULT_TOKEN_LIST[chainKey].mainToken.address,
-  DEFAULT_TOKEN_LIST[chainKey].decimals,
-  DEFAULT_TOKEN_LIST[chainKey].symbol,
-  DEFAULT_TOKEN_LIST[chainKey].name,
-);
+export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WBNB', 'Wrapped BNB');
 
-export const Kaco: { [chainId: number]: Token } = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET as any,
-    '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-    18,
-    'KAC',
-    'Kaco Token',
-  ),
-  [ChainId.TESTNET]: new Token(
-    ChainId.TESTNET as any,
-    '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-    18,
-    'KAC',
-    'Kaco Token',
-  ),
-};
+export const Kaco: Token = new Token(chainId, tokens.kaco.address[chainId], 18, tokens.kaco.symbol, tokens.kaco.name);
 
 export const BUSD: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(

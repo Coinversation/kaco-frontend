@@ -12,7 +12,7 @@ type ChainTokenList = {
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.ASTR_MAINNET]: [
     WETH[ChainId.MAINNET],
-    Kaco[ChainId.MAINNET],
+    Kaco,
     DOT[ChainId.MAINNET],
     KSM[ChainId.MAINNET],
     BUSD[ChainId.MAINNET],
@@ -22,11 +22,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ETH,
     USDC,
   ],
-  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 
   [ChainId.SDN_MAINNET]: [
     WETH[ChainId.MAINNET],
-    Kaco[ChainId.MAINNET],
+    Kaco,
     DOT[ChainId.MAINNET],
     KSM[ChainId.MAINNET],
     BUSD[ChainId.MAINNET],
@@ -36,11 +36,11 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ETH,
     USDC,
   ],
-  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 
   [ChainId.MAINNET]: [
     WETH[ChainId.MAINNET],
-    Kaco[ChainId.MAINNET],
+    Kaco,
     DOT[ChainId.MAINNET],
     KSM[ChainId.MAINNET],
     BUSD[ChainId.MAINNET],
@@ -51,7 +51,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     ETH,
     // USDC,
   ],
-  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 };
 
 /**
@@ -73,14 +73,14 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
-  [ChainId.ASTR_MAINNET]: [BUSD[ChainId.ASTR_MAINNET], Kaco[ChainId.ASTR_MAINNET], BTCB[ChainId.ASTR_MAINNET]],
-  [ChainId.ASTR_TESTNET]: [WETH[ChainId.ASTR_TESTNET], Kaco[ChainId.ASTR_TESTNET], BUSD[ChainId.ASTR_TESTNET]],
+  [ChainId.ASTR_MAINNET]: [BUSD[ChainId.ASTR_MAINNET], Kaco, BTCB[ChainId.ASTR_MAINNET]],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.ASTR_TESTNET], Kaco, BUSD[ChainId.ASTR_TESTNET]],
 
-  [ChainId.SDN_MAINNET]: [BUSD[ChainId.SDN_MAINNET], Kaco[ChainId.SDN_MAINNET], BTCB[ChainId.SDN_MAINNET]],
-  [ChainId.SDN_TESTNET]: [WETH[ChainId.SDN_TESTNET], Kaco[ChainId.SDN_TESTNET], BUSD[ChainId.SDN_TESTNET]],
+  [ChainId.SDN_MAINNET]: [BUSD[ChainId.SDN_MAINNET], Kaco, BTCB[ChainId.SDN_MAINNET]],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.SDN_TESTNET], Kaco, BUSD[ChainId.SDN_TESTNET]],
 
-  [ChainId.MAINNET]: [BUSD[ChainId.MAINNET], Kaco[ChainId.MAINNET], BTCB[ChainId.MAINNET]],
-  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.MAINNET]: [BUSD[ChainId.MAINNET], Kaco, BTCB[ChainId.MAINNET]],
+  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 };
 
 // used to construct the list of all pairs we consider by default in the frontend
@@ -94,7 +94,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     JPYC,
     USDC,
   ],
-  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.ASTR_TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 
   [ChainId.SDN_MAINNET]: [
     WETH[ChainId.MAINNET],
@@ -105,24 +105,24 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     JPYC,
     USDC,
   ],
-  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.SDN_TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 
   [ChainId.MAINNET]: [
     // WETH[ChainId.MAINNET],
     // DAI,
     ALPACA[ChainId.MAINNET],
     CAKE[ChainId.MAINNET],
-    Kaco[ChainId.MAINNET],
+    Kaco,
     DOT[ChainId.MAINNET],
     BUSD[ChainId.MAINNET],
     USDT,
   ],
-  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco[ChainId.TESTNET], BUSD[ChainId.TESTNET]],
+  [ChainId.TESTNET]: [WETH[ChainId.TESTNET], Kaco, BUSD[ChainId.TESTNET]],
 };
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.MAINNET]: [
-    [Kaco[ChainId.MAINNET], WBNB],
+    [Kaco, WBNB],
     [BUSD[ChainId.MAINNET], USDT],
     [DAI, USDT],
   ],
@@ -165,8 +165,14 @@ export const BLOCKED_ADDRESSES: string[] = [
   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C',
 ];
 export const FACTORY_ADDRESS = {
-  [ChainId.TESTNET]: '0x1CeE94a11eAf390B67Aa346E9Dda3019DfaD4f6A',
-  [ChainId.MAINNET]: '0xcd8620889c1dA22ED228e6C00182177f9dAd16b7',
+  [ChainId.SDN_MAINNET]: '0x1CeE94a11eAf390B67Aa346E9Dda3019DfaD4f6A',
+  [ChainId.SDN_TESTNET]: '0xcd8620889c1dA22ED228e6C00182177f9dAd16b7',
+
+  [ChainId.ASTR_MAINNET]: '0x1CeE94a11eAf390B67Aa346E9Dda3019DfaD4f6A',
+  [ChainId.ASTR_TESTNET]: '0xcd8620889c1dA22ED228e6C00182177f9dAd16b7',
+
+  [ChainId.TESTNET]: '0xd95D56A112D62DFc1e6F9bC2432d12b8e1B25d60',
+  [ChainId.MAINNET]: '0xa5e48a6E56e164907263e901B98D9b11CCB46C47',
 };
 
 export { default as farmsConfig } from './farms';

@@ -289,7 +289,7 @@ export function useDefaultsFromURLSearch():
   useEffect(() => {
     if (!chainId) return;
     if (!parsedQs.outputCurrency) {
-      parsedQs.outputCurrency = Kaco[chainId].address;
+      parsedQs.outputCurrency = Kaco.address;
     }
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 

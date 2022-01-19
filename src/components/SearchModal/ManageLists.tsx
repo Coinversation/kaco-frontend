@@ -19,7 +19,6 @@ import { ListLogo } from '../Logo';
 import Row, { RowFixed, RowBetween } from '../Layout/Row';
 import { CurrencyModalView } from './types';
 import Toggle from './Toggle';
-import { chainKey } from 'config';
 
 function listVersionLabel(version: Version): string {
   return `v${version.major}.${version.minor}.${version.patch}`;
@@ -109,7 +108,7 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
         </Row>
         <RowFixed mt="4px">
           <Text fontSize="12px" color=" #9DA6A6" mr="6px" textTransform="lowercase">
-            {list.tokens[chainKey].length} {t('Tokens')}
+            {list.tokens.length} {t('Tokens')}
           </Text>
           <span ref={targetRef}>
             <CogIcon color="#9DA6A6" width="12px" />
@@ -274,7 +273,7 @@ function ManageLists({
                 <AutoColumn gap="4px" style={{ marginLeft: '20px' }}>
                   <Text bold>{tempList.name}</Text>
                   <Text color="textSubtle" small textTransform="lowercase">
-                    {tempList.tokens[chainKey].length} {t('Tokens')}
+                    {tempList.tokens.length} {t('Tokens')}
                   </Text>
                 </AutoColumn>
               </RowFixed>

@@ -83,15 +83,16 @@ const Farms: React.FC = () => {
   // const activeFarms = farmsLP.filter(
   //   (farm) => farm.pid !== KACO_LP_PID && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
   // );
-  const filtedFarmsLP = useMemo(
-    () =>
-      farmsLP.filter(
+  const filtedFarmsLP = useMemo(() => {
+    if (filter && farmsLP.length) {
+      return farmsLP.filter(
         (farm) =>
-          farm.token.symbol.toLowerCase().includes(filter.toLowerCase()) ||
-          farm.quoteToken.symbol.toLowerCase().includes(filter.toLowerCase()),
-      ),
-    [farmsLP, filter],
-  );
+          (farm?.token?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()) ||
+          (farm?.quoteToken?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()),
+      );
+    }
+    return [];
+  }, [farmsLP, filter]);
 
   const activeFarms = useMemo(
     () => filtedFarmsLP.filter((farm) => farm.pid !== KACO_LP_PID && !isArchivedPid(farm.pid)),
@@ -148,10 +149,10 @@ const Farms: React.FC = () => {
         return { ...farm, apr: kacRewardsApr, lpRewardsApr, liquidity: totalLiquidity, apy: kacRewardApy };
       });
 
-      if (query) {
-        const lowercaseQuery = latinise(query.toLowerCase());
+      if (query && farmsToDisplayWithAPR.length) {
+        const lowercaseQuery = latinise((query ?? '').toLowerCase());
         farmsToDisplayWithAPR = farmsToDisplayWithAPR.filter((farm: FarmWithStakedValue) => {
-          return latinise(farm.lpSymbol.toLowerCase()).includes(lowercaseQuery);
+          return latinise((farm?.lpSymbol ?? '').toLowerCase()).includes(lowercaseQuery);
         });
       }
       return farmsToDisplayWithAPR;

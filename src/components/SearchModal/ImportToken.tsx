@@ -8,6 +8,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { useCombinedInactiveList } from 'state/lists/hooks';
 import { ListLogo } from 'components/Logo';
 import { useTranslation } from 'contexts/Localization';
+import { chainKey } from 'config';
 
 interface ImportProps {
   tokens: Token[];
@@ -30,9 +31,8 @@ function ImportToken({ tokens, handleCurrencySelect }: ImportProps) {
     <AutoColumn gap="lg">
       <Message variant="warning">
         <Text>
-          {t(
-            'Anyone can create a BEP20 token on BSC with any name, including creating fake versions of existing tokens and tokens that claim to represent projects that do not have a token.',
-          )}
+          Anyone can create a BEP20 token on {chainKey} with any name, including creating fake versions of existing
+          tokens and tokens that claim to represent projects that do not have a token.
           <br />
           <br />
           {t('If you purchase an arbitrary token, you may be unable to sell it back.')}
