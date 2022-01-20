@@ -29,6 +29,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton';
 import PositionTag from '../PositionTag';
 import useSwiper from '../../hooks/useSwiper';
 import FlexRow from '../FlexRow';
+import { chainKey } from 'config';
 
 interface SetPositionCardProps {
   position: BetPosition;
@@ -175,7 +176,7 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
     } else if (inputAmount.gt(0) && inputAmount.lt(minBetAmount)) {
       setErrorMessage({
         key: 'A minimum amount of %num% %token% is required',
-        data: { num: formatBigNumber(minBetAmount), token: 'SDN' },
+        data: { num: formatBigNumber(minBetAmount), token: chainKey },
       });
     } else {
       setErrorMessage(null);

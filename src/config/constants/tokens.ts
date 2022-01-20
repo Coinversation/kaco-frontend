@@ -3,10 +3,15 @@ import { ChainId, Token } from '@kaco/sdk';
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
 const tokens = {
+  astr: {
+    symbol: 'ASTR',
+    name: 'ASTR Token',
+    projectLink: 'https://blockscout.com/astar/',
+  },
   sdn: {
     symbol: 'SDN',
     name: 'SDN Token',
-    projectLink: 'https://shiden.astar.network/',
+    projectLink: 'https://blockscout.com/shiden/',
   },
   bnb: {
     symbol: 'BNB',
@@ -252,8 +257,8 @@ const tokens = {
     projectLink: 'https://bitcoin.org/',
   },
   wbnb: {
-    symbol: 'WSDN',
-    name: 'WSDN Token',
+    symbol: 'SDN',
+    name: 'SDN Token',
     address: {
       [ChainId.SDN_MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
       [ChainId.SDN_TESTNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',

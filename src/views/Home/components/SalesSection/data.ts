@@ -1,3 +1,4 @@
+import { chainKey } from 'config';
 import { SalesSectionProps } from '.';
 
 export const swapSectionData: SalesSectionProps = {
@@ -17,7 +18,7 @@ export const swapSectionData: SalesSectionProps = {
   images: {
     path: '/images/home/trade/',
     attributes: [
-      { src: 'SDN', alt: 'SDN token' },
+      { src: chainKey, alt: `${chainKey} token` },
       { src: 'BTC', alt: 'BTC token' },
       { src: 'KAC', alt: 'KAC token' },
     ],

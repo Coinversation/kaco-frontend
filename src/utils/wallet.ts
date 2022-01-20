@@ -1,5 +1,6 @@
 // Set of helper functions to facilitate wallet setup
 
+import { ChainId } from '@kaco/sdk';
 import { BASE_BSC_SCAN_URL, BASE_URL, chainKey } from 'config';
 import { chainId } from 'config/constants/tokens';
 import { nodes } from './getRpcUrl';
@@ -8,25 +9,27 @@ import { nodes } from './getRpcUrl';
  * Prompt the user to add BSC as a network on Metamask, or switch to BSC if the wallet is on a different network
  * @returns {boolean} true if the setup succeeded, false otherwise
  */
+const wallet_config = {
+  [ChainId.ASTR_MAINNET]: {
+    chainId: `0x${ChainId.ASTR_MAINNET.toString(16)}`,
+    chainName: 'Astar Network Mainnet',
+    nativeCurrency: {
+      name: 'ASTR Token',
+      symbol: 'ASTR',
+      decimals: 18,
+    },
+    rpcUrls: nodes,
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+};
+
 export const setupNetwork = async () => {
   const provider = window.ethereum;
   if (provider) {
     try {
       await provider.request({
         method: 'wallet_addEthereumChain',
-        params: [
-          {
-            chainId: `0x${chainId.toString(16)}`,
-            chainName: 'Shiden Network',
-            nativeCurrency: {
-              name: 'SDN',
-              symbol: 'sdn',
-              decimals: 18,
-            },
-            rpcUrls: nodes,
-            blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
-          },
-        ],
+        params: [wallet_config[chainId]],
       });
       return true;
     } catch (error) {

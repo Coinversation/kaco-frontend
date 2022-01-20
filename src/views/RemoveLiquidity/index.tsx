@@ -39,6 +39,7 @@ import { useUserSlippageTolerance } from '../../state/user/hooks';
 import Page from '../Page';
 import ArrowSvg from './imgs/arrow.svg';
 import { DashedPrimayCard } from 'components/Card';
+import { chainKey } from 'config';
 
 const BorderCard = styled.div`
   padding: 16px;
@@ -605,9 +606,9 @@ export default function RemoveLiquidity({
                         </StyledInternalLink>
                       ) : oneCurrencyIsWETH ? (
                         <StyledInternalLink
-                          to={`/remove/${currencyA && currencyEquals(currencyA, WETH[chainId]) ? 'SDN' : currencyIdA}/${
-                            currencyB && currencyEquals(currencyB, WETH[chainId]) ? 'SDN' : currencyIdB
-                          }`}
+                          to={`/remove/${
+                            currencyA && currencyEquals(currencyA, WETH[chainId]) ? chainKey : currencyIdA
+                          }/${currencyB && currencyEquals(currencyB, WETH[chainId]) ? chainKey : currencyIdB}`}
                         >
                           {t('Receive SDN')}
                         </StyledInternalLink>

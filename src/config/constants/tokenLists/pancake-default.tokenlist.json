@@ -55,7 +55,7 @@
       },
       {
         "name": "WASTR Token",
-        "symbol": "WASTR",
+        "symbol": "ASTR",
         "address": "0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720",
         "chainId": 592,
         "decimals": 18,

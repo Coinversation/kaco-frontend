@@ -39,6 +39,7 @@ import Page from '../Page';
 import WarningSvg from './imgs/warning.svg';
 
 import JSBI from 'jsbi';
+import { chainKey } from 'config';
 
 export default function AddLiquidity({
   match: {
@@ -291,7 +292,7 @@ export default function AddLiquidity({
           history.push(`/add/${newCurrencyIdB}`);
         }
       } else {
-        history.push(`/add/${currencyIdA || 'SDN'}/${newCurrencyIdB}`);
+        history.push(`/add/${currencyIdA || chainKey}/${newCurrencyIdB}`);
       }
     },
     [currencyIdA, history, currencyIdB],
