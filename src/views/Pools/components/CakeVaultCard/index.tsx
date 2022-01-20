@@ -4,7 +4,7 @@ import { Box, CardBody, Flex, Text } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import { useWeb3React } from '@web3-react/core';
 import ConnectWalletButton from 'components/ConnectWalletButton';
-import tokens from 'config/constants/tokens';
+import tokens, { chainId, Kaco } from 'config/constants/tokens';
 import { useCakeVault } from 'state/pools/hooks';
 import { Pool } from 'state/types';
 import AprRow from '../PoolCard/AprRow';
@@ -45,8 +45,8 @@ const CakeVaultCard: React.FC<CakeVaultProps> = ({ pool, showStakedOnly }) => {
       <StyledCardHeader
         isStaking={accountHasSharesStaked}
         isAutoVault
-        earningToken={tokens.kaco}
-        stakingToken={tokens.kaco}
+        earningToken={Kaco[chainId]}
+        stakingToken={Kaco[chainId]}
       />
       <StyledCardBody isLoading={isLoading}>
         <AprRow pool={pool} performanceFee={performanceFeeAsDecimal} />

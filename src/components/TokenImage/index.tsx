@@ -5,7 +5,7 @@ import {
   TokenImage as UIKitTokenImage,
   ImageProps,
 } from '@kaco/uikit';
-import tokens from 'config/constants/tokens';
+import { chainId, DEFAULT_Token } from 'config/constants/tokens';
 import { Token } from 'config/constants/types';
 import { getAddress } from 'utils/addressHelpers';
 import { chainKey } from 'config';
@@ -16,7 +16,7 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 }
 
 const getImageUrlFromToken = (token: Token) => {
-  const address = getAddress(token.symbol === chainKey ? tokens.wbnb.address : token.address);
+  const address = getAddress(token.symbol === chainKey ? DEFAULT_Token[chainId].address : token.address);
   return `/images/tokens/${address}.svg`;
 };
 

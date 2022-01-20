@@ -10,7 +10,7 @@ import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } f
 import { State, Farm, FarmsState } from '../types';
 // import { BUSD_BNB_LP_PID, KACO_BNB_LP_PID } from 'config/constants/farms';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
-import tokens from 'config/constants/tokens';
+import { DEFAULT_Token, main_tokens } from 'config/constants/tokens';
 import { usePrice } from 'state/price/hooks';
 
 export const usePollFarmsData = (includeArchive = false) => {
@@ -105,7 +105,7 @@ export const usePriceBnbBusd = (): BigNumber => {
   const { chainId } = useActiveWeb3React();
 
   const bnbPrice = useMemo(
-    () => priceVsBusdMap[tokens.wbnb.address[chainId].toLowerCase()] || new BigNumber(0),
+    () => priceVsBusdMap[DEFAULT_Token[chainId].address.toLowerCase()] || new BigNumber(0),
     [priceVsBusdMap, chainId],
   );
 
@@ -117,7 +117,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   const { chainId } = useActiveWeb3React();
 
   const kacoPrice = useMemo(
-    () => priceVsBusdMap[tokens.kaco.address[chainId].toLowerCase()] || new BigNumber(0),
+    () => priceVsBusdMap[main_tokens.kaco.address[chainId].toLowerCase()] || new BigNumber(0),
     [priceVsBusdMap, chainId],
   );
 

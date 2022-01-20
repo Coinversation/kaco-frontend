@@ -1,6 +1,6 @@
 import { ChainId } from '@kaco/sdk';
 import addresses from 'config/constants/contracts';
-import tokens, { chainId } from 'config/constants/tokens';
+import { chainId, DEFAULT_Token, Kaco } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';
 
 export const getAddress = (address: Address): string => {
@@ -8,7 +8,7 @@ export const getAddress = (address: Address): string => {
 };
 
 export const getCakeAddress = () => {
-  return getAddress(tokens.kaco.address);
+  return getAddress(Kaco[chainId].address);
 };
 export const getMasterChefAddress = () => {
   return getAddress(addresses.masterChef);
@@ -17,7 +17,7 @@ export const getMulticallAddress = () => {
   return getAddress(addresses.multiCall);
 };
 export const getWbnbAddress = () => {
-  return getAddress(tokens.wbnb.address);
+  return getAddress(DEFAULT_Token[chainId].address);
 };
 export const getLotteryV2Address = () => {
   return getAddress(addresses.lotteryV2);

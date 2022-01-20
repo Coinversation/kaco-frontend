@@ -313,7 +313,6 @@ export default function Swap({ history }: RouteComponentProps) {
     true,
     'confirmSwapModal',
   );
-
   return (
     <Page>
       <AppBody>
