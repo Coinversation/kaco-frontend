@@ -83,6 +83,7 @@ import { PublicFarmData } from './fetchPublicFarmData';
 // };
 
 const fetchFarmsPrices = (farms: (Farm & PublicFarmData)[], priceVsBusdMap: Record<string, string>) => {
+  console.log(priceVsBusdMap);
   const farmsWithPrices = farms.map((farm) => {
     const tokenAddress: string = farm.token.address[chainId];
     const quoteTokenAddress: string = farm.quoteToken.address[chainId];

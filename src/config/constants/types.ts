@@ -16,6 +16,7 @@ export interface Token {
   decimals?: number;
   projectLink?: string;
   busdPrice?: string;
+  name?: string;
 }
 
 export enum PoolIds {

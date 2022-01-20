@@ -153,7 +153,6 @@ export default function AddLiquidity({
         amountPrecion = JSBI.BigInt(1000000000000);
       }
       const concatAmountA = JSBI.multiply(JSBI.divide(rawAmountA, amountPrecion), amountPrecion);
-      console.log('concatAmountA; ', concatAmountA.toString());
 
       args = [
         wrappedCurrency(tokenBIsETH ? currencyA : currencyB, chainId)?.address ?? '', // token
@@ -180,9 +179,7 @@ export default function AddLiquidity({
       value = null;
     }
 
-    console.log('args: ', args);
     if (value) {
-      console.log('value: ', value.toString());
     }
 
     setAttemptingTxn(true);

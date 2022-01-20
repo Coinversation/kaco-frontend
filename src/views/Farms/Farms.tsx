@@ -84,14 +84,11 @@ const Farms: React.FC = () => {
   //   (farm) => farm.pid !== KACO_LP_PID && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
   // );
   const filtedFarmsLP = useMemo(() => {
-    if (filter && farmsLP.length) {
-      return farmsLP.filter(
-        (farm) =>
-          (farm?.token?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()) ||
-          (farm?.quoteToken?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()),
-      );
-    }
-    return [];
+    return farmsLP.filter(
+      (farm) =>
+        (farm?.token?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()) ||
+        (farm?.quoteToken?.symbol ?? '').toLowerCase().includes((filter ?? '').toLowerCase()),
+    );
   }, [farmsLP, filter]);
 
   const activeFarms = useMemo(
@@ -241,7 +238,6 @@ const Farms: React.FC = () => {
       setObserverIsSet(true);
     }
   }, [chosenFarmsMemoized, observerIsSet]);
-
   const rowData = chosenFarmsMemoized.map((farm) => {
     const { token, quoteToken } = farm;
     const tokenAddress = token.address;
@@ -311,7 +307,6 @@ const Farms: React.FC = () => {
 
       return <Table data={rowData} columns={columns} userDataReady={userDataReady} />;
     }
-
     return (
       <FlexLayout style={{ background: 'rgba(0,0,0,0)' }}>
         <Route exact path={`${path}`}>

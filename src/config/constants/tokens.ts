@@ -4,6 +4,24 @@ import { BASE_BSC_SCAN_URL, chainKey } from 'config';
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 const tokens = {
   [CHAINKEY.ASTR]: {
+    syrup: {
+      symbol: 'SYRUP',
+      address: {
+        [ChainId.ASTR_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
+        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      },
+      decimals: 18,
+      projectLink: 'https://www.kaco.finance/',
+    },
+    kaco: {
+      symbol: 'KAC',
+      address: {
+        [ChainId.ASTR_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      },
+      decimals: 18,
+      projectLink: 'https://kaco.finance/',
+    },
     usdc: {
       symbol: 'USDC',
       address: {
@@ -52,14 +70,23 @@ const tokens = {
     jpyc: {
       symbol: 'JPYC',
       address: {
-        [ChainId.SDN_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
-        [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+        [ChainId.ASTR_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
+        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       },
       decimals: 18,
       projectLink: 'https://jpyc.jp/',
     },
   },
   [CHAINKEY.SDN]: {
+    syrup: {
+      symbol: 'SYRUP',
+      address: {
+        [ChainId.SDN_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
+        [ChainId.SDN_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+      },
+      decimals: 18,
+      projectLink: 'https://www.kaco.finance/',
+    },
     kaco: {
       symbol: 'KAC',
       address: {
@@ -2130,6 +2157,13 @@ export const DEFAULT_Token = {
     name: main_tokens.sdn.name,
   },
 };
+export const Base_Token: Token = new Token(
+  chainId,
+  DEFAULT_Token[chainId].address,
+  DEFAULT_Token[chainId].decimals,
+  DEFAULT_Token[chainId].symbol,
+  DEFAULT_Token[chainId].name,
+);
 
 export const Kaco: Token = new Token(
   chainId,

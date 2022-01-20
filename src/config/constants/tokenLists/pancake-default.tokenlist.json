@@ -87,7 +87,7 @@
     "tokens": [
       {
         "name": "WSDN Token",
-        "symbol": "WSDN",
+        "symbol": "SDN",
         "address": "0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef",
         "chainId": 336,
         "decimals": 18,
@@ -123,7 +123,7 @@
         "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
         "chainId": 336,
         "decimals": 6,
-        "logoURI": "/images/tokens/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.svg"
+        "logoURI": "/images/tokens/0xfa9343c3897324496a05fc75abed6bac29f8a40f.svg"
       },
       {
         "name": "DAI Token",

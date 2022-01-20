@@ -23,6 +23,7 @@ export const usePollFarmsData = (includeArchive = false) => {
       return;
     }
     const farmsToFetch = includeArchive ? farmsConfig : nonArchivedFarms;
+
     const pids = farmsToFetch.map((farmToFetch) => farmToFetch.pid);
 
     dispatch(fetchFarmsPublicDataAsync({ pids: pids, priceVsBusdMap: priceVsBusdMap }));

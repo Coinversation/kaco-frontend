@@ -1,6 +1,5 @@
 import { chainId, DEFAULT_Token } from 'config/constants/tokens';
 import { Token as SDKToken, Pair } from '@kaco/sdk';
-import tokens from './tokens';
 import { FarmAuctionBidderConfig, Token } from './types';
 import { chainKey } from 'config';
 

@@ -29,8 +29,9 @@ import SideMenu from './components/SideMenu';
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'));
-// const Farms = lazy(() => import('./views/Farms'));
-// const FarmAuction = lazy(() => import('./views/FarmAuction'));
+const Pools = lazy(() => import('./views/Pools'));
+const Farms = lazy(() => import('./views/Farms'));
+const FarmAuction = lazy(() => import('./views/FarmAuction'));
 // const Lottery = lazy(() => import('./views/Lottery'));
 // const Ifos = lazy(() => import('./views/Ifos'));
 const NotFound = lazy(() => import('./views/NotFound'));
@@ -78,15 +79,15 @@ const App: React.FC = () => {
             <Route path="/home">
               <Home />
             </Route>
-            {/* <Route exact path="/farms/auction">
+            <Route exact path="/farms/auction">
               <FarmAuction />
-            </Route> */}
-            {/* <Route path="/farms">
+            </Route>
+            <Route path="/farms">
               <Farms />
-            </Route> */}
-            {/* <Route path="/pools">
+            </Route>
+            <Route path="/pools">
               <Pools />
-            </Route> */}
+            </Route>
             {/* <Route path="/lottery">
               <Lottery />
             </Route> */}

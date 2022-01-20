@@ -1,5 +1,5 @@
 import { JSBI, Percent, Token, ChainId } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, DEFAULT_Token, USDC, JPYC, DOT, KSM, ETH, ALPACA, CAKE, chainId } from './tokens';
+import { BUSD, DAI, USDT, BTCB, Kaco, Base_Token, USDC, JPYC, DOT, KSM, ETH, ALPACA, CAKE, chainId } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -7,7 +7,6 @@ export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[];
 };
-
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.ASTR_MAINNET]: [ETH[chainId], Kaco, DOT[chainId], KSM[chainId], BUSD[chainId], USDT, BTCB[chainId], USDC],
@@ -65,7 +64,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     ETH[chainId],
     // DAI,
     // BUSD[chainId],
-    DEFAULT_Token[chainId],
+    Base_Token,
     // USDT,
     JPYC,
     USDC,
@@ -76,7 +75,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     ETH[chainId],
     // DAI,
     // BUSD[chainId],
-    DEFAULT_Token[chainId],
+    Base_Token,
     // USDT,
     JPYC,
     USDC,
@@ -98,7 +97,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.BSC_MAINNET]: [
-    [Kaco, DEFAULT_Token[chainId]],
+    [Kaco, Base_Token],
     [BUSD[chainId], USDT],
     [DAI, USDT],
   ],

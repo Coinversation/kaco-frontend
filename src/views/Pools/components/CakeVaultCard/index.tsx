@@ -4,7 +4,7 @@ import { Box, CardBody, Flex, Text } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import { useWeb3React } from '@web3-react/core';
 import ConnectWalletButton from 'components/ConnectWalletButton';
-import tokens, { chainId, Kaco } from 'config/constants/tokens';
+import { chainId, Kaco } from 'config/constants/tokens';
 import { useCakeVault } from 'state/pools/hooks';
 import { Pool } from 'state/types';
 import AprRow from '../PoolCard/AprRow';

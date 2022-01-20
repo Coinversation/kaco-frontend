@@ -16,7 +16,7 @@ import { useCurrencyBalances } from '../wallet/hooks';
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions';
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
-import { chainId, DEFAULT_Token, Kaco } from '../../config/constants/tokens';
+import { chainId, Kaco } from '../../config/constants/tokens';
 import { chainKey } from 'config';
 
 export function useSwapState(): AppState['swap'] {
@@ -292,9 +292,7 @@ export function useDefaultsFromURLSearch():
     if (!parsedQs.outputCurrency) {
       parsedQs.outputCurrency = Kaco.address;
     }
-    // if (!parsedQs.inputCurrency) {
-    //   parsedQs.inputCurrency = DEFAULT_Token[chainId].address;
-    // }
+
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
     // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
