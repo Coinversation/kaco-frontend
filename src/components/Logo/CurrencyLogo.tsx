@@ -6,6 +6,7 @@ import { WrappedTokenInfo } from '../../state/lists/hooks';
 import getTokenLogoURL from '../../utils/getTokenLogoURL';
 import SdnSvg from './Sdn.svg';
 import Logo from './Logo';
+import { chainId } from 'config/constants/tokens';
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
@@ -24,7 +25,7 @@ export default function CurrencyLogo({
   const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? `${currency.logoURI}` : undefined);
 
   const srcs: string[] = useMemo(() => {
-    if (currency === ETHER) return [];
+    if (currency === ETHER[chainId]) return [];
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
@@ -35,7 +36,7 @@ export default function CurrencyLogo({
     return [];
   }, [currency, uriLocations]);
 
-  if (currency === ETHER) {
+  if (currency === ETHER[chainId]) {
     return <img src={SdnSvg} alt="" width={size} style={style} />;
   }
 

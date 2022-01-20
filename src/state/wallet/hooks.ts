@@ -6,6 +6,7 @@ import { useAllTokens } from 'hooks/Tokens';
 import { useMulticallContract } from 'hooks/useContract';
 import { isAddress } from 'utils';
 import { useSingleContractMultipleData, useMultipleContractSingleData } from '../multicall/hooks';
+import { chainId } from 'config/constants/tokens';
 
 /**
  * Returns a map of the given addresses to their eventually consistent BNB balances.
@@ -36,7 +37,7 @@ export function useBNBBalances(uncheckedAddresses?: (string | undefined)[]): {
     () =>
       addresses.reduce<{ [address: string]: CurrencyAmount }>((memo, address, i) => {
         const value = results?.[i]?.result?.[0];
-        if (value) memo[address] = CurrencyAmount.ether(JSBI.BigInt(value.toString()));
+        if (value) memo[address] = CurrencyAmount.ether(JSBI.BigInt(value.toString()), chainId);
         return memo;
       }, {}),
     [addresses, results],
@@ -104,7 +105,10 @@ export function useCurrencyBalances(
   );
 
   const tokenBalances = useTokenBalances(account, tokens);
-  const containsBNB: boolean = useMemo(() => currencies?.some((currency) => currency === ETHER) ?? false, [currencies]);
+  const containsBNB: boolean = useMemo(
+    () => currencies?.some((currency) => currency === ETHER[chainId]) ?? false,
+    [currencies],
+  );
   const ethBalance = useBNBBalances(containsBNB ? [account] : []);
 
   return useMemo(
@@ -112,7 +116,7 @@ export function useCurrencyBalances(
       currencies?.map((currency) => {
         if (!account || !currency) return undefined;
         if (currency instanceof Token) return tokenBalances[currency.address];
-        if (currency === ETHER) return ethBalance[account];
+        if (currency === ETHER[chainId]) return ethBalance[account];
         return undefined;
       }) ?? [],
     [account, currencies, ethBalance, tokenBalances],

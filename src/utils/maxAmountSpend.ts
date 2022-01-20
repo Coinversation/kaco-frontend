@@ -1,4 +1,5 @@
 import { CurrencyAmount, ETHER, JSBI } from '@kaco/sdk';
+import { chainId } from 'config/constants/tokens';
 import { MIN_BNB } from '../config/constants';
 
 /**
@@ -7,11 +8,11 @@ import { MIN_BNB } from '../config/constants';
  */
 export function maxAmountSpend(currencyAmount?: CurrencyAmount): CurrencyAmount | undefined {
   if (!currencyAmount) return undefined;
-  if (currencyAmount.currency === ETHER) {
+  if (currencyAmount.currency === ETHER[chainId]) {
     if (JSBI.greaterThan(currencyAmount.raw, MIN_BNB)) {
-      return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_BNB));
+      return CurrencyAmount.ether(JSBI.subtract(currencyAmount.raw, MIN_BNB), chainId);
     }
-    return CurrencyAmount.ether(JSBI.BigInt(0));
+    return CurrencyAmount.ether(JSBI.BigInt(0), chainId);
   }
   return currencyAmount;
 }

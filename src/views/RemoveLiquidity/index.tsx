@@ -196,8 +196,8 @@ export default function RemoveLiquidity({
     const liquidityAmount = parsedAmounts[Field.LIQUIDITY];
     if (!liquidityAmount) throw new Error('missing liquidity amount');
 
-    const currencyBIsETH = currencyB === ETHER;
-    const oneCurrencyIsETH = currencyA === ETHER || currencyBIsETH;
+    const currencyBIsETH = currencyB === ETHER[chainId];
+    const oneCurrencyIsETH = currencyA === ETHER[chainId] || currencyBIsETH;
 
     if (!tokenA || !tokenB) throw new Error('could not wrap');
 
@@ -412,7 +412,7 @@ export default function RemoveLiquidity({
     [onUserInput],
   );
 
-  const oneCurrencyIsETH = currencyA === ETHER || currencyB === ETHER;
+  const oneCurrencyIsETH = currencyA === ETHER[chainId] || currencyB === ETHER[chainId];
   const oneCurrencyIsWETH = Boolean(
     chainId &&
       ((currencyA && currencyEquals(WETH[chainId], currencyA)) ||
@@ -598,8 +598,8 @@ export default function RemoveLiquidity({
                     <RowBetween style={{ justifyContent: 'flex-end', fontSize: '14px' }}>
                       {oneCurrencyIsETH ? (
                         <StyledInternalLink
-                          to={`/remove/${currencyA === ETHER ? WETH[chainId].address : currencyIdA}/${
-                            currencyB === ETHER ? WETH[chainId].address : currencyIdB
+                          to={`/remove/${currencyA === ETHER[chainId] ? WETH[chainId].address : currencyIdA}/${
+                            currencyB === ETHER[chainId] ? WETH[chainId].address : currencyIdB
                           }`}
                         >
                           {t('Receive WSDN')}

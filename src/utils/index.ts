@@ -9,6 +9,7 @@ import { ChainId } from '@kaco/sdk';
 import { ROUTER_ADDRESS } from '../config/constants';
 import { BASE_BSC_SCAN_URL } from '../config';
 import { TokenAddressMap } from '../state/lists/hooks';
+import { chainId } from 'config/constants/tokens';
 
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: any): string | false {
@@ -101,6 +102,6 @@ export function escapeRegExp(string: string): string {
 }
 
 export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currency): boolean {
-  if (currency === ETHER) return true;
+  if (currency === ETHER[chainId]) return true;
   return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address]);
 }

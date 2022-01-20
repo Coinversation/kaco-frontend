@@ -1,21 +1,5 @@
 import { JSBI, Percent, Token, ChainId } from '@kaco/sdk';
-import {
-  BUSD,
-  DAI,
-  USDT,
-  BTCB,
-  Kaco,
-  DEFAULT_Token,
-  USDC,
-  JPYC,
-  DOT,
-  KSM,
-  UST,
-  ETH,
-  ALPACA,
-  CAKE,
-  chainId,
-} from './tokens';
+import { BUSD, DAI, USDT, BTCB, Kaco, DEFAULT_Token, USDC, JPYC, DOT, KSM, ETH, ALPACA, CAKE, chainId } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -26,48 +10,24 @@ type ChainTokenList = {
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  [ChainId.ASTR_MAINNET]: [
-    ETH,
-    Kaco,
-    DOT[ChainId.BSC_MAINNET],
-    KSM[ChainId.BSC_MAINNET],
-    BUSD[ChainId.BSC_MAINNET],
-    USDT,
-    BTCB[ChainId.BSC_MAINNET],
-    UST,
-    ETH,
-    USDC,
-  ],
-  [ChainId.ASTR_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.ASTR_MAINNET]: [ETH[chainId], Kaco, DOT[chainId], KSM[chainId], BUSD[chainId], USDT, BTCB[chainId], USDC],
+  [ChainId.ASTR_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
-  [ChainId.SDN_MAINNET]: [
-    ETH,
-    Kaco,
-    DOT[ChainId.BSC_MAINNET],
-    KSM[ChainId.BSC_MAINNET],
-    BUSD[ChainId.BSC_MAINNET],
-    USDT,
-    BTCB[ChainId.BSC_MAINNET],
-    UST,
-    ETH,
-    USDC,
-  ],
-  [ChainId.SDN_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.SDN_MAINNET]: [ETH[chainId], Kaco, DOT[chainId], KSM[chainId], BUSD[chainId], USDT, BTCB[chainId], USDC],
+  [ChainId.SDN_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.BSC_MAINNET]: [
-    ETH,
+    ETH[chainId],
     Kaco,
-    DOT[ChainId.BSC_MAINNET],
-    KSM[ChainId.BSC_MAINNET],
-    BUSD[ChainId.BSC_MAINNET],
+    DOT[chainId],
+    KSM[chainId],
+    BUSD[chainId],
     USDT,
-    ALPACA[ChainId.BSC_MAINNET],
-    // BTCB[ChainId.BSC_MAINNET],
-    // UST,
-    ETH,
+    ALPACA[chainId],
+    // BTCB[chainId],
     // USDC,
   ],
-  [ChainId.BSC_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.BSC_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 };
 
 /**
@@ -90,56 +50,56 @@ export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: To
 // used for display in the default list when adding liquidity
 export const SUGGESTED_BASES: ChainTokenList = {
   [ChainId.ASTR_MAINNET]: [BUSD[ChainId.ASTR_MAINNET], Kaco, BTCB[ChainId.ASTR_MAINNET]],
-  [ChainId.ASTR_TESTNET]: [ETH, Kaco, BUSD[ChainId.ASTR_TESTNET]],
+  [ChainId.ASTR_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.ASTR_TESTNET]],
 
   [ChainId.SDN_MAINNET]: [BUSD[ChainId.SDN_MAINNET], Kaco, BTCB[ChainId.SDN_MAINNET]],
-  [ChainId.SDN_TESTNET]: [ETH, Kaco, BUSD[ChainId.SDN_TESTNET]],
+  [ChainId.SDN_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.SDN_TESTNET]],
 
   [ChainId.BSC_MAINNET]: [BUSD[ChainId.BSC_MAINNET], Kaco, BTCB[ChainId.BSC_MAINNET]],
-  [ChainId.BSC_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.BSC_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 };
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   [ChainId.ASTR_MAINNET]: [
-    ETH,
+    ETH[chainId],
     // DAI,
-    // BUSD[ChainId.BSC_MAINNET],
+    // BUSD[chainId],
     DEFAULT_Token[chainId],
     // USDT,
     JPYC,
     USDC,
   ],
-  [ChainId.ASTR_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.ASTR_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.SDN_MAINNET]: [
-    ETH,
+    ETH[chainId],
     // DAI,
-    // BUSD[ChainId.BSC_MAINNET],
+    // BUSD[chainId],
     DEFAULT_Token[chainId],
     // USDT,
     JPYC,
     USDC,
   ],
-  [ChainId.SDN_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.SDN_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.BSC_MAINNET]: [
-    // WETH[ChainId.BSC_MAINNET],
+    // WETH[chainId],
     // DAI,
-    ALPACA[ChainId.BSC_MAINNET],
-    CAKE[ChainId.BSC_MAINNET],
+    ALPACA[chainId],
+    CAKE[chainId],
     Kaco,
-    DOT[ChainId.BSC_MAINNET],
-    BUSD[ChainId.BSC_MAINNET],
+    DOT[chainId],
+    BUSD[chainId],
     USDT,
   ],
-  [ChainId.BSC_TESTNET]: [ETH, Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.BSC_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 };
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
   [ChainId.BSC_MAINNET]: [
     [Kaco, DEFAULT_Token[chainId]],
-    [BUSD[ChainId.BSC_MAINNET], USDT],
+    [BUSD[chainId], USDT],
     [DAI, USDT],
   ],
 };

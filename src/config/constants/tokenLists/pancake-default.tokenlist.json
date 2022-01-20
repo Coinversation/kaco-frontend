@@ -30,7 +30,7 @@
         "logoURI": "/images/tokens/astr/0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73.svg"
       },
       {
-        "name": "ETH Token",
+        "name": "Binance-Peg Ethereum Token",
         "symbol": "ETH",
         "address": "0x765277eebeca2e31912c9946eae1021199b39c61",
         "chainId": 592,
@@ -38,7 +38,7 @@
         "logoURI": "/images/tokens/astr/0x765277eebeca2e31912c9946eae1021199b39c61.svg"
       },
       {
-        "name": "WBTC Token",
+        "name": "Binance BTC",
         "symbol": "WBTC",
         "address": "0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b",
         "chainId": 592,
@@ -46,7 +46,7 @@
         "logoURI": "/images/tokens/astr/0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b.svg"
       },
       {
-        "name": "BUSD Token",
+        "name": "Binance USD",
         "symbol": "BUSD",
         "address": "0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a",
         "chainId": 592,
@@ -86,7 +86,7 @@
     ],
     "tokens": [
       {
-        "name": "SDN Token",
+        "name": "WSDN Token",
         "symbol": "WSDN",
         "address": "0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef",
         "chainId": 336,
@@ -102,7 +102,7 @@
         "logoURI": "/images/tokens/0xb12c13e66ade1f72f71834f2fc5082db8c091358.svg"
       },
       {
-        "name": "ETH",
+        "name": "Binance-Peg Ethereum Token",
         "symbol": "ETH",
         "address": "0x765277eebeca2e31912c9946eae1021199b39c61",
         "chainId": 336,
@@ -110,7 +110,7 @@
         "logoURI": "/images/tokens/0x2170Ed0880ac9A755fd29B2688956BD959F933F8.svg"
       },
       {
-        "name": "JPYCoin",
+        "name": "JPYC Token",
         "symbol": "JPYC",
         "address": "0x735abe48e8782948a37c7765ecb76b98cde97b0f",
         "chainId": 336,
@@ -126,7 +126,7 @@
         "logoURI": "/images/tokens/0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d.svg"
       },
       {
-        "name": "DAI",
+        "name": "DAI Token",
         "symbol": "DAI",
         "address": "0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73",
         "chainId": 336,
@@ -134,7 +134,7 @@
         "logoURI": "/images/tokens/0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3.svg"
       },
       {
-        "name": "BUSD",
+        "name": "Binance USD",
         "symbol": "BUSD",
         "address": "0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a",
         "chainId": 336,
@@ -142,7 +142,7 @@
         "logoURI": "/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.svg"
       },
       {
-        "name": "WBTC",
+        "name": "WBTC Token",
         "symbol": "WBTC",
         "address": "0x922d641a426dcffaef11680e5358f34d97d112e1",
         "chainId": 336,
@@ -174,7 +174,7 @@
         "logoURI": "/images/tokens/0xf96429A7aE52dA7d07E60BE95A3ece8B042016fB.svg"
       },
       {
-        "name": "BUSD Token",
+        "name": "Binance USD",
         "symbol": "BUSD",
         "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
         "chainId": 56,

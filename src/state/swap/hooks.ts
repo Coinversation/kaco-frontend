@@ -16,7 +16,7 @@ import { useCurrencyBalances } from '../wallet/hooks';
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions';
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
-import { Kaco } from '../../config/constants/tokens';
+import { chainId, DEFAULT_Token, Kaco } from '../../config/constants/tokens';
 import { chainKey } from 'config';
 
 export function useSwapState(): AppState['swap'] {
@@ -35,7 +35,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? chainKey : '',
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER[chainId] ? chainKey : '',
         }),
       );
     },
@@ -78,7 +78,7 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
     if (typedValueParsed !== '0') {
       return currency instanceof Token
         ? new TokenAmount(currency, JSBI.BigInt(typedValueParsed))
-        : CurrencyAmount.ether(JSBI.BigInt(typedValueParsed));
+        : CurrencyAmount.ether(JSBI.BigInt(typedValueParsed), chainId);
     }
   } catch (error) {
     // should fail if the user specifies too many decimal places of precision (or maybe exceed max uint?)
@@ -124,6 +124,7 @@ export function useDerivedSwapInfo(): {
     [Field.OUTPUT]: { currencyId: outputCurrencyId },
     recipient,
   } = useSwapState();
+  // console.log('inputCurrencyId: ', inputCurrencyId, 'typedValue: ', typedValue);
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
@@ -291,6 +292,9 @@ export function useDefaultsFromURLSearch():
     if (!parsedQs.outputCurrency) {
       parsedQs.outputCurrency = Kaco.address;
     }
+    // if (!parsedQs.inputCurrency) {
+    //   parsedQs.inputCurrency = DEFAULT_Token[chainId].address;
+    // }
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
     // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);

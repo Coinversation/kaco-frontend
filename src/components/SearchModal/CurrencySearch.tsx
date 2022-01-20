@@ -17,6 +17,7 @@ import useTokenComparator from './sorting';
 
 import ImportRow from './ImportRow';
 import styled from 'styled-components';
+import { chainId } from 'config/constants/tokens';
 const Wrapper = styled.div`
   #token-search-input {
     background: #1f252a;
@@ -112,7 +113,7 @@ function CurrencySearch({
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim();
         if (s === 'bnb') {
-          handleCurrencySelect(ETHER);
+          handleCurrencySelect(ETHER[chainId]);
         } else if (filteredSortedTokens.length > 0) {
           if (
             filteredSortedTokens[0].symbol?.toLowerCase() === debouncedQuery.trim().toLowerCase() ||
