@@ -5,7 +5,7 @@ const getTokenLogoURL = (address: string) => {
   const uri = defaultTokenList[chainKey].tokens.find(
     (token) => `${token.address}`.toLocaleLowerCase() === `${address}`.toLocaleLowerCase(),
   )?.logoURI;
-  return uri || `https://assets.trustwalletapp.com/blockchains/smartchain/assets/${address}/logo.png`;
+  return uri || `/images/tokens/${address}/logo.png`;
 };
 
 export default getTokenLogoURL;

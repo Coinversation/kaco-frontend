@@ -5,7 +5,6 @@ import { FACTORY_ADDRESS } from 'config/constants';
 
 const fetchPairsAddress = async (length: number): Promise<string[]> => {
   const factory = getAddress(FACTORY_ADDRESS);
-  console.log({ factory });
   const calls = new Array(length).fill(1).map((_, index) => ({
     address: factory,
     name: 'allPairs',

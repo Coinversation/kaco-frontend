@@ -129,7 +129,7 @@ const Farms: React.FC = () => {
               new BigNumber(farm.poolWeight),
               cakePrice,
               totalLiquidity,
-              farm.lpAddresses[ChainId.MAINNET],
+              farm.lpAddresses[ChainId.BSC_MAINNET],
             )
           : { kacRewardsApr: 0, lpRewardsApr: 0, kacRewardApy: 0 };
 

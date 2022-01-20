@@ -1,5 +1,4 @@
 import { Currency, ETHER, Token } from '@kaco/sdk';
-import { BASE_URL } from 'config';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useHttpLocations from '../../hooks/useHttpLocations';
@@ -22,9 +21,7 @@ export default function CurrencyLogo({
   size?: string;
   style?: React.CSSProperties;
 }) {
-  const uriLocations = useHttpLocations(
-    currency instanceof WrappedTokenInfo ? `${BASE_URL}${currency.logoURI}` : undefined,
-  );
+  const uriLocations = useHttpLocations(currency instanceof WrappedTokenInfo ? `${currency.logoURI}` : undefined);
 
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER) return [];

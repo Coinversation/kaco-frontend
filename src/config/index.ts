@@ -12,14 +12,14 @@ BigNumber.config({
 export const BSC_BLOCK_TIME = 12;
 
 export const BASE_BSC_SCAN_URLS = {
-  [ChainId.ASTR_MAINNET]: 'https://shiden.subscan.io',
-  [ChainId.ASTR_TESTNET]: 'https://shibuya.subscan.io',
+  [ChainId.ASTR_MAINNET]: 'https://blockscout.com/astar',
+  [ChainId.ASTR_TESTNET]: 'https://blockscout.com/shibuya',
 
-  [ChainId.SDN_MAINNET]: 'https://shiden.subscan.io',
-  [ChainId.SDN_TESTNET]: 'https://shibuya.subscan.io',
+  [ChainId.SDN_MAINNET]: 'https://blockscout.com/shiden',
+  [ChainId.SDN_TESTNET]: 'https://blockscout.com/shibuya',
 
-  [ChainId.MAINNET]: 'https://bscscan.com',
-  [ChainId.TESTNET]: 'https://testnet.bscscan.com',
+  [ChainId.BSC_MAINNET]: 'https://bscscan.com',
+  [ChainId.BSC_TESTNET]: 'https://testnet.bscscan.com',
 };
 
 // CAKE_PER_BLOCK details
@@ -32,10 +32,14 @@ export const BASE_BSC_SCAN_URLS = {
 export const CAKE_PER_BLOCK = new BigNumber(40);
 export const BLOCKS_PER_YEAR = new BigNumber((60 / BSC_BLOCK_TIME) * 60 * 24 * 365); // 10512000
 export const CAKE_PER_YEAR = CAKE_PER_BLOCK.times(BLOCKS_PER_YEAR);
-export const BASE_URL = 'https://shiden.kaco.finance';
-export const BASE_ADD_LIQUIDITY_URL = `${BASE_URL}/add`;
-export const BASE_LIQUIDITY_POOL_URL = `${BASE_URL}/pool`;
-export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.MAINNET];
+export const BASE_URL = {
+  [CHAINKEY.BSC]: 'https://www.kaco.finance',
+  [CHAINKEY.SDN]: 'https://shiden.kaco.finance',
+  [CHAINKEY.ASTR]: 'https://astr.kaco.finance',
+};
+export const BASE_ADD_LIQUIDITY_URL = `${BASE_URL[chainKey]}/add`;
+export const BASE_LIQUIDITY_POOL_URL = `${BASE_URL[chainKey]}/pool`;
+export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.BSC_MAINNET];
 export const LOTTERY_MAX_NUMBER_OF_TICKETS = 50;
 export const LOTTERY_TICKET_PRICE = 1;
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18);

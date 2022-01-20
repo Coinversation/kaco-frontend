@@ -8,8 +8,8 @@ const pools: PoolConfig[] = [
     stakingToken: tokens.kaco,
     earningToken: tokens.kaco,
     contractAddress: {
-      [ChainId.TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-      [ChainId.MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.BSC_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.BSC_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,

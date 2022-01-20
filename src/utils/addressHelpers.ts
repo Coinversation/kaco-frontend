@@ -4,7 +4,7 @@ import tokens, { chainId } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';
 
 export const getAddress = (address: Address): string => {
-  return address[chainId] ? address[chainId] : address[ChainId.MAINNET];
+  return address[chainId] ? address[chainId] : address[ChainId.BSC_MAINNET];
 };
 
 export const getCakeAddress = () => {
