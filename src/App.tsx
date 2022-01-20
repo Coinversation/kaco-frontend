@@ -2,7 +2,7 @@ import React, { lazy } from 'react';
 import { Router, Redirect, Route, Switch } from 'react-router-dom';
 import { ResetCSS } from '@kaco/uikit';
 import BigNumber from 'bignumber.js';
-// import useEagerConnect from 'hooks/useEagerConnect';
+import useEagerConnect from 'hooks/useEagerConnect';
 // import { usePollBlockNumber } from 'state/block/hooks';
 // import { useFetchProfile } from 'state/profile/hooks';
 import { PriceProvider } from 'contexts/PriceProvider';
@@ -60,7 +60,7 @@ BigNumber.config({
 
 const App: React.FC = () => {
   // usePollBlockNumber();
-  // useEagerConnect();
+  useEagerConnect();
   // useFetchProfile();
   // usePollCoreFarmData();
 

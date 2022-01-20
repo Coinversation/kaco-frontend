@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useWeb3React } from '@web3-react/core';
-import { LogoutIcon, useTooltip } from '@kaco/uikit';
+import { useTooltip } from '@kaco/uikit';
 import PolkadotAccounts from './PolkadotAccounts';
-import useAuth from 'hooks/useAuth';
 
 const PolkadotInfo = () => {
   const {
@@ -18,7 +17,6 @@ const PolkadotInfo = () => {
     tooltipOffset: [20, 10],
   });
   const { account } = useWeb3React();
-  const { logout } = useAuth();
   return (
     <>
       {tooltipVisible_P && tooltip_P}
@@ -30,7 +28,7 @@ const PolkadotInfo = () => {
         }}
       >
         <span className="account">{account}</span>
-        <LogoutIcon onClick={logout} />
+        {/* <LogoutIcon onClick={logout} /> */}
       </div>
     </>
   );

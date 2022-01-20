@@ -3,7 +3,6 @@
 import { ChainId } from '@kaco/sdk';
 import { BASE_BSC_SCAN_URL, BASE_URL, chainKey } from 'config';
 import { chainId } from 'config/constants/tokens';
-import { nodes } from './getRpcUrl';
 
 /**
  * Prompt the user to add BSC as a network on Metamask, or switch to BSC if the wallet is on a different network
@@ -18,7 +17,64 @@ const wallet_config = {
       symbol: 'ASTR',
       decimals: 18,
     },
-    rpcUrls: nodes,
+    rpcUrls: ['https://rpc.astar.network:8545'],
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+  [ChainId.ASTR_TESTNET]: {
+    chainId: `0x${ChainId.ASTR_TESTNET.toString(16)}`,
+    chainName: 'Shibuya Testnet',
+    nativeCurrency: {
+      name: 'ASTR Token',
+      symbol: 'ASTR',
+      decimals: 18,
+    },
+    rpcUrls: ['https://rpc.shibuya.astar.network:8545'],
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+  [ChainId.SDN_MAINNET]: {
+    chainId: `0x${ChainId.SDN_MAINNET.toString(16)}`,
+    chainName: 'Shiden Network Mainnet',
+    nativeCurrency: {
+      name: 'SDN Token',
+      symbol: 'SDN',
+      decimals: 18,
+    },
+    rpcUrls: ['https://rpc.shiden.astar.network:8545'],
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+  [ChainId.SDN_TESTNET]: {
+    chainId: `0x${ChainId.ASTR_TESTNET.toString(16)}`,
+    chainName: 'Shibuya Testnet',
+    nativeCurrency: {
+      name: 'SDN Token',
+      symbol: 'SDN',
+      decimals: 18,
+    },
+    rpcUrls: ['https://rpc.shibuya.astar.network:8545'],
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+
+  [ChainId.BSC_MAINNET]: {
+    chainId: `0x${ChainId.BSC_MAINNET.toString(16)}`,
+    chainName: 'Binance Smart Chain Mainnet',
+    nativeCurrency: {
+      name: 'BNB Token',
+      symbol: 'BNB',
+      decimals: 18,
+    },
+    rpcUrls: ['https://bsc-dataseed.binance.org'],
+    blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
+  },
+
+  [ChainId.BSC_TESTNET]: {
+    chainId: `0x${ChainId.BSC_TESTNET.toString(16)}`,
+    chainName: 'Binance Smart Chain Testnet',
+    nativeCurrency: {
+      name: 'BNB Token',
+      symbol: 'BNB',
+      decimals: 18,
+    },
+    rpcUrls: ['https://data-seed-prebsc-1-s1.binance.org:8545'],
     blockExplorerUrls: [`${BASE_BSC_SCAN_URL}/`],
   },
 };

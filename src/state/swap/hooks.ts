@@ -169,7 +169,6 @@ export function useDerivedSwapInfo(): {
     [Field.INPUT]: inputCurrency ?? undefined,
     [Field.OUTPUT]: outputCurrency ?? undefined,
   };
-  console.log(currencies);
 
   let inputError: string | undefined;
   if (!account) {

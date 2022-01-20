@@ -14,7 +14,6 @@ export interface SwapState {
   // the typed recipient address or ENS name, or null if swap should go to sender
   readonly recipient: string | null;
 }
-console.log(DEFAULT_Token, chainId);
 const initialState: SwapState = {
   independentField: Field.INPUT,
   typedValue: '',

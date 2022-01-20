@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js/bignumber';
 import { BIG_TEN } from 'utils/bigNumber';
 import { CHAINKEY, ChainId } from '@kaco/sdk';
 
-export const chainKey: CHAINKEY = CHAINKEY.ASTR;
+export const chainKey: CHAINKEY = CHAINKEY.SDN;
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
