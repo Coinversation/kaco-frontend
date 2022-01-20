@@ -2174,15 +2174,15 @@ export const Kaco: Token = new Token(
 );
 
 export const BUSD: { [chainId: number]: Token } = {
-  [ChainId.BSC_MAINNET]: new Token(
-    ChainId.BSC_MAINNET as any,
+  [ChainId.SDN_MAINNET]: new Token(
+    ChainId.SDN_MAINNET as any,
     '0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a',
     18,
     'BUSD',
     'Binance USD',
   ),
-  [ChainId.BSC_TESTNET]: new Token(
-    ChainId.BSC_TESTNET as any,
+  [ChainId.SDN_TESTNET]: new Token(
+    ChainId.SDN_TESTNET as any,
     '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
     18,
     'BUSD',
@@ -2236,6 +2236,20 @@ export const DOT: { [chainId: number]: Token } = {
 };
 
 export const KSM: { [chainId: number]: Token } = {
+  [ChainId.SDN_MAINNET]: new Token(
+    ChainId.SDN_MAINNET as any,
+    '0x2aa69e8d25c045b659787bc1f03ce47a388db6e8',
+    18,
+    'KSM',
+    'KSM Token',
+  ),
+  [ChainId.SDN_TESTNET]: new Token(
+    ChainId.SDN_TESTNET as any,
+    '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
+    18,
+    'KSM',
+    'FAKE KSM',
+  ),
   [ChainId.BSC_MAINNET]: new Token(
     ChainId.BSC_MAINNET as any,
     '0x2aa69e8d25c045b659787bc1f03ce47a388db6e8',
@@ -2268,15 +2282,15 @@ export const USDT = new Token(
 );
 
 export const BTCB: { [chainId: number]: Token } = {
-  [ChainId.BSC_MAINNET]: new Token(
-    ChainId.BSC_MAINNET as any,
+  [ChainId.SDN_MAINNET]: new Token(
+    ChainId.SDN_MAINNET as any,
     '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
     18,
     'BTCB',
     'Binance BTC',
   ),
-  [ChainId.BSC_TESTNET]: new Token(
-    ChainId.BSC_TESTNET as any,
+  [ChainId.SDN_TESTNET]: new Token(
+    ChainId.SDN_TESTNET as any,
     '0x6ce8da28e2f864420840cf74474eff5fd80e65b8',
     18,
     'BTCB',

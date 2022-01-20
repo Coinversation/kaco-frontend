@@ -1,5 +1,21 @@
 import { JSBI, Percent, Token, ChainId } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, Base_Token, USDC, JPYC, DOT, KSM, ETH, ALPACA, CAKE, chainId } from './tokens';
+import {
+  DEFAULT_Token,
+  BUSD,
+  DAI,
+  USDT,
+  BTCB,
+  Kaco,
+  Base_Token,
+  USDC,
+  JPYC,
+  DOT,
+  KSM,
+  ETH,
+  ALPACA,
+  CAKE,
+  chainId,
+} from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -9,13 +25,34 @@ type ChainTokenList = {
 };
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
-  [ChainId.ASTR_MAINNET]: [ETH[chainId], Kaco, DOT[chainId], KSM[chainId], BUSD[chainId], USDT, BTCB[chainId], USDC],
-  [ChainId.ASTR_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.ASTR_MAINNET]: [
+    DEFAULT_Token[chainId],
+    ETH[chainId],
+    Kaco,
+    DOT[chainId],
+    KSM[chainId],
+    BUSD[chainId],
+    USDT,
+    BTCB[chainId],
+    USDC,
+  ],
+  [ChainId.ASTR_TESTNET]: [DEFAULT_Token[chainId], ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
-  [ChainId.SDN_MAINNET]: [ETH[chainId], Kaco, DOT[chainId], KSM[chainId], BUSD[chainId], USDT, BTCB[chainId], USDC],
-  [ChainId.SDN_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.SDN_MAINNET]: [
+    DEFAULT_Token[chainId],
+    ETH[chainId],
+    Kaco,
+    DOT[chainId],
+    KSM[chainId],
+    BUSD[chainId],
+    USDT,
+    BTCB[chainId],
+    USDC,
+  ],
+  [ChainId.SDN_TESTNET]: [DEFAULT_Token[chainId], ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.BSC_MAINNET]: [
+    DEFAULT_Token[chainId],
     ETH[chainId],
     Kaco,
     DOT[chainId],
@@ -23,6 +60,7 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     BUSD[chainId],
     USDT,
     ALPACA[chainId],
+
     // BTCB[chainId],
     // USDC,
   ],
