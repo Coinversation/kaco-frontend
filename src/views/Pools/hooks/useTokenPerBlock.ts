@@ -27,19 +27,19 @@ export const fetchTokenPerBlock = async () => {
 
 export const fetchRewardPerBlock = async (pool: PoolConfig) => {
   // console.log(`${pool.sousId}` !== '0');
-  if (pool.sousId !== 0) {
-    // console.log(pool.sousId, addresses.masterChef[chainId]);
-    const res = await multicall(sousChefABI, [
-      {
-        address: pools[pool.sousId].contractAddress[chainId],
-        name: 'rewardPerBlock',
-      },
-    ]);
-    const rewardPerBlock = new BigNumber(res.toString()).div(base);
-    return rewardPerBlock;
-  } else {
-    return new BigNumber(0);
-  }
+  // if (pool.sousId !== 0) {
+  //   // console.log(pool.sousId, addresses.masterChef[chainId]);
+  //   const res = await multicall(sousChefABI, [
+  //     {
+  //       address: pools[pool.sousId].contractAddress[chainId],
+  //       name: 'rewardPerBlock',
+  //     },
+  //   ]);
+  //   const rewardPerBlock = new BigNumber(res.toString()).div(base);
+  //   return rewardPerBlock;
+  // } else {
+  return new BigNumber(0);
+  // }
 };
 
 export const usePoolWeight = async (pool: PoolConfig) => {

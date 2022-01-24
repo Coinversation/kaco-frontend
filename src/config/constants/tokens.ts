@@ -214,6 +214,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://jpyc.jp/',
   },
+  KacSdn: {
+    symbol: 'KAC-SDN',
+    address: {
+      [ChainId.MAINNET]: '0x456C0082DE0048EE883881fF61341177FA1FEF40',
+      [ChainId.TESTNET]: '0x456C0082DE0048EE883881fF61341177FA1FEF40',
+    },
+    decimals: 18,
+    projectLink: 'https://shiden.kaco.finance/',
+  },
 };
 
 export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSDN', 'Wrapped SDN');

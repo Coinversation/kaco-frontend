@@ -51,7 +51,8 @@ const EndsInCell: React.FC<FinishCellProps> = ({ pool }) => {
   const showLoading = isLoadingPublicData && !isCakePool && !isFinished;
   return (
     <CellLayout label={hasPoolStarted || !shouldShowBlockCountdown ? t('Ends in') : t('Starts in')}>
-      {showLoading ? <Skeleton width="80px" height="16px" /> : renderBlocks}
+      {/* {showLoading ? <Skeleton width="80px" height="16px" /> : renderBlocks} */}
+      <Text>-</Text>
     </CellLayout>
   );
 };

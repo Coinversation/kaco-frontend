@@ -3,12 +3,12 @@ import { PoolConfig, PoolCategory } from './types';
 
 const pools: PoolConfig[] = [
   {
-    sousId: 0,
+    sousId: 1,
     stakingToken: tokens.kaco,
-    earningToken: tokens.kaco,
+    earningToken: tokens.KacSdn,
     contractAddress: {
-      [ChainId.TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-      [ChainId.MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.TESTNET]: '0xffe8a2d1b7c69d69bd93880cA55b0e8222bE789a',
+      [ChainId.MAINNET]: '0xffe8a2d1b7c69d69bd93880cA55b0e8222bE789a',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
