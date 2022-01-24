@@ -1,6 +1,5 @@
 import { JSBI, Percent, Token, ChainId } from '@kaco/sdk';
 import {
-  DEFAULT_Token,
   BUSD,
   DAI,
   USDT,
