@@ -15,6 +15,7 @@ import {
   ALPACA,
   CAKE,
   chainId,
+  UST,
 } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
@@ -26,33 +27,35 @@ type ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.ASTR_MAINNET]: [
-    DEFAULT_Token[chainId],
-    ETH[chainId],
+    Base_Token,
     Kaco,
     DOT[chainId],
     KSM[chainId],
     BUSD[chainId],
     USDT,
     BTCB[chainId],
+    UST,
+    ETH[chainId],
     USDC,
   ],
-  [ChainId.ASTR_TESTNET]: [DEFAULT_Token[chainId], ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.ASTR_TESTNET]: [Base_Token, ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.SDN_MAINNET]: [
-    DEFAULT_Token[chainId],
-    ETH[chainId],
+    Base_Token,
     Kaco,
     DOT[chainId],
     KSM[chainId],
     BUSD[chainId],
     USDT,
     BTCB[chainId],
+    UST[chainId],
+    ETH[chainId],
     USDC,
   ],
-  [ChainId.SDN_TESTNET]: [DEFAULT_Token[chainId], ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
+  [ChainId.SDN_TESTNET]: [Base_Token, ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],
 
   [ChainId.BSC_MAINNET]: [
-    DEFAULT_Token[chainId],
+    Base_Token,
     ETH[chainId],
     Kaco,
     DOT[chainId],

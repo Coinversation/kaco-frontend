@@ -2494,7 +2494,7 @@
 
 "@kaco/uikit@^0.46.31":
   version "0.46.31"
-  resolved "https://registry.npmjs.org/@kaco/uikit/-/uikit-0.46.31.tgz#d69ce57cde45d8a43935be49364be128e34127e0"
+  resolved "https://registry.yarnpkg.com/@kaco/uikit/-/uikit-0.46.31.tgz#d69ce57cde45d8a43935be49364be128e34127e0"
   integrity sha512-UxXyPGMYmLRD4LGii/1v0lHFK7p7fxLfgpcWMwuKM0tTxHp3991M1+JYClnyucU4hWeSNcpFMP/N7CjTob9Dgg==
   dependencies:
     "@popperjs/core" "^2.9.2"

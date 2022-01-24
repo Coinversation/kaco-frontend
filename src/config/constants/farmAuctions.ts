@@ -1,12 +1,11 @@
 import { chainId, DEFAULT_Token } from 'config/constants/tokens';
 import { Token as SDKToken, Pair } from '@kaco/sdk';
 import { FarmAuctionBidderConfig, Token } from './types';
-import { chainKey } from 'config';
 
 const getLpAddress = (token: string, quoteToken: Token) => {
   const tokenAsToken = new SDKToken(chainId, token, 18);
   const quoteTokenAsToken = new SDKToken(chainId, quoteToken.address[chainId], 18);
-  return Pair.getAddress(tokenAsToken, quoteTokenAsToken, chainKey);
+  return Pair.getAddress(tokenAsToken, quoteTokenAsToken, chainId);
 };
 
 export const whitelistedBidders: FarmAuctionBidderConfig[] = [

@@ -28,7 +28,9 @@
         "contract_name": "PancakeSwap Token",
         "contract_ticker_symbol": "Cake",
         "contract_address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png",
         "last_transferred_at": "2021-08-22T15:14:10Z",
         "type": "cryptocurrency",
@@ -45,7 +47,9 @@
         "contract_name": "Clover",
         "contract_ticker_symbol": "CLV",
         "contract_address": "0x09e889bb4d5b474f561db0491c38702f367a4e4d",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x09e889bb4d5b474f561db0491c38702f367a4e4d.png",
         "last_transferred_at": "2021-08-22T11:13:18Z",
         "type": "cryptocurrency",
@@ -62,7 +66,9 @@
         "contract_name": "Quidax Token",
         "contract_ticker_symbol": "QDX",
         "contract_address": "0x9e3a9f1612028eee48f85ca85f8bed2f37d76848",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x9e3a9f1612028eee48f85ca85f8bed2f37d76848.png",
         "last_transferred_at": "2021-08-31T00:12:05Z",
         "type": "cryptocurrency",
@@ -79,7 +85,9 @@
         "contract_name": "Pancake LPs",
         "contract_ticker_symbol": "Cake-LP",
         "contract_address": "0x0ed7e52944161450477ee417de9cd3a859b14fd0",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x0ed7e52944161450477ee417de9cd3a859b14fd0.png",
         "last_transferred_at": "2021-08-22T15:14:10Z",
         "type": "dust",
@@ -96,7 +104,9 @@
         "contract_name": "Zepe.io",
         "contract_ticker_symbol": "Zepe.io",
         "contract_address": "0x119e2ad8f0c85c6f61afdf0df69693028cdc10be",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x119e2ad8f0c85c6f61afdf0df69693028cdc10be.png",
         "last_transferred_at": "2021-08-30T10:56:58Z",
         "type": "cryptocurrency",
@@ -113,7 +123,9 @@
         "contract_name": "Kusama",
         "contract_ticker_symbol": "KSM",
         "contract_address": "0x2aa69e8d25c045b659787bc1f03ce47a388db6e8",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x2aa69e8d25c045b659787bc1f03ce47a388db6e8.png",
         "last_transferred_at": "2021-08-21T00:47:31Z",
         "type": "cryptocurrency",
@@ -130,7 +142,9 @@
         "contract_name": "Kaco LPs",
         "contract_ticker_symbol": "Kaco-LP",
         "contract_address": "0x315f25cea80ac6c039b86e79ffc46ae6b2e30922",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x315f25cea80ac6c039b86e79ffc46ae6b2e30922.png",
         "last_transferred_at": "2021-09-19T16:48:53Z",
         "type": "dust",
@@ -147,7 +161,9 @@
         "contract_name": "Kaco LPs",
         "contract_ticker_symbol": "Kaco-LP",
         "contract_address": "0x344dc8d3d62d9f00f48d6514433214f8db7ce38e",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x344dc8d3d62d9f00f48d6514433214f8db7ce38e.png",
         "last_transferred_at": "2021-08-22T11:14:09Z",
         "type": "dust",
@@ -164,7 +180,9 @@
         "contract_name": "BNBW.IO",
         "contract_ticker_symbol": "BNBW",
         "contract_address": "0x5558447b06867ffebd87dd63426d61c868c45904",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x5558447b06867ffebd87dd63426d61c868c45904.png",
         "last_transferred_at": "2021-08-20T07:45:26Z",
         "type": "cryptocurrency",
@@ -181,7 +199,9 @@
         "contract_name": "Tether USD",
         "contract_ticker_symbol": "USDT",
         "contract_address": "0x55d398326f99059ff775485246999027b3197955",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/1/0xdac17f958d2ee523a2206206994597c13d831ec7.png",
         "last_transferred_at": "2021-09-12T06:07:21Z",
         "type": "dust",
@@ -198,7 +218,9 @@
         "contract_name": "BSCTOKEN.IO",
         "contract_ticker_symbol": "BSCTOKEN",
         "contract_address": "0x569b2cf0b745ef7fad04e8ae226251814b3395f9",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x569b2cf0b745ef7fad04e8ae226251814b3395f9.png",
         "last_transferred_at": "2021-08-18T07:46:36Z",
         "type": "cryptocurrency",
@@ -215,7 +237,9 @@
         "contract_name": "AABEK.net",
         "contract_ticker_symbol": "AABEK",
         "contract_address": "0x68d1569d1a6968f194b4d93f8d0b416c123a599f",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x68d1569d1a6968f194b4d93f8d0b416c123a599f.png",
         "last_transferred_at": "2021-09-03T19:40:21Z",
         "type": "cryptocurrency",
@@ -232,7 +256,9 @@
         "contract_name": "Polkadot Token",
         "contract_ticker_symbol": "DOT",
         "contract_address": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/1/0x7884f51dc1410387371ce61747cb6264e1daee0b.png",
         "last_transferred_at": "2021-09-19T16:48:32Z",
         "type": "dust",
@@ -249,7 +275,9 @@
         "contract_name": "aaexchange.io",
         "contract_ticker_symbol": "AAE",
         "contract_address": "0x7d9c3bd1eb0b0a8921fab9c57e26e05518d87b4d",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x7d9c3bd1eb0b0a8921fab9c57e26e05518d87b4d.png",
         "last_transferred_at": "2021-09-08T03:11:52Z",
         "type": "cryptocurrency",
@@ -266,7 +294,9 @@
         "contract_name": "AirStack.net",
         "contract_ticker_symbol": "AIR",
         "contract_address": "0x8ee3e98dcced9f5d3df5287272f0b2d301d97c57",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x8ee3e98dcced9f5d3df5287272f0b2d301d97c57.png",
         "last_transferred_at": "2021-08-17T15:06:22Z",
         "type": "cryptocurrency",
@@ -283,7 +313,9 @@
         "contract_name": "Kaco LPs",
         "contract_ticker_symbol": "Kaco-LP",
         "contract_address": "0xa0f19146914e3c160897059ef8695bcd9fcf98b2",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xa0f19146914e3c160897059ef8695bcd9fcf98b2.png",
         "last_transferred_at": "2021-08-22T15:19:22Z",
         "type": "cryptocurrency",
@@ -300,7 +332,9 @@
         "contract_name": "Zepe.io",
         "contract_ticker_symbol": "Zepe.io",
         "contract_address": "0xb0557906c617f0048a700758606f64b33d0c41a6",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xb0557906c617f0048a700758606f64b33d0c41a6.png",
         "last_transferred_at": "2021-09-20T14:36:44Z",
         "type": "cryptocurrency",
@@ -317,7 +351,9 @@
         "contract_name": "ABFIN.org",
         "contract_ticker_symbol": "ABFIN",
         "contract_address": "0xb8a9704d48c3e3817cc17bc6d350b00d7caaecf6",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xb8a9704d48c3e3817cc17bc6d350b00d7caaecf6.png",
         "last_transferred_at": "2021-08-24T11:49:55Z",
         "type": "cryptocurrency",
@@ -334,7 +370,9 @@
         "contract_name": "Wrapped BNB",
         "contract_ticker_symbol": "WBNB",
         "contract_address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/1/0xb8c77482e45f1f44de1745f52c74426c631bdd52.png",
         "last_transferred_at": "2021-08-24T12:10:32Z",
         "type": "dust",
@@ -351,7 +389,9 @@
         "contract_name": "BestAir.io",
         "contract_ticker_symbol": "AIR",
         "contract_address": "0xbc6675de91e3da8eac51293ecb87c359019621cf",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xbc6675de91e3da8eac51293ecb87c359019621cf.png",
         "last_transferred_at": "2021-08-24T04:18:27Z",
         "type": "cryptocurrency",
@@ -368,7 +408,9 @@
         "contract_name": "Kaco LPs",
         "contract_ticker_symbol": "Kaco-LP",
         "contract_address": "0xd56414bdb4de22ced7698a5cb8e83741574ffe15",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xd56414bdb4de22ced7698a5cb8e83741574ffe15.png",
         "last_transferred_at": "2021-09-04T16:31:39Z",
         "type": "dust",
@@ -385,7 +427,9 @@
         "contract_name": "BUSD Token",
         "contract_ticker_symbol": "BUSD",
         "contract_address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/1/0x4fabb145d64652a948d72533023f6e7a623c7c53.png",
         "last_transferred_at": "2021-09-16T14:03:31Z",
         "type": "dust",
@@ -402,7 +446,9 @@
         "contract_name": "Kaco Token",
         "contract_ticker_symbol": "Kac",
         "contract_address": "0xf96429a7ae52da7d07e60be95a3ece8b042016fb",
-        "supports_erc": ["erc20"],
+        "supports_erc": [
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0xf96429a7ae52da7d07e60be95a3ece8b042016fb.png",
         "last_transferred_at": "2021-09-19T16:48:53Z",
         "type": "cryptocurrency",
@@ -419,7 +465,10 @@
         "contract_name": null,
         "contract_ticker_symbol": null,
         "contract_address": "0x46f36f9fe211600417d9d24c014a154052abc960",
-        "supports_erc": ["erc1155", "erc20"],
+        "supports_erc": [
+          "erc1155",
+          "erc20"
+        ],
         "logo_url": "https://logos.covalenthq.com/tokens/56/0x46f36f9fe211600417d9d24c014a154052abc960.png",
         "last_transferred_at": "2021-09-16T19:32:59Z",
         "type": "nft",
@@ -434,7 +483,10 @@
             "token_id": "1998",
             "token_balance": "1",
             "token_url": "https://graphigo.prd.galaxy.eco/metadata/0x46F36F9FE211600417D9d24c014a154052ABC960/1998.json",
-            "supports_erc": ["erc20", "erc1155"],
+            "supports_erc": [
+              "erc20",
+              "erc1155"
+            ],
             "token_price_wei": null,
             "token_quote_rate_eth": null,
             "original_owner": "0x0f1701a19db7a3b32e6fb5f29247c1aa6f30ad5f",
@@ -468,7 +520,10 @@
             "token_id": "1489",
             "token_balance": "1",
             "token_url": "https://graphigo.prd.galaxy.eco/metadata/0x46F36F9FE211600417D9d24c014a154052ABC960/1489.json",
-            "supports_erc": ["erc20", "erc1155"],
+            "supports_erc": [
+              "erc20",
+              "erc1155"
+            ],
             "token_price_wei": null,
             "token_quote_rate_eth": null,
             "original_owner": "0x0f1701a19db7a3b32e6fb5f29247c1aa6f30ad5f",
@@ -502,7 +557,10 @@
             "token_id": "1276",
             "token_balance": "1",
             "token_url": "https://graphigo.prd.galaxy.eco/metadata/0x46F36F9FE211600417D9d24c014a154052ABC960/1276.json",
-            "supports_erc": ["erc20", "erc1155"],
+            "supports_erc": [
+              "erc20",
+              "erc1155"
+            ],
             "token_price_wei": null,
             "token_quote_rate_eth": null,
             "original_owner": "0x0f1701a19db7a3b32e6fb5f29247c1aa6f30ad5f",

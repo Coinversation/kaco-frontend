@@ -95,6 +95,7 @@ export default function Swap({ history }: RouteComponentProps) {
   // swap state
   const { independentField, typedValue, recipient } = useSwapState();
   const { v2Trade, currencyBalances, parsedAmount, currencies, inputError: swapInputError } = useDerivedSwapInfo();
+
   const {
     wrapType,
     execute: onWrap,
@@ -285,7 +286,7 @@ export default function Swap({ history }: RouteComponentProps) {
   const swapIsUnsupported = useIsTransactionUnsupported(currencies?.INPUT, currencies?.OUTPUT);
 
   const [onPresentImportTokenWarningModal] = useModal(
-    <ImportTokenWarningModal tokens={importTokensNotInDefault} onCancel={() => history.push('/swap')} />,
+    <ImportTokenWarningModal tokens={importTokensNotInDefault} onCancel={() => history.push('/swap/')} />,
   );
 
   useEffect(() => {
@@ -312,6 +313,7 @@ export default function Swap({ history }: RouteComponentProps) {
     true,
     'confirmSwapModal',
   );
+
   return (
     <Page>
       <AppBody>

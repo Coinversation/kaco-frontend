@@ -17,7 +17,6 @@ import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
 import { chainId, Kaco } from '../../config/constants/tokens';
-import { chainKey } from 'config';
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap);
@@ -35,7 +34,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER[chainId] ? chainKey : '',
+          currencyId: currency instanceof Token ? currency.address : 'SDN',
         }),
       );
     },
@@ -124,7 +123,7 @@ export function useDerivedSwapInfo(): {
     [Field.OUTPUT]: { currencyId: outputCurrencyId },
     recipient,
   } = useSwapState();
-  // console.log('inputCurrencyId: ', inputCurrencyId, 'typedValue: ', typedValue);
+
   const inputCurrency = useCurrency(inputCurrencyId);
   const outputCurrency = useCurrency(outputCurrencyId);
   const recipientLookup = useENS(recipient ?? undefined);
@@ -224,10 +223,10 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === chainKey) return chainKey;
-    if (valid === false) return chainKey;
+    if (urlParam.toUpperCase() === 'SDN') return 'SDN';
+    if (valid === false) return 'SDN';
   }
-  return chainKey;
+  return 'SDN';
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {
@@ -292,7 +291,6 @@ export function useDefaultsFromURLSearch():
     if (!parsedQs.outputCurrency) {
       parsedQs.outputCurrency = Kaco.address;
     }
-
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
     // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);

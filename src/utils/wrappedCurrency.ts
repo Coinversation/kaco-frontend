@@ -3,6 +3,7 @@ import { ChainId } from '@kaco/sdk';
 import { chainId } from 'config/constants/tokens';
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {
+  // return chainId && currency === ETHER ? WETH[chainId] : currency instanceof Token ? currency : undefined;
   return chainId && currency === ETHER[chainId] ? WETH[chainId] : currency instanceof Token ? currency : undefined;
 }
 

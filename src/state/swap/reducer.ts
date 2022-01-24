@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Kaco, DEFAULT_Token, chainId } from 'config/constants/tokens';
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions';
 
 export interface SwapState {
@@ -14,14 +13,15 @@ export interface SwapState {
   // the typed recipient address or ENS name, or null if swap should go to sender
   readonly recipient: string | null;
 }
+
 const initialState: SwapState = {
   independentField: Field.INPUT,
   typedValue: '',
   [Field.INPUT]: {
-    currencyId: DEFAULT_Token[chainId].address,
+    currencyId: 'SDN',
   },
   [Field.OUTPUT]: {
-    currencyId: Kaco.address,
+    currencyId: '0xb12c13e66AdE1F72f71834f2FC5082Db8C091358',
   },
   recipient: null,
 };

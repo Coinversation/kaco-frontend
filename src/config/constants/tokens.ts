@@ -2096,8 +2096,8 @@ export const main_tokens = {
     projectLink: 'https://blockscout.com/astar/',
   },
   sdn: {
-    symbol: 'SDN',
-    name: 'SDN Token',
+    symbol: 'WSDN',
+    name: 'Wrapped SDN',
     decimals: 18,
     address: {
       [ChainId.SDN_MAINNET]: '0x0f933Dc137D21cA519ae4C7E93f87a4C8EF365Ef',
@@ -2362,5 +2362,13 @@ export const CAKE: { [chainId: number]: Token } = {
     'PancakeSwap Token',
   ),
 };
-
+export const UST: { [chainId: number]: Token } = {
+  [ChainId.SDN_MAINNET]: new Token(
+    ChainId.SDN_MAINNET as any,
+    '0x23396cF899Ca06c4472205fC903bDB4de249D6fC',
+    18,
+    'UST',
+    'Wrapped UST Token',
+  ),
+};
 export default tokens;

@@ -12,23 +12,21 @@ import { useEffect } from 'react';
 import { useTradeExactIn } from 'hooks/Trades';
 import { chainKey } from 'config';
 export const usePollPrice = (_address: string, amount = '1') => {
-  const address = _address.toLocaleLowerCase();
-
-  const dispatch = useAppDispatch();
-  const tokenArr = DEFAULT_TOKEN_LIST[chainKey].tokens.filter((v) => v.address.toLocaleLowerCase() === address);
-  const token = tokenArr[0];
-  const inputCurrency = useCurrency(token?.address);
-  const currencyIn: CurrencyAmount = tryParseAmount(amount, inputCurrency);
-  const currencyOut: Currency = BUSD[chainId];
-  const bestTradeExactIn = useTradeExactIn(false, currencyIn, currencyOut);
-  const { priceVsBusdMap } = usePrice();
-
-  useEffect(() => {
-    if (priceVsBusdMap[address] && amount === '1') {
-      return null;
-    }
-    dispatch(setPrice({ address: address, num: bestTradeExactIn?.executionPrice.toFixed() }));
-  }, [dispatch, address, amount, bestTradeExactIn?.executionPrice, priceVsBusdMap]);
+  // const address = _address.toLocaleLowerCase();
+  // const dispatch = useAppDispatch();
+  // const tokenArr = DEFAULT_TOKEN_LIST[chainKey].tokens.filter((v) => v.address.toLocaleLowerCase() === address);
+  // const token = tokenArr[0];
+  // const inputCurrency = useCurrency(token?.address);
+  // const currencyIn: CurrencyAmount = tryParseAmount(amount, inputCurrency);
+  // const currencyOut: Currency = BUSD[chainId];
+  // const bestTradeExactIn = useTradeExactIn(false, currencyIn, currencyOut);
+  // const { priceVsBusdMap } = usePrice();
+  // useEffect(() => {
+  //   if (priceVsBusdMap[address] && amount === '1') {
+  //     return null;
+  //   }
+  //   dispatch(setPrice({ address: address, num: bestTradeExactIn?.executionPrice.toFixed() }));
+  // }, [dispatch, address, amount, bestTradeExactIn?.executionPrice, priceVsBusdMap]);
 };
 export const usePrice = () => {
   return useSelector((state: State) => state.price);

@@ -38,44 +38,42 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
     () => flatMap(bases, (base): [Token, Token][] => bases.map((otherBase) => [base, otherBase])),
     [bases],
   );
-  const allPairCombinations: [Token, Token][] = useMemo(() => {
-    if (tokenA && tokenB) {
-      const Arr = [
-        // the direct pair
-        [tokenA, tokenB],
-        // token A against all bases
-        ...bases.map((base): [Token, Token] => [tokenA, base]),
-        // token B against all bases
-        ...bases.map((base): [Token, Token] => [tokenB, base]),
-        // each base against all bases
-        ...basePairs,
-      ]
-        .filter((tokens): tokens is [Token, Token] => Boolean(tokens[0] && tokens[1]))
-        .filter(([t0, t1]) => t0.address !== t1.address)
-        .filter(([tokenA_, tokenB_]) => {
-          if (!chainId) return true;
-          const customBases = CUSTOM_BASES[chainId];
 
-          const customBasesA: Token[] | undefined = customBases?.[tokenA_.address];
-          const customBasesB: Token[] | undefined = customBases?.[tokenB_.address];
+  const allPairCombinations: [Token, Token][] = useMemo(
+    () =>
+      tokenA && tokenB
+        ? [
+            // the direct pair
+            [tokenA, tokenB],
+            // token A against all bases
+            ...bases.map((base): [Token, Token] => [tokenA, base]),
+            // token B against all bases
+            ...bases.map((base): [Token, Token] => [tokenB, base]),
+            // each base against all bases
+            ...basePairs,
+          ]
+            .filter((tokens): tokens is [Token, Token] => Boolean(tokens[0] && tokens[1]))
+            .filter(([t0, t1]) => t0.address !== t1.address)
+            .filter(([tokenA_, tokenB_]) => {
+              if (!chainId) return true;
+              const customBases = CUSTOM_BASES[chainId];
 
-          if (!customBasesA && !customBasesB) return true;
+              const customBasesA: Token[] | undefined = customBases?.[tokenA_.address];
+              const customBasesB: Token[] | undefined = customBases?.[tokenB_.address];
 
-          if (customBasesA && !customBasesA.find((base) => tokenB_.equals(base))) return false;
-          if (customBasesB && !customBasesB.find((base) => tokenA_.equals(base))) return false;
+              if (!customBasesA && !customBasesB) return true;
 
-          return true;
-        });
-      console.log(33334444, Arr);
-      return Arr;
-    } else {
-      console.log({ bases, basePairs });
-      console.log(322333);
-      return [];
-    }
-  }, [tokenA, tokenB, bases, basePairs, chainId]);
-  console.log(allPairCombinations);
+              if (customBasesA && !customBasesA.find((base) => tokenB_.equals(base))) return false;
+              if (customBasesB && !customBasesB.find((base) => tokenA_.equals(base))) return false;
+
+              return true;
+            })
+        : [],
+    [tokenA, tokenB, bases, basePairs, chainId],
+  );
+
   const allPairs = usePairs(allPairCombinations);
+
   // only pass along valid pairs, non-duplicated pairs
   return useMemo(
     () =>

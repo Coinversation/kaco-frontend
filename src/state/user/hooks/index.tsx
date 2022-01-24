@@ -22,7 +22,7 @@ import {
   updateUserSlippageTolerance,
 } from '../actions';
 import { deserializeToken, serializeToken } from './helpers';
-import { chainKey } from 'config';
+import { chainId } from 'config/constants/tokens';
 
 export function useAudioModeManager(): [boolean, () => void] {
   const dispatch = useDispatch<AppDispatch>();
@@ -179,7 +179,7 @@ export function usePairAdder(): (pair: Pair) => void {
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB, chainKey), 18, 'Kaco-LP', 'Kaco LPs');
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB, chainId), 18, 'Kaco-LP', 'Kaco LPs');
 }
 
 /**
