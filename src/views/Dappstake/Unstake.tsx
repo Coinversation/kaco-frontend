@@ -8,9 +8,9 @@ import Balance from './components/StakeTableBalance';
 import StakeTableReceive from './components/StakeTableReceive';
 import DappstakePage from './components/DappstakePage';
 import { useDAppStackingContract } from 'hooks/useContract';
-import { GetPoolUpdate } from 'hooks/dAppStacking/getPoolUpdate';
-import useStakeWrap from 'hooks/dAppStacking/useStakeWrap';
-const Unstake = (props) => {
+import { GetPoolUpdate } from './hooks/getPoolUpdate';
+import useStakeWrap from './hooks/useStakeWrap';
+const Unstake = () => {
   const contract = useDAppStackingContract();
   const pool = GetPoolUpdate(contract);
   const {

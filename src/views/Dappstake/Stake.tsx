@@ -3,35 +3,34 @@ import { Button, Flex } from '@kaco/uikit';
 import BigNumber from 'bignumber.js';
 import useToast from 'hooks/useToast';
 import { StyledTokenInput, StyledInput, MaxButton } from './style/DappstakeStyle';
-import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import Balance from './components/StakeTableBalance';
 import StakeTableReceive from './components/StakeTableReceive';
 import DappstakePage from './components/DappstakePage';
 import PageLayout from 'components/Layout/Page';
 import { useDAppStackingContract } from 'hooks/useContract';
-import { GetPoolUpdate } from 'hooks/dAppStacking/getPoolUpdate';
-import { getReceiveNum } from 'hooks/dAppStacking/getReceiveNum';
+import { GetPoolUpdate } from './hooks/getPoolUpdate';
+import { getReceiveNum } from './hooks/getReceiveNum';
 import { escapeRegExp } from 'utils';
-import useStakeWrap from 'hooks/dAppStacking/useStakeWrap';
-import { UseStakeDApp } from 'hooks/dAppStacking/useStakeDApp';
-const Stake = (props) => {
-  console.log(props);
+import useStakeWrap from './hooks/useStakeWrap';
+import { UseStakeDApp } from './hooks/useStakeDApp';
+const Stake = () => {
   const {
     balance,
     isBalanceZero,
     decimals,
     fullBalance,
+    account,
   }: {
     balance: BigNumber;
     isBalanceZero: boolean;
     decimals: number;
     fullBalance: string;
     pid: number;
+    account: string;
   } = useStakeWrap();
   // 获取合约
   const contract = useDAppStackingContract();
   const pool = GetPoolUpdate(contract);
-  const { account } = useActiveWeb3React();
 
   const { toastSuccess, toastError } = useToast();
   const [val, setVal] = useState('');
@@ -77,7 +76,7 @@ const Stake = (props) => {
               setPendingTx(true);
               try {
                 await UseStakeDApp(contract, account, val);
-                toastSuccess('Staked!', 'Your funds have been staked in the farm');
+                toastSuccess('Staked!', 'Your funds have been staked in the App');
               } catch (e) {
                 toastError(
                   'Error',
@@ -91,7 +90,7 @@ const Stake = (props) => {
           >
             {pendingTx ? 'Confirming' : 'Confirm'}
           </Button>
-          <StakeTableReceive receiveText={`You will receive: ~${getReceiveNum(pool.ratio, val)} KSDN`} />
+          <StakeTableReceive receiveText={`You will receive: ~${getReceiveNum(pool.ratio, val, 'KSDN')} KSDN`} />
         </DappstakePage>
       </Flex>
     </PageLayout>

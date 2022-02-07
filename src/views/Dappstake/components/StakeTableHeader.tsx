@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Flex } from '@kaco/uikit';
-import { GetDAppApr } from 'hooks/dAppStacking/getApr';
+import { GetDAppApr } from '../hooks/getApr';
 import { IDappStakingInterface } from 'utils/types';
-import { IDappPoolDataInterface } from 'hooks/dAppStacking/getPoolUpdate';
+import { IDappPoolDataInterface } from '../hooks/getPoolUpdate';
 export const Header = styled(Flex)`
   justify-content: space-between;
   padding: 30px 30px 20px;

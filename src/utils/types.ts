@@ -146,7 +146,7 @@ export interface IDappStakingInterface extends Contract {
     // page
     startIndex: BigNumberish,
     // size
-    capacity: string,
+    capacity: BigNumberish,
   ): Promise<IWithdrawRecordItem[]>;
   // Allow a user to deposit underlying tokens and mint the corresponding number of wrapped tokens.
   depositFor(account: string, overrides?: CallOverrides): Promise<ContractTransaction>;
@@ -155,7 +155,9 @@ export interface IDappStakingInterface extends Contract {
   calcDailyApr(): Promise<[ethers.BigNumber]>;
 }
 export interface IWithdrawRecordItem {
-  era: ethers.BigNumber;
+  era: BigNumberish;
   address: string;
-  amount: ethers.BigNumber;
+  amount: BigNumberish;
+  status?: number;
+  unbonding?: number;
 }

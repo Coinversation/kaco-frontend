@@ -10,7 +10,7 @@ const dailyApr = async (contract: IDappStakingInterface, setApr: React.Dispatch<
       const __apr = (1 + dailyApr_Number / RATIO_PRECISION_Number) ^ (365 - 1);
       setApr(__apr);
     } catch (e) {
-      console.log('get dailyApr err', e);
+      // console.log('get dailyApr err', e);
       setApr(0);
     }
   }

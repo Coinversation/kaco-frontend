@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Button, Heading, Text } from '@kaco/uikit';
 import NoList from './NoList';
 import Countdown from './Countdown';
-const UnbindList = ({ list }) => {
+import { IWithdrawRecordItem } from 'utils/types';
+import useBlockNumber from 'state/application/hooks';
+interface Iprops {
+  withdraw: any;
+  list: IWithdrawRecordItem[];
+}
+const UnbindList: FC<Iprops> = ({ list, withdraw }) => {
+  const lastBlockNumber = useBlockNumber();
+  console.log(withdraw);
   return (
     <UnbindListStyled>
       <Heading padding="0px 10px">Unbinding Rules</Heading>
@@ -12,28 +20,35 @@ const UnbindList = ({ list }) => {
         time
       </Text>
       <UlStyled>
-        {list &&
-          list.length &&
-          list
-            .sort((a, b) => b.status - a.status)
-            .map((v, index) => {
-              return (
-                <li key={index}>
-                  <Text fontSize="12px" fontWeight="700">
-                    {v.amount || '-'}
-                  </Text>
-                  <StatusWrap>
-                    {v.status === 0 ? (
-                      <Text fontSize="12px" color="#9DA6A6" bold>
-                        Withdrawed
-                      </Text>
-                    ) : null}
-                    {v.status === 1 ? <ButtonStyled variant="secondary">Withdrawed</ButtonStyled> : null}
-                    {v.status === 2 ? <Countdown nextEventTime={v.time} /> : null}
-                  </StatusWrap>
-                </li>
-              );
-            })}
+        {list && list.length
+          ? list
+              .sort((a, b) => Number(b.era.toString()) - Number(a.era.toString()))
+              .map((v, index) => {
+                return (
+                  <li key={index}>
+                    <Text fontSize="12px" fontWeight="700">
+                      {v.amount || '-'}
+                    </Text>
+                    <StatusWrap>
+                      {v.status === 0 ? (
+                        <Text fontSize="12px" color="#9DA6A6" bold>
+                          Withdrawed
+                        </Text>
+                      ) : null}
+                      {v.status === 1 && v.unbonding <= lastBlockNumber ? (
+                        <ButtonStyled variant="secondary" onClick={withdraw}>
+                          Withdrawed
+                        </ButtonStyled>
+                      ) : null}
+                      {v.status === 1 && v.unbonding > lastBlockNumber ? (
+                        <Countdown nextEventTime={(v.unbonding - lastBlockNumber) * 12} />
+                      ) : null}
+                      {/* {v.status === 2 ? <Countdown nextEventTime={v.time} /> : null} */}
+                    </StatusWrap>
+                  </li>
+                );
+              })
+          : null}
       </UlStyled>
       {list.length === 0 ? <NoList /> : null}
     </UnbindListStyled>
@@ -74,9 +89,9 @@ const UnbindListStyled = styled.div`
   border: 2px solid #272e32;
   box-shadow: 2px 4px 7px 1px rgba(9, 2, 18, 0.3);
   margin-top: 12px;
-  width: 100%;
+  width: 600px;
   padding: 30px;
-  ${({ theme }) => theme.mediaQueries.md} {
+  @media screen and (min-width: 1200px) {
     margin-left: 12px;
     margin-top: 0;
     max-width: 320px;

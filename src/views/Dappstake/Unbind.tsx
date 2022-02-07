@@ -3,32 +3,37 @@ import { Button, Flex } from '@kaco/uikit';
 import BigNumber from 'bignumber.js';
 import useToast from 'hooks/useToast';
 import { StyledTokenInput, StyledInput, MaxButton } from './style/DappstakeStyle';
-import useUnstakeFarms from './hooks/useUnstakeFarms';
 import Balance from './components/StakeTableBalance';
 import StakeTableReceive from './components/StakeTableReceive';
 import DappstakePage from './components/DappstakePage';
 import PageLayout from 'components/Layout/Page';
 import UnbindList from './components/UnbindList';
 import { useDAppStackingContract } from 'hooks/useContract';
-import { GetPoolUpdate } from 'hooks/dAppStacking/getPoolUpdate';
-import useStakeWrap from 'hooks/dAppStacking/useStakeWrap';
+import { GetPoolUpdate, IDappPoolDataInterface } from './hooks/getPoolUpdate';
+import useStakeWrap from './hooks/useStakeWrap';
+import { getReceiveNum } from './hooks/getReceiveNum';
+import { UseUnbindDApp } from './hooks/useUnbindDApp';
+import { UseStakeDApp } from './hooks/useStakeDApp';
+import { GetUserList } from './hooks/getUserList';
+import { IWithdrawRecordItem } from 'utils/types';
 const Unbind = () => {
   const contract = useDAppStackingContract();
-  const pool = GetPoolUpdate(contract);
+  const pool: IDappPoolDataInterface = GetPoolUpdate(contract);
   const {
     balance,
     isBalanceZero,
     decimals,
     fullBalance,
-    pid,
+    account,
   }: {
     balance: BigNumber;
     isBalanceZero: boolean;
     decimals: number;
     fullBalance: string;
     pid: number;
+    account: string;
   } = useStakeWrap();
-  const { onUnstake } = useUnstakeFarms(pid);
+  const list: IWithdrawRecordItem[] = GetUserList(contract, pool.recordsIndex, account);
   const { toastSuccess, toastError } = useToast();
   const [val, setVal] = useState('');
   const [pendingTx, setPendingTx] = useState(false);
@@ -44,9 +49,6 @@ const Unbind = () => {
   const handleSelectMax = useCallback(() => {
     setVal(fullBalance);
   }, [fullBalance, setVal]);
-  const handleUnstake = async (amount: string) => {
-    await onUnstake(amount);
-  };
 
   return (
     <PageLayout style={{ paddingTop: '80px' }}>
@@ -73,7 +75,7 @@ const Unbind = () => {
             onClick={async () => {
               setPendingTx(true);
               try {
-                await handleUnstake(val);
+                await UseUnbindDApp(contract, account, val);
                 toastSuccess('Unstaked!', 'Your earnings have also been harvested to your wallet');
               } catch (e) {
                 toastError(
@@ -88,26 +90,14 @@ const Unbind = () => {
           >
             {pendingTx ? 'Confirming' : 'Confirm'}
           </Button>
-          <StakeTableReceive receiveText={`You will receive: ~0.00 SDN`} />
+          <StakeTableReceive receiveText={`You will receive: ~${getReceiveNum(pool.ratio, val, 'SDN')} SDN`} />
         </DappstakePage>
         <UnbindList
-          list={[
-            {
-              amount: 1222,
-              time: 99999,
-              status: 0, // 0: Withdrawed 1: Withdraw  2: count down
-            },
-            {
-              amount: 12,
-              time: 99999,
-              status: 1, // 0: Withdrawed 1: Withdraw  2: count down
-            },
-            {
-              amount: 1222.33,
-              time: 999, //1642241278349
-              status: 2, // 0: Withdrawed 1: Withdraw  2: count down
-            },
-          ]}
+          list={list}
+          withdraw={async () => {
+            await UseStakeDApp(contract, account);
+            toastSuccess('Staked!', 'Your funds have been staked in the App');
+          }}
         />
       </Flex>
     </PageLayout>

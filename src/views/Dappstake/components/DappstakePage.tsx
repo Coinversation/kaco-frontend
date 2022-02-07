@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DappstakeSubNav from './SubNav';
 import StakeTableHeader from './StakeTableHeader';
 import { IDappStakingInterface } from 'utils/types';
-import { IDappPoolDataInterface } from 'hooks/dAppStacking/getPoolUpdate';
+import { IDappPoolDataInterface } from '../hooks/getPoolUpdate';
 
 const StyledPageStyle = styled.div`
   display: flex;

@@ -6,14 +6,14 @@ export interface IDappPoolDataInterface {
   ratio: number;
   recordsIndex: number;
 }
-export const GetPoolUpdate = (contract: IDappStakingInterface) => {
+export const GetPoolUpdate = (contract: IDappStakingInterface): IDappPoolDataInterface => {
   // 当前处理到的数据   recordsIndex-500  最多
   const [recordsIndex, setRecordsIndex] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const [ratio, setRatio] = useState(1);
   useEffect(() => {
     if (contract) {
-      const getPool = async (contract: IDappStakingInterface, setApr: React.Dispatch<React.SetStateAction<number>>) => {
+      const getPool = async (contract: IDappStakingInterface) => {
         try {
           const __recordsIndex = await contract.recordsIndex();
           const __totalSupply = await contract.totalSupply();
@@ -31,12 +31,13 @@ export const GetPoolUpdate = (contract: IDappStakingInterface) => {
           console.log('get GetPoolUpdate err', e);
         }
       };
-      getPool(contract, setRatio);
+      getPool(contract);
     }
   }, [contract]);
   return {
     totalSupply,
     ratio,
-    recordsIndex,
+    //  dapptodo
+    recordsIndex: 1,
   };
 };
