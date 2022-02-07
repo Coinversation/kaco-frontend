@@ -6,8 +6,13 @@ import { StyledTokenInput, StyledInput, MaxButton } from './style/DappstakeStyle
 import useUnstakeFarms from './hooks/useUnstakeFarms';
 import Balance from './components/StakeTableBalance';
 import StakeTableReceive from './components/StakeTableReceive';
-import DappstakePage from './DappstakePage';
+import DappstakePage from './components/DappstakePage';
+import { useDAppStackingContract } from 'hooks/useContract';
+import { GetPoolUpdate } from 'hooks/dAppStacking/getPoolUpdate';
+import useStakeWrap from 'hooks/dAppStacking/useStakeWrap';
 const Unstake = (props) => {
+  const contract = useDAppStackingContract();
+  const pool = GetPoolUpdate(contract);
   const {
     balance,
     isBalanceZero,
@@ -20,7 +25,7 @@ const Unstake = (props) => {
     decimals: number;
     fullBalance: string;
     pid: number;
-  } = props;
+  } = useStakeWrap();
   const { onUnstake } = useUnstakeFarms(pid);
   const { toastSuccess, toastError } = useToast();
   const [val, setVal] = useState('');
@@ -42,7 +47,7 @@ const Unstake = (props) => {
   };
 
   return (
-    <DappstakePage>
+    <DappstakePage contract={contract} pool={pool}>
       <Balance balance={balance} decimals={decimals} symbol="KSDN" isBalanceZero={isBalanceZero} />
       <StyledTokenInput isWarning={isBalanceZero}>
         <StyledInput

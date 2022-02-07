@@ -2,6 +2,7 @@ import { ChainId } from 'config/constants/tokens';
 import addresses from 'config/constants/contracts';
 import tokens, { chainId } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';
+import { dAppStakingcontract } from 'config/constants/dAppStaking';
 
 export const getAddress = (address: Address): string => {
   return address[chainId] ? address[chainId] : address[ChainId.MAINNET];
@@ -66,4 +67,8 @@ export const getFarmAuctionAddress = () => {
 };
 export const getMerkleAddress = () => {
   return getAddress(addresses.merkle);
+};
+
+export const getDappStakingAddress = () => {
+  return getAddress(dAppStakingcontract);
 };

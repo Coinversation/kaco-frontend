@@ -30,6 +30,7 @@ const Home = lazy(() => import('./views/Home'));
 const Swap = lazy(() => import('./views/Swap'));
 const Farms = lazy(() => import('./views/Farms'));
 const Pools = lazy(() => import('./views/Pools'));
+
 const DappstakeStake = lazy(() => import('./views/Dappstake/Stake'));
 const DappstakeUnbind = lazy(() => import('./views/Dappstake/Unbind'));
 

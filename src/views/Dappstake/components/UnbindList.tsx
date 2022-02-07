@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button, Heading, Text } from '@kaco/uikit';
-import NoList from './components/NoList';
-import Countdown from './components/Countdown';
+import NoList from './NoList';
+import Countdown from './Countdown';
 const UnbindList = ({ list }) => {
   return (
     <UnbindListStyled>

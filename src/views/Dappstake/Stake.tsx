@@ -3,26 +3,36 @@ import { Button, Flex } from '@kaco/uikit';
 import BigNumber from 'bignumber.js';
 import useToast from 'hooks/useToast';
 import { StyledTokenInput, StyledInput, MaxButton } from './style/DappstakeStyle';
-import useStakeFarms from './hooks/useStakeFarms';
+import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import Balance from './components/StakeTableBalance';
 import StakeTableReceive from './components/StakeTableReceive';
-import DappstakePage from './DappstakePage';
+import DappstakePage from './components/DappstakePage';
 import PageLayout from 'components/Layout/Page';
+import { useDAppStackingContract } from 'hooks/useContract';
+import { GetPoolUpdate } from 'hooks/dAppStacking/getPoolUpdate';
+import { getReceiveNum } from 'hooks/dAppStacking/getReceiveNum';
+import { escapeRegExp } from 'utils';
+import useStakeWrap from 'hooks/dAppStacking/useStakeWrap';
+import { UseStakeDApp } from 'hooks/dAppStacking/useStakeDApp';
 const Stake = (props) => {
+  console.log(props);
   const {
     balance,
     isBalanceZero,
     decimals,
     fullBalance,
-    pid,
   }: {
     balance: BigNumber;
     isBalanceZero: boolean;
     decimals: number;
     fullBalance: string;
     pid: number;
-  } = props;
-  const { onStake } = useStakeFarms(pid);
+  } = useStakeWrap();
+  // 获取合约
+  const contract = useDAppStackingContract();
+  const pool = GetPoolUpdate(contract);
+  const { account } = useActiveWeb3React();
+
   const { toastSuccess, toastError } = useToast();
   const [val, setVal] = useState('');
   const [pendingTx, setPendingTx] = useState(false);
@@ -30,7 +40,10 @@ const Stake = (props) => {
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
       if (e.currentTarget.validity.valid) {
-        setVal(e.currentTarget.value.replace(/,/g, '.'));
+        const nextUserInput = e.currentTarget.value.replace(/,/g, '.');
+        if (nextUserInput === '' || RegExp(`^\\d*(?:\\\\[.])?\\d*$`).test(escapeRegExp(nextUserInput))) {
+          setVal(nextUserInput);
+        }
       }
     },
     [setVal],
@@ -38,14 +51,10 @@ const Stake = (props) => {
   const handleSelectMax = useCallback(() => {
     setVal(fullBalance);
   }, [fullBalance, setVal]);
-  const handleStake = async (amount: string) => {
-    await onStake(amount);
-  };
-
   return (
     <PageLayout style={{ paddingTop: '80px' }}>
       <Flex justifyContent="center" alignContent="center">
-        <DappstakePage>
+        <DappstakePage contract={contract} pool={pool}>
           <Balance balance={balance} decimals={decimals} symbol="SDN" isBalanceZero={isBalanceZero} />
           <StyledTokenInput isWarning={isBalanceZero}>
             <StyledInput
@@ -67,7 +76,7 @@ const Stake = (props) => {
             onClick={async () => {
               setPendingTx(true);
               try {
-                await handleStake(val);
+                await UseStakeDApp(contract, account, val);
                 toastSuccess('Staked!', 'Your funds have been staked in the farm');
               } catch (e) {
                 toastError(
@@ -82,7 +91,7 @@ const Stake = (props) => {
           >
             {pendingTx ? 'Confirming' : 'Confirm'}
           </Button>
-          <StakeTableReceive receiveText={`You will receive: ~0.00 KSDN`} />
+          <StakeTableReceive receiveText={`You will receive: ~${getReceiveNum(pool.ratio, val)} KSDN`} />
         </DappstakePage>
       </Flex>
     </PageLayout>

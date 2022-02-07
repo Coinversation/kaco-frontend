@@ -1,12 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
-import DappstakeSubNav from './components/SubNav';
-import { getFullDisplayBalance } from 'utils/formatBalance';
-import StakeTableHeader from './components/StakeTableHeader';
-import { useGetBnbBalance } from 'hooks/useTokenBalance';
-import { SDN } from 'config/constants/tokens';
-const decimals = SDN.decimals;
-const pid = 0;
+import DappstakeSubNav from './SubNav';
+import StakeTableHeader from './StakeTableHeader';
+import { IDappStakingInterface } from 'utils/types';
+import { IDappPoolDataInterface } from 'hooks/dAppStacking/getPoolUpdate';
+
 const StyledPageStyle = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,28 +42,18 @@ const TableContent = styled.div`
   padding: 20px 30px 30px;
 `;
 // slippageAdjustedAmounts
-const DappstakePage: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
-  const { balance } = useGetBnbBalance();
-  const max = balance.toString();
-  const isBalanceZero = max === '0' || !max;
-  const fullBalance = useMemo(() => {
-    return getFullDisplayBalance(balance);
-  }, [balance]);
+interface Iprops {
+  children: React.HTMLAttributes<HTMLDivElement>;
+  contract: IDappStakingInterface;
+  pool: IDappPoolDataInterface;
+}
+const DappstakePage: FC<Iprops> = ({ children, contract, pool, ...props }) => {
   return (
     <StakePageLayout>
-      <StakeTableHeader />
+      <StakeTableHeader contract={contract} pool={pool} />
       <TableContent>
         <DappstakeSubNav />
-        <StyledPage
-          balance={balance}
-          decimals={decimals}
-          max={max}
-          isBalanceZero={isBalanceZero}
-          fullBalance={fullBalance}
-          pid={pid}
-        >
-          {children}
-        </StyledPage>
+        <StyledPage>{children}</StyledPage>
       </TableContent>
     </StakePageLayout>
   );

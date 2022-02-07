@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Flex } from '@kaco/uikit';
+import { GetDAppApr } from 'hooks/dAppStacking/getApr';
+import { IDappStakingInterface } from 'utils/types';
+import { IDappPoolDataInterface } from 'hooks/dAppStacking/getPoolUpdate';
 export const Header = styled(Flex)`
   justify-content: space-between;
   padding: 30px 30px 20px;
@@ -16,19 +19,24 @@ export const HeaderTitleH6 = styled.h6`
   color: #1f373b;
   font-size: 12px;
 `;
-const StakeTableHeader = () => {
+interface Iprops {
+  contract: IDappStakingInterface;
+  pool: IDappPoolDataInterface;
+}
+const StakeTableHeader: FC<Iprops> = ({ contract, pool }) => {
+  const _apr = GetDAppApr(contract);
   return (
     <Header>
       <HeaderLi>
-        <HeaderTitleH3>15%</HeaderTitleH3>
+        <HeaderTitleH3>{_apr}%</HeaderTitleH3>
         <HeaderTitleH6>APR</HeaderTitleH6>
       </HeaderLi>
       <HeaderLi>
-        <HeaderTitleH3>9990129 SDN</HeaderTitleH3>
+        <HeaderTitleH3>{pool.totalSupply} SDN</HeaderTitleH3>
         <HeaderTitleH6>Total Supply</HeaderTitleH6>
       </HeaderLi>
       <HeaderLi>
-        <HeaderTitleH3>1KSDN=1.0333SDN</HeaderTitleH3>
+        <HeaderTitleH3>1KSDN={pool.ratio}SDN</HeaderTitleH3>
         <HeaderTitleH6>Net value</HeaderTitleH6>
       </HeaderLi>
     </Header>

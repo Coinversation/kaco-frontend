@@ -120,3 +120,42 @@ export interface IMerkleDistributorInterface extends Contract {
 
   token(overrides?: CallOverrides): Promise<[string]>;
 }
+
+export interface IDappStakingInterface extends Contract {
+  // 100000000  precision: 0.00000001
+  RATIO_PRECISION(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  // 10000
+  FEE_PRECISION(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  // unit: 0.0001
+  fee(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  feeTo(overrides?: CallOverrides): Promise<[string]>;
+  // unbondingPeriod 区块的数量  7200 | 14000   倒计快
+  unbondingPeriod(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  lastClaimedEra(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  // ratio 量
+  ratio(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  recordsIndex(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+  toWithdrawSDN(overrides?: CallOverrides): Promise<[ethers.BigNumber]>;
+
+  records(overrides?: CallOverrides): Promise<[IWithdrawRecordItem[]]>;
+
+  // event   uint _recordsIndex, uint _ksdn, uint _ratio
+  PoolUpdate(overrides?: CallOverrides): Promise<[ethers.BigNumber, ethers.BigNumber, ethers.BigNumber]>;
+
+  getWithdrawRecords(
+    // page
+    startIndex: BigNumberish,
+    // size
+    capacity: string,
+  ): Promise<IWithdrawRecordItem[]>;
+  // Allow a user to deposit underlying tokens and mint the corresponding number of wrapped tokens.
+  depositFor(account: string, overrides?: CallOverrides): Promise<ContractTransaction>;
+  // Allow a user to burn a number of wrapped tokens and withdraw the corresponding number of underlying tokens.
+  withdrawTo(account: string, ksdnAmount: BigNumberish): Promise<ContractTransaction>;
+  calcDailyApr(): Promise<[ethers.BigNumber]>;
+}
+export interface IWithdrawRecordItem {
+  era: ethers.BigNumber;
+  address: string;
+  amount: ethers.BigNumber;
+}
