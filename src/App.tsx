@@ -14,8 +14,6 @@ import PageLoader from './components/Loader/PageLoader';
 import EasterEgg from './components/EasterEgg';
 import history from './routerHistory';
 // Views included in the main bundle
-import Pools from './views/Pools';
-import Swap from './views/Swap';
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
@@ -29,7 +27,12 @@ import SideMenu from './components/SideMenu';
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import('./views/Home'));
+const Swap = lazy(() => import('./views/Swap'));
 const Farms = lazy(() => import('./views/Farms'));
+const Pools = lazy(() => import('./views/Pools'));
+const DappstakeStake = lazy(() => import('./views/Dappstake/Stake'));
+const DappstakeUnbind = lazy(() => import('./views/Dappstake/Unbind'));
+
 // const FarmAuction = lazy(() => import('./views/FarmAuction'));
 // const Lottery = lazy(() => import('./views/Lottery'));
 // const Ifos = lazy(() => import('./views/Ifos'));
@@ -86,6 +89,18 @@ const App: React.FC = () => {
             </Route>
             <Route path="/pools">
               <Pools />
+            </Route>
+            <Route path="/dappstake/stake">
+              <DappstakeStake />
+            </Route>
+            {/* <Route path="/dappstake/unstake">
+                <DappstakeUnstake />
+              </Route> */}
+            <Route path="/dappstake/unbind">
+              <DappstakeUnbind />
+            </Route>
+            <Route path="/dappstake">
+              <Redirect to="/dappstake/stake" />
             </Route>
             {/* <Route path="/lottery">
               <Lottery />

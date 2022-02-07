@@ -22,6 +22,7 @@ import HomeSvg from '../svg/Home';
 import PoolsSvg from '../svg/PoolsSvg';
 // import InfoSvg from '../svg/InfoSvg';
 import LogoSvg from './imgs/icon_logo.svg';
+import DappstakeSvg from '../svg/Dappstake';
 import Header from './Header';
 import { useEffect } from 'react';
 import { Flex, Text, useMatchBreakpoints } from '@kaco/uikit';
@@ -287,6 +288,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       text: 'Pools',
       img: PoolsSvg,
       link: '/pools',
+    },
+    {
+      text: 'dApp Staking',
+      img: DappstakeSvg,
+      link: '/dappstake',
     },
     // {
     //   text: 'NFT',

@@ -226,6 +226,7 @@ const tokens = {
 };
 
 export const WBNB = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSDN', 'Wrapped SDN');
+export const SDN = new Token(chainId, tokens.wbnb.address[chainId], 18, 'WSDN', 'Wrapped SDN');
 
 export const Kaco: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(

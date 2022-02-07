@@ -472,8 +472,21 @@ export interface PriceState {
   priceVsBusdMap: Record<string, string>;
   total: Number;
 }
-
+export interface DAppstaking {
+  apr: string;
+  totalSupply: string;
+  netValue: BigNumber;
+  withdrawRecord: WithdrawRecord[] | [];
+  loadArchivedFarmsData: boolean;
+  userDataLoaded: boolean;
+}
+export interface WithdrawRecord {
+  blockNum: number;
+  address: string;
+  amount: number;
+}
 export interface State {
+  dAppstaking: DAppstaking;
   price: PriceState;
   achievements: AchievementState;
   block: BlockState;
