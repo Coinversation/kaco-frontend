@@ -31,8 +31,8 @@ import { getMulticallAddress } from 'utils/addressHelpers';
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts';
-import { ChainId } from 'config/constants/tokens';
-import { WETH } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
+import { WETH } from '@kaco/sdkv2';
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json';
 import ENS_PUBLIC_RESOLVER_ABI from '../config/abi/ens-public-resolver.json';
 import ENS_ABI from '../config/abi/ens-registrar.json';
@@ -217,8 +217,8 @@ export function useENSRegistrarContract(withSignerIfPossible?: boolean): Contrac
   if (chainId) {
     // eslint-disable-next-line default-case
     switch (chainId) {
-      case ChainId.MAINNET:
-      case ChainId.TESTNET:
+      case ChainId.BSC_MAINNET:
+      case ChainId.BSC_TESTNET:
         address = '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e';
         break;
     }

@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
-import { ChainId } from 'config/constants/tokens';
-import { Currency, Token } from '@kaco/sdk';
+import { Currency, Token, ChainId } from '@kaco/sdkv2';
 import styled from 'styled-components';
 import { Button, Text, ErrorIcon, Flex, Box, Link, Modal, InjectedModalProps, MetamaskIcon } from '@kaco/uikitv2';
 import { registerToken } from 'utils/wallet';

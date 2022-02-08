@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
 import { TransactionResponse } from '@ethersproject/providers';
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@kaco/sdkv2';
 import { Button, Text, Flex, CardBody, useModal, useMatchBreakpoints } from '@kaco/uikitv2';
 import { RouteComponentProps } from 'react-router-dom';
 import { useIsTransactionUnsupported } from 'hooks/Trades';
@@ -138,10 +138,11 @@ export default function AddLiquidity({
     let method: (...args: any) => Promise<TransactionResponse>;
     let args: Array<string | string[] | number>;
     let value: BigNumber | null;
-    if (currencyA === ETHER || currencyB === ETHER) {
-      const tokenBIsETH = currencyB === ETHER;
+    if (currencyA === ETHER[chainId] || currencyB === ETHER[chainId]) {
+      const tokenBIsETH = currencyB === ETHER[chainId];
       estimate = router.estimateGas.addLiquidityETH;
       method = router.addLiquidityETH;
+
       args = [
         wrappedCurrency(tokenBIsETH ? currencyA : currencyB, chainId)?.address ?? '', // token
         (tokenBIsETH ? parsedAmountA : parsedAmountB).raw.toString(), // token desired

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { ButtonMenu, ButtonMenuItem, ModalBody } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { TokenList } from '@uniswap/token-lists';

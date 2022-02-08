@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, ETHER, JSBI, Pair, Percent, Price, TokenAmount } from '@kaco/sdk';
+import { Currency, CurrencyAmount, ETHER, JSBI, Pair, Percent, Price, TokenAmount } from '@kaco/sdkv2';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
@@ -108,9 +108,11 @@ export function useDerivedMintInfo(
         const dependentCurrency = dependentField === Field.CURRENCY_B ? currencyB : currencyA;
         const dependentTokenAmount =
           dependentField === Field.CURRENCY_B
-            ? pair.priceOf(tokenA).quote(wrappedIndependentAmount)
-            : pair.priceOf(tokenB).quote(wrappedIndependentAmount);
-        return dependentCurrency === ETHER ? CurrencyAmount.ether(dependentTokenAmount.raw) : dependentTokenAmount;
+            ? pair.priceOf(tokenA).quote(wrappedIndependentAmount, chainId)
+            : pair.priceOf(tokenB).quote(wrappedIndependentAmount, chainId);
+        return dependentCurrency === ETHER[chainId]
+          ? CurrencyAmount.ether(dependentTokenAmount.raw, chainId)
+          : dependentTokenAmount;
       }
       return undefined;
     }

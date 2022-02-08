@@ -1,5 +1,5 @@
 import React, { Fragment, memo } from 'react';
-import { Trade } from '@kaco/sdk';
+import { Trade } from '@kaco/sdkv2';
 import { Text, Flex, ChevronRightIcon } from '@kaco/uikitv2';
 import { unwrappedToken } from 'utils/wrappedCurrency';
 

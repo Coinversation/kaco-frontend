@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { Contract } from '@ethersproject/contracts';
-import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@kaco/sdk';
+import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BIPS_BASE, INITIAL_ALLOWED_SLIPPAGE } from '../config/constants';
@@ -61,22 +61,30 @@ function useSwapCallArguments(
     const swapMethods = [];
 
     swapMethods.push(
-      Router.swapCallParameters(trade, {
-        feeOnTransfer: false,
-        allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
-        recipient,
-        deadline: deadline.toNumber(),
-      }),
+      Router.swapCallParameters(
+        trade,
+        {
+          feeOnTransfer: false,
+          allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
+          recipient,
+          deadline: deadline.toNumber(),
+        },
+        chainId,
+      ),
     );
 
     if (trade.tradeType === TradeType.EXACT_INPUT) {
       swapMethods.push(
-        Router.swapCallParameters(trade, {
-          feeOnTransfer: true,
-          allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
-          recipient,
-          deadline: deadline.toNumber(),
-        }),
+        Router.swapCallParameters(
+          trade,
+          {
+            feeOnTransfer: true,
+            allowedSlippage: new Percent(JSBI.BigInt(allowedSlippage), BIPS_BASE),
+            recipient,
+            deadline: deadline.toNumber(),
+          },
+          chainId,
+        ),
       );
     }
 

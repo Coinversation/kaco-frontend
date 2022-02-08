@@ -1,18 +1,17 @@
-import tokens from '../config/constants/tokens';
+import { main_tokens } from '../config/constants/tokens';
 import BigNumber from 'bignumber.js';
-
 import { useMemo } from 'react';
 import useActiveWeb3React from './useActiveWeb3React';
 import { usePrice } from 'state/price/hooks';
 
 export const useKacoPrice = () => {
-  const { chainId } = useActiveWeb3React();
-  const address = tokens.kaco.address[chainId].toLowerCase();
   const { priceVsBusdMap } = usePrice();
+  const { chainId } = useActiveWeb3React();
+
   const kacoPrice = useMemo(
-    () => new BigNumber(priceVsBusdMap[address]) || new BigNumber(0),
-    [priceVsBusdMap, address],
+    () => priceVsBusdMap[main_tokens.kaco.address[chainId].toLowerCase()] || new BigNumber(0),
+    [priceVsBusdMap, chainId],
   );
 
-  return kacoPrice;
+  return new BigNumber(kacoPrice);
 };

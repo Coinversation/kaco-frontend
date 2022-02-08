@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Trade, TradeType } from '@kaco/sdk';
+import { Trade, TradeType } from '@kaco/sdkv2';
 import { Button, Text, ErrorIcon } from '@kaco/uikitv2';
 import { Field } from 'state/swap/actions';
 import { isAddress, shortenAddress } from 'utils';

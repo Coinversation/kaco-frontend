@@ -3,7 +3,7 @@ import { Route, useRouteMatch, useLocation } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import { RowType, Flex } from '@kaco/uikitv2';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdkv2';
 import FlexLayout from 'components/Layout/Flex';
 import Page from 'components/Layout/Page';
 import { useFarms, usePollFarmsData, usePriceCakeBusd } from 'state/farms/hooks';
@@ -120,7 +120,7 @@ const Farms: React.FC = () => {
               new BigNumber(farm.poolWeight),
               cakePrice,
               totalLiquidity,
-              farm.lpAddresses[ChainId.MAINNET],
+              farm.lpAddresses[ChainId.BSC_MAINNET],
             )
           : { kacRewardsApr: 0, lpRewardsApr: 0, kacRewardApy: 0 };
 

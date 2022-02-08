@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { Pair } from '@kaco/sdk';
+import { Pair } from '@kaco/sdkv2';
 import { Text, Flex, CardBody, CardFooter, Button } from '@kaco/uikitv2';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'contexts/Localization';

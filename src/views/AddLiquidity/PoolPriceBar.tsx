@@ -1,4 +1,4 @@
-import { Currency, Percent, Price } from '@kaco/sdk';
+import { Currency, Percent, Price } from '@kaco/sdkv2';
 import React from 'react';
 import { Text } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';

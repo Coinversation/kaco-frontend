@@ -1,9 +1,8 @@
 import React from 'react';
-import { Currency, currencyEquals, ETHER, Token } from '@kaco/sdk';
+import { Currency, currencyEquals, ETHER, Token, ChainId } from '@kaco/sdkv2';
 import { Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';
-import { ChainId } from 'config/constants/tokens';
 import { SUGGESTED_BASES } from '../../config/constants';
 import { AutoColumn } from '../Layout/Column';
 import QuestionHelper from '../QuestionHelper';
@@ -45,13 +44,13 @@ export default function CommonBases({
       <AutoRow gap="auto">
         <BaseWrapper
           onClick={() => {
-            if (!selectedCurrency || !currencyEquals(selectedCurrency, ETHER)) {
-              onSelect(ETHER);
+            if (!selectedCurrency || !currencyEquals(selectedCurrency, ETHER[chainId])) {
+              onSelect(ETHER[chainId]);
             }
           }}
-          disable={selectedCurrency === ETHER}
+          disable={selectedCurrency === ETHER[chainId]}
         >
-          <CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} />
+          <CurrencyLogo currency={ETHER[chainId]} style={{ marginRight: 8 }} />
           <Text>BNB</Text>
         </BaseWrapper>
         {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {

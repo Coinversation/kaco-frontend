@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdkv2';
 import { useFarms, usePriceCakeBusd } from 'state/farms/hooks';
 import { useAppDispatch } from 'state';
 import { fetchFarmsPublicDataAsync, nonArchivedFarms } from 'state/farms';
@@ -57,7 +57,7 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
           new BigNumber(farm.poolWeight),
           cakePriceBusd,
           totalLiquidity,
-          farm.lpAddresses[ChainId.MAINNET],
+          farm.lpAddresses[ChainId.BSC_MAINNET],
         );
         return { ...farm, apr: cakeRewardsApr, lpRewardsApr };
       });

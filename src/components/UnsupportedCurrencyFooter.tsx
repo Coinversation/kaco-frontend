@@ -1,5 +1,5 @@
 import React from 'react';
-import { Currency, Token } from '@kaco/sdk';
+import { Currency, Token } from '@kaco/sdkv2';
 import { Button, Text, Modal, useModal, InjectedModalProps, Link } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { AutoRow } from 'components/Layout/Row';

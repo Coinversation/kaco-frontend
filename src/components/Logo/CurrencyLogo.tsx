@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
 import { BinanceIcon } from '@kaco/uikitv2';
 import { BASE_URL } from 'config';
 import React, { useMemo } from 'react';
@@ -7,6 +7,7 @@ import useHttpLocations from '../../hooks/useHttpLocations';
 import { WrappedTokenInfo } from '../../state/lists/hooks';
 import getTokenLogoURL from '../../utils/getTokenLogoURL';
 import Logo from './Logo';
+import { chainId } from 'config/constants/tokens';
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
@@ -27,7 +28,7 @@ export default function CurrencyLogo({
   );
 
   const srcs: string[] = useMemo(() => {
-    if (currency === ETHER) return [];
+    if (currency === ETHER[chainId]) return [];
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
@@ -38,7 +39,7 @@ export default function CurrencyLogo({
     return [];
   }, [currency, uriLocations]);
 
-  if (currency === ETHER) {
+  if (currency === ETHER[chainId]) {
     return <BinanceIcon width={size} style={style} />;
   }
 

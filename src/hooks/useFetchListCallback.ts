@@ -1,5 +1,5 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdkv2';
 import { TokenList } from '@uniswap/token-lists';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
@@ -17,7 +17,7 @@ function useFetchListCallback(): (listUrl: string, sendDispatch?: boolean) => Pr
 
   const ensResolver = useCallback(
     (ensName: string) => {
-      if (chainId !== ChainId.MAINNET) {
+      if (chainId !== ChainId.BSC_MAINNET) {
         throw new Error('Could not construct mainnet ENS resolver');
       }
       return resolveENSContentHash(ensName, library);

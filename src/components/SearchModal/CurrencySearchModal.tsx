@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Currency, Token } from '@kaco/sdk';
+import { Currency, Token } from '@kaco/sdkv2';
 import {
   ModalContainer,
   ModalHeader,

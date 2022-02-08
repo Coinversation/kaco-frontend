@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { CurrencyAmount, JSBI, Token, Trade } from '@kaco/sdk';
+import { CurrencyAmount, JSBI, Token, Trade } from '@kaco/sdkv2';
 import { Button, Text, Box, useModal } from '@kaco/uikitv2';
 import { useIsTransactionUnsupported } from 'hooks/Trades';
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter';

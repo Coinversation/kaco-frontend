@@ -1,4 +1,4 @@
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { SerializedToken } from '../actions';
 
 export function serializeToken(token: Token): SerializedToken {

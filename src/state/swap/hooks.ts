@@ -1,5 +1,5 @@
 import { parseUnits } from '@ethersproject/units';
-import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount, Trade } from '@kaco/sdk';
+import { Currency, CurrencyAmount, ETHER, JSBI, Token, TokenAmount, Trade } from '@kaco/sdkv2';
 import { ParsedQs } from 'qs';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +16,7 @@ import { useCurrencyBalances } from '../wallet/hooks';
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions';
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
-import { DOT } from '../../config/constants/tokens';
+import { chainId, DOT } from '../../config/constants/tokens';
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap);
@@ -34,7 +34,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === ETHER ? 'BNB' : '',
+          currencyId: currency instanceof Token ? currency.address : currency === ETHER[chainId] ? 'BNB' : '',
         }),
       );
     },
@@ -77,7 +77,7 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
     if (typedValueParsed !== '0') {
       return currency instanceof Token
         ? new TokenAmount(currency, JSBI.BigInt(typedValueParsed))
-        : CurrencyAmount.ether(JSBI.BigInt(typedValueParsed));
+        : CurrencyAmount.ether(JSBI.BigInt(typedValueParsed), chainId);
     }
   } catch (error) {
     // should fail if the user specifies too many decimal places of precision (or maybe exceed max uint?)

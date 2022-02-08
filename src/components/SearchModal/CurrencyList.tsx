@@ -1,5 +1,5 @@
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react';
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@kaco/sdk';
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@kaco/sdkv2';
 import { Text } from '@kaco/uikitv2';
 import styled from 'styled-components';
 import { FixedSizeList } from 'react-window';
@@ -18,9 +18,10 @@ import CircleLoader from '../Loader/CircleLoader';
 import { isTokenOnList } from '../../utils';
 import ImportRow from './ImportRow';
 import ErrorSvg from './imgs/error.svg';
+import { chainId } from 'config/constants/tokens';
 
 function currencyKey(currency: Currency): string {
-  return currency instanceof Token ? currency.address : currency === ETHER ? 'ETHER' : '';
+  return currency instanceof Token ? currency.address : currency === ETHER[chainId] ? 'ETHER' : '';
 }
 
 const StyledBalanceText = styled(Text)`
@@ -135,14 +136,12 @@ export default function CurrencyList({
   breakIndex: number | undefined;
 }) {
   const itemData: (Currency | undefined)[] = useMemo(() => {
-    let formatted: (Currency | undefined)[] = showETH ? [Currency.ETHER, ...currencies] : currencies;
+    let formatted: (Currency | undefined)[] = showETH ? [...[Currency.ETHER[chainId], ...currencies]] : currencies;
     if (breakIndex !== undefined) {
       formatted = [...formatted.slice(0, breakIndex), undefined, ...formatted.slice(breakIndex, formatted.length)];
     }
     return formatted;
   }, [breakIndex, currencies, showETH]);
-
-  const { chainId } = useActiveWeb3React();
 
   const { t } = useTranslation();
 
@@ -197,17 +196,7 @@ export default function CurrencyList({
         />
       );
     },
-    [
-      chainId,
-      inactiveTokens,
-      onCurrencySelect,
-      otherCurrency,
-      selectedCurrency,
-      setImportToken,
-      showImportView,
-      breakIndex,
-      t,
-    ],
+    [inactiveTokens, onCurrencySelect, otherCurrency, selectedCurrency, setImportToken, showImportView, breakIndex, t],
   );
 
   const itemKey = useCallback((index: number, data: any) => currencyKey(data[index]), []);

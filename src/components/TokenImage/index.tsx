@@ -5,7 +5,6 @@ import {
   TokenImage as UIKitTokenImage,
   ImageProps,
 } from '@kaco/uikitv2';
-import tokens from 'config/constants/tokens';
 import { Token } from 'config/constants/types';
 import { getAddress } from 'utils/addressHelpers';
 
@@ -15,7 +14,7 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 }
 
 const getImageUrlFromToken = (token: Token) => {
-  const address = getAddress(token.symbol === 'BNB' ? tokens.wbnb.address : token.address);
+  const address = getAddress(token.address);
   return `/images/tokens/${address}.svg`;
 };
 

@@ -35,7 +35,7 @@
     "@polkadot/types": "6.0.5",
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@kaco/sdk": "^2.5.4",
+    "@kaco/sdkv2": "0.0.1",
     "@kaco/uikitv2": "0.0.3",
     "@reduxjs/toolkit": "^1.5.0",
     "@types/multicodec": "^1.0.0",

@@ -1,6 +1,6 @@
 import { MaxUint256 } from '@ethersproject/constants';
 import { TransactionResponse } from '@ethersproject/providers';
-import { Trade, TokenAmount, CurrencyAmount, ETHER } from '@kaco/sdk';
+import { Trade, TokenAmount, CurrencyAmount, ETHER } from '@kaco/sdkv2';
 import { useCallback, useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { ROUTER_ADDRESS } from '../config/constants';
@@ -10,6 +10,7 @@ import { useTransactionAdder, useHasPendingApproval } from '../state/transaction
 import { computeSlippageAdjustedAmounts } from '../utils/prices';
 import { calculateGasMargin } from '../utils';
 import { useTokenContract } from './useContract';
+import { chainId } from 'config/constants/tokens';
 
 export enum ApprovalState {
   UNKNOWN,
@@ -31,7 +32,7 @@ export function useApproveCallback(
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
     if (!amountToApprove || !spender) return ApprovalState.UNKNOWN;
-    if (amountToApprove.currency === ETHER) return ApprovalState.APPROVED;
+    if (amountToApprove.currency === ETHER[chainId]) return ApprovalState.APPROVED;
     // we might not have enough data to know whether or not we need to approve
     if (!currentAllowance) return ApprovalState.UNKNOWN;
 

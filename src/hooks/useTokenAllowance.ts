@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@kaco/sdk';
+import { Token, TokenAmount } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 
 import { useTokenContract } from './useContract';

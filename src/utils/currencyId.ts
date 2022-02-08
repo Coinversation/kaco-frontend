@@ -1,7 +1,8 @@
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
+import { chainId } from 'config/constants/tokens';
 
 export function currencyId(currency: Currency): string {
-  if (currency === ETHER) return 'BNB';
+  if (currency === ETHER[chainId]) return 'BNB';
   if (currency instanceof Token) return currency.address;
   throw new Error('invalid currency');
 }

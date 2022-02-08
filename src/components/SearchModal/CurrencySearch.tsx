@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
 import { Text, Input, Box } from '@kaco/uikitv2';
 import { useTranslation } from 'contexts/Localization';
 import { FixedSizeList } from 'react-window';
@@ -17,6 +17,8 @@ import useTokenComparator from './sorting';
 
 import ImportRow from './ImportRow';
 import styled from 'styled-components';
+import { chainId } from 'config/constants/tokens';
+
 const Wrapper = styled.div`
   #token-search-input {
     background: #1f252a;
@@ -112,7 +114,7 @@ function CurrencySearch({
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim();
         if (s === 'bnb') {
-          handleCurrencySelect(ETHER);
+          handleCurrencySelect(ETHER[chainId]);
         } else if (filteredSortedTokens.length > 0) {
           if (
             filteredSortedTokens[0].symbol?.toLowerCase() === debouncedQuery.trim().toLowerCase() ||

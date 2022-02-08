@@ -1,4 +1,4 @@
-import { Pair, Token } from '@kaco/sdk';
+import { Pair, Token } from '@kaco/sdkv2';
 import flatMap from 'lodash/flatMap';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,6 +22,7 @@ import {
   updateUserSlippageTolerance,
 } from '../actions';
 import { deserializeToken, serializeToken } from './helpers';
+import { chainId } from 'config/constants/tokens';
 
 export function useAudioModeManager(): [boolean, () => void] {
   const dispatch = useDispatch<AppDispatch>();
@@ -177,7 +178,7 @@ export function usePairAdder(): (pair: Pair) => void {
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'Kaco-LP', 'Kaco LPs');
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB, chainId), 18, 'Kaco-LP', 'Kaco LPs');
 }
 
 /**

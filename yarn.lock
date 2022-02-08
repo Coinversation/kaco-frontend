@@ -2481,8 +2481,10 @@
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
   integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
 
-"@kaco/sdk@../kaco-toolkit/packages/kaco-swap-sdk-bsc":
-  version "2.5.4"
+"@kaco/sdkv2@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@kaco/sdkv2/-/sdkv2-0.0.1.tgz#176551a0fa8726d79c9b0999bfa14a7bce495ac5"
+  integrity sha512-y+b7kgsycmuzmsxySaw4yRUAc3rmHsU6desUv/nLidf6UIsLuypfrsIYC59agJ9rAjL27/SHolTLFS29LQ3ywA==
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"
     big.js "^5.2.2"
@@ -2492,8 +2494,10 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@kaco/uikitv2@../kaco-toolkit/packages/kaco-uikit":
-  version "0.0.1"
+"@kaco/uikitv2@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@kaco/uikitv2/-/uikitv2-0.0.3.tgz#e16ce0591cdd7f6694e987ca633e0d66c992faf4"
+  integrity sha512-MRAaksSsSJ/Z3z2akfca2zSjRdBFaEg3hn9L84SlIO14rQWsAaQx3OJ6c1E4Ai8E3VRsuuvj9W5ATs7EavVgxg==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"

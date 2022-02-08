@@ -1,7 +1,8 @@
-import tokens from 'config/constants/tokens';
+import { chainKey } from 'config';
+import tokens, { chainId } from 'config/constants/tokens';
 import { Address } from './types';
 
-const { bondly, safemoon } = tokens;
+// const { bondly, safemoon } = tokens[chainKey];
 
 interface WarningToken {
   symbol: string;
@@ -13,8 +14,8 @@ interface WarningTokenList {
 }
 
 const SwapWarningTokens: WarningTokenList = {
-  safemoon,
-  bondly,
+  // safemoon,
+  // bondly,
 };
 
 export default SwapWarningTokens;

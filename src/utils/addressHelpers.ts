@@ -1,14 +1,15 @@
-import { ChainId } from 'config/constants/tokens';
+import { ChainId } from '@kaco/sdkv2';
+import { chainKey } from 'config';
 import addresses from 'config/constants/contracts';
-import tokens, { chainId } from 'config/constants/tokens';
+import tokens, { chainId, DEFAULT_Token } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';
 
 export const getAddress = (address: Address): string => {
-  return address[chainId] ? address[chainId] : address[ChainId.MAINNET];
+  return address[chainId] ? address[chainId] : address[ChainId.BSC_MAINNET];
 };
 
 export const getCakeAddress = () => {
-  return getAddress(tokens.kaco.address);
+  return getAddress(tokens[chainKey].kaco.address);
 };
 export const getMasterChefAddress = () => {
   return getAddress(addresses.masterChef);
@@ -17,7 +18,7 @@ export const getMulticallAddress = () => {
   return getAddress(addresses.multiCall);
 };
 export const getWbnbAddress = () => {
-  return getAddress(tokens.wbnb.address);
+  return getAddress(DEFAULT_Token[chainId].address);
 };
 export const getLotteryV2Address = () => {
   return getAddress(addresses.lotteryV2);

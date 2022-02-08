@@ -1,4 +1,4 @@
-import { Currency, currencyEquals, ETHER, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, ETHER, WETH } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { tryParseAmount } from '../state/swap/hooks';
@@ -36,7 +36,7 @@ export default function useWrapCallback(
 
     const sufficientBalance = inputAmount && balance && !balance.lessThan(inputAmount);
 
-    if (inputCurrency === ETHER && currencyEquals(WETH[chainId], outputCurrency)) {
+    if (inputCurrency === ETHER[chainId] && currencyEquals(WETH[chainId], outputCurrency)) {
       return {
         wrapType: WrapType.WRAP,
         execute:
@@ -53,7 +53,7 @@ export default function useWrapCallback(
         inputError: sufficientBalance ? undefined : 'Insufficient BNB balance',
       };
     }
-    if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER) {
+    if (currencyEquals(WETH[chainId], inputCurrency) && outputCurrency === ETHER[chainId]) {
       return {
         wrapType: WrapType.UNWRAP,
         execute:
