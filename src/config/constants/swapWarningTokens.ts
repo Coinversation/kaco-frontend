@@ -1,5 +1,3 @@
-import { chainKey } from 'config';
-import tokens, { chainId } from 'config/constants/tokens';
 import { Address } from './types';
 
 // const { bondly, safemoon } = tokens[chainKey];

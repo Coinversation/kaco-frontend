@@ -11,7 +11,7 @@ const getLpAddress = (token: string, quoteToken: Token) => {
 };
 
 export const whitelistedBidders: FarmAuctionBidderConfig[] = (
-  CHAINKEY.BSC
+  chainKey === CHAINKEY.BSC
     ? [
         {
           account: '0x9Ed5a62535A5Dd2dB2d9bB21bAc42035Af47F630',
