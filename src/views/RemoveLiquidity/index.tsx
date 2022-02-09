@@ -43,7 +43,20 @@ import { DashedPrimayCard } from 'components/Card';
 const BorderCard = styled.div`
   padding: 16px;
 `;
-
+const ErrPStyled = styled.p`
+  position: fixed;
+  z-index: 999;
+  bottom: calc(18vh - 64px);
+  text-align: center;
+  width: 500px;
+  left: 50%;
+  color: #f00;
+  background: #111719;
+  transform: translate(-50%, 0, -50%, 0);
+  border-radius: 12px;
+  padding: 18px 0;
+  transform: translateX(-50%);
+`;
 export default function RemoveLiquidity({
   history,
   match: {
@@ -74,6 +87,8 @@ export default function RemoveLiquidity({
   const deadline = useTransactionDeadline();
   const [allowedSlippage] = useUserSlippageTolerance();
 
+  // warn text
+  const [errorWarn, setErrorWarn] = useState('');
   const formattedAmounts = {
     [Field.LIQUIDITY_PERCENT]: parsedAmounts[Field.LIQUIDITY_PERCENT].equalTo('0')
       ? '0'
@@ -275,6 +290,7 @@ export default function RemoveLiquidity({
           .then(calculateGasMargin)
           .catch((err) => {
             console.error(`estimateGas failed`, methodName, args, err);
+            setErrorWarn('you may need setting a higher slippage tolerance');
             return undefined;
           }),
       ),
@@ -441,6 +457,7 @@ export default function RemoveLiquidity({
 
   const handleDismissConfirmation = useCallback(() => {
     setSignatureData(null); // important that we clear signature data to avoid bad sigs
+    setErrorWarn('');
     // if there was a tx hash, we want to clear the input
     if (txHash) {
       onUserInput(Field.LIQUIDITY_PERCENT, '0');
@@ -466,9 +483,9 @@ export default function RemoveLiquidity({
     true,
     'removeLiquidityModal',
   );
-
   return (
     <Page>
+      {errorWarn && errorWarn.length ? <ErrPStyled>{errorWarn}</ErrPStyled> : null}
       <AppBody>
         <AppHeader
           backTo="/pool"
