@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 
 export interface SerializableTransactionReceipt {
   to: string;

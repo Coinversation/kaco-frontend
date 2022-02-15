@@ -1,5 +1,5 @@
 import { parseUnits } from '@ethersproject/units';
-import { Currency, CurrencyAmount, JSBI, Token, TokenAmount, Trade } from '@kaco/sdk';
+import { Currency, CurrencyAmount, JSBI, Token, TokenAmount, Trade } from '@kaco/sdkv2';
 import { ParsedQs } from 'qs';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
 import { chainId, Kaco } from '../../config/constants/tokens';
+import { chainKey } from 'config';
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap);
@@ -223,10 +224,10 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === 'SDN') return 'SDN';
-    if (valid === false) return 'SDN';
+    if (urlParam.toUpperCase() === chainKey) return chainKey;
+    if (valid === false) return chainKey;
   }
-  return 'SDN';
+  return chainKey;
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {
@@ -250,6 +251,7 @@ function validatedRecipient(recipient: any): string | null {
 }
 
 export function queryParametersToSwapState(parsedQs: ParsedQs, chainId?: number): SwapState {
+  console.log(parsedQs.inputCurrency, chainId);
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency, chainId);
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency, chainId);
   if (inputCurrency === outputCurrency) {
@@ -293,7 +295,7 @@ export function useDefaultsFromURLSearch():
     }
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
-    // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
+    console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
     dispatch(
       replaceSwapState({
         typedValue: parsed.typedValue,

@@ -1,4 +1,4 @@
-import { Pair, Token } from '@kaco/sdk';
+import { Pair, Token } from '@kaco/sdkv2';
 import flatMap from 'lodash/flatMap';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

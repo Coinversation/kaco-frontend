@@ -1,5 +1,5 @@
 import { chainId, DEFAULT_Token } from 'config/constants/tokens';
-import { Token as SDKToken, Pair } from '@kaco/sdk';
+import { Token as SDKToken, Pair } from '@kaco/sdkv2';
 import { FarmAuctionBidderConfig, Token } from './types';
 
 const getLpAddress = (token: string, quoteToken: Token) => {

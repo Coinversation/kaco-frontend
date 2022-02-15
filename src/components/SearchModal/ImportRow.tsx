@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react';
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { Button, Text, CheckmarkCircleIcon } from '@kaco/uikit';
 import { AutoRow, RowFixed } from 'components/Layout/Row';
 import { AutoColumn } from 'components/Layout/Column';

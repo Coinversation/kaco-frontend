@@ -5,7 +5,7 @@ import useAuth from 'hooks/useAuth';
 import ConnectWalletButton from '../../ConnectWalletButton';
 import PolkadotInfo from './PolkadotInfo/index';
 import { chainKey } from 'config';
-import { CHAINKEY } from '@kaco/sdk';
+import { CHAINKEY } from '@kaco/sdkv2';
 const AccountInfo = () => {
   const { account } = useWeb3React();
   const { logout } = useAuth();

@@ -13,15 +13,15 @@ export interface SwapState {
   // the typed recipient address or ENS name, or null if swap should go to sender
   readonly recipient: string | null;
 }
-
+// swap input important
 const initialState: SwapState = {
   independentField: Field.INPUT,
   typedValue: '',
   [Field.INPUT]: {
-    currencyId: 'SDN',
+    currencyId: '',
   },
   [Field.OUTPUT]: {
-    currencyId: '0xb12c13e66AdE1F72f71834f2FC5082Db8C091358',
+    currencyId: '',
   },
   recipient: null,
 };

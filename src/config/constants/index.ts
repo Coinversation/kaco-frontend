@@ -1,4 +1,4 @@
-import { JSBI, Percent, Token, ChainId } from '@kaco/sdk';
+import { JSBI, Percent, Token, ChainId } from '@kaco/sdkv2';
 import {
   BUSD,
   DAI,
@@ -17,7 +17,10 @@ import {
   UST,
 } from './tokens';
 
-export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
+export const ROUTER_ADDRESS = {
+  [ChainId.ASTR_MAINNET]: '0xa5e48a6E56e164907263e901B98D9b11CCB46C47',
+  [ChainId.SDN_MAINNET]: '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F',
+};
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -105,8 +108,8 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     // DAI,
     // BUSD[chainId],
     Base_Token,
-    // USDT,
-    JPYC,
+    USDT,
+    // JPYC,
     USDC,
   ],
   [ChainId.ASTR_TESTNET]: [ETH[chainId], Kaco, BUSD[ChainId.BSC_TESTNET]],

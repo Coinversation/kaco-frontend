@@ -4,8 +4,8 @@ import { AddressZero } from '@ethersproject/constants';
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers';
 import { BigNumber } from '@ethersproject/bignumber';
 import { abi as IUniswapV2Router02ABI } from '@uniswap/v2-periphery/build/IUniswapV2Router02.json';
-import { JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@kaco/sdk';
-import { ChainId } from '@kaco/sdk';
+import { JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@kaco/sdkv2';
+import { ChainId } from '@kaco/sdkv2';
 import { ROUTER_ADDRESS } from '../config/constants';
 import { BASE_BSC_SCAN_URL } from '../config';
 import { TokenAddressMap } from '../state/lists/hooks';
@@ -94,7 +94,7 @@ export function getContract(address: string, ABI: any, library: Web3Provider, ac
 
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string): Contract {
-  return getContract(ROUTER_ADDRESS, IUniswapV2Router02ABI, library, account);
+  return getContract(ROUTER_ADDRESS[chainId], IUniswapV2Router02ABI, library, account);
 }
 
 export function escapeRegExp(string: string): string {

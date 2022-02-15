@@ -2481,7 +2481,7 @@
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.1.tgz#69bc4db754d79e1a2f17a650d3466e038d94a5eb"
   integrity sha512-CtzORUwWTTOTqfVtHaKRJ0I1kNQd1bpn3sUh8I3nJDVY+5/M/Oe1DnEWzPQvqq/xPIIkzzzIP7mfCoAjFRvDhg==
 
-"@kaco/sdk@../kaco-toolkit/packages/kaco-swap-sdk":
+"@kaco/sdkv2@../kaco-toolkit/packages/kaco-swap-sdk":
   version "0.0.1"
   dependencies:
     "@pancakeswap-libs/pancake-swap-core" "^0.1.0"

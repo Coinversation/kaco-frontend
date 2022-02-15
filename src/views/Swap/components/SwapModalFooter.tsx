@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { Trade, TradeType } from '@kaco/sdk';
+import { Trade, TradeType } from '@kaco/sdkv2';
 import { Button, Text, AutoRenewIcon } from '@kaco/uikit';
 import { Field } from 'state/swap/actions';
 import {

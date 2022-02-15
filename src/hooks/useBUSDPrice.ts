@@ -1,10 +1,10 @@
-import { Currency, currencyEquals, JSBI, Price, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, JSBI, Price, WETH } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BUSD, Kaco } from '../config/constants/tokens';
 import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 
 const BUSD_MAINNET = BUSD[ChainId.BSC_MAINNET];
 

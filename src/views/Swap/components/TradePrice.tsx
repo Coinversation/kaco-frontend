@@ -1,5 +1,5 @@
 import React from 'react';
-import { Price } from '@kaco/sdk';
+import { Price } from '@kaco/sdkv2';
 import { Text } from '@kaco/uikit';
 import SwapSVG from './imgs/swap-price.svg';
 

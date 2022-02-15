@@ -1,11 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { useWeb3React } from '@web3-react/core';
-import { useMatchBreakpoints, useModal } from '@kaco/uikit';
+import { useMatchBreakpoints } from '@kaco/uikit';
 import UncollapsedSvg from './imgs/icon_sq.svg';
 import SwitchChain from './Modals/SwitchChain';
 import AccountInfo from './Modals/AccountInfo';
-import ClaimModal from './Modals/ClaimModal';
 export enum ThemeChoice {
   Dark,
   White,
@@ -16,14 +14,11 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
   collapsed,
 }) => {
   const { isXs, isSm } = useMatchBreakpoints();
-  const { account } = useWeb3React();
-
-  const [onPresentClaim] = useModal(<ClaimModal />);
   return (
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
-        <div
+        {/* <div
           className="auction_event"
           onClick={() => {
             window.open('https://www.coinversation.io/joinus');
@@ -35,7 +30,7 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
           <div className="claim_kac" onClick={onPresentClaim}>
             {isXs || isSm ? 'Claim' : '  Claim Kac  '}
           </div>
-        ) : null}
+        ) : null} */}
         <SwitchChain />
         <AccountInfo />
       </div>

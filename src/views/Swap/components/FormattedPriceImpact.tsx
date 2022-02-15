@@ -1,4 +1,4 @@
-import { Percent } from '@kaco/sdk';
+import { Percent } from '@kaco/sdkv2';
 import React from 'react';
 import { ONE_BIPS } from '../../../config/constants';
 import { Text } from '@kaco/uikit';

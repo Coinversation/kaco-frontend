@@ -1,5 +1,5 @@
 import React, { KeyboardEvent, RefObject, useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
 import { Text, Input, Box } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import { FixedSizeList } from 'react-window';

@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { CHAINKEY, Currency, ETHER, Token } from '@kaco/sdkv2';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useHttpLocations from '../../hooks/useHttpLocations';
@@ -7,6 +7,7 @@ import getTokenLogoURL from '../../utils/getTokenLogoURL';
 import SdnSvg from './Sdn.svg';
 import Logo from './Logo';
 import { chainId } from 'config/constants/tokens';
+import { chainKey } from 'config';
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
@@ -37,6 +38,16 @@ export default function CurrencyLogo({
   }, [currency, uriLocations]);
 
   if (currency === ETHER[chainId]) {
+    if (chainKey === CHAINKEY.ASTR) {
+      return (
+        <img
+          src="/images/tokens/astr/0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720.svg"
+          alt=""
+          width={size}
+          style={style}
+        />
+      );
+    }
     return <img src={SdnSvg} alt="" width={size} style={style} />;
   }
 

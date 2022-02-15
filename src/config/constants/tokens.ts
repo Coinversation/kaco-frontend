@@ -1,23 +1,23 @@
-import { ChainId, CHAINKEY, Token } from '@kaco/sdk';
+import { ChainId, CHAINKEY, Token } from '@kaco/sdkv2';
 import { BASE_BSC_SCAN_URL, chainKey } from 'config';
 
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 const tokens = {
   [CHAINKEY.ASTR]: {
-    syrup: {
-      symbol: 'SYRUP',
+    wastr: {
+      symbol: 'WASTR',
       address: {
-        [ChainId.ASTR_MAINNET]: '0x808764026aDddb9E7dFAAEA846977cCe6425D593',
-        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+        [ChainId.ASTR_MAINNET]: '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720',
+        [ChainId.ASTR_TESTNET]: '0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720',
       },
       decimals: 18,
-      projectLink: 'https://www.kaco.finance/',
+      projectLink: 'https://blockscout.com/astar/',
     },
     kaco: {
       symbol: 'KAC',
       address: {
-        [ChainId.ASTR_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+        [ChainId.ASTR_MAINNET]: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
+        [ChainId.ASTR_TESTNET]: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
       },
       decimals: 18,
       projectLink: 'https://kaco.finance/',
@@ -34,7 +34,7 @@ const tokens = {
     usdt: {
       symbol: 'USDT',
       address: {
-        [ChainId.ASTR_MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
+        [ChainId.ASTR_MAINNET]: '0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73',
         [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       },
       decimals: 18,
@@ -52,7 +52,7 @@ const tokens = {
     wbtc: {
       symbol: 'WBTC',
       address: {
-        [ChainId.ASTR_MAINNET]: '0x922d641a426dcffaef11680e5358f34d97d112e1',
+        [ChainId.ASTR_MAINNET]: '0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b',
         [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
       },
       decimals: 18,
@@ -66,15 +66,6 @@ const tokens = {
       },
       decimals: 18,
       projectLink: 'https://www.paxos.com/busd/',
-    },
-    jpyc: {
-      symbol: 'JPYC',
-      address: {
-        [ChainId.ASTR_MAINNET]: '0x735abe48e8782948a37c7765ecb76b98cde97b0f',
-        [ChainId.ASTR_TESTNET]: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
-      },
-      decimals: 18,
-      projectLink: 'https://jpyc.jp/',
     },
   },
   [CHAINKEY.SDN]: {
@@ -2119,8 +2110,8 @@ export const main_tokens = {
     name: 'Kaco Token',
     symbol: 'KAC',
     address: {
-      [ChainId.ASTR_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
-      [ChainId.ASTR_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
+      [ChainId.ASTR_MAINNET]: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
+      [ChainId.ASTR_TESTNET]: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
       [ChainId.SDN_MAINNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
       [ChainId.SDN_TESTNET]: '0xb12c13e66ade1f72f71834f2fc5082db8c091358',
       [ChainId.BSC_MAINNET]: '0xf96429A7aE52dA7d07E60BE95A3ece8B042016fB',
@@ -2322,13 +2313,16 @@ export const USDC = new Token(
   'USD Coin',
 );
 
-export const JPYC = new Token(
-  chainId,
-  tokens[chainKey].jpyc.address[chainId],
-  tokens[chainKey].jpyc.decimals,
-  tokens[chainKey].jpyc.symbol,
-  'JPYC Coin',
-);
+export const JPYC =
+  chainKey === CHAINKEY.ASTR
+    ? null
+    : new Token(
+        chainId,
+        tokens[chainKey].jpyc.address[chainId],
+        tokens[chainKey].jpyc.decimals,
+        tokens[chainKey].jpyc.symbol,
+        'JPYC Coin',
+      );
 export const ALPACA: { [chainId: number]: Token } = {
   [ChainId.BSC_MAINNET]: new Token(
     ChainId.BSC_MAINNET as any,

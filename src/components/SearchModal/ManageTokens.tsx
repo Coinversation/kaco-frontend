@@ -1,5 +1,5 @@
 import React, { useRef, RefObject, useCallback, useState, useMemo } from 'react';
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { Text, Button, CloseIcon, IconButton, LinkExternal, Input, Link } from '@kaco/uikit';
 import styled from 'styled-components';
 import Row, { RowBetween, RowFixed } from 'components/Layout/Row';

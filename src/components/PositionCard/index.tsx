@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JSBI, Pair, Percent } from '@kaco/sdk';
+import { JSBI, Pair, Percent } from '@kaco/sdkv2';
 import { Button, Text, Flex, CardProps, AddIcon } from '@kaco/uikit';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';

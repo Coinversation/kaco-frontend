@@ -1,4 +1,4 @@
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 import PancakeNftAbi from '../abi/pancake-nft.json';
 import KacoNftAbi from '../abi/kaco-nft.json';
 import KacoLogo from '../../components/svg/kaco-nft.png';

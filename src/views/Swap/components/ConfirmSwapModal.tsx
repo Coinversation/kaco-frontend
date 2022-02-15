@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
-import { currencyEquals, Trade } from '@kaco/sdk';
+import { currencyEquals, Trade } from '@kaco/sdkv2';
 import { InjectedModalProps } from '@kaco/uikit';
 import { useTranslation } from 'contexts/Localization';
 import TransactionConfirmationModal, {

@@ -1,4 +1,4 @@
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 import { createStore, Store } from 'redux';
 import { updateBlockNumber } from './actions';
 import reducer, { ApplicationState } from './reducer';
