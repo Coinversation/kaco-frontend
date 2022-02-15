@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "✅ - Build can proceed"
-exit 1;
+echo "🛑 - Build cancelled"
+exit 0;
