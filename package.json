@@ -31,7 +31,7 @@
   "dependencies": {
     "@binance-chain/bsc-connector": "^1.0.0",
     "@ethersproject/experimental": "^5.0.1",
-    "@kaco/sdkv2": "../kaco-toolkit/packages/kaco-swap-sdk",
+    "@kaco/sdkv2": "0.0.2",
     "@kaco/uikit": "^0.46.31",
     "@polkadot/api": "6.0.5",
     "@polkadot/extension-dapp": "0.40.3",
