@@ -39,7 +39,7 @@ const tokens = {
         [ChainId.ASTR_MAINNET]: '0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98',
         [ChainId.ASTR_TESTNET]: '0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98',
       },
-      decimals: 18,
+      decimals: 6,
       projectLink: 'https://www.centre.io/usdc',
     },
 
