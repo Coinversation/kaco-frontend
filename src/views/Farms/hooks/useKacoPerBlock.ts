@@ -16,12 +16,16 @@ const useKacPerBlock = (): RealBigNumber => {
   const [kacPerBlock, setKacPerBlock] = useState<RealBigNumber>(new RealBigNumber(0));
 
   useEffect(() => {
-    multicall(masterChef, [
-      {
-        address: addresses.masterChef[chainId],
-        name: 'kacPerShidenBlock',
-      },
-    ]).then(([kacPerBlock]) => setKacPerBlock(new RealBigNumber(kacPerBlock.toString()).div(base)));
+    multicall(
+      masterChef,
+      [
+        {
+          address: addresses.masterChef[chainId],
+          name: 'kacPerShidenBlock',
+        },
+      ],
+      'e4dd',
+    ).then(([kacPerBlock]) => setKacPerBlock(new RealBigNumber(kacPerBlock.toString()).div(base)));
   }, [chainId]);
 
   return kacPerBlock;

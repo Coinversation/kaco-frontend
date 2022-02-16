@@ -1,12 +1,12 @@
 import { Currency, currencyEquals, JSBI, Price, WETH } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
-import { BUSD, Kaco } from '../config/constants/tokens';
+import { BUSD, chainId, Kaco } from '../config/constants/tokens';
 import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
 import { ChainId } from '@kaco/sdkv2';
 
-const BUSD_MAINNET = BUSD[ChainId.BSC_MAINNET];
+const BUSD_MAINNET = BUSD[chainId];
 
 /**
  * Returns the price in BUSD of the input currency
@@ -26,7 +26,10 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
     ],
     [chainId, currency, wrapped],
   );
-  const [[ethPairState, ethPair], [busdPairState, busdPair], [busdEthPairState, busdEthPair]] = usePairs(tokenPairs);
+  const [[ethPairState, ethPair], [busdPairState, busdPair], [busdEthPairState, busdEthPair]] = usePairs(
+    tokenPairs,
+    '443223as',
+  );
 
   return useMemo(() => {
     if (!currency || !wrapped || !chainId) {

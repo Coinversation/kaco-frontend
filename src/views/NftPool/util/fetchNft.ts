@@ -112,7 +112,7 @@ async function fetchPid0(nftAddress: string, id: number, owner: string, abi: any
     { address: nftAddress, name: 'uri', params: [id] },
   ];
 
-  const [[balance], [uri]] = await multicall(abi, calls);
+  const [[balance], [uri]] = await multicall(abi, calls, 'eeeekkkk');
 
   try {
     const res = await fetch(uri);
@@ -141,7 +141,7 @@ async function fetchPid1(nftAddress: string, id: number, owner: string, abi: any
     { address: nftAddress, name: 'tokenURI', params: [id] },
   ];
 
-  const [[balance], [uri]] = await multicall(abi, calls);
+  const [[balance], [uri]] = await multicall(abi, calls, 'oooddd');
 
   const u = toUri(uri);
 

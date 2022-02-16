@@ -5,6 +5,7 @@ import { ChainId } from '@kaco/sdkv2';
 import chunk from 'lodash/chunk';
 import { sub, getUnixTime } from 'date-fns';
 import farmsConfig from '../src/config/constants/farms';
+import { chainId } from '../src/config/constants/tokens';
 
 const BLOCK_SUBGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks';
 const STREAMING_FAST_ENDPOINT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2';
@@ -104,7 +105,7 @@ const fetchAndUpdateLPsAPR = async () => {
   // pids before 250 are inactive farms from v1 and failed v2 migration
   const lowerCaseAddresses = farmsConfig
     .filter((farm) => farm.pid > 250)
-    .map((farm) => farm.lpAddresses[ChainId.BSC_MAINNET].toLowerCase());
+    .map((farm) => farm.lpAddresses[chainId].toLowerCase());
   console.info(`Fetching farm data for ${lowerCaseAddresses.length} addresses`);
   // Split it into chunks of 30 addresses to avoid gateway timeout
   const addressesInGroups = chunk(lowerCaseAddresses, 30);

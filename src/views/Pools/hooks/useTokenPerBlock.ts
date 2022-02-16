@@ -13,12 +13,16 @@ import pools from 'config/constants/pools';
 const base = BIG_TEN.pow(new BigNumber(18));
 
 export const fetchTokenPerBlock = async () => {
-  const res = await multicall(masterChef, [
-    {
-      address: addresses.masterChef[chainId],
-      name: 'kacPerShidenBlock',
-    },
-  ]);
+  const res = await multicall(
+    masterChef,
+    [
+      {
+        address: addresses.masterChef[chainId],
+        name: 'kacPerShidenBlock',
+      },
+    ],
+    'rrttteww',
+  );
 
   const tokenPerBlock = new BigNumber(res.toString()).div(base);
   console.log(tokenPerBlock.toNumber());
@@ -29,12 +33,16 @@ export const fetchRewardPerBlock = async (pool: PoolConfig) => {
   // console.log(`${pool.sousId}` !== '0');
   if (pool.sousId !== 0) {
     // console.log(pool.sousId, addresses.masterChef[chainId]);
-    const res = await multicall(sousChefABI, [
-      {
-        address: pools[pool.sousId].contractAddress[chainId],
-        name: 'rewardPerBlock',
-      },
-    ]);
+    const res = await multicall(
+      sousChefABI,
+      [
+        {
+          address: pools[pool.sousId].contractAddress[chainId],
+          name: 'rewardPerBlock',
+        },
+      ],
+      'iex',
+    );
     const rewardPerBlock = new BigNumber(res.toString()).div(base);
     return rewardPerBlock;
   } else {
@@ -48,17 +56,21 @@ export const usePoolWeight = async (pool: PoolConfig) => {
   // Only make masterchef calls if farm has pid
   const [info, totalAllocPoint] =
     sousId || sousId === 0
-      ? await multicall(masterchefABI, [
-          {
-            address: getMasterChefAddress(),
-            name: 'poolInfo',
-            params: [sousId],
-          },
-          {
-            address: getMasterChefAddress(),
-            name: 'totalAllocPoint',
-          },
-        ])
+      ? await multicall(
+          masterchefABI,
+          [
+            {
+              address: getMasterChefAddress(),
+              name: 'poolInfo',
+              params: [sousId],
+            },
+            {
+              address: getMasterChefAddress(),
+              name: 'totalAllocPoint',
+            },
+          ],
+          'msde',
+        )
       : [null, null];
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO;

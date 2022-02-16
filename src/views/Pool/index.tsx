@@ -44,7 +44,10 @@ export default function Pool() {
     [tokenPairsWithLiquidityTokens, v2PairsBalances],
   );
 
-  const v2Pairs = usePairs(liquidityTokensWithBalances.map(({ tokens }) => tokens));
+  const v2Pairs = usePairs(
+    liquidityTokensWithBalances.map(({ tokens }) => tokens),
+    'jfd',
+  );
   const v2IsLoading =
     fetchingV2PairBalances ||
     v2Pairs?.length < liquidityTokensWithBalances.length ||

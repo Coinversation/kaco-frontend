@@ -46,7 +46,7 @@ const Burn: FC<{ className?: string }> = ({ className }) => {
       .reduce((calls, curr) => calls.concat(curr), []);
 
     setFetching(true);
-    multicall(Erc20, calls)
+    multicall(Erc20, calls, 'ddeiaisd')
       .then((results: any[]) => {
         const balancesOfNft100: (NftPair & { balance: number })[] = [];
         const step = 2;

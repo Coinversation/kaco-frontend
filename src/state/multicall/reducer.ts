@@ -71,6 +71,7 @@ export default createReducer(initialState, (builder) =>
     )
     .addCase(fetchingMulticallResults, (state, { payload: { chainId, fetchingBlockNumber, calls } }) => {
       state.callResults[chainId] = state.callResults[chainId] ?? {};
+      console.log(12333);
       calls.forEach((call) => {
         const callKey = toCallKey(call);
         const current = state.callResults[chainId][callKey];

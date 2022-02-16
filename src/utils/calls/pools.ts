@@ -22,8 +22,8 @@ export const getActivePools = async (block?: number) => {
     address: getAddress(contractAddress),
     name: 'bonusEndBlock',
   }));
-  const startBlocks = await multicall(sousChefV2, startBlockCalls);
-  const endBlocks = await multicall(sousChefV2, endBlockCalls);
+  const startBlocks = await multicall(sousChefV2, startBlockCalls, '444422ss');
+  const endBlocks = await multicall(sousChefV2, endBlockCalls, 'adgar44');
 
   return eligiblePools.reduce((accum, poolCheck, index) => {
     const startBlock = startBlocks[index] ? new BigNumber(startBlocks[index]) : null;

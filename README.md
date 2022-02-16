@@ -1,20 +1,8 @@
-# 🙈 Kaco Frontend
+# Kaco Frontend ASTAR
 
-This project contains the main features of the kaco application.
-
-If you want to contribute, please refer to the [contributing guidelines](./CONTRIBUTING.md) of this project.
-
-https://testnet.bscscan.com/tx/0xbfb2ee69f60c4544656938d09e88cabb84122265d3eee8e29bdffc780dc5ea8b
-
-```ts
-addLiquidityETH(address token, uint256 amountTokenDesired, uint256 amountTokenMin, uint256 amountETHMin, address to, uint256 deadline)
-```
-
-user= 0xfb83a67784f110dc658b19515308a7a95c2ba33a
-router = 0x52b82fb107f293d0712d82b639127a9807c55458
-liquidity pair= 0x48F57a3Ff61BBD1B4fED49ee0f9f43EdDD201fF4 接收 kaco 和 wbnb
-
-factory 生成 liquidity pair
-user => liquidity pair 打 100 kaco
-factory =》 liquidity pair 打 0.1 wbnb
-铸造 3.15 LP-token 给 user
+factory: 0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F
+factory INIT_CODE_PAIR_HASH: 0xee94b86c5982668ed547d5703d5fa42db90a876a4fd1b8915cb2676c4218e822
+router deployed to: 0xa5e48a6E56e164907263e901B98D9b11CCB46C47
+farm deployed to: 0xe6930A2a844d94f4C03d383311945AB03c88741a
+shiden farm deployed to: 0x293A7824582C56B0842535f94F6E3841888168C8
+KAC: 0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c

@@ -10,8 +10,8 @@ const fetchPairsAddress = async (length: number): Promise<string[]> => {
     name: 'allPairs',
     params: [index],
   }));
-
-  const addresses = (await multicall(factoryAbi, calls)) as string[][];
+  console.log(length);
+  const addresses = (await multicall(factoryAbi, calls, 'hhhddd')) as string[][];
 
   return addresses.map((t) => t[0]);
 };

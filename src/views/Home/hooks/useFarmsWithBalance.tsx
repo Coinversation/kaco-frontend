@@ -27,7 +27,7 @@ const useFarmsWithBalance = () => {
         params: [farm.pid, account],
       }));
 
-      const rawResults = await multicall(masterChefABI, calls);
+      const rawResults = await multicall(masterChefABI, calls, 'kksssee');
       const results = farmsConfig.map((farm, index) => ({ ...farm, balance: new BigNumber(rawResults[index]) }));
       const farmsWithBalances = results.filter((balanceType) => balanceType.balance.gt(0));
       const totalEarned = farmsWithBalances.reduce((accum, earning) => {

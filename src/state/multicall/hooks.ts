@@ -96,8 +96,12 @@ function useCallsData(calls: (Call | undefined)[], options?: ListenerOptions): C
     () =>
       calls.map<CallResult>((call) => {
         if (!chainId || !call) return INVALID_RESULT;
-
+        // "0x574f2ba3"  allPairsLength
         const result = callResults[chainId]?.[toCallKey(call)];
+        if (call.callData.indexOf('0x574f2ba3') > -1) {
+          console.log('eeee----', toCallKey(call));
+          console.log('result: ', call, 'call', callResults, chainId, result);
+        }
         let data;
         if (result?.data && result?.data !== '0x') {
           // eslint-disable-next-line prefer-destructuring
@@ -182,7 +186,7 @@ export function useSingleContractMultipleData(
         : [],
     [callInputs, contract, fragment],
   );
-
+  console.log('333-----333---calls: ', calls, options);
   const results = useCallsData(calls, options);
 
   const latestBlockNumber = useBlockNumber();
@@ -239,8 +243,20 @@ export function useSingleCallResult(
   options?: ListenerOptions,
 ): CallState {
   const fragment = useMemo(() => contract?.interface?.getFunction(methodName), [contract, methodName]);
-
   const calls = useMemo<Call[]>(() => {
+    if (contract && fragment && isValidMethodArgs(inputs)) {
+      console.log('---ddd----calls:', methodName);
+      console.log(
+        contract && fragment && isValidMethodArgs(inputs)
+          ? [
+              {
+                address: contract.address,
+                callData: contract.interface.encodeFunctionData(fragment, inputs),
+              },
+            ]
+          : ['2222'],
+      );
+    }
     return contract && fragment && isValidMethodArgs(inputs)
       ? [
           {

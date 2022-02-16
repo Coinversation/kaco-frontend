@@ -10,6 +10,7 @@ import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard';
 import { Farm } from 'state/types';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
 import { usePrice } from 'state/price/hooks';
+import { chainId } from 'config/constants/tokens';
 
 enum FetchStatus {
   NOT_FETCHED = 'not-fetched',
@@ -55,7 +56,7 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
           new BigNumber(farm.poolWeight),
           cakePriceBusd,
           totalLiquidity,
-          farm.lpAddresses[ChainId.BSC_MAINNET],
+          farm.lpAddresses[chainId],
         );
         return { ...farm, apr: cakeRewardsApr, lpRewardsApr };
       });

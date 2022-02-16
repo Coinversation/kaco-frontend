@@ -62,8 +62,17 @@ import {
   IMerkleDistributorInterface,
 } from './types';
 
-const getContract = (abi: any, address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
+const getContract = (
+  abi: any,
+  address: string,
+  signer?: ethers.Signer | ethers.providers.Provider,
+  keyvalue?: string,
+) => {
   const signerOrProvider = signer ?? simpleRpcProvider;
+  // if (keyvalue === '-----111111') {
+  //   console.log('signerOrProvider:  ', address, abi, signerOrProvider);
+  // }
+
   return new ethers.Contract(address, abi, signerOrProvider);
 };
 
@@ -136,7 +145,7 @@ export const getChainlinkOracleContract = (signer?: ethers.Signer | ethers.provi
   return getContract(chainlinkOracleAbi, getChainlinkOracleAddress(), signer) as ChainLinkOracleContract;
 };
 export const getMulticallContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(MultiCallAbi, getMulticallAddress(), signer);
+  return getContract(MultiCallAbi, getMulticallAddress(), signer, '-----111111');
 };
 export const getBunnySpecialCakeVaultContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(bunnySpecialCakeVaultAbi, getBunnySpecialCakeVaultAddress(), signer);

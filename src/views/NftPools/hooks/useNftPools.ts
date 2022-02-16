@@ -23,7 +23,14 @@ const fetchNftPairs = async (count: number): Promise<NftPair[]> => {
     params: [index],
   }));
 
-  const infos = (await multicall(NFT100FactoryAbi, calls)) as [string, string, BigNumber, string, string, BigNumber][];
+  const infos = (await multicall(NFT100FactoryAbi, calls, 'aooeeq')) as [
+    string,
+    string,
+    BigNumber,
+    string,
+    string,
+    BigNumber,
+  ][];
 
   return infos.map((info) => ({
     pairAddress: info[0],
@@ -44,7 +51,14 @@ const fetchNftPair = async (index: number): Promise<NftPair> => {
     },
   ];
 
-  const [info] = (await multicall(NFT100FactoryAbi, calls)) as [string, string, BigNumber, string, string, BigNumber][];
+  const [info] = (await multicall(NFT100FactoryAbi, calls, 'hhhsssee')) as [
+    string,
+    string,
+    BigNumber,
+    string,
+    string,
+    BigNumber,
+  ][];
 
   return {
     pairAddress: info[0],

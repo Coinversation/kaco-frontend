@@ -1016,7 +1016,7 @@ const tokens = {
     syrup: {
       symbol: 'SYRUP',
       address: {
-        [ChainId.BSC_MAINNET]: '0xd95D56A112D62DFc1e6F9bC2432d12b8e1B25d60',
+        [ChainId.BSC_MAINNET]: '0x4b7349f116992EE73Cafe34d9Eaf3365f8192a9D',
         [ChainId.BSC_TESTNET]: '0x4b7349f116992EE73Cafe34d9Eaf3365f8192a9D',
       },
       decimals: 18,
@@ -2252,6 +2252,21 @@ export const BUSD: { [chainId: number]: Token } = {
     18,
     'BUSD',
     'Binance USD',
+  ),
+
+  [ChainId.ASTR_MAINNET]: new Token(
+    chainId,
+    tokens[chainKey].usdc.address[chainId],
+    tokens[chainKey].usdc.decimals,
+    tokens[chainKey].usdc.symbol,
+    'USD Coin',
+  ),
+  [ChainId.ASTR_TESTNET]: new Token(
+    chainId,
+    tokens[chainKey].usdc.address[chainId],
+    tokens[chainKey].usdc.decimals,
+    tokens[chainKey].usdc.symbol,
+    'USD Coin',
   ),
 };
 

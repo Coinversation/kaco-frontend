@@ -13,7 +13,7 @@ const injected = new InjectedConnector({ supportedChainIds: [chainId] });
 
 const walletconnect = new WalletConnectConnector({
   rpc: { [chainId]: rpcUrl },
-  bridge: 'https://pancakeswap.bridge.walletconnect.org/',
+  // bridge: 'https://pancakeswap.bridge.walletconnect.org/',
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,
 });
@@ -38,6 +38,7 @@ export const getLibrary = (provider): ethers.providers.Web3Provider => {
  */
 export const signMessage = async (provider: any, account: string, message: string): Promise<string> => {
   if (window.BinanceChain) {
+    console.log('aaa232342dsa');
     const { signature } = await window.BinanceChain.bnbSign(account, message);
     return signature;
   }
@@ -49,8 +50,10 @@ export const signMessage = async (provider: any, account: string, message: strin
   if (provider.provider?.wc) {
     const wcMessage = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message));
     const signature = await provider.provider?.wc.signPersonalMessage([wcMessage, account]);
+    console.log('aaa3333122sdddd');
     return signature;
   }
+  console.log('aaaa-----3333122sdddd');
 
   return provider.getSigner(account).signMessage(message);
 };

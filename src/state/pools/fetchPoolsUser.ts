@@ -6,11 +6,12 @@ import { getMasterchefContract } from 'utils/contractHelpers';
 import { getAddress } from 'utils/addressHelpers';
 import { simpleRpcProvider } from 'utils/providers';
 import BigNumber from 'bignumber.js';
+import { chainKey } from 'config';
 
 // Pool 0, Kac / Kac is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SDN');
-const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === 'SDN');
+const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== chainKey);
+const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === chainKey);
 const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0);
 const masterChefContract = getMasterchefContract();
 
@@ -21,7 +22,7 @@ export const fetchPoolsAllowance = async (account) => {
     params: [account, getAddress(p.contractAddress)],
   }));
 
-  const allowances = await multicall(erc20ABI, calls);
+  const allowances = await multicall(erc20ABI, calls, 'rrr');
   return nonBnbPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
     {},
@@ -35,7 +36,7 @@ export const fetchUserBalances = async (account) => {
     name: 'balanceOf',
     params: [account],
   }));
-  const tokenBalancesRaw = await multicall(erc20ABI, calls);
+  const tokenBalancesRaw = await multicall(erc20ABI, calls, 'asdkkkk');
   const tokenBalances = nonBnbPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }),
     {},
@@ -57,7 +58,7 @@ export const fetchUserStakeBalances = async (account) => {
     name: 'userInfo',
     params: [account],
   }));
-  const userInfo = await multicall(sousChefABI, calls);
+  const userInfo = await multicall(sousChefABI, calls, 'ttt');
   const stakedBalances = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,
@@ -78,7 +79,7 @@ export const fetchUserPendingRewards = async (account) => {
     name: 'pendingReward',
     params: [account],
   }));
-  const res = await multicall(sousChefABI, calls);
+  const res = await multicall(sousChefABI, calls, 'bbddd');
   const pendingRewards = nonMasterPools.reduce(
     (acc, pool, index) => ({
       ...acc,

@@ -35,7 +35,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : 'SDN',
+          currencyId: currency instanceof Token ? currency.address : chainKey,
         }),
       );
     },
@@ -251,7 +251,6 @@ function validatedRecipient(recipient: any): string | null {
 }
 
 export function queryParametersToSwapState(parsedQs: ParsedQs, chainId?: number): SwapState {
-  console.log(parsedQs.inputCurrency, chainId);
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency, chainId);
   let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency, chainId);
   if (inputCurrency === outputCurrency) {
@@ -295,7 +294,7 @@ export function useDefaultsFromURLSearch():
     }
     const parsed = queryParametersToSwapState(parsedQs, chainId);
 
-    console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
+    // console.log('init', parsed[Field.INPUT].currencyId, parsed[Field.OUTPUT].currencyId, parsed.independentField);
     dispatch(
       replaceSwapState({
         typedValue: parsed.typedValue,

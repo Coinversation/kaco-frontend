@@ -1,4 +1,3 @@
-import { ChainId } from '@kaco/sdkv2';
 import addresses from 'config/constants/contracts';
 import { chainId, DEFAULT_Token, Kaco } from 'config/constants/tokens';
 import { Address } from 'config/constants/types';
@@ -7,7 +6,7 @@ export const getAddress = (address: Address | string): string => {
   if (typeof address === 'string') {
     return address;
   }
-  return address[chainId] ? address[chainId] : address[ChainId.BSC_MAINNET];
+  return address[chainId];
 };
 
 export const getCakeAddress = () => {

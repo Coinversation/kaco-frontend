@@ -58,7 +58,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   ];
 
   const [tokenBalanceLP, quoteTokenBalanceLP, lpTokenBalanceMC, lpTotalSupply, tokenDecimals, quoteTokenDecimals] =
-    await multicall(erc20, calls);
+    await multicall(erc20, calls, 'dfasaa');
 
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
   const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply));
@@ -77,17 +77,21 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   // Only make masterchef calls if farm has pid
   const [info, totalAllocPoint] =
     pid || pid === 0
-      ? await multicall(masterchefABI, [
-          {
-            address: getMasterChefAddress(),
-            name: 'poolInfo',
-            params: [pid],
-          },
-          {
-            address: getMasterChefAddress(),
-            name: 'totalAllocPoint',
-          },
-        ])
+      ? await multicall(
+          masterchefABI,
+          [
+            {
+              address: getMasterChefAddress(),
+              name: 'poolInfo',
+              params: [pid],
+            },
+            {
+              address: getMasterChefAddress(),
+              name: 'totalAllocPoint',
+            },
+          ],
+          'asdfasdf',
+        )
       : [null, null];
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO;

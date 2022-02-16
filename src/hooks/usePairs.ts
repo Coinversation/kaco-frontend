@@ -16,7 +16,10 @@ export enum PairState {
   INVALID,
 }
 
-export function usePairs(currencies: [Currency | undefined, Currency | undefined][]): [PairState, Pair | null][] {
+export function usePairs(
+  currencies: [Currency | undefined, Currency | undefined][],
+  keyvalue: string,
+): [PairState, Pair | null][] {
   const { chainId } = useActiveWeb3React();
   const tokens = useMemo(
     () =>
@@ -57,5 +60,5 @@ export function usePairs(currencies: [Currency | undefined, Currency | undefined
 }
 
 export function usePair(tokenA?: Currency, tokenB?: Currency): [PairState, Pair | null] {
-  return usePairs([[tokenA, tokenB]])[0];
+  return usePairs([[tokenA, tokenB]], '333ss')[0];
 }

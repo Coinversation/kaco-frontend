@@ -48,7 +48,7 @@ const fetchPairsData = async (addresses: string[]): Promise<PairsData> => {
     ])
     .reduce((calls, curr) => calls.concat(curr), []);
 
-  const results = await multicall(ABI, calls);
+  const results = await multicall(ABI, calls, 'jjjjj');
   const countup: TokenAmountMap = {};
   const pairsMap: PairsMap = {};
 
