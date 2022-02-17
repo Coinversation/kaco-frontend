@@ -19,7 +19,7 @@
         "address": "0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720.svg"
+        "logoURI": "/images/tokens/ASTR/0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720.svg"
       },
       {
         "name": "Kaco Token",
@@ -27,7 +27,7 @@
         "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg"
+        "logoURI": "/images/tokens/ASTR/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg"
       },
       {
         "name": "Tether USD",
@@ -35,7 +35,7 @@
         "address": "0x3795C36e7D12A8c252A20C5a7B455f7c57b60283",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x3795C36e7D12A8c252A20C5a7B455f7c57b60283.svg"
+        "logoURI": "/images/tokens/ASTR/0x3795C36e7D12A8c252A20C5a7B455f7c57b60283.svg"
       },
       {
         "name": "USD Coin",
@@ -43,7 +43,7 @@
         "address": "0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98",
         "chainId": 592,
         "decimals": 6,
-        "logoURI": "/images/tokens/astr/0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98.svg"
+        "logoURI": "/images/tokens/ASTR/0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98.svg"
       },
       {
         "name": "Binance-Peg Ethereum Token",
@@ -51,7 +51,7 @@
         "address": "0x6De33698e9e9b787e09d3Bd7771ef63557E148bb",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x6De33698e9e9b787e09d3Bd7771ef63557E148bb.svg"
+        "logoURI": "/images/tokens/ASTR/0x6De33698e9e9b787e09d3Bd7771ef63557E148bb.svg"
       },
       {
         "name": "Binance-Peg Ethereum Token",
@@ -59,7 +59,7 @@
         "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c.svg"
+        "logoURI": "/images/tokens/ASTR/0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c.svg"
       },
       {
         "name": "Binance-Peg Ethereum Token",
@@ -67,7 +67,7 @@
         "address": "0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52.svg"
+        "logoURI": "/images/tokens/ASTR/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52.svg"
       },
       {
         "name": "Binance USD",
@@ -75,7 +75,7 @@
         "address": "0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E.svg"
+        "logoURI": "/images/tokens/ASTR/0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E.svg"
       },
       {
         "name": "WBTC Token",
@@ -83,7 +83,7 @@
         "address": "0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA.svg"
+        "logoURI": "/images/tokens/ASTR/0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA.svg"
       },
       {
         "name": "PKEX Token",
@@ -91,7 +91,7 @@
         "address": "0x1fE622E91e54D6AD00B01917351Ea6081426764A",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x1fE622E91e54D6AD00B01917351Ea6081426764A.svg"
+        "logoURI": "/images/tokens/ASTR/0x1fE622E91e54D6AD00B01917351Ea6081426764A.svg"
       },
       {
         "name": "SDN Token",
@@ -99,7 +99,7 @@
         "address": "0x75364D4F779d0Bd0facD9a218c67f87dD9Aff3b4",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x75364D4F779d0Bd0facD9a218c67f87dD9Aff3b4.svg"
+        "logoURI": "/images/tokens/ASTR/0x75364D4F779d0Bd0facD9a218c67f87dD9Aff3b4.svg"
       },
       {
         "name": "MATIC Token",
@@ -107,7 +107,7 @@
         "address": "0xdd90E5E87A2081Dcf0391920868eBc2FFB81a1aF",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xdd90E5E87A2081Dcf0391920868eBc2FFB81a1aF.svg"
+        "logoURI": "/images/tokens/ASTR/0xdd90E5E87A2081Dcf0391920868eBc2FFB81a1aF.svg"
       },
       {
         "name": "AAVE Token",
@@ -115,7 +115,7 @@
         "address": "0xfcDe4A87b8b6FA58326BB462882f1778158B02F1",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xfcDe4A87b8b6FA58326BB462882f1778158B02F1.svg"
+        "logoURI": "/images/tokens/ASTR/0xfcDe4A87b8b6FA58326BB462882f1778158B02F1.svg"
       },
       {
         "name": "CRV Token",
@@ -123,7 +123,7 @@
         "address": "0x7756a83563f0f56937A6FdF668E7D9F387c0D199",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x7756a83563f0f56937A6FdF668E7D9F387c0D199.svg"
+        "logoURI": "/images/tokens/ASTR/0x7756a83563f0f56937A6FdF668E7D9F387c0D199.svg"
       }
     ]
   },
