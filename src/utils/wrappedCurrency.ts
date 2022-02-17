@@ -1,5 +1,5 @@
-import { Currency, CurrencyAmount, ETHER, Token, TokenAmount, WETH } from '@kaco/sdk';
-import { ChainId } from '@kaco/sdk';
+import { Currency, CurrencyAmount, ETHER, Token, TokenAmount, WETH } from '@kaco/sdkv2';
+import { ChainId } from '@kaco/sdkv2';
 import { chainId } from 'config/constants/tokens';
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {

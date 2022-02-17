@@ -1,5 +1,5 @@
 import React from 'react';
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { Modal, InjectedModalProps } from '@kaco/uikit';
 import ImportToken from 'components/SearchModal/ImportToken';
 

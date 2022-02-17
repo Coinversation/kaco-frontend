@@ -1,4 +1,4 @@
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 import { createStore, Store } from 'redux';
 import { addTransaction, checkedTransaction, clearAllTransactions, finalizeTransaction } from './actions';
 import reducer, { initialState, TransactionState } from './reducer';

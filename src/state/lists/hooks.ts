@@ -1,5 +1,5 @@
-import { ChainId } from '@kaco/sdk';
-import { Token } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
+import { Token } from '@kaco/sdkv2';
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';

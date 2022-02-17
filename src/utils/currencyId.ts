@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
 import { chainKey } from 'config';
 import { chainId } from 'config/constants/tokens';
 

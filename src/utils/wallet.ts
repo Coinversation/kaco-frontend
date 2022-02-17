@@ -1,6 +1,6 @@
 // Set of helper functions to facilitate wallet setup
 
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 import { BASE_BSC_SCAN_URL, BASE_URL, chainKey } from 'config';
 import { chainId } from 'config/constants/tokens';
 

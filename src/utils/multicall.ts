@@ -21,7 +21,7 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
     const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call));
     return res;
   } catch (error) {
-    // console.log(`error ${i}`, error, abi || [], calls);
+    // console.error(`error `, error, abi || [], calls);
     throw new Error(error);
     // return Promise.reject();
   }
@@ -52,4 +52,4 @@ export const multicallv2 = async <T = any>(
   return res;
 };
 
-export default multicall;
+export default multicallv2;

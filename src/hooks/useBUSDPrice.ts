@@ -1,28 +1,29 @@
-import { Currency, currencyEquals, JSBI, Price, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, JSBI, Price, WETH } from '@kaco/sdkv2';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
-import { BUSD, Kaco } from '../config/constants/tokens';
+import { BUSD, chainId as myChainId, Kaco } from '../config/constants/tokens';
 import { PairState, usePairs } from './usePairs';
 import { wrappedCurrency } from '../utils/wrappedCurrency';
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 
-const BUSD_MAINNET = BUSD[ChainId.BSC_MAINNET];
+const BUSD_MAINNET = BUSD[myChainId];
 
 /**
  * Returns the price in BUSD of the input currency
  * @param currency currency to compute the BUSD price of
  */
 export default function useBUSDPrice(currency?: Currency): Price | undefined {
+  console.log(1111);
   const { chainId } = useActiveWeb3React();
-  const wrapped = wrappedCurrency(currency, chainId);
+  const wrapped = wrappedCurrency(currency, myChainId);
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
     () => [
       [
-        chainId && wrapped && currencyEquals(WETH[chainId], wrapped) ? undefined : currency,
-        chainId ? WETH[chainId] : undefined,
+        chainId && wrapped && currencyEquals(WETH[myChainId], wrapped) ? undefined : currency,
+        chainId ? WETH[myChainId] : undefined,
       ],
       [wrapped?.equals(BUSD_MAINNET) ? undefined : wrapped, chainId === ChainId.BSC_MAINNET ? BUSD_MAINNET : undefined],
-      [chainId ? WETH[chainId] : undefined, chainId === ChainId.BSC_MAINNET ? BUSD_MAINNET : undefined],
+      [chainId ? WETH[myChainId] : undefined, chainId === ChainId.ASTR_MAINNET ? BUSD_MAINNET : undefined],
     ],
     [chainId, currency, wrapped],
   );
@@ -33,22 +34,23 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       return undefined;
     }
     // handle weth/eth
-    if (wrapped.equals(WETH[chainId])) {
+    if (wrapped.equals(WETH[myChainId])) {
       if (busdPair) {
-        const price = busdPair.priceOf(WETH[chainId]);
+        const price = busdPair.priceOf(WETH[myChainId]);
         return new Price(currency, BUSD_MAINNET, price.denominator, price.numerator);
       }
       return undefined;
     }
     // handle busd
     if (wrapped.equals(BUSD_MAINNET)) {
+      console.log(9999);
       return new Price(BUSD_MAINNET, BUSD_MAINNET, '1', '1');
     }
 
-    const ethPairETHAmount = ethPair?.reserveOf(WETH[chainId]);
+    const ethPairETHAmount = ethPair?.reserveOf(WETH[myChainId]);
     const ethPairETHBUSDValue: JSBI =
       ethPairETHAmount && busdEthPair
-        ? busdEthPair.priceOf(WETH[chainId]).quote(ethPairETHAmount, chainId).raw
+        ? busdEthPair.priceOf(WETH[myChainId]).quote(ethPairETHAmount, myChainId).raw
         : JSBI.BigInt(0);
 
     // all other tokens
@@ -59,13 +61,15 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
       busdPair.reserveOf(BUSD_MAINNET).greaterThan(ethPairETHBUSDValue)
     ) {
       const price = busdPair.priceOf(wrapped);
+      console.log(3333);
       return new Price(currency, BUSD_MAINNET, price.denominator, price.numerator);
     }
     if (ethPairState === PairState.EXISTS && ethPair && busdEthPairState === PairState.EXISTS && busdEthPair) {
-      if (busdEthPair.reserveOf(BUSD_MAINNET).greaterThan('0') && ethPair.reserveOf(WETH[chainId]).greaterThan('0')) {
+      if (busdEthPair.reserveOf(BUSD_MAINNET).greaterThan('0') && ethPair.reserveOf(WETH[myChainId]).greaterThan('0')) {
         const ethBusdPrice = busdEthPair.priceOf(BUSD_MAINNET);
-        const currencyEthPrice = ethPair.priceOf(WETH[chainId]);
+        const currencyEthPrice = ethPair.priceOf(WETH[myChainId]);
         const busdPrice = ethBusdPrice.multiply(currencyEthPrice).invert();
+        console.log(3444);
         return new Price(currency, BUSD_MAINNET, busdPrice.denominator, busdPrice.numerator);
       }
     }
@@ -74,8 +78,6 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
 }
 
 export const useCakeBusdPrice = (): Price | undefined => {
-  const { chainId } = useActiveWeb3React();
-  const currentChaindId = chainId || ChainId.BSC_MAINNET;
   const cakeBusdPrice = useBUSDPrice(Kaco);
   return cakeBusdPrice;
 };

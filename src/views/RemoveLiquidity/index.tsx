@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { splitSignature } from '@ethersproject/bytes';
 import { Contract } from '@ethersproject/contracts';
 import { TransactionResponse } from '@ethersproject/providers';
-import { Currency, currencyEquals, ETHER, Percent, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, ETHER, Percent, WETH } from '@kaco/sdkv2';
 import { Button, Text, AddIcon, ArrowDownIcon, CardBody, Slider, Box, Flex, useModal } from '@kaco/uikit';
 import { RouteComponentProps } from 'react-router';
 import { BigNumber } from '@ethersproject/bignumber';
@@ -40,6 +40,7 @@ import Page from '../Page';
 import ArrowSvg from './imgs/arrow.svg';
 import { DashedPrimayCard } from 'components/Card';
 import { chainKey } from 'config';
+import { chainId as myChainId } from 'config/constants/tokens';
 
 const BorderCard = styled.div`
   padding: 16px;
@@ -98,7 +99,7 @@ export default function RemoveLiquidity({
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(
     null,
   );
-  const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS);
+  const [approval, approveCallback] = useApproveCallback(parsedAmounts[Field.LIQUIDITY], ROUTER_ADDRESS[myChainId]);
 
   async function onAttemptToApprove() {
     if (!pairContract || !pair || !library || !deadline) throw new Error('missing dependencies');

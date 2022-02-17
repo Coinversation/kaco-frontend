@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { BigNumber } from '@ethersproject/bignumber';
 import { TransactionResponse } from '@ethersproject/providers';
-import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@kaco/sdk';
+import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@kaco/sdkv2';
 import { Button, Text, Flex, AddIcon, CardBody, useModal, useMatchBreakpoints } from '@kaco/uikit';
 import { RouteComponentProps } from 'react-router-dom';
 import { useIsTransactionUnsupported } from 'hooks/Trades';
@@ -40,6 +40,7 @@ import WarningSvg from './imgs/warning.svg';
 
 import JSBI from 'jsbi';
 import { chainKey } from 'config';
+import { chainId as myChainId } from 'config/constants/tokens';
 
 export default function AddLiquidity({
   match: {
@@ -118,8 +119,8 @@ export default function AddLiquidity({
   );
 
   // check whether the user has approved the router on the tokens
-  const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], ROUTER_ADDRESS);
-  const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], ROUTER_ADDRESS);
+  const [approvalA, approveACallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_A], ROUTER_ADDRESS[myChainId]);
+  const [approvalB, approveBCallback] = useApproveCallback(parsedAmounts[Field.CURRENCY_B], ROUTER_ADDRESS[myChainId]);
 
   const addTransaction = useTransactionAdder();
 

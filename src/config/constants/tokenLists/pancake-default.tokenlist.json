@@ -14,48 +14,8 @@
     ],
     "tokens": [
       {
-        "name": "Tether USDC",
-        "symbol": "USDC",
-        "address": "0xfa9343c3897324496a05fc75abed6bac29f8a40f",
-        "chainId": 592,
-        "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xfa9343c3897324496a05fc75abed6bac29f8a40f.svg"
-      },
-      {
-        "name": "Tether USD",
-        "symbol": "USDT",
-        "address": "0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73",
-        "chainId": 592,
-        "decimals": 18,
-        "logoURI": "/images/tokens/astr/0xefaeee334f0fd1712f9a8cc375f427d9cdd40d73.svg"
-      },
-      {
-        "name": "Binance-Peg Ethereum Token",
-        "symbol": "ETH",
-        "address": "0x765277eebeca2e31912c9946eae1021199b39c61",
-        "chainId": 592,
-        "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x765277eebeca2e31912c9946eae1021199b39c61.svg"
-      },
-      {
-        "name": "Binance BTC",
-        "symbol": "WBTC",
-        "address": "0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b",
-        "chainId": 592,
-        "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x818ec0a7fe18ff94269904fced6ae3dae6d6dc0b.svg"
-      },
-      {
-        "name": "Binance USD",
-        "symbol": "BUSD",
-        "address": "0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a",
-        "chainId": 592,
-        "decimals": 18,
-        "logoURI": "/images/tokens/astr/0x65e66a61d0a8f1e686c2d6083ad611a10d84d97a.svg"
-      },
-      {
         "name": "WASTR Token",
-        "symbol": "ASTR",
+        "symbol": "WASTR",
         "address": "0xAeaaf0e2c81Af264101B9129C00F4440cCF0F720",
         "chainId": 592,
         "decimals": 18,
@@ -64,10 +24,106 @@
       {
         "name": "Kaco Token",
         "symbol": "KAC",
-        "address": "0xb12c13e66AdE1F72f71834f2FC5082Db8C091358",
+        "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
         "chainId": 592,
         "decimals": 18,
-        "logoURI": "/images/tokens/0xb12c13e66AdE1F72f71834f2FC5082Db8C091358.svg"
+        "logoURI": "/images/tokens/astr/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg"
+      },
+      {
+        "name": "Tether USD",
+        "symbol": "USDT",
+        "address": "0x3795C36e7D12A8c252A20C5a7B455f7c57b60283",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x3795C36e7D12A8c252A20C5a7B455f7c57b60283.svg"
+      },
+      {
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "address": "0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98",
+        "chainId": 592,
+        "decimals": 6,
+        "logoURI": "/images/tokens/astr/0x6a2d262D56735DbA19Dd70682B39F6bE9a931D98.svg"
+      },
+      {
+        "name": "Binance-Peg Ethereum Token",
+        "symbol": "DAI",
+        "address": "0x6De33698e9e9b787e09d3Bd7771ef63557E148bb",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x6De33698e9e9b787e09d3Bd7771ef63557E148bb.svg"
+      },
+      {
+        "name": "Binance-Peg Ethereum Token",
+        "symbol": "WETH",
+        "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c.svg"
+      },
+      {
+        "name": "Binance-Peg Ethereum Token",
+        "symbol": "BNB",
+        "address": "0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x7f27352D5F83Db87a5A3E00f4B07Cc2138D8ee52.svg"
+      },
+      {
+        "name": "Binance USD",
+        "symbol": "BUSD",
+        "address": "0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x4Bf769b05E832FCdc9053fFFBC78Ca889aCb5E1E.svg"
+      },
+      {
+        "name": "WBTC Token",
+        "symbol": "WBTC",
+        "address": "0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0xad543f18cFf85c77E140E3E5E3c3392f6Ba9d5CA.svg"
+      },
+      {
+        "name": "PKEX Token",
+        "symbol": "PKEX",
+        "address": "0x1fE622E91e54D6AD00B01917351Ea6081426764A",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x1fE622E91e54D6AD00B01917351Ea6081426764A.svg"
+      },
+      {
+        "name": "SDN Token",
+        "symbol": "SDN",
+        "address": "0x75364D4F779d0Bd0facD9a218c67f87dD9Aff3b4",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x75364D4F779d0Bd0facD9a218c67f87dD9Aff3b4.svg"
+      },
+      {
+        "name": "MATIC Token",
+        "symbol": "MATIC",
+        "address": "0xdd90E5E87A2081Dcf0391920868eBc2FFB81a1aF",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0xdd90E5E87A2081Dcf0391920868eBc2FFB81a1aF.svg"
+      },
+      {
+        "name": "AAVE Token",
+        "symbol": "AAVE",
+        "address": "0xfcDe4A87b8b6FA58326BB462882f1778158B02F1",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0xfcDe4A87b8b6FA58326BB462882f1778158B02F1.svg"
+      },
+      {
+        "name": "CRV Token",
+        "symbol": "CRV",
+        "address": "0x7756a83563f0f56937A6FdF668E7D9F387c0D199",
+        "chainId": 592,
+        "decimals": 18,
+        "logoURI": "/images/tokens/astr/0x7756a83563f0f56937A6FdF668E7D9F387c0D199.svg"
       }
     ]
   },

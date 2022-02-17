@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@kaco/sdk';
+import { Currency, ETHER, Token } from '@kaco/sdkv2';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import useHttpLocations from '../../hooks/useHttpLocations';

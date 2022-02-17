@@ -7,7 +7,7 @@ import SdnSvg from '../imgs/icon_sd.png';
 import SlSvg from '../imgs/icon_sl.svg';
 
 import { chainKey } from 'config';
-import { CHAINKEY } from '@kaco/sdk';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 const SwitchChain = () => {
   const { isXs, isSm } = useMatchBreakpoints();

@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber';
 import { AddressZero } from '@ethersproject/constants';
-import { TokenAmount, Token, ChainId, Percent, JSBI } from '@kaco/sdk';
+import { TokenAmount, Token, ChainId, Percent, JSBI } from '@kaco/sdkv2';
 
 import {
   getBscScanLink,

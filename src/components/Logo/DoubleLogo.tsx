@@ -1,4 +1,4 @@
-import { Currency } from '@kaco/sdk';
+import { Currency } from '@kaco/sdkv2';
 import React from 'react';
 import styled from 'styled-components';
 import CurrencyLogo from './CurrencyLogo';

@@ -1,4 +1,4 @@
-import { CurrencyAmount, Fraction, JSBI, Percent, TokenAmount, Trade } from '@kaco/sdk';
+import { CurrencyAmount, Fraction, JSBI, Percent, TokenAmount, Trade } from '@kaco/sdkv2';
 import { chainId } from 'config/constants/tokens';
 import {
   BLOCKED_PRICE_IMPACT_NON_EXPERT,

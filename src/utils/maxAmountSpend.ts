@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@kaco/sdk';
+import { CurrencyAmount, ETHER, JSBI } from '@kaco/sdkv2';
 import { chainId } from 'config/constants/tokens';
 import { MIN_BNB } from '../config/constants';
 

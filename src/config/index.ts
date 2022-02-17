@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js/bignumber';
 import { BIG_TEN } from 'utils/bigNumber';
-import { CHAINKEY, ChainId } from '@kaco/sdk';
+import { CHAINKEY, ChainId } from '@kaco/sdkv2';
 
 export const chainKey: CHAINKEY = CHAINKEY.SDN;
 

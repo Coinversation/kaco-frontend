@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Token } from '@kaco/sdk';
+import { Token } from '@kaco/sdkv2';
 import { isAddress } from '../../utils';
 
 export function filterTokens(tokens: Token[], search: string): Token[] {

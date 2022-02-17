@@ -3,7 +3,7 @@ import { setPrice } from '.';
 import { State } from '../types';
 import { useCurrency } from 'hooks/Tokens';
 import { tryParseAmount } from 'state/swap/hooks';
-import { Currency, CurrencyAmount } from '@kaco/sdk';
+import { Currency, CurrencyAmount } from '@kaco/sdkv2';
 import { BUSD, chainId } from 'config/constants/tokens';
 
 import { useAppDispatch } from 'state';

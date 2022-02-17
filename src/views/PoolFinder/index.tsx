@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Currency, ETHER, JSBI, TokenAmount } from '@kaco/sdk';
+import { Currency, ETHER, JSBI, TokenAmount } from '@kaco/sdkv2';
 import { Button, ChevronDownIcon, Text, AddIcon, useModal } from '@kaco/uikit';
 import styled from 'styled-components';
 import { useTranslation } from 'contexts/Localization';

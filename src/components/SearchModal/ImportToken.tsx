@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Token, Currency } from '@kaco/sdk';
+import { Token, Currency } from '@kaco/sdkv2';
 import { Button, Text, ErrorIcon, Flex, Message, Checkbox, Link, Tag, Grid } from '@kaco/uikit';
 import { AutoColumn } from 'components/Layout/Column';
 import { useAddUserToken } from 'state/user/hooks';

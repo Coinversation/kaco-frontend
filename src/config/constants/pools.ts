@@ -1,4 +1,4 @@
-import { ChainId } from '@kaco/sdk';
+import { ChainId } from '@kaco/sdkv2';
 import { main_tokens } from './tokens';
 import { PoolConfig, PoolCategory } from './types';
 
