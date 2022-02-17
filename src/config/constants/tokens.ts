@@ -2,6 +2,8 @@ import { ChainId, CHAINKEY, Token } from '@kaco/sdkv2';
 import { BASE_BSC_SCAN_URL, chainKey } from 'config';
 
 export const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
+console.log('eewwwwsss', { chainId });
+
 const tokens = {
   [CHAINKEY.ASTR]: {
     wastr: {

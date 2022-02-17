@@ -121,6 +121,7 @@ export default function Updater(): null {
   const debouncedListeners = useDebounce(state.callListeners, 100);
   const latestBlockNumber = useBlockNumber();
   const { chainId } = useActiveWeb3React();
+  console.log('999', chainId);
   const multicallContract = useMulticallContract();
   const cancellations = useRef<{ blockNumber: number; cancellations: (() => void)[] }>();
 
@@ -168,6 +169,7 @@ export default function Updater(): null {
         });
         promise
           .then(({ results: returnData, blockNumber: fetchBlockNumber }) => {
+            console.log('09999', { chunk });
             cancellations.current = { cancellations: [], blockNumber: latestBlockNumber };
 
             // accumulates the length of all previous indices

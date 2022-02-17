@@ -18,7 +18,7 @@ import { isAddress } from '../utils';
 
 import { useBytes32TokenContract, useTokenContract } from './useContract';
 import { filterTokens } from '../components/SearchModal/filtering';
-import { chainId } from 'config/constants/tokens';
+import { chainId as myChainId } from 'config/constants/tokens';
 import { chainKey } from 'config';
 
 // reduce token map into standard address <-> Token mapping, optionally include user added tokens
@@ -197,5 +197,5 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 export function useCurrency(currencyId: string | undefined): Currency | null | undefined {
   const isBNB = currencyId?.toUpperCase() === chainKey;
   const token = useToken(isBNB ? undefined : currencyId);
-  return isBNB ? ETHER[chainId] : token;
+  return isBNB ? ETHER[myChainId] : token;
 }

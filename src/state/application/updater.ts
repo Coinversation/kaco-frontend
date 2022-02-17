@@ -7,6 +7,7 @@ import { updateBlockNumber } from './actions';
 
 export default function Updater(): null {
   const { library, chainId } = useActiveWeb3React();
+  console.log('sss', { chainId });
   const dispatch = useDispatch();
 
   const windowVisible = useIsWindowVisible();
