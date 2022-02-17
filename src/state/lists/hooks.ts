@@ -1,5 +1,4 @@
-import { ChainId } from '@kaco/sdkv2';
-import { Token } from '@kaco/sdkv2';
+import { Token, ChainId } from '@kaco/sdkv2';
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -56,11 +55,11 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.BSC_MAINNET]: {},
   [ChainId.BSC_TESTNET]: {},
 
-  [ChainId.SDN_MAINNET]: {},
-  [ChainId.SDN_TESTNET]: {},
-
   [ChainId.ASTR_MAINNET]: {},
   [ChainId.ASTR_TESTNET]: {},
+
+  [ChainId.SDN_MAINNET]: {},
+  [ChainId.SDN_TESTNET]: {},
 };
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -69,6 +68,7 @@ const listCache: WeakMap<TokenList, TokenAddressMap> | null =
 export function listToTokenMap(list: TokenList): TokenAddressMap {
   const result = listCache?.get(list);
   if (result) return result;
+
   const map = list.tokens.reduce<TokenAddressMap>(
     (tokenMap, tokenInfo) => {
       const tags: TagInfo[] =
@@ -112,12 +112,11 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
   return {
     [ChainId.BSC_MAINNET]: { ...map1[ChainId.BSC_MAINNET], ...map2[ChainId.BSC_MAINNET] },
     [ChainId.BSC_TESTNET]: { ...map1[ChainId.BSC_TESTNET], ...map2[ChainId.BSC_TESTNET] },
+    [ChainId.ASTR_MAINNET]: { ...map1[ChainId.ASTR_MAINNET], ...map2[ChainId.ASTR_MAINNET] },
+    [ChainId.ASTR_TESTNET]: { ...map1[ChainId.ASTR_TESTNET], ...map2[ChainId.ASTR_TESTNET] },
 
     [ChainId.SDN_MAINNET]: { ...map1[ChainId.SDN_MAINNET], ...map2[ChainId.SDN_MAINNET] },
     [ChainId.SDN_TESTNET]: { ...map1[ChainId.SDN_TESTNET], ...map2[ChainId.SDN_TESTNET] },
-
-    [ChainId.ASTR_MAINNET]: { ...map1[ChainId.ASTR_MAINNET], ...map2[ChainId.ASTR_MAINNET] },
-    [ChainId.ASTR_TESTNET]: { ...map1[ChainId.ASTR_TESTNET], ...map2[ChainId.ASTR_TESTNET] },
   };
 }
 

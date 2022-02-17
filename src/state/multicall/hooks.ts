@@ -265,7 +265,7 @@ export function useSingleCallResult(
           },
         ]
       : [];
-  }, [contract, fragment, inputs]);
+  }, [contract, fragment, inputs, methodName]);
 
   const result = useCallsData(calls, options)[0];
   const latestBlockNumber = useBlockNumber();

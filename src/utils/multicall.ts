@@ -17,13 +17,15 @@ const multicall = async <T = any>(abi: any[], calls: Call[], keyvalue: string): 
     const multi = getMulticallContract();
     const itf = new ethers.utils.Interface(abi);
     const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)]);
-    console.log('calls: ', keyvalue, calls);
-    const { returnData } = await multi.aggregate(calldata);
-    console.log('returnData: ', returnData);
-    const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call));
-    return res;
+    console.log('calls: ', calldata, keyvalue, calls);
+    if (calldata.length) {
+      const { returnData } = await multi.aggregate(calldata);
+      console.log('returnData: ', returnData);
+      const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call));
+      return res;
+    }
   } catch (error) {
-    // console.log(`error-----`, error, abi || [], calls);
+    console.error(`error-----`, error, abi || [], calls);
     throw new Error(error);
     // return Promise.reject();
   }

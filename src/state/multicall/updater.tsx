@@ -31,31 +31,21 @@ async function fetchChunk(
   minBlockNumber: number,
 ): Promise<{ results: string[]; blockNumber: number }> {
   console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber);
-  console.log(
-    'Fetching chunk',
-    chunk.map((obj) => [obj.address, obj.callData])[32],
-    multicallContract.aggregate([chunk.map((obj) => [obj.address, obj.callData])[32]]).then((res) => {
-      console.log(res);
-    }),
-  );
   let resultsBlockNumber;
   let returnData;
   try {
+    // prettier-ignore
     [resultsBlockNumber, returnData] = await multicallContract.aggregate(
-      chunk.map((obj) => [obj.address, obj.callData]),
-    );
-    console.log({ multicallContract });
+      chunk.map((obj) => [obj.address, obj.callData])
+    )
   } catch (error) {
     console.debug('Failed to fetch chunk inside retry', error);
-    console.log('Failed to fetch chunk inside retry', error);
     throw error;
   }
   if (resultsBlockNumber.toNumber() < minBlockNumber) {
     console.debug(`Fetched results for old block number: ${resultsBlockNumber.toString()} vs. ${minBlockNumber}`);
-    console.log(`Fetched results for old block number: ${resultsBlockNumber.toString()} vs. ${minBlockNumber}`);
     throw new RetryableError('Fetched for old block number');
   }
-  console.log({ results: returnData, blockNumber: resultsBlockNumber.toNumber() });
   return { results: returnData, blockNumber: resultsBlockNumber.toNumber() };
 }
 
@@ -148,9 +138,7 @@ export default function Updater(): null {
   );
 
   useEffect(() => {
-    console.log(3333);
     if (!latestBlockNumber || !chainId || !multicallContract) return;
-    console.log(3333333311);
 
     const outdatedCallKeys: string[] = JSON.parse(serializedOutdatedCallKeys);
     if (outdatedCallKeys.length === 0) return;
@@ -207,7 +195,6 @@ export default function Updater(): null {
               return;
             }
             console.error('Failed to fetch multicall chunk', chunk, chainId, error);
-            console.log('Failed to fetch multicall chunk', chunk, chainId, error);
             dispatch(
               errorFetchingMulticallResults({
                 calls: chunk,
