@@ -21,7 +21,7 @@ const farms: FarmConfig[] =
         //  * These 3 farms (PID 0, 1, 2) should always be at the top of the file.
         //  */
         {
-          pid: 0,
+          pid: 1,
           lpSymbol: 'Kac-WASTR kacoLP',
           lpAddresses: {
             [ChainId.ASTR_MAINNET]: '0x965F5127cBA2217F86d469f255c8ee08023AeCF5',
@@ -30,25 +30,15 @@ const farms: FarmConfig[] =
           token: tokens[chainKey].kaco,
           quoteToken: tokens[chainKey].wastr,
         },
-        {
-          pid: 1,
-          lpSymbol: 'USDC-WASTR kacoLP',
-          lpAddresses: {
-            [ChainId.ASTR_MAINNET]: '0x8F48e253bC729c9FaC448a7De9033AAff77ad221',
-            [ChainId.ASTR_MAINNET]: '0x8F48e253bC729c9FaC448a7De9033AAff77ad221',
-          },
-          token: tokens[chainKey].usdc,
-          quoteToken: tokens[chainKey].wastr,
-        },
         // {
-        //   pid: 1,
-        //   lpSymbol: 'KAC-SDN LP',
+        //   pid: 2,
+        //   lpSymbol: 'USDC-WASTR kacoLP',
         //   lpAddresses: {
-        //     [ChainId.SDN_SDN_TESTNET]: '0x0bA819e30016Cf682C7795b44859148C65e62292',
-        //     [ChainId.SDN_MAINNET]: '0x456C0082DE0048EE883881fF61341177FA1FEF40',
+        //     [ChainId.ASTR_MAINNET]: '0x8F48e253bC729c9FaC448a7De9033AAff77ad221',
+        //     [ChainId.ASTR_MAINNET]: '0x8F48e253bC729c9FaC448a7De9033AAff77ad221',
         //   },
-        //   token: tokens[chainKey].kaco,
-        //   quoteToken: main_tokens[chainKey].sdn,
+        //   token: tokens[chainKey].usdc,
+        //   quoteToken: tokens[chainKey].wastr,
         // },
       ]
     : chainKey === CHAINKEY.SDN

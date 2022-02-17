@@ -6,6 +6,8 @@ import UncollapsedSvg from './imgs/icon_sq.svg';
 import SwitchChain from './Modals/SwitchChain';
 import AccountInfo from './Modals/AccountInfo';
 import ClaimModal from './Modals/ClaimModal';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 export enum ThemeChoice {
   Dark,
   White,
@@ -23,15 +25,17 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
-        <div
-          className="auction_event"
-          onClick={() => {
-            window.open('https://www.coinversation.io/joinus');
-          }}
-        >
-          Auction Event
-        </div>
-        {account ? (
+        {chainKey === CHAINKEY.ASTR ? null : (
+          <div
+            className="auction_event"
+            onClick={() => {
+              window.open('https://www.coinversation.io/joinus');
+            }}
+          >
+            Auction Event
+          </div>
+        )}
+        {account && chainKey !== CHAINKEY.ASTR ? (
           <div className="claim_kac" onClick={onPresentClaim}>
             {isXs || isSm ? 'Claim' : '  Claim Kac  '}
           </div>

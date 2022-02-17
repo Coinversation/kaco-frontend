@@ -7,6 +7,7 @@ import {
 } from '@kaco/uikit';
 import { Token } from 'config/constants/types';
 import { getAddress } from 'utils/addressHelpers';
+import { chainKey } from 'config';
 
 interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc' | 'secondarySrc'> {
   primaryToken: Token;
@@ -15,7 +16,7 @@ interface TokenPairImageProps extends Omit<UIKitTokenPairImageProps, 'primarySrc
 
 const getImageUrlFromToken = (token: Token) => {
   const address = getAddress(token.address);
-  return `/images/tokens/${address}.svg`;
+  return `/images/tokens/${chainKey}/${address}.svg`;
 };
 
 export const TokenPairImage: React.FC<TokenPairImageProps> = ({ primaryToken, secondaryToken, ...props }) => {

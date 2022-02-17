@@ -3,11 +3,13 @@ import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import multicall from 'utils/multicall';
 import { getMasterChefAddress } from 'utils/addressHelpers';
-import masterChefABI from 'config/abi/masterchef.json';
+import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 import { farmsConfig } from 'config/constants';
 import { FarmConfig } from 'config/constants/types';
 import useRefresh from 'hooks/useRefresh';
-import { DEFAULT_TOKEN_DECIMAL } from 'config';
+import { chainKey, DEFAULT_TOKEN_DECIMAL } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 export interface FarmWithBalance extends FarmConfig {
   balance: BigNumber;
@@ -27,7 +29,8 @@ const useFarmsWithBalance = () => {
         params: [farm.pid, account],
       }));
 
-      const rawResults = await multicall(masterChefABI, calls);
+      const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
+      const rawResults = await multicall(_masterchefABI, calls);
       const results = farmsConfig.map((farm, index) => ({ ...farm, balance: new BigNumber(rawResults[index]) }));
       const farmsWithBalances = results.filter((balanceType) => balanceType.balance.gt(0));
       const totalEarned = farmsWithBalances.reduce((accum, earning) => {

@@ -2,21 +2,24 @@ import addresses from 'config/constants/contracts';
 import multicall from 'utils/multicall';
 import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber';
 import BigNumber from 'bignumber.js';
-import masterChef from 'config/abi/masterchef.json';
 import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 import sousChefABI from 'config/abi/sousChefV2.json';
 import { getMasterChefAddress } from 'utils/addressHelpers';
 import { PoolConfig } from 'config/constants/types';
 import { chainId } from 'config/constants/tokens';
 import pools from 'config/constants/pools';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 const base = BIG_TEN.pow(new BigNumber(18));
 
 export const fetchTokenPerBlock = async () => {
-  const res = await multicall(masterChef, [
+  const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
+  const res = await multicall(_masterchefABI, [
     {
       address: addresses.masterChef[chainId],
-      name: 'kacPerShidenBlock',
+      name: chainKey === CHAINKEY.SDN ? 'kacPerShidenBlock' : 'kacPerBlock',
     },
   ]);
 

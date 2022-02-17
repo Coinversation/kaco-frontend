@@ -3,7 +3,6 @@ import { Route, useRouteMatch, useLocation } from 'react-router-dom';
 import BigNumber from 'bignumber.js';
 import { useWeb3React } from '@web3-react/core';
 import { RowType, Flex } from '@kaco/uikit';
-import { ChainId } from '@kaco/sdkv2';
 import FlexLayout from 'components/Layout/Flex';
 import Page from 'components/Layout/Page';
 import { useFarms, usePollFarmsData, usePriceCakeBusd } from 'state/farms/hooks';
@@ -22,6 +21,7 @@ import { DesktopColumnSchema, ViewMode } from './components/types';
 import FarmHeader from './components/FarmHeader';
 import { KACO_LP_PID } from 'config/constants/farms';
 import useKacPerBlock from './hooks/useKacoPerBlock';
+import { chainId } from 'config/constants/tokens';
 // import { PriceContext } from 'contexts/PriceProvider';
 
 // const StyledImage = styled(Image)`
@@ -126,10 +126,10 @@ const Farms: React.FC = () => {
               new BigNumber(farm.poolWeight),
               cakePrice,
               totalLiquidity,
-              farm.lpAddresses[ChainId.BSC_MAINNET],
+              farm.lpAddresses[chainId],
             )
           : { kacRewardsApr: 0, lpRewardsApr: 0, kacRewardApy: 0 };
-
+        console.log('totalLiquidity: ', totalLiquidity.toNumber());
         // console.log(
         //   `${farm.token.symbol}-${farm.quoteToken.symbol}`,
         //   'kacPerBlock',

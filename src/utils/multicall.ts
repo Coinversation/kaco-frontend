@@ -21,9 +21,12 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
     const res = returnData.map((call, i) => itf.decodeFunctionResult(calls[i].name, call));
     return res;
   } catch (error) {
-    // console.error(`error `, error, abi || [], calls);
-    throw new Error(error);
-    // return Promise.reject();
+    // const itf = new ethers.utils.Interface(abi);
+    // const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)]);
+    // console.log(`error `, error, abi || [], calldata, calls);
+    console.log(`error `, calls);
+    // throw new Error(error);
+    return Promise.reject();
   }
 };
 
@@ -52,4 +55,4 @@ export const multicallv2 = async <T = any>(
   return res;
 };
 
-export default multicallv2;
+export default multicall;

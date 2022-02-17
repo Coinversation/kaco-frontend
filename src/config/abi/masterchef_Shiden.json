@@ -175,7 +175,7 @@
   },
   {
     "inputs": [],
-    "name": "kacPerBlock",
+    "name": "kacPerShidenBlock",
     "outputs": [
       {
         "internalType": "uint256",

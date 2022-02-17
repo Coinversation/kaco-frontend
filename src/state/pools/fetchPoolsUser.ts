@@ -6,11 +6,12 @@ import { getMasterchefContract } from 'utils/contractHelpers';
 import { getAddress } from 'utils/addressHelpers';
 import { simpleRpcProvider } from 'utils/providers';
 import BigNumber from 'bignumber.js';
+import { chainKey } from 'config';
 
 // Pool 0, Kac / Kac is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SDN');
-const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === 'SDN');
+const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== chainKey);
+const bnbPools = poolsConfig.filter((p) => p.stakingToken.symbol === chainKey);
 const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0);
 const masterChefContract = getMasterchefContract();
 

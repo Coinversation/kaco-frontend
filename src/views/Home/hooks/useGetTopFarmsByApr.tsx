@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-import { ChainId } from '@kaco/sdkv2';
 import { useFarms, usePriceCakeBusd } from 'state/farms/hooks';
 import { useAppDispatch } from 'state';
 import { fetchFarmsPublicDataAsync, nonArchivedFarms } from 'state/farms';
@@ -10,6 +9,7 @@ import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard';
 import { Farm } from 'state/types';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
 import { usePrice } from 'state/price/hooks';
+import { chainId as myChainId } from 'config/constants/tokens';
 
 enum FetchStatus {
   NOT_FETCHED = 'not-fetched',
@@ -55,7 +55,7 @@ const useGetTopFarmsByApr = (isIntersecting: boolean) => {
           new BigNumber(farm.poolWeight),
           cakePriceBusd,
           totalLiquidity,
-          farm.lpAddresses[ChainId.BSC_MAINNET],
+          farm.lpAddresses[myChainId],
         );
         return { ...farm, apr: cakeRewardsApr, lpRewardsApr };
       });

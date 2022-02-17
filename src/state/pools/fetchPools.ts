@@ -7,6 +7,7 @@ import multicall from 'utils/multicall';
 import { getAddress, getWbnbAddress } from 'utils/addressHelpers';
 import { BIG_ZERO } from 'utils/bigNumber';
 import { getSouschefV2Contract } from 'utils/contractHelpers';
+import { chainKey } from 'config';
 
 export const fetchPoolsBlockLimits = async () => {
   const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0);
@@ -38,8 +39,8 @@ export const fetchPoolsBlockLimits = async () => {
 };
 
 export const fetchPoolsTotalStaking = async () => {
-  const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SDN');
-  const bnbPool = poolsConfig.filter((p) => p.stakingToken.symbol === 'SDN');
+  const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== chainKey);
+  const bnbPool = poolsConfig.filter((p) => p.stakingToken.symbol === chainKey);
 
   const callsNonBnbPools = nonBnbPools.map((poolConfig) => {
     return {
@@ -86,7 +87,7 @@ export const fetchPoolsStakingLimits = async (
   poolsWithStakingLimit: number[],
 ): Promise<{ [key: string]: BigNumber }> => {
   const validPools = poolsConfig
-    .filter((p) => p.stakingToken.symbol !== 'SDN' && !p.isFinished)
+    .filter((p) => p.stakingToken.symbol !== chainKey && !p.isFinished)
     .filter((p) => !poolsWithStakingLimit.includes(p.sousId));
 
   // Get the staking limit for each valid pool

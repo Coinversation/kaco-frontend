@@ -27,6 +27,7 @@ export const usePollPrice = (_address: string, amount = '1') => {
     if (priceVsBusdMap[address] && amount === '1') {
       return null;
     }
+
     dispatch(setPrice({ address: address, num: bestTradeExactIn?.executionPrice.toFixed() }));
   }, [dispatch, address, amount, bestTradeExactIn?.executionPrice, priceVsBusdMap]);
 };

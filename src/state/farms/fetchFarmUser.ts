@@ -1,9 +1,12 @@
 import BigNumber from 'bignumber.js';
 import erc20ABI from 'config/abi/erc20.json';
 import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 import multicall from 'utils/multicall';
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers';
 import { FarmConfig } from 'config/constants/types';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 export const fetchFarmUserAllowances = async (account: string, farmsToFetch: FarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress();
@@ -47,8 +50,8 @@ export const fetchFarmUserStakedBalances = async (account: string, farmsToFetch:
       params: [farm.pid, account],
     };
   });
-
-  const rawStakedBalances = await multicall(masterchefABI, calls);
+  const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
+  const rawStakedBalances = await multicall(_masterchefABI, calls);
   const parsedStakedBalances = rawStakedBalances.map((stakedBalance) => {
     return new BigNumber(stakedBalance[0]._hex).toJSON();
   });

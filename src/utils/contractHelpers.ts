@@ -40,7 +40,8 @@ import ifoV1Abi from 'config/abi/ifoV1.json';
 import ifoV2Abi from 'config/abi/ifoV2.json';
 import pointCenterIfo from 'config/abi/pointCenterIfo.json';
 import lotteryV2Abi from 'config/abi/lotteryV2.json';
-import masterChef from 'config/abi/masterchef.json';
+import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 import sousChef from 'config/abi/sousChef.json';
 import sousChefV2 from 'config/abi/sousChefV2.json';
 import sousChefBnb from 'config/abi/sousChefBnb.json';
@@ -61,6 +62,8 @@ import {
   PredictionsContract,
   IMerkleDistributorInterface,
 } from './types';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 const getContract = (abi: any, address: string, signer?: ethers.Signer | ethers.providers.Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider;
@@ -113,7 +116,8 @@ export const getLotteryV2Contract = (signer?: ethers.Signer | ethers.providers.P
   return getContract(lotteryV2Abi, getLotteryV2Address(), signer);
 };
 export const getMasterchefContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
-  return getContract(masterChef, getMasterChefAddress(), signer);
+  const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
+  return getContract(_masterchefABI, getMasterChefAddress(), signer);
 };
 export const getClaimRefundContract = (signer?: ethers.Signer | ethers.providers.Provider) => {
   return getContract(claimRefundAbi, getClaimRefundAddress(), signer);

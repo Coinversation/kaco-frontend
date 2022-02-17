@@ -66,6 +66,7 @@ const FarmMobileCell = styled.td`
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const { details, userDataReady } = props;
+
   const hasStakedAmount = !!useFarmUser(details.pid).stakedBalance.toNumber();
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount);
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
@@ -131,6 +132,7 @@ const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
         </StyledTr>
       );
     }
+    console.log(2222233);
 
     return (
       <StyledTr onClick={toggleActionPanel} isLast={props.isLast}>

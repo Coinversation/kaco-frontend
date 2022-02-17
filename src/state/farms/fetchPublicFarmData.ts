@@ -1,10 +1,13 @@
 import BigNumber from 'bignumber.js';
 import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 import erc20 from 'config/abi/erc20.json';
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers';
 import { BIG_TEN, BIG_ZERO } from 'utils/bigNumber';
 import multicall from 'utils/multicall';
 import { Farm, SerializedBigNumber } from '../types';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 export type PublicFarmData = {
   tokenAmountMc: SerializedBigNumber;
@@ -73,11 +76,12 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
 
   // Total staked in LP, in quote token value
   const lpTotalInQuoteToken = quoteTokenAmountMc.times(new BigNumber(2));
+  const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
 
   // Only make masterchef calls if farm has pid
   const [info, totalAllocPoint] =
     pid || pid === 0
-      ? await multicall(masterchefABI, [
+      ? await multicall(_masterchefABI, [
           {
             address: getMasterChefAddress(),
             name: 'poolInfo',

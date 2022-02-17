@@ -5,7 +5,7 @@ const getTokenLogoURL = (address: string) => {
   const uri = defaultTokenList[chainKey].tokens.find(
     (token) => `${token.address}`.toLocaleLowerCase() === `${address}`.toLocaleLowerCase(),
   )?.logoURI;
-  return uri || `/images/tokens/${address}/logo.png`;
+  return uri || `/images/tokens/${chainKey}/${address}/logo.png`;
 };
 
 export default getTokenLogoURL;

@@ -5,9 +5,12 @@ import multicall from 'utils/multicall';
 import { BIG_TEN } from './../../../utils/bigNumber';
 import RealBigNumber from 'bignumber.js';
 
-import masterChef from 'config/abi/masterchef.json';
+import masterchefABI from 'config/abi/masterchef.json';
+import masterchefSdnABI from 'config/abi/masterchef_Shiden.json';
 
 import { useEffect, useState } from 'react';
+import { chainKey } from 'config';
+import { CHAINKEY } from '@kaco/sdkv2';
 
 const base = BIG_TEN.pow(new RealBigNumber(18));
 
@@ -16,10 +19,11 @@ const useKacPerBlock = (): RealBigNumber => {
   const [kacPerBlock, setKacPerBlock] = useState<RealBigNumber>(new RealBigNumber(0));
 
   useEffect(() => {
-    multicall(masterChef, [
+    const _masterchefABI = chainKey === CHAINKEY.SDN ? masterchefSdnABI : masterchefABI;
+    multicall(_masterchefABI, [
       {
         address: addresses.masterChef[chainId],
-        name: 'kacPerShidenBlock',
+        name: chainKey === CHAINKEY.SDN ? 'kacPerShidenBlock' : 'kacPerBlock',
       },
     ]).then(([kacPerBlock]) => setKacPerBlock(new RealBigNumber(kacPerBlock.toString()).div(base)));
   }, [chainId]);

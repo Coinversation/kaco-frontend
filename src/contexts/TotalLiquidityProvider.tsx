@@ -18,7 +18,6 @@ export const TotalLiquidityProvider = React.memo(({ children }: { children: Reac
   const [total, setTotal] = useState<BigNumber>(new BigNumber(0));
   const { priceVsBusdMap } = usePrice();
   const { slowRefresh } = useRefresh();
-
   useEffect(() => {
     fetchPairsAddress(pairsCount)
       .then(fetchPairsData)

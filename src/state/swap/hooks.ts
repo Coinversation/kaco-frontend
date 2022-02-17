@@ -17,6 +17,7 @@ import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies
 import { SwapState } from './reducer';
 import { useUserSlippageTolerance } from '../user/hooks';
 import { chainId, Kaco } from '../../config/constants/tokens';
+import { chainKey } from 'config';
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap);
@@ -34,7 +35,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : 'SDN',
+          currencyId: currency instanceof Token ? currency.address : chainKey,
         }),
       );
     },
@@ -223,10 +224,10 @@ function parseCurrencyFromURLParameter(urlParam: any, chainId?: number): string 
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam);
     if (valid) return valid;
-    if (urlParam.toUpperCase() === 'SDN') return 'SDN';
-    if (valid === false) return 'SDN';
+    if (urlParam.toUpperCase() === chainKey) return chainKey;
+    if (valid === false) return chainKey;
   }
-  return 'SDN';
+  return chainKey;
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {

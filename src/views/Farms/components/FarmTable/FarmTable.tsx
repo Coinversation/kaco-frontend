@@ -69,7 +69,6 @@ const FarmTable: React.FC<ITableProps> = (props) => {
   const { data, columns, userDataReady } = props;
 
   const { rows } = useTable(columns, data, { sortable: true, sortColumn: 'farm' });
-
   return (
     <Container>
       <TableContainer>
