@@ -12,7 +12,7 @@ const AccountInfo = () => {
   return (
     <>
       {account ? (
-        chainKey === CHAINKEY.SDN || chainKey === CHAINKEY.ASTR ? (
+        chainKey === CHAINKEY.SDN ? (
           <PolkadotInfo />
         ) : (
           <div className="account">
