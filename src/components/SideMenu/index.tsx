@@ -19,7 +19,7 @@ import TradeSvg from '../svg/Trade';
 import FarmSvg from '../svg/Farm';
 // import NftSvg from '../svg/Nft';
 import HomeSvg from '../svg/Home';
-import PoolsSvg from '../svg/PoolsSvg';
+// import PoolsSvg from '../svg/PoolsSvg';
 // import InfoSvg from '../svg/InfoSvg';
 import LogoSvg from './imgs/icon_logo.svg';
 import Header from './Header';
