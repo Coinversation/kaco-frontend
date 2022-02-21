@@ -283,11 +283,11 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       img: FarmSvg,
       link: '/farms',
     },
-    {
-      text: 'Pools',
-      img: PoolsSvg,
-      link: '/pools',
-    },
+    // {
+    //   text: 'Pools',
+    //   img: PoolsSvg,
+    //   link: '/pools',
+    // },
     // {
     //   text: 'NFT',
     //   img: NftSvg,
