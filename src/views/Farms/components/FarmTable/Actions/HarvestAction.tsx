@@ -20,7 +20,7 @@ interface HarvestActionProps extends FarmWithStakedValue {
 
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userData, userDataReady }) => {
   const { toastSuccess, toastError } = useToast();
-  const earningsBigNumber = new BigNumber(userData.pendingReward);
+  const earningsBigNumber = userData?.pendingReward || BIG_ZERO;
   // const cakePrice = usePriceCakeBusd();
   let earnings = BIG_ZERO;
   // let earningsBusd = 0;

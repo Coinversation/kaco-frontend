@@ -14,6 +14,7 @@ import { KACO_LP_PID } from 'config/constants/farms';
 import CakeVaultCard from './components/CakeVaultCard';
 import PoolCard from './components/PoolCard/PoolCard';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
+import { BIG_ZERO } from 'utils/bigNumber';
 export interface FarmWithStakedValue extends Farm {
   apr?: number;
   apy?: number;
@@ -81,12 +82,12 @@ const Farms: React.FC<IProps> = (props) => {
   const archivedFarms = useMemo(() => filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid)), [filtedFarmsLP]);
 
   const stakedOnlyFarms = useMemo(
-    () => activeFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
+    () => activeFarms.filter((farm) => farm.userData && (farm?.userData?.stakedBalance || BIG_ZERO).isGreaterThan(0)),
     [activeFarms],
   );
 
   const stakedArchivedFarms = useMemo(
-    () => archivedFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
+    () => archivedFarms.filter((farm) => farm.userData && (farm?.userData?.stakedBalance || BIG_ZERO).isGreaterThan(0)),
     [archivedFarms],
   );
 

@@ -17,24 +17,10 @@ import BigNumber from 'bignumber.js';
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
-
-  userData: {
-    allowance: BIG_ZERO,
-    stakingTokenBalance: BIG_ZERO,
-    stakedBalance: BIG_ZERO,
-    pendingReward: BIG_ZERO,
-  },
 }));
 
 const noAccountPoolFarmConfig = poolFarmsConfig.farmList.map((farm) => ({
   ...farm,
-
-  userData: {
-    allowance: BIG_ZERO,
-    stakingTokenBalance: BIG_ZERO,
-    stakedBalance: BIG_ZERO,
-    pendingReward: BIG_ZERO,
-  },
 }));
 
 const initialState: FarmsState = {
@@ -94,10 +80,10 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
         pid: farmsToFetch[index].pid,
-        allowance: farmAllowance,
-        stakingTokenBalance: userFarmTokenBalances[index],
-        stakedBalance: userStakedBalances[index],
-        pendingReward: userFarmEarnings[index],
+        allowance: new BigNumber(farmAllowance),
+        stakingTokenBalance: new BigNumber(userFarmTokenBalances[index]),
+        stakedBalance: new BigNumber(userStakedBalances[index]),
+        pendingReward: new BigNumber(userFarmEarnings[index]),
       };
     });
   },

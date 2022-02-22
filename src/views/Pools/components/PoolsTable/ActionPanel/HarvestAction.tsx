@@ -31,7 +31,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
   const { t } = useTranslation();
   const { account } = useWeb3React();
 
-  const earnings = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO;
+  const earnings = userData?.pendingReward ? userData.pendingReward : BIG_ZERO;
   // These will be reassigned later if its Auto KAC vault
   let earningTokenBalance = getBalanceNumber(earnings, earningToken.decimals);
   let earningTokenDollarBalance = getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals);
