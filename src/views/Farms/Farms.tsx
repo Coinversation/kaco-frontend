@@ -22,7 +22,6 @@ import { DesktopColumnSchema, ViewMode } from './components/types';
 import FarmHeader from './components/FarmHeader';
 import { KACO_LP_PID } from 'config/constants/farms';
 import useKacPerBlock from './hooks/useKacoPerBlock';
-import { BIG_ZERO } from 'utils/bigNumber';
 // import { PriceContext } from 'contexts/PriceProvider';
 
 // const StyledImage = styled(Image)`
@@ -104,14 +103,14 @@ const Farms: React.FC = () => {
     [filtedFarmsLP],
   );
   const archivedFarms = useMemo(() => filtedFarmsLP.filter((farm) => isArchivedPid(farm.pid)), [filtedFarmsLP]);
-  console.log(activeFarms);
+
   const stakedOnlyFarms = useMemo(
-    () => activeFarms.filter((farm) => (farm.userData ? farm.userData.stakedBalance.isGreaterThan(0) : false)),
+    () => activeFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
     [activeFarms],
   );
 
   const stakedArchivedFarms = useMemo(
-    () => archivedFarms.filter((farm) => (farm.userData ? farm.userData.stakedBalance.isGreaterThan(0) : false)),
+    () => archivedFarms.filter((farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0)),
     [archivedFarms],
   );
 
@@ -181,7 +180,7 @@ const Farms: React.FC = () => {
         case 'earned':
           return orderBy(
             farms,
-            (farm: FarmWithStakedValue) => (farm.userData ? farm.userData.pendingReward.toNumber() : 0),
+            (farm: FarmWithStakedValue) => (farm.userData ? Number(farm.userData.pendingReward) : 0),
             'desc',
           );
         case 'liquidity':
@@ -267,7 +266,7 @@ const Farms: React.FC = () => {
         quoteToken: farm.quoteToken,
       },
       earned: {
-        earnings: getBalanceNumber(farm?.userData?.pendingReward || BIG_ZERO),
+        earnings: getBalanceNumber(new BigNumber(farm.userData.pendingReward)),
         pid: farm.pid,
       },
       liquidity: {

@@ -13,7 +13,7 @@ import Modal from 'components/Modal/Modal';
 interface StakeModalProps {
   isBnbPool: boolean;
   pool: Pool;
-  stakingTokenBalance: BigNumber;
+  stakingTokenBalance: string;
   stakingTokenPrice: number;
   isRemovingStake?: boolean;
   onDismiss?: () => void;
@@ -33,7 +33,6 @@ const StyledBalanceInput = styled(BalanceInput)`
   background: transparent;
   padding: 0;
   border: none;
-  // border-radius: 0;
   box-shadow: none;
 `;
 const StyledRadio = styled.div`
@@ -59,11 +58,13 @@ const StakeModal: React.FC<StakeModalProps> = ({
   const [pendingTx, setPendingTx] = useState(false);
   const [stakeAmount, setStakeAmount] = useState('');
   const [hasReachedStakeLimit, setHasReachedStakedLimit] = useState(false);
-  const getCalculatedStakingLimit = () => {
+  const getCalculatedStakingLimit = (): BigNumber => {
     if (isRemovingStake) {
-      return userData.stakedBalance;
+      return new BigNumber(userData.stakedBalance);
     }
-    return stakingLimit.gt(0) && stakingTokenBalance.gt(stakingLimit) ? stakingLimit : stakingTokenBalance;
+    return stakingLimit.gt(0) && new BigNumber(stakingTokenBalance).gt(stakingLimit)
+      ? new BigNumber(stakingLimit)
+      : new BigNumber(stakingTokenBalance);
   };
 
   useEffect(() => {

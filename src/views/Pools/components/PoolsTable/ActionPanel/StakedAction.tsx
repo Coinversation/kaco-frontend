@@ -65,10 +65,10 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
 
   const isBnbPool = poolCategory === PoolCategory.BINANCE;
   const allowance = userData?.allowance ? userData.allowance : BIG_ZERO;
-  const stakedBalance = userData?.stakedBalance ? userData.stakedBalance : BIG_ZERO;
+  const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO;
   const isNotVaultAndHasStake = !isAutoVault && stakedBalance.gt(0);
 
-  const stakingTokenBalance = userData?.stakingTokenBalance ? userData.stakingTokenBalance : BIG_ZERO;
+  const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber(userData.stakingTokenBalance) : BIG_ZERO;
 
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals);
   const stakedTokenDollarBalance = getBalanceNumber(
@@ -89,7 +89,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
     stakingToken.decimals,
   );
 
-  const needsApproval = isAutoVault ? !isVaultApproved : !allowance.gt(0) && !isBnbPool;
+  const needsApproval = isAutoVault ? !isVaultApproved : !new BigNumber(allowance).gt(0) && !isBnbPool;
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />);
 
@@ -97,7 +97,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
     <StakeModal
       isBnbPool={isBnbPool}
       pool={pool}
-      stakingTokenBalance={stakingTokenBalance}
+      stakingTokenBalance={userData?.stakingTokenBalance}
       stakingTokenPrice={stakingTokenPrice}
     />,
   );
@@ -106,7 +106,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
 
   const [onPresentUnstake] = useModal(
     <StakeModal
-      stakingTokenBalance={stakingTokenBalance}
+      stakingTokenBalance={userData?.stakingTokenBalance}
       isBnbPool={isBnbPool}
       pool={pool}
       stakingTokenPrice={stakingTokenPrice}
@@ -139,7 +139,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
     { placement: 'bottom' },
   );
 
-  const reachStakingLimit = stakingLimit.gt(0) && userData.stakedBalance.gte(stakingLimit);
+  const reachStakingLimit = stakingLimit.gt(0) && new BigNumber(userData.stakedBalance).gte(stakingLimit);
 
   if (!account) {
     return (

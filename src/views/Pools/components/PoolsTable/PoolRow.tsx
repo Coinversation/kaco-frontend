@@ -13,9 +13,11 @@ import Details from './Cells/ExpandActionCell';
 import ActionPanel from './ActionPanel/ActionPanel';
 import CellLayout from './Cells/CellLayout';
 import { useTranslation } from 'contexts/Localization';
-
+import FarmDetails from "views/Farms/components/FarmTable/Details"
+import { useFarmUser } from 'state/farms/hooks';
+import FarmActionPanel from "views/Farms/components/FarmTable/Actions/ActionPanel"
 interface PoolRowProps {
-  pool: Pool;
+  pool: Pool | any;
   account: string;
   userDataReady: boolean;
   isLast: boolean;
@@ -38,11 +40,16 @@ const CellInner = styled.div`
   }
 `;
 
-const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast }) => {
+const PoolRow: React.FC<PoolRowProps> = (props) => {
+  const { pool, account, userDataReady, isLast } = props
   const { t } = useTranslation();
   const { isXs, isSm, isMd, isLg, isXl } = useMatchBreakpoints();
   const [actionPanelExpanded, setActionPanelExpanded] = useState(false);
+  const hasStakedAmount = !!useFarmUser(pool.pid, 'farm')?.stakedBalance.toNumber();
+  const [farmActionPanelExpanded, setFarmActionPanelExpanded] = useState(hasStakedAmount);
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
+  
+  const farmShouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
 
   const toggleActionPanel = () => {
     setActionPanelExpanded((prev) => !prev);
@@ -52,7 +59,7 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast 
     fees: { performanceFee },
   } = useCakeVault();
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100;
-  console.log(pool.stakingToken);
+  console.log(pool);
   const handleRenderRow = () => {
     if (!isXs && !isSm) {
     }
@@ -93,7 +100,11 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast 
         <td>
           <CellInner>
             <CellLayout>
-              <Details actionPanelToggled={actionPanelExpanded} />
+              {
+                pool.pid ?
+                  <FarmDetails actionPanelToggled={actionPanelExpanded} /> :
+                  <Details actionPanelToggled={actionPanelExpanded} />
+            } 
             </CellLayout>
           </CellInner>
         </td>
@@ -113,6 +124,66 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast 
               actionPanelExpanded={actionPanelExpanded}
               breakpoints={{ isXs, isSm, isMd, isLg, isXl }}
             />
+          </td>
+        </tr>
+      )}
+       {farmShouldRenderChild && (
+        <tr>
+          <td colSpan={6}>
+            <FarmActionPanel
+  //             apr={
+  //                 apr: string;
+  //                 apy: string;
+  //                 multiplier: string;
+  //                 lpLabel: string;
+  //                 tokenAddress?: Address;
+  //                 quoteTokenAddress?: Address;
+  //                 cakePrice: BigNumber;
+  //                 originalValue: number;
+  //                 hideButton?: boolean;
+  //             }
+  //           multiplier={
+  //               multiplier: string;
+  //             }
+  //           liquidity={
+  // liquidity: BigNumber;
+              
+  //             }
+  //                 details={
+  //              apr?: number;
+  //              apy?: number;
+  //              lpRewardsApr?: number;
+  //              liquidity?: BigNumber;
+  //           }
+  //             userDataReady: boolean;
+  //           expanded: boolean;
+          
+  apr={
+                    "apr": "0",
+                    apy: "0",
+                    multiplier: "0",
+                    lpLabel: "0",
+                    tokenAddress?: "0",
+                    quoteTokenAddress:  "0",
+                    cakePrice:  "0",
+                    originalValue: "0",
+                    hideButton: "0",
+                }
+              multiplier={
+                  multiplier: "string"
+                }
+              liquidity={
+    liquidity: new BigNumber(0)
+                }
+                    details={
+                 apr: 0,
+                 apy: 0,
+                 lpRewardsApr:0,
+                 liquidity:  new BigNumber(0)
+              }
+                userDataReady={false}
+          
+ expanded={farmActionPanelExpanded} />
           </td>
         </tr>
       )}

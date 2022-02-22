@@ -9,17 +9,18 @@ import HasSharesActions from './HasSharesActions';
 
 interface VaultStakeActionsProps {
   pool: Pool;
-  stakingTokenBalance: BigNumber;
+  stakingTokenBalance: string;
   accountHasSharesStaked: boolean;
   isLoading?: boolean;
 }
 
 const VaultStakeActions: React.FC<VaultStakeActionsProps> = ({
   pool,
-  stakingTokenBalance,
+  stakingTokenBalance: _stakingTokenBalance,
   accountHasSharesStaked,
   isLoading = false,
 }) => {
+  const stakingTokenBalance = new BigNumber(_stakingTokenBalance);
   const { stakingToken } = pool;
   const { t } = useTranslation();
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />);
@@ -27,7 +28,7 @@ const VaultStakeActions: React.FC<VaultStakeActionsProps> = ({
 
   const renderStakeAction = () => {
     return accountHasSharesStaked ? (
-      <HasSharesActions pool={pool} stakingTokenBalance={stakingTokenBalance} />
+      <HasSharesActions pool={pool} stakingTokenBalance={_stakingTokenBalance} />
     ) : (
       <Button onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}>{t('Stake')}</Button>
     );

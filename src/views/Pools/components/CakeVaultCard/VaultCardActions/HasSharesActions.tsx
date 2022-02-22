@@ -12,7 +12,7 @@ import VaultStakeModal from '../VaultStakeModal';
 
 interface HasStakeActionProps {
   pool: Pool;
-  stakingTokenBalance: BigNumber;
+  stakingTokenBalance: string;
 }
 
 const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBalance }) => {
@@ -28,7 +28,7 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
     : 0;
 
   const [onPresentTokenRequired] = useModal(<NotEnoughTokensModal tokenSymbol={stakingToken.symbol} />);
-  const [onPresentStake] = useModal(<VaultStakeModal stakingMax={stakingTokenBalance} pool={pool} />);
+  const [onPresentStake] = useModal(<VaultStakeModal stakingMax={new BigNumber(stakingTokenBalance)} pool={pool} />);
   const [onPresentUnstake] = useModal(<VaultStakeModal stakingMax={cakeAsBigNumber} pool={pool} isRemovingStake />);
 
   return (
@@ -47,7 +47,10 @@ const HasSharesActions: React.FC<HasStakeActionProps> = ({ pool, stakingTokenBal
         <IconButton variant="secondary" onClick={onPresentUnstake} mr="6px">
           <MinusIcon color="primary" width="24px" />
         </IconButton>
-        <IconButton variant="secondary" onClick={stakingTokenBalance.gt(0) ? onPresentStake : onPresentTokenRequired}>
+        <IconButton
+          variant="secondary"
+          onClick={new BigNumber(stakingTokenBalance).gt(0) ? onPresentStake : onPresentTokenRequired}
+        >
           <AddIcon color="primary" width="24px" height="24px" />
         </IconButton>
       </Flex>

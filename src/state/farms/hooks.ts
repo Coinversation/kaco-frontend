@@ -69,10 +69,10 @@ export const useFarmUser = (pid, key: string) => {
   const farm = useFarmFromPid(pid, key);
 
   return {
-    allowance: farm.userData ? farm.userData.allowance : BIG_ZERO,
-    stakingTokenBalance: farm.userData ? farm.userData.stakingTokenBalance : BIG_ZERO,
-    stakedBalance: farm.userData ? farm.userData.stakedBalance : BIG_ZERO,
-    pendingReward: farm.userData ? farm.userData.pendingReward : BIG_ZERO,
+    allowance: farm.userData ? new BigNumber(farm.userData.allowance) : BIG_ZERO,
+    stakingTokenBalance: farm.userData ? new BigNumber(farm.userData.stakingTokenBalance) : BIG_ZERO,
+    stakedBalance: farm.userData ? new BigNumber(farm.userData.stakedBalance) : BIG_ZERO,
+    pendingReward: farm.userData ? new BigNumber(farm.userData.pendingReward) : BIG_ZERO,
   };
 };
 

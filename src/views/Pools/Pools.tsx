@@ -14,7 +14,6 @@ import CakeVaultCard from './components/CakeVaultCard';
 import PoolsTable from './components/PoolsTable/PoolsTable';
 import { ViewMode } from './components/ToggleView/ToggleView';
 import { getAprData, getCakeVaultEarnings } from './helpers';
-import { BIG_ZERO } from 'utils/bigNumber';
 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;
@@ -119,7 +118,7 @@ const Pools: React.FC<IPools> = (props) => {
                   pricePerFullShare,
                   pool.earningTokenPrice,
                 ).autoUsdToDisplay
-              : (pool?.userData?.pendingReward || BIG_ZERO).times(pool.earningTokenPrice).toNumber();
+              : new BigNumber(pool?.userData?.pendingReward || '0').times(pool.earningTokenPrice).toNumber();
           },
           'desc',
         );

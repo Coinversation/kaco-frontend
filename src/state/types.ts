@@ -48,10 +48,10 @@ export interface Farm extends FarmConfig {
   //   earnings: string;
   // };
   userData?: {
-    allowance: BigNumber;
-    stakedBalance: BigNumber;
-    stakingTokenBalance: BigNumber;
-    pendingReward: BigNumber;
+    allowance: string;
+    stakedBalance: string;
+    stakingTokenBalance: string;
+    pendingReward: string;
   };
 }
 export interface PoolFarm extends Farm, PoolFarmConfig {}
@@ -66,10 +66,10 @@ export interface Pool extends PoolConfig {
   earningTokenPrice?: number;
   isAutoVault?: boolean;
   userData?: {
-    allowance: BigNumber;
-    stakingTokenBalance: BigNumber;
-    stakedBalance: BigNumber;
-    pendingReward: BigNumber;
+    allowance: string;
+    stakingTokenBalance: string;
+    stakedBalance: string;
+    pendingReward: string;
   };
 }
 

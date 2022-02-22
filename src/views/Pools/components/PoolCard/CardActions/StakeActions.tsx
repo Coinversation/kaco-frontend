@@ -10,8 +10,8 @@ import StakeModal from '../Modals/StakeModal';
 
 interface StakeActionsProps {
   pool: Pool;
-  stakingTokenBalance: BigNumber;
-  stakedBalance: BigNumber;
+  stakingTokenBalance: string;
+  stakedBalance: string;
   isBnbPool: boolean;
   isStaked: ConstrainBoolean;
   isLoading?: boolean;
@@ -19,12 +19,14 @@ interface StakeActionsProps {
 
 const StakeAction: React.FC<StakeActionsProps> = ({
   pool,
-  stakingTokenBalance,
-  stakedBalance,
+  stakingTokenBalance: _stakingTokenBalance,
+  stakedBalance: _stakedBalance,
   isBnbPool,
   isStaked,
   isLoading = false,
 }) => {
+  const stakedBalance = new BigNumber(_stakedBalance);
+  const stakingTokenBalance = new BigNumber(_stakingTokenBalance);
   const { stakingToken, stakingTokenPrice, stakingLimit, isFinished, userData } = pool;
   const { t } = useTranslation();
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals);
@@ -39,14 +41,14 @@ const StakeAction: React.FC<StakeActionsProps> = ({
     <StakeModal
       isBnbPool={isBnbPool}
       pool={pool}
-      stakingTokenBalance={stakingTokenBalance}
+      stakingTokenBalance={_stakingTokenBalance}
       stakingTokenPrice={stakingTokenPrice}
     />,
   );
 
   const [onPresentUnstake] = useModal(
     <StakeModal
-      stakingTokenBalance={stakingTokenBalance}
+      stakingTokenBalance={_stakingTokenBalance}
       isBnbPool={isBnbPool}
       pool={pool}
       stakingTokenPrice={stakingTokenPrice}
@@ -59,7 +61,7 @@ const StakeAction: React.FC<StakeActionsProps> = ({
     { placement: 'bottom' },
   );
 
-  const reachStakingLimit = stakingLimit.gt(0) && userData.stakedBalance.gte(stakingLimit);
+  const reachStakingLimit = stakingLimit.gt(0) && new BigNumber(userData.stakedBalance).gte(stakingLimit);
 
   const renderStakeAction = () => {
     return isStaked ? (

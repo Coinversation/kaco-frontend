@@ -12,7 +12,6 @@ import ConnectWalletButton from 'components/ConnectWalletButton';
 import StakeAction from './StakeAction';
 import HarvestAction from './HarvestAction';
 import useApproveFarm from '../../hooks/useApproveFarm';
-import { BIG_ZERO } from 'utils/bigNumber';
 
 const Action = styled.div`
   padding-top: 16px;
@@ -32,15 +31,15 @@ const CardActions: React.FC<FarmCardActionsProps> = ({ farm, account, addLiquidi
   const [requestedApproval, setRequestedApproval] = useState(false);
   const { pid, lpAddresses } = farm;
   const {
-    allowance: allowanceAsString = BIG_ZERO,
-    stakingTokenBalance: tokenBalanceAsString = BIG_ZERO,
-    stakedBalance: stakedBalanceAsString = BIG_ZERO,
-    pendingReward: earningsAsString = BIG_ZERO,
+    allowance: allowanceAsString = '0',
+    stakingTokenBalance: tokenBalanceAsString = '0',
+    stakedBalance: stakedBalanceAsString = '0',
+    pendingReward: earningsAsString = '0',
   } = farm.userData || {};
-  const allowance = allowanceAsString;
-  const tokenBalance = tokenBalanceAsString;
-  const stakedBalance = stakedBalanceAsString;
-  const earnings = earningsAsString;
+  const allowance = new BigNumber(allowanceAsString);
+  const tokenBalance = new BigNumber(tokenBalanceAsString);
+  const stakedBalance = new BigNumber(stakedBalanceAsString);
+  const earnings = new BigNumber(earningsAsString);
   const lpAddress = getAddress(lpAddresses);
   const isApproved = account && allowance && allowance.isGreaterThan(0);
   const dispatch = useAppDispatch();

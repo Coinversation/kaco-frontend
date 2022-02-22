@@ -1,7 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { Farm, Pool } from 'state/types';
 import { getAddress } from 'utils/addressHelpers';
-import { BIG_ZERO } from 'utils/bigNumber';
 
 type UserData =
   | Pool['userData']
@@ -14,10 +13,10 @@ type UserData =
 
 export const transformUserData = (userData: UserData) => {
   return {
-    allowance: userData ? userData.allowance : BIG_ZERO,
-    stakingTokenBalance: userData ? userData.stakingTokenBalance : BIG_ZERO,
-    stakedBalance: userData ? userData.stakedBalance : BIG_ZERO,
-    pendingReward: userData ? userData.pendingReward : BIG_ZERO,
+    allowance: userData ? userData.allowance : '0',
+    stakingTokenBalance: userData ? userData.stakingTokenBalance : '0',
+    stakedBalance: userData ? userData.stakedBalance : '0',
+    pendingReward: userData ? userData.pendingReward : '0',
   };
 };
 
@@ -27,8 +26,8 @@ export const transformPool = (pool: Pool): Pool => {
   return {
     ...rest,
     userData: transformUserData(userData),
-    totalStaked: new BigNumber(totalStaked),
-    stakingLimit: new BigNumber(stakingLimit),
+    totalStaked: totalStaked,
+    stakingLimit: stakingLimit,
   } as Pool;
 };
 

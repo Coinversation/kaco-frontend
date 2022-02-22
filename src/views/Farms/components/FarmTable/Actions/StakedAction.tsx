@@ -101,7 +101,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
 
       setRequestedApproval(false);
     } catch (e) {
-      console.error(432, e);
+      console.error(e);
     }
   }, [onApprove, dispatch, account, pid]);
 

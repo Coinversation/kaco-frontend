@@ -12,15 +12,27 @@ import {
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser';
 import { FarmsState, Farm } from '../types';
-import { BIG_ZERO } from 'utils/bigNumber';
-import BigNumber from 'bignumber.js';
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
+
+  userData: {
+    allowance: '0',
+    stakingTokenBalance: '0',
+    stakedBalance: '0',
+    pendingReward: '0',
+  },
 }));
 
 const noAccountPoolFarmConfig = poolFarmsConfig.farmList.map((farm) => ({
   ...farm,
+
+  userData: {
+    allowance: '0',
+    stakingTokenBalance: '0',
+    stakedBalance: '0',
+    pendingReward: '0',
+  },
 }));
 
 const initialState: FarmsState = {
@@ -62,10 +74,10 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 
 interface FarmUserDataResponse {
   pid: number;
-  allowance: BigNumber;
-  stakingTokenBalance: BigNumber;
-  stakedBalance: BigNumber;
-  pendingReward: BigNumber;
+  allowance: string;
+  stakingTokenBalance: string;
+  stakedBalance: string;
+  pendingReward: string;
 }
 
 export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], { account: string; pids: number[] }>(
@@ -80,10 +92,10 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
         pid: farmsToFetch[index].pid,
-        allowance: new BigNumber(farmAllowance),
-        stakingTokenBalance: new BigNumber(userFarmTokenBalances[index]),
-        stakedBalance: new BigNumber(userStakedBalances[index]),
-        pendingReward: new BigNumber(userFarmEarnings[index]),
+        allowance: farmAllowance,
+        stakingTokenBalance: userFarmTokenBalances[index],
+        stakedBalance: userStakedBalances[index],
+        pendingReward: userFarmEarnings[index],
       };
     });
   },

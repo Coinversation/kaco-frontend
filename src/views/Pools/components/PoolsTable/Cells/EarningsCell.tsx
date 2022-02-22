@@ -29,7 +29,7 @@ const EarningsCell: React.FC<EarningsCellProps> = ({ pool, account, userDataRead
   const { sousId, earningToken, poolCategory, userData, earningTokenPrice, isAutoVault } = pool;
   const isManualCakePool = sousId === 0;
 
-  const earnings = userData?.pendingReward ? userData.pendingReward : BIG_ZERO;
+  const earnings = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO;
   // These will be reassigned later if its Auto KAC vault
   let earningTokenBalance = getBalanceNumber(earnings, earningToken.decimals);
   let earningTokenDollarBalance = getBalanceNumber(earnings.multipliedBy(earningTokenPrice), earningToken.decimals);
