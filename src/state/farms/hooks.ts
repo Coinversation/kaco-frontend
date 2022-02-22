@@ -53,36 +53,38 @@ export const useFarms = (): FarmsState => {
   return farms;
 };
 
-export const useFarmFromPid = (pid): Farm => {
-  const farm = useSelector((state: State) => state.farms.data.find((f) => f.pid === pid));
+export const useFarmFromPid = (pid, key: string): Farm => {
+  const _key = key === 'pool' ? 'poolFarmData' : 'data';
+  const farm = useSelector((state: State) => state.farms[_key].find((f) => f.pid === pid));
   return farm;
 };
 
-export const useFarmFromLpSymbol = (lpSymbol: string): Farm => {
-  const farm = useSelector((state: State) => state.farms.data.find((f) => f.lpSymbol === lpSymbol));
+export const useFarmFromLpSymbol = (lpSymbol: string, key: string): Farm => {
+  const _key = key === 'pool' ? 'poolFarmData' : 'data';
+  const farm = useSelector((state: State) => state.farms[_key].find((f) => f.lpSymbol === lpSymbol));
   return farm;
 };
 
-export const useFarmUser = (pid) => {
-  const farm = useFarmFromPid(pid);
+export const useFarmUser = (pid, key: string) => {
+  const farm = useFarmFromPid(pid, key);
 
   return {
-    allowance: farm.userData ? new BigNumber(farm.userData.allowance) : BIG_ZERO,
-    tokenBalance: farm.userData ? new BigNumber(farm.userData.tokenBalance) : BIG_ZERO,
-    stakedBalance: farm.userData ? new BigNumber(farm.userData.stakedBalance) : BIG_ZERO,
-    earnings: farm.userData ? new BigNumber(farm.userData.earnings) : BIG_ZERO,
+    allowance: farm.userData ? farm.userData.allowance : BIG_ZERO,
+    stakingTokenBalance: farm.userData ? farm.userData.stakingTokenBalance : BIG_ZERO,
+    stakedBalance: farm.userData ? farm.userData.stakedBalance : BIG_ZERO,
+    pendingReward: farm.userData ? farm.userData.pendingReward : BIG_ZERO,
   };
 };
 
 // Return the base token price for a farm, from a given pid
-export const useBusdPriceFromPid = (pid: number): BigNumber => {
-  const farm = useFarmFromPid(pid);
+export const useBusdPriceFromPid = (pid: number, key: string): BigNumber => {
+  const farm = useFarmFromPid(pid, key);
   return farm && new BigNumber(farm.token.busdPrice);
 };
 
-export const useLpTokenPrice = (symbol: string) => {
-  const farm = useFarmFromLpSymbol(symbol);
-  const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid);
+export const useLpTokenPrice = (symbol: string, key: string) => {
+  const farm = useFarmFromLpSymbol(symbol, key);
+  const farmTokenPriceInUsd = useBusdPriceFromPid(farm.pid, key);
   let lpTokenPrice = BIG_ZERO;
 
   if (farm.lpTotalSupply && farm.lpTotalInQuoteToken) {

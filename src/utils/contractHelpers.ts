@@ -86,12 +86,12 @@ export const getIfoV2Contract = (address: string, signer?: ethers.Signer | ether
   return getContract(ifoV2Abi, address, signer);
 };
 export const getSouschefContract = (id: number, signer?: ethers.Signer | ethers.providers.Provider) => {
-  const config = poolsConfig.find((pool) => pool.sousId === id);
+  const config = poolsConfig.poolList.find((pool) => pool.sousId === id);
   const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef;
   return getContract(abi, getAddress(config.contractAddress), signer);
 };
 export const getSouschefV2Contract = (id: number, signer?: ethers.Signer | ethers.providers.Provider) => {
-  const config = poolsConfig.find((pool) => pool.sousId === id);
+  const config = poolsConfig.poolList.find((pool) => pool.sousId === id);
   return getContract(sousChefV2, getAddress(config.contractAddress), signer);
 };
 export const getPointCenterIfoContract = (signer?: ethers.Signer | ethers.providers.Provider) => {

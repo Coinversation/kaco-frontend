@@ -15,7 +15,7 @@ import { getStatus } from '../helpers';
  */
 const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const { address, releaseBlockNumber } = ifo;
-  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol);
+  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol, 'farm');
   const [state, setState] = useState({
     status: 'idle' as IfoStatus,
     blocksRemaining: 0,

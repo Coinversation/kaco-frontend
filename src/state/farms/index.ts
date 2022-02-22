@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import farmsConfig from 'config/constants/farms';
+import poolFarmsConfig from 'config/constants/pools';
 import isArchivedPid from 'utils/farmHelpers';
 // import priceHelperLpsConfig from 'config/constants/priceHelperLps';
 import fetchFarms from './fetchFarms';
@@ -11,18 +12,37 @@ import {
   fetchFarmUserStakedBalances,
 } from './fetchFarmUser';
 import { FarmsState, Farm } from '../types';
+import { BIG_ZERO } from 'utils/bigNumber';
+import BigNumber from 'bignumber.js';
 
 const noAccountFarmConfig = farmsConfig.map((farm) => ({
   ...farm,
+
   userData: {
-    allowance: '0',
-    tokenBalance: '0',
-    stakedBalance: '0',
-    earnings: '0',
+    allowance: BIG_ZERO,
+    stakingTokenBalance: BIG_ZERO,
+    stakedBalance: BIG_ZERO,
+    pendingReward: BIG_ZERO,
   },
 }));
 
-const initialState: FarmsState = { data: noAccountFarmConfig, loadArchivedFarmsData: false, userDataLoaded: false };
+const noAccountPoolFarmConfig = poolFarmsConfig.farmList.map((farm) => ({
+  ...farm,
+
+  userData: {
+    allowance: BIG_ZERO,
+    stakingTokenBalance: BIG_ZERO,
+    stakedBalance: BIG_ZERO,
+    pendingReward: BIG_ZERO,
+  },
+}));
+
+const initialState: FarmsState = {
+  data: noAccountFarmConfig,
+  poolFarmData: noAccountPoolFarmConfig,
+  loadArchivedFarmsData: false,
+  userDataLoaded: false,
+};
 
 export const nonArchivedFarms = farmsConfig.filter(({ pid }) => !isArchivedPid(pid));
 
@@ -56,10 +76,10 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 
 interface FarmUserDataResponse {
   pid: number;
-  allowance: string;
-  tokenBalance: string;
-  stakedBalance: string;
-  earnings: string;
+  allowance: BigNumber;
+  stakingTokenBalance: BigNumber;
+  stakedBalance: BigNumber;
+  pendingReward: BigNumber;
 }
 
 export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], { account: string; pids: number[] }>(
@@ -74,10 +94,10 @@ export const fetchFarmUserDataAsync = createAsyncThunk<FarmUserDataResponse[], {
     return userFarmAllowances.map((farmAllowance, index) => {
       return {
         pid: farmsToFetch[index].pid,
-        allowance: userFarmAllowances[index],
-        tokenBalance: userFarmTokenBalances[index],
+        allowance: farmAllowance,
+        stakingTokenBalance: userFarmTokenBalances[index],
         stakedBalance: userStakedBalances[index],
-        earnings: userFarmEarnings[index],
+        pendingReward: userFarmEarnings[index],
       };
     });
   },
@@ -99,6 +119,10 @@ export const farmsSlice = createSlice({
         const liveFarmData = action.payload.find((farmData) => farmData.pid === farm.pid);
         return { ...farm, ...liveFarmData };
       });
+      state.poolFarmData = state.poolFarmData.map((farm) => {
+        const liveFarmData = action.payload.find((farmData) => farmData.pid === farm.pid);
+        return { ...farm, ...liveFarmData };
+      });
     });
 
     // Update farms with user data
@@ -107,6 +131,7 @@ export const farmsSlice = createSlice({
         const { pid } = userDataEl;
         const index = state.data.findIndex((farm) => farm.pid === pid);
         state.data[index] = { ...state.data[index], userData: userDataEl };
+        state.poolFarmData[index] = { ...state.poolFarmData[index], userData: userDataEl };
       });
       state.userDataLoaded = true;
     });

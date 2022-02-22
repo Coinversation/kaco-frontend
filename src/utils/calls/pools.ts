@@ -10,7 +10,7 @@ import { getAddress } from '../addressHelpers';
  * Returns the total number of pools that were active at a given block
  */
 export const getActivePools = async (block?: number) => {
-  const eligiblePools = pools
+  const eligiblePools = pools.poolList
     .filter((pool) => pool.sousId !== 0)
     .filter((pool) => pool.isFinished === false || pool.isFinished === undefined);
   const blockNumber = block || (await simpleRpcProvider.getBlockNumber());

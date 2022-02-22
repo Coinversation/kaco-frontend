@@ -104,7 +104,7 @@ const getGraphLotteryUser = async (account: string): Promise<LotteryUserGraphEnt
       };
     }
   } catch (error) {
-    console.error(error);
+    console.error(1111, error);
     user = blankUser;
   }
 

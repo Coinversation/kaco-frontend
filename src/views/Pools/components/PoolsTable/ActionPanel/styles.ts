@@ -4,13 +4,13 @@ export const ActionContainer = styled.div`
   padding: 13px 10px;
   // padding-left: 20px;
   border: 2px solid ${({ theme }) => theme.colors.input};
-  border-radius: 16px;
+  // border-radius: 16px;
   flex-grow: 1;
   flex-basis: 0;
   margin-bottom: 16px;
   background: #122124;
   border: 2px solid #1f373b;
-  border-radius: 12px;
+  // border-radius: 12px;
   display: flex;
   justify-content: space-between;
 
@@ -56,6 +56,6 @@ export const ActionContent = styled.div`
 
   > button {
     height: 48px;
-    border-radius: 12px;
+    // border-radius: 12px;
   }
 `;

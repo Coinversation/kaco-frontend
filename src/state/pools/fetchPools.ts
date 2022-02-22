@@ -9,7 +9,7 @@ import { BIG_ZERO } from 'utils/bigNumber';
 import { getSouschefV2Contract } from 'utils/contractHelpers';
 
 export const fetchPoolsBlockLimits = async () => {
-  const poolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0);
+  const poolsWithEnd = poolsConfig.poolList.filter((p) => p.sousId !== 0);
   // const callsStartBlock = poolsWithEnd.map((poolConfig) => {
   //   return {
   //     address: getAddress(poolConfig.contractAddress),
@@ -39,8 +39,8 @@ export const fetchPoolsBlockLimits = async () => {
 };
 
 export const fetchPoolsTotalStaking = async () => {
-  const nonBnbPools = poolsConfig.filter((p) => p.stakingToken.symbol !== 'SDN');
-  const bnbPool = poolsConfig.filter((p) => p.stakingToken.symbol === 'SDN');
+  const nonBnbPools = poolsConfig.poolList.filter((p) => p.stakingToken.symbol !== 'SDN');
+  const bnbPool = poolsConfig.poolList.filter((p) => p.stakingToken.symbol === 'SDN');
 
   const callsNonBnbPools = nonBnbPools.map((poolConfig) => {
     return {
@@ -86,7 +86,7 @@ export const fetchPoolStakingLimit = async (sousId: number): Promise<BigNumber> 
 export const fetchPoolsStakingLimits = async (
   poolsWithStakingLimit: number[],
 ): Promise<{ [key: string]: BigNumber }> => {
-  const validPools = poolsConfig
+  const validPools = poolsConfig.poolList
     .filter((p) => p.stakingToken.symbol !== 'SDN' && !p.isFinished)
     .filter((p) => !poolsWithStakingLimit.includes(p.sousId));
 

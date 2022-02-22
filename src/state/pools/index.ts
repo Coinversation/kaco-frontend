@@ -18,7 +18,7 @@ import fetchVaultUser from './fetchVaultUser';
 import { getTokenPricesFromFarm } from './helpers';
 import { fetchTokenPerBlock, fetchRewardPerBlock, usePoolWeight } from 'views/Pools/hooks/useTokenPerBlock';
 const initialState: PoolsState = {
-  data: [...poolsConfig],
+  data: [...poolsConfig.poolList],
   userDataLoaded: false,
   cakeVault: {
     totalShares: null,
@@ -51,7 +51,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
   const _tokenPerBlock = await fetchTokenPerBlock();
 
   const liveData = [];
-  poolsConfig.map(async (pool, index) => {
+  poolsConfig.poolList.map(async (pool) => {
     const _poolWeight = await usePoolWeight(pool);
     const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId);
     const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId);
@@ -80,7 +80,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
       apr,
       isFinished: isPoolFinished,
     });
-    if (poolsConfig.length === liveData.length) {
+    if (poolsConfig.poolList.length === liveData.length) {
       dispatch(setPoolsPublicData(liveData));
     }
   });
@@ -93,7 +93,7 @@ export const fetchPoolsStakingLimitsAsync = () => async (dispatch, getState) => 
 
   const stakingLimits = await fetchPoolsStakingLimits(poolsWithStakingLimit);
 
-  const stakingLimitData = poolsConfig.map((pool) => {
+  const stakingLimitData = poolsConfig.poolList.map((pool) => {
     if (poolsWithStakingLimit.includes(pool.sousId)) {
       return { sousId: pool.sousId };
     }
@@ -116,7 +116,7 @@ export const fetchPoolsUserDataAsync =
     const pendingRewards = await fetchUserPendingRewards(account);
     const _tokenPerBlock = await fetchTokenPerBlock();
     const userData = [];
-    poolsConfig.map(async (pool, index) => {
+    poolsConfig.poolList.map(async (pool, index) => {
       const _poolWeight = await usePoolWeight(pool);
       userData.push({
         sousId: pool.sousId,
@@ -126,7 +126,7 @@ export const fetchPoolsUserDataAsync =
         pendingReward: pendingRewards[pool.sousId],
         tokenPerBlock: _tokenPerBlock.toNumber() * _poolWeight.toNumber(),
       });
-      if (poolsConfig.length - 1 === index) {
+      if (poolsConfig.poolList.length - 1 === index) {
         dispatch(setPoolsUserData(userData));
       }
     });

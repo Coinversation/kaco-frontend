@@ -52,6 +52,7 @@ export enum PoolCategory {
 }
 
 export interface FarmConfig {
+  totalStaked?: BigNumber;
   pid: number;
   lpSymbol: string;
   lpAddresses: Address;
@@ -65,7 +66,6 @@ export interface FarmConfig {
     endBlock: number;
   };
 }
-
 export interface PoolConfig {
   sousId: number;
   earningToken: Token;
@@ -79,6 +79,7 @@ export interface PoolConfig {
   enableEmergencyWithdraw?: boolean;
 }
 
+export interface PoolFarmConfig extends PoolConfig, FarmConfig {}
 export type Images = {
   lg: string;
   md: string;

@@ -29,7 +29,7 @@ const formatPool = (pool) => ({
  */
 const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const { address, releaseBlockNumber } = ifo;
-  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol);
+  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol, 'farm');
   const { fastRefresh } = useRefresh();
 
   const [state, setState] = useState({

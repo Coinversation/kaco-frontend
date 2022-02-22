@@ -14,6 +14,7 @@ import PageLoader from './components/Loader/PageLoader';
 import EasterEgg from './components/EasterEgg';
 import history from './routerHistory';
 // Views included in the main bundle
+// import Pools from './views/Pools';
 import {
   RedirectDuplicateTokenIds,
   RedirectOldAddLiquidityPathStructure,
@@ -94,7 +95,7 @@ const App: React.FC = () => {
             <Route path="/dappstake/stake">
               <DappstakeStake />
             </Route>
-            {/* <Route path="/dappstake/unstake">
+            {/*  <Route path="/dappstake/unstake">
                 <DappstakeUnstake />
               </Route> */}
             <Route path="/dappstake/unbind">

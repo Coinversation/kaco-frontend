@@ -52,7 +52,7 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast 
     fees: { performanceFee },
   } = useCakeVault();
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100;
-
+  console.log(pool.stakingToken);
   const handleRenderRow = () => {
     if (!isXs && !isSm) {
     }
@@ -76,7 +76,11 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataReady, isLast 
         {(isLg || isXl) && (
           <td>
             <CellLayout label={t('Total staked')}>
-              <TotalStakedCell pool={pool} />
+              <TotalStakedCell
+                decimals={pool.stakingToken.decimals}
+                symbol={pool.stakingToken.symbol}
+                totalStaked={pool.totalStaked}
+              />
             </CellLayout>
           </td>
         )}

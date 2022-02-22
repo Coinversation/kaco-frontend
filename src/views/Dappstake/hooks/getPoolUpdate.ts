@@ -8,7 +8,7 @@ export interface IDappPoolDataInterface {
 }
 export const GetPoolUpdate = (contract: IDappStakingInterface): IDappPoolDataInterface => {
   // 当前处理到的数据   recordsIndex-500  最多
-  const [recordsIndex, setRecordsIndex] = useState(0);
+  const [, setRecordsIndex] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const [ratio, setRatio] = useState(1);
   useEffect(() => {

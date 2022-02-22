@@ -66,7 +66,7 @@ const FarmMobileCell = styled.td`
 
 const Row: React.FunctionComponent<RowPropsWithLoading> = (props) => {
   const { details, userDataReady } = props;
-  const hasStakedAmount = !!useFarmUser(details.pid).stakedBalance.toNumber();
+  const hasStakedAmount = !!useFarmUser(details.pid, 'farm').stakedBalance.toNumber();
   const [actionPanelExpanded, setActionPanelExpanded] = useState(hasStakedAmount);
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
   const { t } = useTranslation();

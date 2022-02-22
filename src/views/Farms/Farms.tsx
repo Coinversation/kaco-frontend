@@ -180,7 +180,7 @@ const Farms: React.FC = () => {
         case 'earned':
           return orderBy(
             farms,
-            (farm: FarmWithStakedValue) => (farm.userData ? Number(farm.userData.earnings) : 0),
+            (farm: FarmWithStakedValue) => (farm.userData ? farm.userData.pendingReward.toNumber() : 0),
             'desc',
           );
         case 'liquidity':
@@ -266,7 +266,7 @@ const Farms: React.FC = () => {
         quoteToken: farm.quoteToken,
       },
       earned: {
-        earnings: getBalanceNumber(new BigNumber(farm.userData.earnings)),
+        earnings: getBalanceNumber(farm.userData.pendingReward),
         pid: farm.pid,
       },
       liquidity: {

@@ -72,7 +72,7 @@ const getGraphLotteries = async (): Promise<LotteryRoundGraphEntity[]> => {
     );
     return response.lotteries;
   } catch (error) {
-    console.error(error);
+    console.error(2323, error);
     return [];
   }
 };

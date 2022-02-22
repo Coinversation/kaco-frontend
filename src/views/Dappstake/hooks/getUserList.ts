@@ -1,8 +1,5 @@
-import BigNumber from 'bignumber.js';
 import { useEffect, useState } from 'react';
 import { IDappStakingInterface, IWithdrawRecordItem } from 'utils/types';
-import { ethersToBigNumber } from 'utils/bigNumber';
-import { BigNumberish } from 'ethers';
 interface pageInterface {
   pageSize: number;
   pageNum: number;

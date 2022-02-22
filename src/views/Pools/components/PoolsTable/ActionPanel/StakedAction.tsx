@@ -64,11 +64,11 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
   const requestedApproval = isAutoVault ? requestedVaultApproval : requestedPoolApproval;
 
   const isBnbPool = poolCategory === PoolCategory.BINANCE;
-  const allowance = userData?.allowance ? new BigNumber(userData.allowance) : BIG_ZERO;
-  const stakedBalance = userData?.stakedBalance ? new BigNumber(userData.stakedBalance) : BIG_ZERO;
+  const allowance = userData?.allowance ? userData.allowance : BIG_ZERO;
+  const stakedBalance = userData?.stakedBalance ? userData.stakedBalance : BIG_ZERO;
   const isNotVaultAndHasStake = !isAutoVault && stakedBalance.gt(0);
 
-  const stakingTokenBalance = userData?.stakingTokenBalance ? new BigNumber(userData.stakingTokenBalance) : BIG_ZERO;
+  const stakingTokenBalance = userData?.stakingTokenBalance ? userData.stakingTokenBalance : BIG_ZERO;
 
   const stakedTokenBalance = getBalanceNumber(stakedBalance, stakingToken.decimals);
   const stakedTokenDollarBalance = getBalanceNumber(

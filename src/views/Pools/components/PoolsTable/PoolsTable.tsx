@@ -4,7 +4,7 @@ import { Pool } from 'state/types';
 import PoolRow from './PoolRow';
 
 interface PoolsTableProps {
-  pools: Pool[];
+  data: Pool[];
   userDataReady: boolean;
   account: string;
 }
@@ -13,8 +13,7 @@ const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   width: 100%;
   background: ${({ theme }) => theme.card.background};
-  border-radius: 16px;
-  margin: 16px 0px;
+  border-bottom: 1px solid #122124;
 `;
 
 const TableWrapper = styled.div`
@@ -28,7 +27,7 @@ const TableWrapper = styled.div`
 const StyledTable = styled.table`
   border-collapse: collapse;
   font-size: 14px;
-  border-radius: 4px;
+  // border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -47,21 +46,21 @@ const TableBody = styled.tbody`
 const TableContainer = styled.div`
   position: relative;
   table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
+    // border-bottom-left-radius: 10px;
   }
 
   table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
+    // border-bottom-right-radius: 10px;
   }
   table tr:first-child td:first-child {
-    border-top-left-radius: 10px;
+    // border-top-left-radius: 10px;
   }
 
   table tr:first-child td:last-child {
-    border-top-right-radius: 10px;
+    // border-top-right-radius: 10px;
   }
 `;
-const PoolsTable: React.FC<PoolsTableProps> = ({ pools, userDataReady, account }) => {
+const PoolsTable: React.FC<PoolsTableProps> = ({ data, userDataReady, account }) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null);
 
   return (
@@ -70,13 +69,13 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ pools, userDataReady, account }
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
             <TableBody>
-              {pools.map((pool, index) => (
+              {data.map((pool, index) => (
                 <PoolRow
-                  key={pool.isAutoVault ? 'auto-cake' : pool.sousId}
+                  key={index}
                   pool={pool}
                   account={account}
                   userDataReady={userDataReady}
-                  isLast={index === pools.length - 1}
+                  isLast={index === data.length - 1}
                 />
               ))}
             </TableBody>

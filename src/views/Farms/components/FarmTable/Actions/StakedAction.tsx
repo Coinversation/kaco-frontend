@@ -42,11 +42,11 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   const { t } = useTranslation();
   const { account } = useWeb3React();
   const [requestedApproval, setRequestedApproval] = useState(false);
-  const { allowance, tokenBalance, stakedBalance } = useFarmUser(pid);
+  const { allowance, stakingTokenBalance, stakedBalance } = useFarmUser(pid, 'farm');
   const { onStake } = useStakeFarms(pid);
   const { onUnstake } = useUnstakeFarms(pid);
   const location = useLocation();
-  const lpPrice = useLpTokenPrice(lpSymbol);
+  const lpPrice = useLpTokenPrice(lpSymbol, 'farm');
 
   const isApproved = account && allowance && allowance.isGreaterThan(0);
 
@@ -79,7 +79,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   }, [stakedBalance]);
 
   const [onPresentDeposit] = useModal(
-    <DepositModal max={tokenBalance} onConfirm={handleStake} tokenName={lpSymbol} addLiquidityUrl={addLiquidityUrl} />,
+    <DepositModal
+      max={stakingTokenBalance}
+      onConfirm={handleStake}
+      tokenName={lpSymbol}
+      addLiquidityUrl={addLiquidityUrl}
+    />,
   );
   const [onPresentWithdraw] = useModal(
     <WithdrawModal max={stakedBalance} onConfirm={handleUnstake} tokenName={lpSymbol} />,
@@ -96,7 +101,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
 
       setRequestedApproval(false);
     } catch (e) {
-      console.error(e);
+      console.error(432, e);
     }
   }, [onApprove, dispatch, account, pid]);
 

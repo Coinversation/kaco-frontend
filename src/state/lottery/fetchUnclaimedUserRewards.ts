@@ -41,7 +41,7 @@ const fetchCakeRewardsForTickets = async (
     });
     return { ticketsWithUnclaimedRewards, cakeTotal };
   } catch (error) {
-    console.error(error);
+    console.error(3333, error);
     return { ticketsWithUnclaimedRewards: null, cakeTotal: null };
   }
 };

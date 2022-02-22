@@ -52,7 +52,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
               t('Error'),
               t('Please try again. Confirm the transaction and make sure you are paying enough gas!'),
             );
-            console.error(e);
+            console.error(55, e);
           } finally {
             setPendingTx(false);
           }

@@ -65,7 +65,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({ onConfirm, onDismiss, max
                 t('Error'),
                 t('Please try again. Confirm the transaction and make sure you are paying enough gas!'),
               );
-              console.error(e);
+              console.error(33, e);
             } finally {
               setPendingTx(false);
             }

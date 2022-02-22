@@ -68,7 +68,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ max, onConfirm, onDismiss, 
                 t('Error'),
                 t('Please try again. Confirm the transaction and make sure you are paying enough gas!'),
               );
-              console.error(e);
+              console.error(12, e);
             } finally {
               setPendingTx(false);
             }

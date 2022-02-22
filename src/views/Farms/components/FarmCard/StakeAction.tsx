@@ -43,7 +43,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   const location = useLocation();
   const dispatch = useAppDispatch();
   const { account } = useWeb3React();
-  const lpPrice = useLpTokenPrice(tokenName);
+  const lpPrice = useLpTokenPrice(tokenName, 'farm');
 
   const handleStake = async (amount: string) => {
     await onStake(amount);

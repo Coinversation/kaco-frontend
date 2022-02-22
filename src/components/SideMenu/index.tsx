@@ -8,11 +8,7 @@ import CollapsedSvg from './imgs/icon_sq.svg';
 // import InfoSvg from './imgs/icon_Info_D.svg';
 // import InfoNSvg from './imgs/icon_Info_N.svg';
 import collapseSvg from './imgs/collapse.svg';
-// import MintSvg from './imgs/icon_Mint_D.svg';
-// import MintNSvg from './imgs/icon_Mint_N.svg';
-// import PoolsSvg from './imgs/icon_Pools_D.svg';
-// import PoolsNSvg from './imgs/icon_Pools_N.svg';
-// import TradeSvg from './imgs/icon_trade_D.svg';
+
 import CertikSvg from './imgs/certik.svg';
 import GalaxySvg from './imgs/galaxy.svg';
 import TradeSvg from '../svg/Trade';
@@ -294,6 +290,7 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
       img: DappstakeSvg,
       link: '/dappstake',
     },
+
     // {
     //   text: 'NFT',
     //   img: NftSvg,

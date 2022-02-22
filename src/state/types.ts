@@ -2,7 +2,16 @@ import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from '@reduxjs/toolkit';
 import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
-import { CampaignType, FarmConfig, LotteryStatus, LotteryTicket, Nft, PoolConfig, Team } from 'config/constants/types';
+import {
+  CampaignType,
+  FarmConfig,
+  LotteryStatus,
+  LotteryTicket,
+  Nft,
+  PoolConfig,
+  PoolFarmConfig,
+  Team,
+} from 'config/constants/types';
 
 export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, State, unknown, AnyAction>;
 
@@ -23,6 +32,7 @@ export type TranslatableText =
 export type SerializedBigNumber = string;
 
 export interface Farm extends FarmConfig {
+  totalStaked?: BigNumber;
   tokenAmountMc?: SerializedBigNumber;
   quoteTokenAmountMc?: SerializedBigNumber;
   tokenAmountTotal?: SerializedBigNumber;
@@ -31,13 +41,20 @@ export interface Farm extends FarmConfig {
   lpTotalSupply?: SerializedBigNumber;
   tokenPriceVsQuote?: SerializedBigNumber;
   poolWeight?: SerializedBigNumber;
+  // userData?: {
+  //   allowance: string;
+  //   stakedBalance: string;
+  //   tokenBalance: string;
+  //   earnings: string;
+  // };
   userData?: {
-    allowance: string;
-    tokenBalance: string;
-    stakedBalance: string;
-    earnings: string;
+    allowance: BigNumber;
+    stakedBalance: BigNumber;
+    stakingTokenBalance: BigNumber;
+    pendingReward: BigNumber;
   };
 }
+export interface PoolFarm extends Farm, PoolFarmConfig {}
 
 export interface Pool extends PoolConfig {
   totalStaked?: BigNumber;
@@ -56,6 +73,8 @@ export interface Pool extends PoolConfig {
   };
 }
 
+export interface BigPool extends Pool, PoolFarm {}
+
 export interface Profile {
   userId: number;
   points: number;
@@ -73,6 +92,7 @@ export interface Profile {
 
 export interface FarmsState {
   data: Farm[];
+  poolFarmData: PoolFarm[];
   loadArchivedFarmsData: boolean;
   userDataLoaded: boolean;
 }

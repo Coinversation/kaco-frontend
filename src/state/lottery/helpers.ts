@@ -98,7 +98,7 @@ export const fetchMultipleLotteries = async (lotteryIds: string[]): Promise<Lott
     );
     return processedResponses;
   } catch (error) {
-    console.error(error);
+    console.error(2222, error);
     return calls.map((call, index) => processViewLotteryErrorResponse(lotteryIds[index]));
   }
 };

@@ -20,7 +20,7 @@ interface StakeModalProps {
 }
 const StyledBorder = styled.div`
   background: #272e32;
-  border-radius: 16px;
+  // border-radius: 16px;
   padding: 20px;
 `;
 const StyledLink = styled(Link)`
@@ -33,7 +33,7 @@ const StyledBalanceInput = styled(BalanceInput)`
   background: transparent;
   padding: 0;
   border: none;
-  border-radius: 0;
+  // border-radius: 0;
   box-shadow: none;
 `;
 const StyledRadio = styled.div`

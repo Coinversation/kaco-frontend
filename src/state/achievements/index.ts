@@ -34,7 +34,7 @@ export const fetchAchievements = (account: string) => async (dispatch: Dispatch)
     const achievements = await getAchievements(account);
     dispatch(setAchievements(achievements));
   } catch (error) {
-    console.error(error);
+    console.error('ddd', error);
   }
 };
 
