@@ -20,7 +20,7 @@ interface StakeModalProps {
 }
 const StyledBorder = styled.div`
   background: #272e32;
-  // border-radius: 16px;
+  border-radius: 16px;
   padding: 20px;
 `;
 const StyledLink = styled(Link)`

@@ -10,7 +10,7 @@ export const ActionContainer = styled.div`
   margin-bottom: 16px;
   background: #122124;
   border: 2px solid #1f373b;
-  // border-radius: 12px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
 
@@ -56,6 +56,6 @@ export const ActionContent = styled.div`
 
   > button {
     height: 48px;
-    // border-radius: 12px;
+    border-radius: 12px;
   }
 `;

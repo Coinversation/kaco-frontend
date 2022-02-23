@@ -3,7 +3,7 @@ import { PoolConfig, PoolCategory, PoolFarmConfig, FarmConfig } from './types';
 
 interface IPools {
   farmList: PoolFarmConfig[];
-  specialPool: PoolConfig[];
+  // specialPool: PoolConfig[];
   poolList: PoolConfig[];
 }
 const KAC_SDN_LP: FarmConfig = {
@@ -38,9 +38,8 @@ const pools: IPools = {
         [ChainId.TESTNET]: KAC_SDN_LP.quoteToken[ChainId.TESTNET],
         [ChainId.MAINNET]: KAC_SDN_LP.quoteToken[ChainId.MAINNET],
       },
-      poolCategory: PoolCategory.AUTO,
-      harvest: true,
-      tokenPerBlock: '0.02',
+      poolCategory: PoolCategory.CORE,
+      harvest: true, // about ui
       sortOrder: 1,
       isFinished: false,
     },
@@ -53,15 +52,12 @@ const pools: IPools = {
         [ChainId.TESTNET]: KAC_SDN_LP02.quoteToken[ChainId.TESTNET],
         [ChainId.MAINNET]: KAC_SDN_LP02.quoteToken[ChainId.MAINNET],
       },
-      poolCategory: PoolCategory.AUTO,
-      harvest: true,
-      tokenPerBlock: '0.02',
+      harvest: true, //
+      poolCategory: PoolCategory.CORE, // any
       sortOrder: 1,
       isFinished: false,
     },
   ],
-  // special Pool
-  specialPool: [],
   poolList: [
     {
       sousId: 1,
@@ -71,9 +67,9 @@ const pools: IPools = {
         [ChainId.TESTNET]: '0xffe8a2d1b7c69d69bd93880cA55b0e8222bE789a',
         [ChainId.MAINNET]: '0xffe8a2d1b7c69d69bd93880cA55b0e8222bE789a',
       },
-      poolCategory: PoolCategory.CORE,
-      harvest: true,
-      tokenPerBlock: '0.02',
+      poolCategory: PoolCategory.CORE, //
+      harvest: true, //
+      // tokenPerBlock: '0.02', //
       sortOrder: 1,
       isFinished: false,
     },
@@ -87,7 +83,7 @@ const pools: IPools = {
       },
       poolCategory: PoolCategory.CORE,
       harvest: true,
-      tokenPerBlock: '0.02',
+      // tokenPerBlock: '0.02',
       sortOrder: 1,
       isFinished: false,
     },
