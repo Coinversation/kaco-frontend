@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useMatchBreakpoints } from '@kaco/uikit';
-import { Pool } from 'state/types';
+import { PoolFarm } from 'state/types';
 import { useCakeVault } from 'state/pools/hooks';
 import useDelayedUnmount from 'hooks/useDelayedUnmount';
 import NameCell from './Cells/NameCell';
@@ -13,13 +13,15 @@ import Details from './Cells/ExpandActionCell';
 import ActionPanel from './ActionPanel/ActionPanel';
 import CellLayout from './Cells/CellLayout';
 import { useTranslation } from 'contexts/Localization';
-import FarmDetails from "views/Farms/components/FarmTable/Details"
-import { useFarmUser } from 'state/farms/hooks';
-import FarmActionPanel from "views/Farms/components/FarmTable/Actions/ActionPanel"
+import FarmDetails from 'views/Farms/components/FarmTable/Details';
+import FarmActionPanel from 'views/Farms/components/FarmTable/Actions/ActionPanel';
+import { AprProps } from 'views/Farms/components/FarmTable/Apr';
+
 interface PoolRowProps {
-  pool: Pool | any;
+  pool: PoolFarm | any;
   account: string;
   userDataReady: boolean;
+  farmUserDataReady: boolean;
   isLast: boolean;
 }
 
@@ -41,25 +43,29 @@ const CellInner = styled.div`
 `;
 
 const PoolRow: React.FC<PoolRowProps> = (props) => {
-  const { pool, account, userDataReady, isLast } = props
+  const { pool, account, userDataReady, farmUserDataReady, isLast } = props;
   const { t } = useTranslation();
   const { isXs, isSm, isMd, isLg, isXl } = useMatchBreakpoints();
   const [actionPanelExpanded, setActionPanelExpanded] = useState(false);
-  const hasStakedAmount = !!useFarmUser(pool.pid, 'farm')?.stakedBalance.toNumber();
-  const [farmActionPanelExpanded, setFarmActionPanelExpanded] = useState(hasStakedAmount);
+  const [farmActionPanelExpanded, setFarmActionPanelExpanded] = useState(false);
   const shouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
-  
-  const farmShouldRenderChild = useDelayedUnmount(actionPanelExpanded, 300);
+
+  const farmShouldRenderChild = useDelayedUnmount(farmActionPanelExpanded, 300);
 
   const toggleActionPanel = () => {
-    setActionPanelExpanded((prev) => !prev);
+    // setFarmActionPanelExpanded
+    if (props.pool.pid) {
+      setFarmActionPanelExpanded((prev) => !prev);
+    } else {
+      setActionPanelExpanded((prev) => !prev);
+    }
   };
 
   const {
     fees: { performanceFee },
   } = useCakeVault();
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100;
-  console.log(pool);
+
   const handleRenderRow = () => {
     if (!isXs && !isSm) {
     }
@@ -86,7 +92,8 @@ const PoolRow: React.FC<PoolRowProps> = (props) => {
               <TotalStakedCell
                 decimals={pool.stakingToken.decimals}
                 symbol={pool.stakingToken.symbol}
-                totalStaked={pool.totalStaked}
+                totalStaked={pool.pid ? pool.lpTotalInQuoteToken : pool.totalStaked}
+                isFarm={!!pool.pid}
               />
             </CellLayout>
           </td>
@@ -100,17 +107,19 @@ const PoolRow: React.FC<PoolRowProps> = (props) => {
         <td>
           <CellInner>
             <CellLayout>
-              {
-                pool.pid ?
-                  <FarmDetails actionPanelToggled={actionPanelExpanded} /> :
-                  <Details actionPanelToggled={actionPanelExpanded} />
-            } 
+              {pool.pid ? (
+                <FarmDetails actionPanelToggled={farmActionPanelExpanded} />
+              ) : (
+                <Details actionPanelToggled={actionPanelExpanded} />
+              )}
             </CellLayout>
           </CellInner>
         </td>
       </StyledTr>
     );
   };
+
+  // console.log({ pool }, pool.lpTotalInQuoteToken);
   return (
     <>
       {handleRenderRow()}
@@ -127,63 +136,29 @@ const PoolRow: React.FC<PoolRowProps> = (props) => {
           </td>
         </tr>
       )}
-       {farmShouldRenderChild && (
+      {farmShouldRenderChild && (
         <tr>
           <td colSpan={6}>
             <FarmActionPanel
-  //             apr={
-  //                 apr: string;
-  //                 apy: string;
-  //                 multiplier: string;
-  //                 lpLabel: string;
-  //                 tokenAddress?: Address;
-  //                 quoteTokenAddress?: Address;
-  //                 cakePrice: BigNumber;
-  //                 originalValue: number;
-  //                 hideButton?: boolean;
-  //             }
-  //           multiplier={
-  //               multiplier: string;
-  //             }
-  //           liquidity={
-  // liquidity: BigNumber;
-              
-  //             }
-  //                 details={
-  //              apr?: number;
-  //              apy?: number;
-  //              lpRewardsApr?: number;
-  //              liquidity?: BigNumber;
-  //           }
-  //             userDataReady: boolean;
-  //           expanded: boolean;
-          
-  apr={
-                    "apr": "0",
-                    apy: "0",
-                    multiplier: "0",
-                    lpLabel: "0",
-                    tokenAddress?: "0",
-                    quoteTokenAddress:  "0",
-                    cakePrice:  "0",
-                    originalValue: "0",
-                    hideButton: "0",
-                }
-              multiplier={
-                  multiplier: "string"
-                }
-              liquidity={
-    liquidity: new BigNumber(0)
-                }
-                    details={
-                 apr: 0,
-                 apy: 0,
-                 lpRewardsApr:0,
-                 liquidity:  new BigNumber(0)
+              apr={
+                {
+                  apr: props.pool.apr,
+                  apy: props.pool.apy,
+                  multiplier: props.pool.multiplier,
+                  lpLabel: props.pool.lpLabel,
+                  tokenAddress: props.pool.tokenAddress,
+                  quoteTokenAddress: props.pool.quoteTokenAddress,
+                  cakePrice: props.pool.cakePrice,
+                  originalValue: props.pool.originalValue,
+                  hideButton: props.pool.hideButton,
+                } as AprProps
               }
-                userDataReady={false}
-          
- expanded={farmActionPanelExpanded} />
+              multiplier={{ multiplier: props.pool.multiplier }}
+              liquidity={{ liquidity: props.pool.liquidity }}
+              details={{ ...props.pool }}
+              userDataReady={farmUserDataReady}
+              expanded={farmActionPanelExpanded}
+            />
           </td>
         </tr>
       )}

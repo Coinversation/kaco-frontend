@@ -11,7 +11,6 @@ import styled from 'styled-components';
 import { useFarms, usePriceCakeBusd } from 'state/farms/hooks';
 import { useLocation } from 'react-router-dom';
 import { PoolFarm } from 'state/types';
-import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/CardActionsContainer';
 import BigNumber from 'bignumber.js';
 import { getFarmApr } from 'utils/apr';
 import useKacPerBlock from 'views/Farms/hooks/useKacoPerBlock';
@@ -30,7 +29,7 @@ const Pools = () => {
   const { pools: poolsWithoutAutoVault, userDataLoaded: userDataReady } = usePools(account);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  const { poolFarmData: farmsLP, userDataLoaded } = useFarms();
+  const { poolFarmData: farmsLP, userDataLoaded: farmUserDataReady } = useFarms();
   const { pathname } = useLocation();
 
   const kacPerBlock = useKacPerBlock();
@@ -90,6 +89,7 @@ const Pools = () => {
             loadMoreRef={loadMoreRef}
             account={account}
             userDataReady={userDataReady}
+            farmUserDataReady={farmUserDataReady}
             pathname={pathname}
           />
         </BorderRadius>

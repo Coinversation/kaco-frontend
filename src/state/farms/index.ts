@@ -54,16 +54,12 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
 
   // Add price helper farms
   const farmsWithPriceHelpers = farmsToFetch.concat([]);
-  // console.log('farmsWithPriceHelpers------------', farmsWithPriceHelpers);
   let farmsWithPrices;
   try {
     const farms = await fetchFarms(farmsWithPriceHelpers);
     farmsWithPrices = fetchFarmsPrices(farms, priceVsBusdMap);
     // Filter out price helper LP config farms
-    // console.log('farmsWithPrices', pids, farmsWithPrices);
-  } catch (e) {
-    console.log('eeeeeeeee', e);
-  }
+  } catch (e) {}
 
   const farmsWithoutHelperLps = farmsWithPrices.filter((farm: Farm) => {
     return farm.pid || farm.pid === 0;
@@ -129,7 +125,11 @@ export const farmsSlice = createSlice({
         const { pid } = userDataEl;
         const index = state.data.findIndex((farm) => farm.pid === pid);
         state.data[index] = { ...state.data[index], userData: userDataEl };
-        state.poolFarmData[index] = { ...state.poolFarmData[index], userData: userDataEl };
+        const _index = state.poolFarmData.findIndex((farm) => farm.pid === pid);
+        state.poolFarmData[_index] = {
+          ...state.poolFarmData[_index],
+          userData: userDataEl,
+        };
       });
       state.userDataLoaded = true;
     });

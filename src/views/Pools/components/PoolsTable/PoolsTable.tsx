@@ -6,6 +6,7 @@ import PoolRow from './PoolRow';
 interface PoolsTableProps {
   data: Pool[];
   userDataReady: boolean;
+  farmUserDataReady: boolean;
   account: string;
 }
 
@@ -60,7 +61,7 @@ const TableContainer = styled.div`
     // border-top-right-radius: 10px;
   }
 `;
-const PoolsTable: React.FC<PoolsTableProps> = ({ data, userDataReady, account }) => {
+const PoolsTable: React.FC<PoolsTableProps> = ({ data, userDataReady, farmUserDataReady, account }) => {
   const tableWrapperEl = useRef<HTMLDivElement>(null);
 
   return (
@@ -75,6 +76,7 @@ const PoolsTable: React.FC<PoolsTableProps> = ({ data, userDataReady, account })
                   pool={pool}
                   account={account}
                   userDataReady={userDataReady}
+                  farmUserDataReady={farmUserDataReady}
                   isLast={index === data.length - 1}
                 />
               ))}

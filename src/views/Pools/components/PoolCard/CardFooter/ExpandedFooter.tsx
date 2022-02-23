@@ -99,7 +99,7 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
       <Flex mb="2px" justifyContent="space-between" alignItems="center">
         <Text small>{t('Total staked')}:</Text>
         <Flex alignItems="flex-start">
-          {totalStaked && totalStaked.gte(0) ? (
+          {totalStaked && new BigNumber(totalStaked).gte(0) ? (
             <>
               <Balance small value={getTotalStakedBalance()} decimals={0} unit={` ${stakingToken.symbol}`} />
               <ReferenceElement ref={totalStakedTargetRef}>
@@ -112,10 +112,12 @@ const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
           {totalStakedTooltipVisible && totalStakedTooltip}
         </Flex>
       </Flex>
-      {stakingLimit && stakingLimit.gt(0) && (
+      {stakingLimit && new BigNumber(stakingLimit).gt(0) && (
         <Flex mb="2px" justifyContent="space-between">
           <Text small>{t('Max. stake per user')}:</Text>
-          <Text small>{`${getFullDisplayBalance(stakingLimit, stakingToken.decimals, 0)} ${stakingToken.symbol}`}</Text>
+          <Text small>{`${getFullDisplayBalance(new BigNumber(stakingLimit), stakingToken.decimals, 0)} ${
+            stakingToken.symbol
+          }`}</Text>
         </Flex>
       )}
       {shouldShowBlockCountdown && (

@@ -7,23 +7,23 @@ interface IPools {
   poolList: PoolConfig[];
 }
 const KAC_SDN_LP: FarmConfig = {
-  pid: 6,
-  lpSymbol: 'KAC-SDN LP',
+  pid: 2,
+  lpSymbol: 'SDN-USDC LP',
   lpAddresses: {
-    [ChainId.TESTNET]: '0x0bA819e30016Cf682C7795b44859148C65e62292',
-    [ChainId.MAINNET]: '0x456C0082DE0048EE883881fF61341177FA1FEF40',
+    [ChainId.TESTNET]: '0x756f158A2C02246Bf00bbdB051729804F2efd9c7',
+    [ChainId.MAINNET]: '0xdB9a42E1165bA2fc479e1f2C1ce939807dbe6020',
   },
-  token: tokens.kaco,
-  quoteToken: tokens.wbnb,
+  token: tokens.wbnb,
+  quoteToken: tokens.usdc,
 };
 const KAC_SDN_LP02: FarmConfig = {
-  pid: 9,
-  lpSymbol: 'KAC-SDN LP',
+  pid: 6,
+  lpSymbol: 'SDN-JPYC LP',
   lpAddresses: {
-    [ChainId.TESTNET]: '0x0bA819e30016Cf682C7795b44859148C65e62292',
-    [ChainId.MAINNET]: '0x456C0082DE0048EE883881fF61341177FA1FEF40',
+    [ChainId.TESTNET]: '0x756f158A2C02246Bf00bbdB051729804F2efd9c7',
+    [ChainId.MAINNET]: '0x1Ba530cf929ea5bc7f1Af241495C97331Ddb4f70',
   },
-  token: tokens.kaco,
+  token: tokens.jpyc,
   quoteToken: tokens.wbnb,
 };
 const pools: IPools = {

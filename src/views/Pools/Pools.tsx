@@ -27,10 +27,11 @@ interface IPools {
   loadMoreRef: React.MutableRefObject<HTMLDivElement>;
   account: string;
   userDataReady: boolean;
+  farmUserDataReady: boolean;
   pathname: string;
 }
 const Pools: React.FC<IPools> = (props) => {
-  const { stakedOnly, filter, data, loadMoreRef, account, userDataReady, pathname } = props;
+  const { stakedOnly, filter, data, loadMoreRef, account, userDataReady, farmUserDataReady, pathname } = props;
   const [numberOfPoolsVisible, setNumberOfPoolsVisible] = useState(NUMBER_OF_FARMS_VISIBLE);
   const [observerIsSet, setObserverIsSet] = useState(false);
 
@@ -148,7 +149,14 @@ const Pools: React.FC<IPools> = (props) => {
 
   const renderContent = (): JSX.Element => {
     if (viewMode === ViewMode.TABLE && chosenData.length) {
-      return <PoolsTable data={chosenData} account={account} userDataReady={userDataReady} />;
+      return (
+        <PoolsTable
+          data={chosenData}
+          account={account}
+          userDataReady={userDataReady}
+          farmUserDataReady={farmUserDataReady}
+        />
+      );
     }
     return (
       <CardLayout>

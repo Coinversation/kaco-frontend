@@ -9,12 +9,13 @@ import BigNumber from 'bignumber.js';
 interface TotalStakedCellProps {
   decimals: number;
   symbol: string;
+  isFarm: boolean;
   totalStaked?: BigNumber;
 }
 
 const TotalStakedCell: React.FC<TotalStakedCellProps> = (props) => {
   // const { sousId, stakingToken, totalStaked, isAutoVault } = pool;
-  const { decimals, symbol, totalStaked } = props;
+  const { decimals, symbol, totalStaked, isFarm } = props;
   // const { totalCakeInVault } = useCakeVault();
 
   // const isManualCakePool = sousId === 0;
@@ -27,8 +28,11 @@ const TotalStakedCell: React.FC<TotalStakedCellProps> = (props) => {
     // const manualCakeTotalMinusAutoVault = new BigNumber(totalStaked);
     // return getBalanceNumber(manualCakeTotalMinusAutoVault, stakingToken.decimals);
     // }
+    if (isFarm) {
+      return new BigNumber(totalStaked).toNumber();
+    }
     return getBalanceNumber(totalStaked, decimals);
-  }, [totalStaked, decimals]);
+  }, [totalStaked, decimals, isFarm]);
   // }, [isAutoVault, totalCakeInVault, isManualCakePool, totalStaked, decimals]);
   return totalStaked && new BigNumber(totalStaked).gte(0) ? (
     <Balance fontSize="16px" bold value={totalStakedBalance} decimals={0} unit={` ${symbol}`} />

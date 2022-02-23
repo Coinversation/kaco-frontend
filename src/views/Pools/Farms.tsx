@@ -38,11 +38,12 @@ interface IProps {
   loadMoreRef: React.MutableRefObject<HTMLDivElement>;
   account: string;
   userDataReady: boolean;
+  farmUserDataReady: boolean;
   pathname: string;
 }
 
 const Farms: React.FC<IProps> = (props) => {
-  const { stakedOnly, filter, data: farmsLP, loadMoreRef, account, userDataReady, pathname } = props;
+  const { stakedOnly, filter, data: farmsLP, loadMoreRef, account, userDataReady, farmUserDataReady, pathname } = props;
   const cakePrice = usePriceCakeBusd();
   const [viewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'pancake_farm_view' });
   const chosenFarmsLength = useRef(0);
@@ -173,7 +174,14 @@ const Farms: React.FC<IProps> = (props) => {
 
   const renderContent = (): JSX.Element => {
     if (viewMode === ViewMode.TABLE && chosenFarmsMemoized.length) {
-      return <PoolsTable data={chosenFarmsMemoized} account={account} userDataReady={userDataReady} />;
+      return (
+        <PoolsTable
+          data={chosenFarmsMemoized}
+          account={account}
+          userDataReady={userDataReady}
+          farmUserDataReady={farmUserDataReady}
+        />
+      );
     }
     return (
       <CardLayout>

@@ -62,13 +62,13 @@ const StakeModal: React.FC<StakeModalProps> = ({
     if (isRemovingStake) {
       return new BigNumber(userData.stakedBalance);
     }
-    return stakingLimit.gt(0) && new BigNumber(stakingTokenBalance).gt(stakingLimit)
+    return new BigNumber(stakingLimit).gt(0) && new BigNumber(stakingTokenBalance).gt(stakingLimit)
       ? new BigNumber(stakingLimit)
       : new BigNumber(stakingTokenBalance);
   };
 
   useEffect(() => {
-    if (stakingLimit.gt(0) && !isRemovingStake) {
+    if (new BigNumber(stakingLimit).gt(0) && !isRemovingStake) {
       const fullDecimalStakeAmount = getDecimalAmount(new BigNumber(stakeAmount), stakingToken.decimals);
       setHasReachedStakedLimit(fullDecimalStakeAmount.plus(userData.stakedBalance).gt(stakingLimit));
     }
@@ -135,7 +135,7 @@ const StakeModal: React.FC<StakeModalProps> = ({
       }
       onDismiss={onDismiss}
     >
-      {stakingLimit.gt(0) && !isRemovingStake && (
+      {new BigNumber(stakingLimit).gt(0) && !isRemovingStake && (
         <Text color="secondary" bold mb="24px" style={{ textAlign: 'center' }} fontSize="16px">
           {t('Max stake for this pool: %amount% %token%', {
             amount: getFullDisplayBalance(stakingLimit, stakingToken.decimals, 0),

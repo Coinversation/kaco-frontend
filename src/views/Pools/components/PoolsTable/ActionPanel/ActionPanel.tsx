@@ -263,7 +263,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({
         </ValueWrapper>
         <ValueWrapper>
           <Text>{t('Total staked')}</Text>
-          {totalStaked && totalStaked.gte(0) ? (
+          {totalStaked && new BigNumber(totalStaked).gte(0) ? (
             <>
               <Balance fontSize="16px" value={getTotalStakedBalance()} decimals={0} unit={` ${stakingToken.symbol}`} />
               <ReferenceElement ref={totalStakedTargetRef}>

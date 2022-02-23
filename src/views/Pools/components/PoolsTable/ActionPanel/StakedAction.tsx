@@ -139,7 +139,8 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataRea
     { placement: 'bottom' },
   );
 
-  const reachStakingLimit = stakingLimit.gt(0) && new BigNumber(userData.stakedBalance).gte(stakingLimit);
+  const reachStakingLimit =
+    new BigNumber(stakingLimit).gt(0) && new BigNumber(userData.stakedBalance).gte(stakingLimit);
 
   if (!account) {
     return (
