@@ -131,7 +131,7 @@ const CollectModal: React.FC<CollectModalProps> = ({ onDismiss }) => {
       </Flex>
 
       <Text padding="0 4%" mt="20px" mb="30px" bold fontSize="14px" lineHeight="24px" color="#9DA6A6">
-        Kac Bonus for dAppsStaking and signed users before era 95
+        Kac Bonus for dAppsStaking and signed users before era 103
       </Text>
       {/* <BorderDiv>
         {error && (
