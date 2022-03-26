@@ -1,5 +1,6 @@
 import { JSBI, Percent, Token, WETH } from '@kaco/sdk';
-import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, ChainId, JPYC, DOT, KSM, UST, ETH } from './tokens';
+// import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, ChainId, JPYC, DOT, KSM, UST, ETH, SDN } from './tokens';
+import { BUSD, DAI, USDT, BTCB, Kaco, WBNB, USDC, ChainId, JPYC, SDN, ETH } from './tokens';
 
 export const ROUTER_ADDRESS = '0x72e86269b919Db5bDbF61cB1DeCfD6d14feC4D7F';
 
@@ -12,13 +13,14 @@ type ChainTokenList = {
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.MAINNET]: [
     WETH[ChainId.MAINNET],
-    Kaco[ChainId.MAINNET],
-    DOT[ChainId.MAINNET],
-    KSM[ChainId.MAINNET],
-    BUSD[ChainId.MAINNET],
-    USDT,
-    BTCB[ChainId.MAINNET],
-    UST,
+    SDN,
+    // Kaco[ChainId.MAINNET],
+    // DOT[ChainId.MAINNET],
+    // KSM[ChainId.MAINNET],
+    // BUSD[ChainId.MAINNET],
+    // USDT,
+    // BTCB[ChainId.MAINNET],
+    // UST,
     ETH,
     USDC,
   ],

@@ -104,3 +104,5 @@ export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currenc
   if (currency === ETHER) return true;
   return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address]);
 }
+
+export const delay = (ms: number) => new Promise((resolve, reject) => setTimeout(resolve, ms));
