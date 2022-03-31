@@ -1,14 +1,14 @@
-import { BigNumber } from '@ethersproject/bignumber';
 import { Contract } from '@ethersproject/contracts';
 import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@kaco/sdk';
 import { useMemo } from 'react';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BIPS_BASE, INITIAL_ALLOWED_SLIPPAGE } from '../config/constants';
 import { useTransactionAdder } from '../state/transactions/hooks';
-import { calculateGasMargin, getRouterContract, isAddress, shortenAddress } from '../utils';
+import { getRouterContract, isAddress, shortenAddress } from '../utils';
 import isZero from '../utils/isZero';
 import useTransactionDeadline from './useTransactionDeadline';
 import useENS from './ENS/useENS';
+import { DEFAULT_GAS_LIMIT_40w } from 'config';
 
 export enum SwapCallbackState {
   INVALID,
@@ -23,7 +23,6 @@ interface SwapCall {
 
 interface SuccessfulCall {
   call: SwapCall;
-  gasEstimate: BigNumber;
 }
 
 interface FailedCall {
@@ -116,62 +115,24 @@ export function useSwapCallback(
       callback: async function onSwap(): Promise<string> {
         const estimatedCalls: EstimatedSwapCall[] = await Promise.all(
           swapCalls.map((call) => {
-            const {
-              parameters: { methodName, args, value },
-              contract,
-            } = call;
-            const options = !value || isZero(value) ? {} : { value };
-
-            return contract.estimateGas[methodName](...args, options)
-              .then((gasEstimate) => {
-                return {
-                  call,
-                  gasEstimate,
-                };
-              })
-              .catch((gasError) => {
-                console.error('Gas estimate failed, trying eth_call to extract error', call);
-
-                return contract.callStatic[methodName](...args, options)
-                  .then((result) => {
-                    console.error('Unexpected successful call after failed estimate gas', call, gasError, result);
-                    return { call, error: new Error('Unexpected issue with estimating the gas. Please try again.') };
-                  })
-                  .catch((callError) => {
-                    console.error('Call threw error', call, callError);
-                    const reason: string = callError.reason || callError.data?.message || callError.message;
-                    const errorMessage = `The transaction cannot succeed due to error: ${
-                      reason ?? 'Unknown error, check the logs'
-                    }.`;
-
-                    return { call, error: new Error(errorMessage) };
-                  });
-              });
+            return {
+              call,
+            };
           }),
         );
 
         // a successful estimation is a bignumber gas estimate and the next call is also a bignumber gas estimate
-        const successfulEstimation = estimatedCalls.find(
-          (el, ix, list): el is SuccessfulCall =>
-            'gasEstimate' in el && (ix === list.length - 1 || 'gasEstimate' in list[ix + 1]),
-        );
-
-        if (!successfulEstimation) {
-          const errorCalls = estimatedCalls.filter((call): call is FailedCall => 'error' in call);
-          if (errorCalls.length > 0) throw errorCalls[errorCalls.length - 1].error;
-          throw new Error('Unexpected error. Please contact support: none of the calls threw an error');
-        }
+        const successfulEstimation = estimatedCalls.find((el): el is SuccessfulCall => true);
 
         const {
           call: {
             contract,
             parameters: { methodName, args, value },
           },
-          gasEstimate,
         } = successfulEstimation;
 
         return contract[methodName](...args, {
-          gasLimit: calculateGasMargin(gasEstimate),
+          gasLimit: DEFAULT_GAS_LIMIT_40w,
           ...(value && !isZero(value) ? { value, from: account } : { from: account }),
         })
           .then((response: any) => {

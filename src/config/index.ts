@@ -31,6 +31,7 @@ export const BASE_BSC_SCAN_URL = BASE_BSC_SCAN_URLS[ChainId.MAINNET];
 export const LOTTERY_MAX_NUMBER_OF_TICKETS = 50;
 export const LOTTERY_TICKET_PRICE = 1;
 export const DEFAULT_TOKEN_DECIMAL = BIG_TEN.pow(18);
+export const DEFAULT_GAS_LIMIT_40w = 400000;
 export const DEFAULT_GAS_LIMIT = 200000;
 export const DEFAULT_GAS_PRICE = 5;
 export const AUCTION_BIDDERS_TO_FETCH = 500;

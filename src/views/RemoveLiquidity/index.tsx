@@ -6,7 +6,6 @@ import { TransactionResponse } from '@ethersproject/providers';
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@kaco/sdk';
 import { Button, Text, AddIcon, ArrowDownIcon, CardBody, Slider, Box, Flex, useModal } from '@kaco/uikit';
 import { RouteComponentProps } from 'react-router';
-import { BigNumber } from '@ethersproject/bignumber';
 import { useTranslation } from 'contexts/Localization';
 import { AutoColumn, ColumnCenter } from '../../components/Layout/Column';
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal';
@@ -26,7 +25,7 @@ import useTransactionDeadline from '../../hooks/useTransactionDeadline';
 
 import { useTransactionAdder } from '../../state/transactions/hooks';
 import StyledInternalLink from '../../components/Links';
-import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils';
+import { calculateSlippageAmount, getRouterContract } from '../../utils';
 import { currencyId } from '../../utils/currencyId';
 import useDebouncedChangeHandler from '../../hooks/useDebouncedChangeHandler';
 import { wrappedCurrency } from '../../utils/wrappedCurrency';
@@ -39,6 +38,7 @@ import { useUserSlippageTolerance } from '../../state/user/hooks';
 import Page from '../Page';
 import ArrowSvg from './imgs/arrow.svg';
 import { DashedPrimayCard } from 'components/Card';
+import { DEFAULT_GAS_LIMIT_40w } from 'config';
 
 const BorderCard = styled.div`
   padding: 16px;
@@ -269,49 +269,28 @@ export default function RemoveLiquidity({
       throw new Error('Attempting to confirm without approval or a signature. Please contact support.');
     }
 
-    const safeGasEstimates: (BigNumber | undefined)[] = await Promise.all(
-      methodNames.map((methodName) =>
-        router.estimateGas[methodName](...args)
-          .then(calculateGasMargin)
-          .catch((err) => {
-            console.error(`estimateGas failed`, methodName, args, err);
-            return undefined;
-          }),
-      ),
-    );
+    const methodName = methodNames[0];
 
-    const indexOfSuccessfulEstimation = safeGasEstimates.findIndex((safeGasEstimate) =>
-      BigNumber.isBigNumber(safeGasEstimate),
-    );
+    setAttemptingTxn(true);
+    await router[methodName](...args, {
+      gasLimit: DEFAULT_GAS_LIMIT_40w,
+    })
+      .then((response: TransactionResponse) => {
+        setAttemptingTxn(false);
 
-    // all estimations failed...
-    if (indexOfSuccessfulEstimation === -1) {
-      console.error('This transaction would fail. Please contact support.');
-    } else {
-      const methodName = methodNames[indexOfSuccessfulEstimation];
-      const safeGasEstimate = safeGasEstimates[indexOfSuccessfulEstimation];
-
-      setAttemptingTxn(true);
-      await router[methodName](...args, {
-        gasLimit: safeGasEstimate,
-      })
-        .then((response: TransactionResponse) => {
-          setAttemptingTxn(false);
-
-          addTransaction(response, {
-            summary: `Remove ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
-              currencyA?.symbol
-            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencyB?.symbol}`,
-          });
-
-          setTxHash(response.hash);
-        })
-        .catch((err: Error) => {
-          setAttemptingTxn(false);
-          // we only care if the error is something _other_ than the user rejected the tx
-          console.error(err);
+        addTransaction(response, {
+          summary: `Remove ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
+            currencyA?.symbol
+          } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencyB?.symbol}`,
         });
-    }
+
+        setTxHash(response.hash);
+      })
+      .catch((err: Error) => {
+        setAttemptingTxn(false);
+        // we only care if the error is something _other_ than the user rejected the tx
+        console.error(err);
+      });
   }
 
   function modalHeader() {

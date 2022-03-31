@@ -28,7 +28,7 @@ import { useDerivedMintInfo, useMintActionHandlers, useMintState } from '../../s
 
 import { useTransactionAdder } from '../../state/transactions/hooks';
 import { useIsExpertMode, useUserSlippageTolerance } from '../../state/user/hooks';
-import { calculateGasMargin, calculateSlippageAmount, getRouterContract } from '../../utils';
+import { calculateSlippageAmount, getRouterContract } from '../../utils';
 import { maxAmountSpend } from '../../utils/maxAmountSpend';
 import { wrappedCurrency } from '../../utils/wrappedCurrency';
 import Dots from '../../components/Loader/Dots';
@@ -39,6 +39,7 @@ import Page from '../Page';
 import WarningSvg from './imgs/warning.svg';
 
 import JSBI from 'jsbi';
+import { DEFAULT_GAS_LIMIT_40w } from 'config';
 
 export default function AddLiquidity({
   match: {
@@ -136,13 +137,11 @@ export default function AddLiquidity({
       [Field.CURRENCY_B]: calculateSlippageAmount(parsedAmountB, noLiquidity ? 0 : allowedSlippage)[0],
     };
 
-    let estimate;
     let method: (...args: any) => Promise<TransactionResponse>;
     let args: Array<string | string[] | number>;
     let value: BigNumber | null;
     if (currencyA === ETHER || currencyB === ETHER) {
       const tokenBIsETH = currencyB === ETHER;
-      estimate = router.estimateGas.addLiquidityETH;
       method = router.addLiquidityETH;
 
       const commonToken: Currency = tokenBIsETH ? currencyA : currencyB;
@@ -164,7 +163,6 @@ export default function AddLiquidity({
       ];
       value = BigNumber.from((tokenBIsETH ? parsedAmountB : parsedAmountA).raw.toString());
     } else {
-      estimate = router.estimateGas.addLiquidity;
       method = router.addLiquidity;
       args = [
         wrappedCurrency(currencyA, chainId)?.address ?? '',
@@ -185,30 +183,20 @@ export default function AddLiquidity({
     }
 
     setAttemptingTxn(true);
-    await estimate(...args, value ? { value } : {})
-      .then((estimatedGasLimit) =>
-        method(...args, {
-          ...(value ? { value } : {}),
-          gasLimit: calculateGasMargin(estimatedGasLimit),
-        }).then((response) => {
-          setAttemptingTxn(false);
+    await method(...args, {
+      ...(value ? { value } : {}),
+      gasLimit: DEFAULT_GAS_LIMIT_40w,
+    }).then((response) => {
+      setAttemptingTxn(false);
 
-          addTransaction(response, {
-            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
-              currencies[Field.CURRENCY_A]?.symbol
-            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
-          });
-
-          setTxHash(response.hash);
-        }),
-      )
-      .catch((err) => {
-        setAttemptingTxn(false);
-        // we only care if the error is something _other_ than the user rejected the tx
-        if (err?.code !== 4001) {
-          console.error(err);
-        }
+      addTransaction(response, {
+        summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
+          currencies[Field.CURRENCY_A]?.symbol
+        } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
       });
+
+      setTxHash(response.hash);
+    });
   }
 
   const modalHeader = () => {
