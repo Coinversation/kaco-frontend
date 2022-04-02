@@ -81,7 +81,7 @@ function TransactionSubmittedContent({
         <Text fontSize="14px">{t('Transaction Submitted')}</Text>
         {chainId && hash && (
           <Link external small href={getBscScanLink(hash, 'transaction', chainId)}>
-            {t('View on BscScan')}
+            View on Block browser
           </Link>
         )}
         {currencyToAdd && library?.provider?.isMetaMask && (
