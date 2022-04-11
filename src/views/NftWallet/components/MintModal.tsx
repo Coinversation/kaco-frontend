@@ -57,40 +57,50 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
 
     let mint: Promise<any>;
     const blockNumber = await simpleRpcProvider.getBlockNumber();
-    const data = ethers.utils.solidityPack(
-      ['address', 'address', 'uint24'],
-      [account, account, lockdays * BLOCKS_ONE_DAY + blockNumber],
-    );
-
-    if (activeIndex === 0) {
-      if (pair.type === NFT_TYPE.NFT721) {
-        mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, '0x');
+    try {
+      if (activeIndex === 0) {
+        if (pair.type === NFT_TYPE.NFT721) {
+          mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, '0x');
+        } else {
+          mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, 1, '0x');
+        }
       } else {
-        mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, 1, '0x');
-      }
-    } else {
-      if (pair.type === NFT_TYPE.NFT721) {
-        mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, data);
-      } else {
-        mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, 1, data);
-      }
-    }
-
-    mint.then(
-      async (tx) => {
-        onDismiss();
-
-        await tx.wait();
-
-        toastSuccess(t('Minted!'), t('You can trade fragmented tokens now.'));
-      },
-      (e) => {
-        toastError(
-          t('Error'),
-          t(e.data?.message || 'Please try again. Confirm the transaction and make sure you are paying enough gas!'),
+        // console.log(new BigNumber('0x01011c53').toFixed(2));
+        // console.log({ account, lockdays, BLOCKS_ONE_DAY, blockNumber }, lockdays * BLOCKS_ONE_DAY + blockNumber);
+        // console.log(
+        //   "['address', 'address', 'uint24'],",
+        //   '[account, account, lockdays * BLOCKS_ONE_DAY + blockNumber],',
+        // );
+        const data = ethers.utils.solidityPack(
+          ['address', 'address', 'uint24'],
+          [account, account, lockdays * BLOCKS_ONE_DAY + blockNumber],
         );
-      },
-    );
+        // console.log(data);
+        if (pair.type === NFT_TYPE.NFT721) {
+          mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, data);
+        } else {
+          mint = contract.safeTransferFrom(account, pair.pairAddress, nft.id, 1, data);
+        }
+      }
+
+      mint.then(
+        async (tx) => {
+          onDismiss();
+
+          await tx.wait();
+
+          toastSuccess(t('Minted!'), t('You can trade fragmented tokens now.'));
+        },
+        (e) => {
+          toastError(
+            t('Error'),
+            t(e.data?.message || 'Please try again. Confirm the transaction and make sure you are paying enough gas!'),
+          );
+        },
+      );
+    } catch (e) {
+      console.log('e: ', e);
+    }
   }, [contract, pair, account, nft, onDismiss, activeIndex, lockdays, toastSuccess, toastError, t]);
   if (!nft || !nft.image) {
     return null;
