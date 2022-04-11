@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Text, Flex, Button, Modal, InjectedModalProps } from '@kaco/uikit';
+import { Text, Flex, Button, Modal, InjectedModalProps, Heading } from '@kaco/uikit';
 import { ModalActions } from 'components/Modal';
 import { useTranslation } from 'contexts/Localization';
 import MintSvg from '../img/mint.svg';
@@ -8,7 +8,7 @@ import { NFT } from 'views/NftPool/components/GoodsInPool';
 import { NftPair } from 'views/NftPools/hooks/useNftPools';
 import useActiveWeb3React from 'hooks/useActiveWeb3React';
 import { BLOCK_INTERVAL, NFT_PAIRS, NFT_TYPE } from 'config/constants/nft';
-import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
+// import { ButtonMenu, ButtonMenuItem } from '@kaco/uikit';
 import { useContract } from 'hooks/useContract';
 import Erc721 from 'config/abi/erc-721.json';
 import Erc1155 from 'config/abi/ERC1155.json';
@@ -46,7 +46,8 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
   const { t } = useTranslation();
   const { account } = useActiveWeb3React();
   const contract = useContract(pair?.nftAddress, pair?.type === NFT_TYPE.NFT721 ? Erc721 : Erc1155);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex] = useState(0);
+  // const [activeIndex, setActiveIndex] = useState(0);
   const [lockdays, setLockdays] = useState(10);
   const { toastSuccess, toastError } = useToast();
 
@@ -108,14 +109,15 @@ const MintModal: React.FC<Props> = ({ onDismiss, nft = {}, pair }) => {
   return (
     <Modal style={{ position: 'relative', maxWidth: '400px', width: '100%' }} title={null} onDismiss={onDismiss}>
       <StyledNav style={{ position: 'absolute', top: '20px' }} activeIndex={activeIndex}>
-        <ButtonMenu activeIndex={activeIndex} variant="subtle" onItemClick={setActiveIndex}>
+        {/* <ButtonMenu activeIndex={activeIndex} variant="subtle" onItemClick={setActiveIndex}>
           <ButtonMenuItem>
             <Text width="100%">{t('Mint')}</Text>
           </ButtonMenuItem>
           <ButtonMenuItem>
             <Text width="100%">{t('Lock Mint')}</Text>
           </ButtonMenuItem>
-        </ButtonMenu>
+        </ButtonMenu> */}
+        <Heading>{t('Mint')}</Heading>
       </StyledNav>
       {activeIndex === 0 ? (
         <div style={{ maxWidth: '400px' }}>
