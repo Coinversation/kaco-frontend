@@ -50,7 +50,7 @@ export async function fetchAllNfts(pairAddress: string) {
 
 export async function fetchAllTokens(account: string) {
   try {
-    const apiUrl = `https://nftview.bounce.finance/v2/bsc/nft?user_address=${account}`;
+    const apiUrl = `https://tofunft.com/api/batchGetMeta`;
     const data = await fetch(apiUrl);
     const rawData: {
       code: number;
