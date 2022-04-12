@@ -207,9 +207,9 @@
         "type": "address"
       },
       {
-        "internalType": "uint24[]",
+        "internalType": "uint64[]",
         "name": "",
-        "type": "uint24[]"
+        "type": "uint64[]"
       }
     ],
     "stateMutability": "view",
@@ -292,9 +292,9 @@
       {
         "components": [
           {
-            "internalType": "uint24",
+            "internalType": "uint64",
             "name": "blockNum",
-            "type": "uint24"
+            "type": "uint64"
           },
           {
             "internalType": "address",
