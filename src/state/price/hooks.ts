@@ -22,7 +22,7 @@ export const usePollPrice = (_address: string, amount = '1') => {
   const currencyOut: Currency = BUSD[chainId];
   const bestTradeExactIn = useTradeExactIn(false, currencyIn, currencyOut);
   const { priceVsBusdMap } = usePrice();
-
+  console.log({ priceVsBusdMap });
   useEffect(() => {
     if (priceVsBusdMap[address] && amount === '1') {
       return null;

@@ -26,6 +26,7 @@ function useAllCommonPairs(currencyA?: Currency, currencyB?: Currency): Pair[] {
     : [undefined, undefined];
   const bases: Token[] = useMemo(() => {
     if (!chainId) return [];
+    console.log('BASES_TO_CHECK_TRADES_AGAINST: ', BASES_TO_CHECK_TRADES_AGAINST[chainId]);
 
     const common = BASES_TO_CHECK_TRADES_AGAINST[chainId] ?? [];
     const additionalA = tokenA ? ADDITIONAL_BASES[chainId]?.[tokenA.address] ?? [] : [];

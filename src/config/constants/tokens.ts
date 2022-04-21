@@ -2224,7 +2224,7 @@ export const DEFAULT_Token = {
     name: main_tokens.sdn.name,
   },
 };
-console.log(DEFAULT_Token[chainId], chainId);
+
 export const Base_Token: Token = new Token(
   chainId,
   DEFAULT_Token[chainId].address,
