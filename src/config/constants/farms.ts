@@ -42,7 +42,7 @@ const farms: FarmConfig[] = [
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
-   {
+  {
     pid: 23,
     lpSymbol: 'KAC-CTO LP',
     lpAddresses: {
