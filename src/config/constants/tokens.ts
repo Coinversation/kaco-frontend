@@ -1848,6 +1848,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://near.org/',
   },
+  cto: {
+    symbol: 'CTO',
+    address: {
+      [ChainId.MAINNET]: '0x7E7fd06A447b4b438170A80DD53b2f785d9Db825',
+      [ChainId.TESTNET]: '',
+    },
+    decimals: 18,
+    projectLink: 'http://coinversation.io/',
+  },
   pols: {
     symbol: 'POLS',
     address: {

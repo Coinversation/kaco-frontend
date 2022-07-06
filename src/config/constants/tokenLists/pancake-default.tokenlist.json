@@ -34,6 +34,14 @@
       "logoURI": "/images/tokens/0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402.svg"
     },
     {
+      "name": "Coinversation Token",
+      "symbol": "CTO",
+      "address": "0x7E7fd06A447b4b438170A80DD53b2f785d9Db825",
+      "chainId": 56,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x7E7fd06A447b4b438170A80DD53b2f785d9Db825.svg"
+    },
+    {
       "name": "KSM Token",
       "symbol": "KSM",
       "address": "0x2aa69e8d25c045b659787bc1f03ce47a388db6e8",

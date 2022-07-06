@@ -42,6 +42,26 @@ const farms: FarmConfig[] = [
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
+   {
+    pid: 23,
+    lpSymbol: 'KAC-CTO LP',
+    lpAddresses: {
+      [ChainId.TESTNET]: '',
+      [ChainId.MAINNET]: '0x0C82A602126F13F2154DA4ae39AA1BfA10d735DA',
+    },
+    token: tokens.kaco,
+    quoteToken: tokens.cto,
+  },
+  {
+    pid: 24,
+    lpSymbol: 'CTO-DOT LP',
+    lpAddresses: {
+      [ChainId.TESTNET]: '',
+      [ChainId.MAINNET]: '0x4a0677b3F735eBfa98abf8FCcEdab90DF1a071F8',
+    },
+    token: tokens.cto,
+    quoteToken: tokens.dot,
+  },
   {
     pid: 16,
     lpSymbol: 'KKAC-KAC LP',
