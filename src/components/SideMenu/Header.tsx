@@ -50,14 +50,14 @@ const Header: FC<{ className?: string; setCollapsed: (collapsed: boolean) => voi
     <div className={className}>
       {(isXs || isSm) && <img src={UncollapsedSvg} alt="" onClick={() => setCollapsed(!collapsed)} />}
       <div className="right">
-        <div
+        {/* <div
           className="auction_event"
           onClick={() => {
             window.open('https://www.coinversation.io/joinus');
           }}
         >
           Auction Event
-        </div>
+        </div> */}
         {account ? (
           <div className="claim_kac" onClick={onPresentClaim}>
             {isXs || isSm ? 'Claim' : '  Claim Kac  '}
