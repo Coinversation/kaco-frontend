@@ -68,7 +68,7 @@ const Home: React.FC<{ className?: string }> = ({ className }) => {
             <>
               <Flex flexWrap="wrap">
                 <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
-                  KAC Price： ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(2)}
+                  KAC Price： ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(4)}
                 </Text>
                 <Text mb="35px" style={{ whiteSpace: 'nowrap', minWidth: '230px' }} color="">
                   KAC Total：{cap}

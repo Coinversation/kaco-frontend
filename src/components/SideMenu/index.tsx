@@ -420,7 +420,7 @@ const SideMenu: FC<{ className?: string }> = ({ className, children }) => {
             <img src={LogoSvg} alt="" />
             {!collapsed && (
               <Text color="#1BD3D5" bold fontSize="16px" ml="10px">
-                ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(2)}
+                ${kacoPrice.isNaN() ? '0' : kacoPrice.toFixed(4)}
               </Text>
             )}
           </Flex>
