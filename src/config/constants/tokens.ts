@@ -637,7 +637,7 @@ const tokens = {
     symbol: 'wBNB',
     address: {
       [ChainId.MAINNET]: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      [ChainId.TESTNET]: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+      [ChainId.TESTNET]: '0x094616F0BdFB0b526bD735Bf66Eca0Ad254ca81F',
     },
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
